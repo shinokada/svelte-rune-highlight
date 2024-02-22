@@ -1,9 +1,17 @@
 <script lang="ts">
   import HighlightCompo from './utils/HighlightCompo.svelte';
   const modules = import.meta.glob('./md/*.md', { query: '?raw', import: 'default', eager: true });
+  import { removeHyphensAndCapitalize } from './utils/helpers';
+  const name = __NAME__;
+  const version = __VERSION__;
+  const githuburl = __GITHUBURL__;
+  const svelteVersion = __SVELTEVERSION__;
+  const svelteKitVersion = __SVELTEKITVERSION__;
+  const viteVersion = __VITEVERSION__;
+  const highlightjsVersion = __HIGHLIGHTJSVERSION__;
 </script>
 
-<h1>Svelte Rune Highlight</h1>
+<h1><a class='hover:underline' href={githuburl}>{removeHyphensAndCapitalize(name)}: v{version}</h1>
 
 Syntax highlighting for Svelte using <a href="https://github.com/highlightjs/highlight.js">highlight.js</a>.
 This lib is ported from <a href="https://www.npmjs.com/package/svelte-highlight">Svelte-Highlight</a>.
@@ -23,3 +31,11 @@ Create a md directory and add some markdown files. Then in your svelte file:
 <HighlightCompo code={modules['./md/usage.md'] as string} />
 
 Read more usage at <a href="https://www.npmjs.com/package/svelte-highlight">Svelte-Highlight</a>.
+
+<h2>Technical Details</h2>
+<ul>
+  <li>Svelte: {svelteVersion}</li>
+  <li>SvelteKit: {svelteKitVersion}</li>
+  <li>Vite: {viteVersion}</li>
+  <li>highlight.js: {highlightjsVersion}</li>
+</ul>
