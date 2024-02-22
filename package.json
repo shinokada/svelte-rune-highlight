@@ -1,0 +1,88 @@
+{
+	"name": "svelte-rune-highlight",
+	"version": "0.1.0",
+	"description": "A highlight library for Svelte 5",
+	"license": "MIT",
+	"main": "dist/index.js",
+	"homepage": "https://svelte-rune-highlight.vercel.app/",
+	"author": {
+		"name": "Shinichi Okada",
+		"email": "connect@codewithshin.com",
+		"url": "https://blog.codewithshin.com"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/shinokada/svelte-rune-highlight"
+	},
+	"engines": {
+		"npm": ">=7.0.0",
+		"node": ">=18.0.0"
+	},
+	"scripts": {
+		"dev": "vite dev",
+		"build": "vite build && npm run package",
+		"preview": "vite preview",
+		"package": "svelte-kit sync && svelte-package && publint",
+		"prepublishOnly": "npm run package",
+		"test": "npm run test:integration && npm run test:unit",
+		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+		"lint": "prettier --check . && eslint .",
+		"format": "prettier --write .",
+		"test:integration": "playwright test",
+		"test:unit": "vitest",
+		"gen:exports": "svelte-lib-helpers exports",
+		"copy:packagejson": "svelte-lib-helpers package",
+		"gen:docs5": "svelte-lib-helpers docs5FromType",
+		"lib-helpers": "npm run gen:docs5 && npm run package && npm run gen:exports && npm run copy:packagejson"
+	},
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"svelte": "./dist/index.js"
+		}
+	},
+	"files": [
+		"dist",
+		"!dist/**/*.test.*",
+		"!dist/**/*.spec.*"
+	],
+	"peerDependencies": {
+		"svelte": "^4.0.0"
+	},
+	"devDependencies": {
+		"@changesets/cli": "^2.27.1",
+		"@playwright/test": "^1.28.1",
+		"@sveltejs/adapter-auto": "^3.0.0",
+		"@sveltejs/kit": "^2.0.0",
+		"@sveltejs/package": "^2.0.0",
+		"@sveltejs/vite-plugin-svelte": "^3.0.0",
+		"@svitejs/changesets-changelog-github-compact": "^1.1.0",
+		"@types/eslint": "8.56.0",
+		"@typescript-eslint/eslint-plugin": "^6.0.0",
+		"@typescript-eslint/parser": "^6.0.0",
+		"eslint": "^8.56.0",
+		"eslint-config-prettier": "^9.1.0",
+		"eslint-plugin-svelte": "^2.36.0-next.4",
+		"prettier": "^3.1.1",
+		"prettier-plugin-svelte": "^3.1.2",
+		"publint": "^0.1.9",
+		"svelte": "5.0.0-next.64",
+		"svelte-check": "^3.6.0",
+		"svelte-lib-helpers": "^0.4.0",
+		"tslib": "^2.4.1",
+		"typescript": "^5.0.0",
+		"vite": "^5.0.11",
+		"vitest": "^1.2.0"
+	},
+	"svelte": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"type": "module",
+	"dependencies": {
+		"highlight.js": "^11.9.0"
+	},
+	"keywords": [
+		"svelte 5",
+		"highlight.js"
+	]
+}
