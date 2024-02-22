@@ -1,5 +1,11 @@
 # svelte-rune-highlight
 
+## 0.2.5
+
+### Patch Changes
+
+- fix: dependencies and peerDependencies update ([`df4a4bc4693b8e951ab604463ff5b5b98d985470`](https://github.com/shinokada/svelte-rune-highlight/commit/df4a4bc4693b8e951ab604463ff5b5b98d985470))
+
 ## 0.2.4
 
 ### Patch Changes
