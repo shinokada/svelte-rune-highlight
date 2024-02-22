@@ -1,5 +1,11 @@
 # svelte-rune-highlight
 
+## 0.2.2
+
+### Patch Changes
+
+- fix: add ? types
+
 ## 0.2.1
 
 ### Patch Changes
