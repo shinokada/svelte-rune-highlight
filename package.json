@@ -31,10 +31,9 @@
 		"format": "prettier --write .",
 		"test:integration": "playwright test",
 		"test:unit": "vitest",
-		"gen:exports": "svelte-lib-helpers exports",
 		"copy:packagejson": "svelte-lib-helpers package",
 		"gen:docs5": "svelte-lib-helpers docs5FromType",
-		"lib-helpers": "npm run gen:docs5 && npm run package && npm run gen:exports && npm run copy:packagejson"
+		"lib-helpers": "npm run gen:docs5 && npm run package && npm run copy:packagejson"
 	},
 	"files": [
 		"dist",
@@ -87,29 +86,41 @@
 		"highlight.js"
 	],
 	"exports": {
-		".": {
-			"types": "./dist/index.d.ts",
-			"svelte": "./dist/index.js"
-		},
-		"./Highlight.svelte": {
-			"types": "./dist/Highlight.svelte.d.ts",
-			"svelte": "./dist/Highlight.svelte"
-		},
-		"./HighlightAuto.svelte": {
-			"types": "./dist/HighlightAuto.svelte.d.ts",
-			"svelte": "./dist/HighlightAuto.svelte"
-		},
-		"./HighlightSvelte.svelte": {
-			"types": "./dist/HighlightSvelte.svelte.d.ts",
-			"svelte": "./dist/HighlightSvelte.svelte"
-		},
-		"./LangTag.svelte": {
-			"types": "./dist/LangTag.svelte.d.ts",
-			"svelte": "./dist/LangTag.svelte"
-		},
-		"./LineNumbers.svelte": {
-			"types": "./dist/LineNumbers.svelte.d.ts",
-			"svelte": "./dist/LineNumbers.svelte"
-		}
-	}
+    ".": {
+      "types": "./index.d.ts",
+      "svelte": "./index.js"
+    },
+    "./*.svelte": {
+      "types": "./*.svelte.d.ts",
+      "import": "./*.svelte"
+    },
+    "./styles/*.css": {
+      "import": "./styles/*.css"
+    },
+    "./styles": {
+      "types": "./styles/index.d.ts",
+      "import": "./styles/index.js"
+    },
+    "./styles/*": {
+      "types": "./styles/*.d.ts",
+      "import": "./styles/*.js"
+    },
+    "./styles/*.js": {
+      "types": "./styles/*.d.ts",
+      "import": "./styles/*.js"
+    },
+    "./languages": {
+      "types": "./languages/index.d.ts",
+      "import": "./languages/index.js"
+    },
+    "./languages/*": {
+      "types": "./languages/*.d.ts",
+      "import": "./languages/*.js"
+    },
+    "./languages/*.js": {
+      "types": "./languages/*.d.ts",
+      "import": "./languages/*.js"
+    },
+    "./package.json": "./package.json"
+  }
 }
