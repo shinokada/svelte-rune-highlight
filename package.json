@@ -86,41 +86,41 @@
 		"highlight.js"
 	],
 	"exports": {
-    ".": {
-      "types": "./index.d.ts",
-      "svelte": "./index.js"
-    },
-    "./*.svelte": {
-      "types": "./*.svelte.d.ts",
-      "import": "./*.svelte"
-    },
-    "./styles/*.css": {
-      "import": "./styles/*.css"
-    },
-    "./styles": {
-      "types": "./styles/index.d.ts",
-      "import": "./styles/index.js"
-    },
-    "./styles/*": {
-      "types": "./styles/*.d.ts",
-      "import": "./styles/*.js"
-    },
-    "./styles/*.js": {
-      "types": "./styles/*.d.ts",
-      "import": "./styles/*.js"
-    },
-    "./languages": {
-      "types": "./languages/index.d.ts",
-      "import": "./languages/index.js"
-    },
-    "./languages/*": {
-      "types": "./languages/*.d.ts",
-      "import": "./languages/*.js"
-    },
-    "./languages/*.js": {
-      "types": "./languages/*.d.ts",
-      "import": "./languages/*.js"
-    },
-    "./package.json": "./package.json"
-  }
+		".": {
+			"types": "./dist/index.d.ts",
+			"svelte": "./dist/index.js"
+		},
+		"./*.svelte": {
+			"types": "./dist/*.svelte.d.ts",
+			"import": "./dist/*.svelte"
+		},
+		"./styles/*.css": {
+			"import": "./dist/styles/*.css"
+		},
+		"./styles": {
+			"types": "./dist/styles/index.d.ts",
+			"import": "./dist/styles/index.js"
+		},
+		"./styles/*": {
+			"types": "./dist/styles/*.d.ts",
+			"import": "./dist/styles/*.js"
+		},
+		"./styles/*.js": {
+			"types": "./dist/styles/*.d.ts",
+			"import": "./dist/styles/*.js"
+		},
+		"./languages": {
+			"types": "./dist/languages/index.d.ts",
+			"import": "./dist/languages/index.js"
+		},
+		"./languages/*": {
+			"types": "./dist/languages/*.d.ts",
+			"import": "./dist/languages/*.js"
+		},
+		"./languages/*.js": {
+			"types": "./dist/languages/*.d.ts",
+			"import": "./dist/languages/*.js"
+		},
+		"./package.json": "./package.json"
+	}
 }

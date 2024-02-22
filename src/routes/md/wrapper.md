@@ -1,4 +1,5 @@
 // utils/HighlightCompo.svelte
+
 <script lang="ts">
   import { HighlightSvelte, Highlight } from '$lib';
   // check colorscheme at https://highlightjs.org/demo
@@ -8,7 +9,7 @@
 </script>
 
 <svelte:head>
-  {@html githubDark}
+{@html githubDark}
 </svelte:head>
 
 <div class="mx-auto my-8 max-w-4xl rounded-md border border-gray-200 bg-gray-50 p-0.5 dark:border-gray-600 dark:bg-gray-700">
