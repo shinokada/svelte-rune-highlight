@@ -35,3 +35,10 @@
   {code}
 />
 
+<!--
+@component
+[Go to docs](https://svelte-rune-highlight.vercel.app/)
+## Props
+@props: code?: any;
+@props:langtag?: boolean;
+-->

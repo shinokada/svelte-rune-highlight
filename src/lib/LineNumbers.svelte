@@ -143,3 +143,14 @@
     bottom: 1em;
   }
 </style>
+
+<!--
+@component
+[Go to docs](https://svelte-rune-highlight.vercel.app/)
+## Props
+@props: highlighted: string;
+@props:hideBorder?: boolean;
+@props:wrapLines?: boolean;
+@props:startingLineNumber?: number;
+@props:highlightedLines?: number[];
+-->

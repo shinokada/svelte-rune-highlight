@@ -3,14 +3,23 @@
   const modules = import.meta.glob('./md/*.md', { query: '?raw', import: 'default', eager: true });
 </script>
 
-<HighlightCompo code={modules['./md/setup.md'] as string} />
+<h1>Svelte Rune Highlight</h1>
 
-<HighlightCompo code={modules['./md/default-sidebar.md'] as string} />
+Syntax highlighting for Svelte using <a href="https://github.com/highlightjs/highlight.js">highlight.js</a>.
+This lib is ported from <a href="https://www.npmjs.com/package/svelte-highlight">Svelte-Highlight</a>.
 
-<HighlightCompo code={modules['./md/using-object.md'] as string} />
+<h2>Installation</h2>
 
-<HighlightCompo code={modules['./md/adding-active-class.md'] as string} />
+<HighlightCompo code={modules['./md/installation.md'] as string} />
 
-<HighlightCompo code={modules['./md/multi-level-dropdown.md'] as string} />
+<h2>Usage</h2>
 
-<HighlightCompo code={modules['./md/content-separator.md'] as string} />
+You may want to create a wrapper:
+
+<HighlightCompo code={modules['./md/wrapper.md'] as string} />
+
+Create a md directory and add some markdown files. Then in your svelte file:
+
+<HighlightCompo code={modules['./md/usage.md'] as string} />
+
+Read more usage at <a href="https://www.npmjs.com/package/svelte-highlight">Svelte-Highlight</a>.

@@ -36,3 +36,13 @@
     padding: var(--langtag-padding, 1em);
   }
 </style>
+
+<!--
+@component
+[Go to docs](https://svelte-rune-highlight.vercel.app/)
+## Props
+@props: code?: any;
+@props:highlighted?: string;
+@props:languageName?: string;
+@props:langtag?: boolean;
+-->

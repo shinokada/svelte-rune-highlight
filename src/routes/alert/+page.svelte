@@ -5,4 +5,14 @@
 
 <HighlightCompo code={modules['./md/setup.md'] as string} />
 
+<HighlightCompo code={modules['./md/default-sidebar.md'] as string} />
+
+<HighlightCompo code={modules['./md/using-object.md'] as string} />
+
+<HighlightCompo code={modules['./md/adding-active-class.md'] as string} />
+
+<HighlightCompo code={modules['./md/multi-level-dropdown.md'] as string} />
+
+<HighlightCompo code={modules['./md/content-separator.md'] as string} />
+
 
