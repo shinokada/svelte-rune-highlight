@@ -1,5 +1,11 @@
 # svelte-rune-highlight
 
+## 0.2.3
+
+### Patch Changes
+
+- fix: update exports in package.json ([`3856fbe53422c76f26c53817e438e5ed280a3760`](https://github.com/shinokada/svelte-rune-highlight/commit/3856fbe53422c76f26c53817e438e5ed280a3760))
+
 ## 0.2.2
 
 ### Patch Changes
