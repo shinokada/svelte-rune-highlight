@@ -1,7 +1,7 @@
 <script lang="ts">
   // @ts-check
   interface Props{
-    language: any;
+    language?: any;
     code?: string;
     langtag?: boolean;
   }

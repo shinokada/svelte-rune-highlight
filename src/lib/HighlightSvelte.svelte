@@ -8,7 +8,7 @@
   import { createEventDispatcher } from "svelte";
 
   interface Props{
-    children: any;
+    children?: any;
     code?: string;
     langtag?: boolean;
   }

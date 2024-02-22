@@ -1,5 +1,11 @@
 # svelte-rune-highlight
 
+## 0.2.1
+
+### Patch Changes
+
+- fix: update peerDependencies and dependencies in package.json
+
 ## 0.2.0
 
 ### Minor Changes

@@ -1,13 +1,13 @@
 <script lang="ts">
   // @ts-check
   interface Props{
-    highlighted: string;
+    highlighted?: string;
     hideBorder?: boolean;
     wrapLines?: boolean;
     startingLineNumber?: number;
     highlightedLines?: number[];
   }
-  let { highlighted, hideBorder, wrapLines, startingLineNumber = 1, highlightedLines = [], ...restProps} = $props<Props>();
+  let { highlighted ='', hideBorder, wrapLines, startingLineNumber = 1, highlightedLines = [], ...restProps} = $props<Props>();
 
   const DIGIT_WIDTH = 12;
   const MIN_DIGITS = 2;
