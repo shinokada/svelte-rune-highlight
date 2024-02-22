@@ -1,5 +1,12 @@
 # svelte-rune-highlight
 
+## 0.2.4
+
+### Patch Changes
+
+- docs: add metatag ([`072067a79d4c423889a56a1b8037c0588dc05953`](https://github.com/shinokada/svelte-rune-highlight/commit/072067a79d4c423889a56a1b8037c0588dc05953))
+  fix: update keywords
+
 ## 0.2.3
 
 ### Patch Changes
