@@ -15,7 +15,7 @@
 
 <p>
   Syntax highlighting for Svelte using <a class='hover:underline dark:text-primary-500' href="https://github.com/highlightjs/highlight.js">highlight.js</a>.
-This lib is ported from <a class='hover:underline dark:text-primary-500' href="https://www.npmjs.com/package/svelte-highlight">Svelte-Highlight</a>.
+This lib is ported from <a class='hover:underline dark:text-primary-500' href="https://www.npmjs.com/package/svelte-highlight">Svelte-Highlight</a> for Svelte 5 Runes.
 </p>
 
 <h2>Repo</h2>
