@@ -1,58 +1,52 @@
-# create-svelte
+# Svelte Rune Highlight
 
-Everything you need to build a Svelte library, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+Syntax highlighting for Svelte using [highlight.js](https://github.com/highlightjs/highlight.js).
+This lib is ported from [Svelte-Highlight](https://www.npmjs.com/package/svelte-highlight).
 
-Read more about creating a library [in the docs](https://kit.svelte.dev/docs/packaging).
+## Installation
 
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
+```
+pnpm i -D svelte-rune-highlight
 ```
 
-## Developing
+## Usage
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+You may want to create a wrapper:
 
-```bash
-npm run dev
+```
+// utils/HighlightCompo.svelte
+<script lang="ts">
+  import { HighlightSvelte, Highlight } from '$lib';
+  // check colorscheme at https://highlightjs.org/demo
+  import githubDark from '$lib/styles/github-dark';
+  import markdown from '$lib/languages/markdown';
+  let { code, codeLang } = $props<{ code: string; codeLang?: string }>();
+</script>
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+<svelte:head>
+  {@html githubDark}
+</svelte:head>
+
+<div class="mx-auto my-8 max-w-4xl rounded-md border border-gray-200 bg-gray-50 p-0.5 dark:border-gray-600 dark:bg-gray-700">
+  {#if codeLang === 'md'}
+    <Highlight language={markdown} {code} />
+  {:else if code}
+    <HighlightSvelte {code} />
+  {:else}
+    no code is provided
+  {/if}
+</div>
 ```
 
-Everything inside `src/lib` is part of your library, everything inside `src/routes` can be used as a showcase or preview app.
+Create a md directory and add some markdown files. Then in your svelte file:
 
-## Building
+```
+<script lang="ts">
+  import HighlightCompo from '../utils/HighlightCompo.svelte';
+  const modules = import.meta.glob('./md/*.md', { query: '?raw', import: 'default', eager: true });
+</script>
 
-To build your library:
-
-```bash
-npm run package
+<HighlightCompo code={modules['./md/setup.md'] as string} />
 ```
 
-To create a production version of your showcase app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
-
-## Publishing
-
-Go into the `package.json` and give your package the desired name through the `"name"` option. Also consider adding a `"license"` field and point it to a `LICENSE` file which you can create from a template (one popular option is the [MIT license](https://opensource.org/license/mit/)).
-
-To publish your library to [npm](https://www.npmjs.com):
-
-```bash
-npm publish
-```
+Read more usage at [Svelte-Highlight](https://www.npmjs.com/package/svelte-highlight).
