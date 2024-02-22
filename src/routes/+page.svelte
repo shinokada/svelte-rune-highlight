@@ -11,28 +11,40 @@
   const highlightjsVersion = __HIGHLIGHTJSVERSION__;
 </script>
 
-<h1><a class='hover:underline' href={githuburl}>{removeHyphensAndCapitalize(name)}: v{version}</h1>
+<h1><a class='hover:underline dark:text-primary-500' href={githuburl}>{removeHyphensAndCapitalize(name)}: v{version}</a></h1>
 
-Syntax highlighting for Svelte using <a href="https://github.com/highlightjs/highlight.js">highlight.js</a>.
-This lib is ported from <a href="https://www.npmjs.com/package/svelte-highlight">Svelte-Highlight</a>.
+<p>
+  Syntax highlighting for Svelte using <a class='hover:underline dark:text-primary-500' href="https://github.com/highlightjs/highlight.js">highlight.js</a>.
+This lib is ported from <a class='hover:underline dark:text-primary-500' href="https://www.npmjs.com/package/svelte-highlight">Svelte-Highlight</a>.
+</p>
+
+<h2>Repo</h2>
+
+<p><a class='hover:underline dark:text-primary-500' href={githuburl}>{removeHyphensAndCapitalize(name)}: v{version}</a></p>
 
 <h2>Installation</h2>
+
+<p>Install Svelte 5 and enable runes in svelte.config.js:</p>
+
+<HighlightCompo code={modules['./md/installation-svelte5.md'] as string} />
+
+<p>Install svelte-rune-highlight:</p>
 
 <HighlightCompo code={modules['./md/installation.md'] as string} />
 
 <h2>Usage</h2>
 
-You may want to create a wrapper:
+<p>You may want to create a wrapper:</p>
 
 <HighlightCompo code={modules['./md/wrapper.md'] as string} />
 
-Create a md directory and add some markdown files. Then in your svelte file:
+<p>Create a md directory and add some markdown files. Then in your svelte file:</p>
 
 <HighlightCompo code={modules['./md/usage.md'] as string} />
 
-Read more usage at <a href="https://www.npmjs.com/package/svelte-highlight">Svelte-Highlight</a>.
+<p>Read more usage at <a class='hover:underline dark:text-primary-500' href="https://www.npmjs.com/package/svelte-highlight">Svelte-Highlight</a>.</p>
 
-<h2>Technical Details</h2>
+<h2>Technical Details of this website</h2>
 <ul>
   <li>Svelte: {svelteVersion}</li>
   <li>SvelteKit: {svelteKitVersion}</li>
