@@ -3,8 +3,8 @@
 <script lang="ts">
   import { HighlightSvelte, Highlight } from '$lib';
   // check colorscheme at https://highlightjs.org/demo
-  import githubDark from '$lib/styles/github-dark';
-  import markdown from '$lib/languages/markdown';
+  import githubDark from 'svelte-rune-highlight/styles/github-dark';
+  import markdown from 'svelte-rune-highlight/languages/markdown';
   let { code, codeLang } = $props<{ code: string; codeLang?: string }>();
 </script>
 

@@ -1,7 +1,25 @@
 <script lang="ts">
+	import { Highlight, HighlightSvelte, HighlightAuto } from '$lib';
+	import typescript from "$lib/languages/typescript";
 	import HighlightCompo from './utils/HighlightCompo.svelte';
 	const modules = import.meta.glob('./md/*.md', { query: '?raw', import: 'default', eager: true });
 	import { removeHyphensAndCapitalize } from './utils/helpers';
+
+	import { Select, Label } from 'svelte-5-ui-lib';
+	const stylesImport = import.meta.glob('$lib/styles/*.css')
+  let selected =$state('/src/lib/styles/github-dark.css');
+	// import '/src/lib/styles/github-dark.css'
+  // import `${selected}`
+	const styles = Object.entries(stylesImport)
+  .map(([path, importFn]) => ({
+    value: path,
+    name: path.slice(path.lastIndexOf('/') + 1), 
+  }));
+	$effect(() => {
+		const mystyle = import(/* @vite-ignore */ `${selected}`);
+	})
+  
+  // $inspect('selected: ', selected)
 	const name = __NAME__;
 	const version = __VERSION__;
 	const githuburl = __GITHUBURL__;
@@ -9,7 +27,12 @@
 	const svelteKitVersion = __SVELTEKITVERSION__;
 	const viteVersion = __VITEVERSION__;
 	const highlightjsVersion = __HIGHLIGHTJSVERSION__;
+
+	const code = "const add = (a: number, b: number) => a + b;";
+	const code2 = `<button on:click={() => { console.log(0); }}>Increment {count}</button>`;
+	const code3 = `body {\n  padding: 0;\n  color: red;\n}`;
 </script>
+
 
 <h1>
 	<a class="hover:underline dark:text-primary-500" href={githuburl}
@@ -48,6 +71,33 @@
 
 <h2>Usage</h2>
 
+<h3>Styling</h3>
+
+<div class='w-64'>
+	<Label>
+		You can select a theme
+		<Select selectclass="mt-2" items={styles} bind:value={selected} />
+	</Label>
+</div>
+
+<h3>Highlight</h3>
+
+<HighlightCompo code={modules['./md/highlight.md'] as string} />
+<p>Above code will produce the following:</p>
+<Highlight language={typescript} {code} />
+
+<h3>HighlightSvelte</h3>
+<HighlightCompo code={modules['./md/highlight-svelte.md'] as string} />
+<p>Above code will produce the following:</p>
+<HighlightSvelte code={code2} />
+
+<h3>HighlightAuto</h3>
+<HighlightCompo code={modules['./md/highlight-auto.md'] as string} />
+<p>Above code will produce the following:</p>
+<HighlightAuto code={code3} />
+
+<h3>Wrapper</h3>
+
 <p>You may want to create a wrapper:</p>
 
 <HighlightCompo code={modules['./md/wrapper.md'] as string} />
@@ -63,6 +113,7 @@
 	>.
 </p>
 
+
 <h2>Technical Details of this website</h2>
 <ul>
 	<li>Svelte: {svelteVersion}</li>
@@ -70,3 +121,4 @@
 	<li>Vite: {viteVersion}</li>
 	<li>highlight.js: {highlightjsVersion}</li>
 </ul>
+
