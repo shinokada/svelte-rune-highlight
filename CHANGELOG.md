@@ -1,5 +1,12 @@
 # svelte-rune-highlight
 
+## 0.2.6
+
+### Patch Changes
+
+- 7a70bdb docs: meta update ([`f3ae74c61ea86b653e95fd268bd7b16938fe845d`](https://github.com/shinokada/svelte-rune-highlight/commit/f3ae74c61ea86b653e95fd268bd7b16938fe845d))
+  f319c2b feat: add dynamic style select
+
 ## 0.2.5
 
 ### Patch Changes
