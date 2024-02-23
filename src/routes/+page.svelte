@@ -7,19 +7,21 @@
 
 	import { Select, Label } from 'svelte-5-ui-lib';
 	const stylesImport = import.meta.glob('$lib/styles/*.css')
-  let selected =$state('/src/lib/styles/github-dark.css');
-	// import '/src/lib/styles/github-dark.css'
+	// console.log(stylesImport)
+  let selected =$state('github-dark');
+	// import '../lib/styles/github-dark.css'
   // import `${selected}`
+
 	const styles = Object.entries(stylesImport)
   .map(([path, importFn]) => ({
-    value: path,
-    name: path.slice(path.lastIndexOf('/') + 1), 
+		value: path.replace('/src/lib/styles/', '').replace('.css', ''),
+    name: path.slice(path.lastIndexOf('/') + 1, -4), 
   }));
 	$effect(() => {
-		const mystyle = import(/* @vite-ignore */ `${selected}`);
+		import(`../lib/styles/${selected}.css`);
 	})
-  
   // $inspect('selected: ', selected)
+  // $inspect('styles: ', styles)
 	const name = __NAME__;
 	const version = __VERSION__;
 	const githuburl = __GITHUBURL__;
