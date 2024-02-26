@@ -1,26 +1,26 @@
 <script lang="ts">
-	// @ts-check
-	interface Props {
-		language?: any;
-		code?: string;
-		langtag?: boolean;
-	}
+  // @ts-check
+  interface Props {
+    language?: any;
+    code?: string;
+    langtag?: boolean;
+  }
 
-	let { language, code = '', langtag = false, ...restProps } = $props<Props>();
+  let { language, code = '', langtag = false, ...restProps } = $props<Props>();
 
-	import hljs from 'highlight.js/lib/core';
-	import { createEventDispatcher } from 'svelte';
-	import LangTag from './LangTag.svelte';
+  import hljs from 'highlight.js/lib/core';
+  import { createEventDispatcher } from 'svelte';
+  import LangTag from './LangTag.svelte';
 
-	const dispatch = createEventDispatcher();
+  const dispatch = createEventDispatcher();
 
-	let highlighted: string = $state('');
+  let highlighted: string = $state('');
 
-	$effect(() => {
-		if (highlighted) dispatch('highlight', { highlighted });
-		hljs.registerLanguage(language.name, language.register);
-		highlighted = hljs.highlight(code, { language: language.name }).value;
-	});
+  $effect(() => {
+    if (highlighted) dispatch('highlight', { highlighted });
+    hljs.registerLanguage(language.name, language.register);
+    highlighted = hljs.highlight(code, { language: language.name }).value;
+  });
 </script>
 
 <LangTag {...restProps} languageName={language.name} {langtag} {highlighted} {code} />
