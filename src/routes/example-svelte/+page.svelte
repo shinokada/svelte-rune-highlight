@@ -25,20 +25,12 @@
   </Label>
 </div>
 
-<h2>HighlightSvelte</h2>
-<HighlightSvelte code={modules['./codes/setup.svelte'] as string} />
-
-<h2>HighlightSvelte</h2>
-<HighlightSvelte code={modules['./codes/default-breadcrumb.svelte'] as string} />
-
-<h2>HighlightAuto</h2>
-<HighlightAuto code={modules['./codes/outline-with-icon.svelte'] as string} />
 
 <h2>HighlightCompo</h2>
-<HighlightCompo code={modules['./codes/adding-active-class.svelte'] as string} />
+<HighlightCompo code={modules['./codes/adding-active-class.svelte'] as string} theme={selected}/>
 
 <h2>Multi-level dropdown</h2>
-<HighlightCompo code={modules['./codes/multi-level-dropdown.svelte'] as string} />
+<HighlightCompo code={modules['./codes/multi-level-dropdown.svelte'] as string} theme={selected} />
 
 <h2>Content Separator</h2>
-<HighlightCompo code={modules['./codes/content-separator.svelte'] as string} />
+<HighlightCompo code={modules['./codes/content-separator.svelte'] as string} theme={selected} />
