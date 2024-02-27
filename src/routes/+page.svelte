@@ -12,12 +12,12 @@
     value: path.replace('/src/lib/styles/', '').replace('.css', ''),
     name: path.slice(path.lastIndexOf('/') + 1, -4)
   }));
-  async function importStyles() {
-    await import(`../lib/styles/${selected}.css`);
-  }
+  // async function importStyles() {
+  //   await import(`../lib/styles/${selected}.css`);
+  // }
   $effect(() => {
-    importStyles().then(() => console.log('style imported'));
-    // import(`../lib/styles/${selected}.css`);
+    // importStyles().then(() => console.log('style imported'));
+    import(`../lib/styles/${selected}.css`);
   });
   const name = __NAME__;
   const version = __VERSION__;
