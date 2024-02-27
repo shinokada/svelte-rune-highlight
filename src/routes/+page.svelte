@@ -30,10 +30,7 @@
   const code = 'const add = (a: number, b: number) => a + b;';
   const code2 = `<button on:click={() => { console.log(0); }}>Increment {count}</button>`;
   const code3 = `body {\n  padding: 0;\n  color: red;\n}`;
-
-  
 </script>
-
 
 <h1>
   <a class="hover:underline dark:text-primary-500" href={githuburl}>
@@ -73,7 +70,7 @@
 <div class="w-64">
   <Label>
     You can select a theme
-    <Select selectclass="mt-2" items={styles} bind:value={selected}  />
+    <Select selectclass="mt-2" items={styles} bind:value={selected} />
   </Label>
 </div>
 
@@ -81,7 +78,7 @@
 
 <HighlightCompo code={modules['./md/highlight.md'] as string} theme={selected} />
 <p>Above code will produce the following:</p>
-<Highlight language={typescript} {code}/>
+<Highlight language={typescript} {code} />
 
 <h3>HighlightSvelte</h3>
 <HighlightCompo code={modules['./md/highlight-svelte.md'] as string} theme={selected} />

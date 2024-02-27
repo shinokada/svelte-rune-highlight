@@ -25,9 +25,8 @@
   </Label>
 </div>
 
-
 <h2>HighlightCompo</h2>
-<HighlightCompo code={modules['./codes/adding-active-class.svelte'] as string} theme={selected}/>
+<HighlightCompo code={modules['./codes/adding-active-class.svelte'] as string} theme={selected} />
 
 <h2>Multi-level dropdown</h2>
 <HighlightCompo code={modules['./codes/multi-level-dropdown.svelte'] as string} theme={selected} />

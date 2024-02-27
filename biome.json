@@ -8,9 +8,9 @@
     "lineEnding": "lf",
     "ignore": []
   },
-	"javascript": {
-		"formatter": {
-			"quoteStyle": "single"
-		}
-	}
+  "javascript": {
+    "formatter": {
+      "quoteStyle": "single"
+    }
+  }
 }
