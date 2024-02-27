@@ -11,9 +11,10 @@
     children?: any;
     code?: string;
     langtag?: boolean;
+    preClass?: string;
   }
 
-  let { children, code = '', langtag = false, ...restProps } = $props<Props>();
+  let { children, code = '', langtag = false, preClass, ...restProps } = $props<Props>();
 
   const dispatch = createEventDispatcher();
 
@@ -28,7 +29,7 @@
   });
 </script>
 
-<LangTag {...restProps} languageName="svelte" {langtag} {highlighted} {code} />
+<LangTag {preClass} {...restProps} languageName="svelte" {langtag} {highlighted} {code} />
 
 <!--
 @component

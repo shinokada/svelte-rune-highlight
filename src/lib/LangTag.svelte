@@ -6,12 +6,13 @@
     highlighted?: string;
     languageName?: string;
     langtag?: boolean;
+    preClass?: string;
   }
 
-  let { code, highlighted, languageName = 'plaintext', langtag = false, ...restProps } = $props<Props>();
+  let { code, highlighted, languageName = 'plaintext', langtag = false, preClass, ...restProps } = $props<Props>();
 </script>
 
-<pre class:langtag data-language={languageName} {...restProps}><code class:hljs={true}>{#if highlighted}{@html highlighted}{:else}{code}{/if}</code></pre>
+<pre class="{preClass} {langtag ? 'langtag' : ''}" data-language={languageName} {...restProps}><code class:hljs={true}>{#if highlighted}{@html highlighted}{:else}{code}{/if}</code></pre>
 
 <!--
 @component

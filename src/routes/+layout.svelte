@@ -1,5 +1,6 @@
 <script>
   import '../app.pcss';
+  import './utils/themes.css'
   import MetaTag from './utils/MetaTag.svelte';
   import { Darkmode } from 'svelte-5-ui-lib';
   let { children } = $props();

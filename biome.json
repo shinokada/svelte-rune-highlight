@@ -1,0 +1,16 @@
+{
+  "formatter": {
+    "enabled": true,
+    "formatWithErrors": false,
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineWidth": 150,
+    "lineEnding": "lf",
+    "ignore": []
+  },
+	"javascript": {
+		"formatter": {
+			"quoteStyle": "single"
+		}
+	}
+}
