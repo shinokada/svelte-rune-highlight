@@ -4,21 +4,14 @@
   import HighlightCompo from './utils/HighlightCompo.svelte';
   const modules = import.meta.glob('./md/*.md', { query: '?raw', import: 'default', eager: true });
   import { removeHyphensAndCapitalize } from './utils/helpers';
-  import { Select, Label } from 'svelte-5-ui-lib';
-
-  const stylesImport = import.meta.glob('$lib/styles/*.css');
+  import { Label } from 'svelte-5-ui-lib';
+  import themeNames from './utils/themeNames.json';
+  // const stylesImport = import.meta.glob('$lib/styles/*.css');
   let selected = $state('github-dark');
-  const styles = Object.entries(stylesImport).map(([path, importFn]) => ({
-    value: path.replace('/src/lib/styles/', '').replace('.css', ''),
-    name: path.slice(path.lastIndexOf('/') + 1, -4)
-  }));
-  // async function importStyles() {
-  //   await import(`../lib/styles/${selected}.css`);
-  // }
-  $effect(() => {
-    // importStyles().then(() => console.log('style imported'));
-    import(`../lib/styles/${selected}.css`);
-  });
+  // const styles = Object.entries(stylesImport).map(([path, importFn]) => ({
+  //   value: path.replace('/src/lib/styles/', '').replace('.css', ''),
+  //   name: path.slice(path.lastIndexOf('/') + 1, -4)
+  // }));
   const name = __NAME__;
   const version = __VERSION__;
   const githuburl = __GITHUBURL__;
@@ -70,7 +63,11 @@
 <div class="w-64">
   <Label>
     You can select a theme
-    <Select selectclass="mt-2" items={styles} bind:value={selected} />
+    <select class="mt-2 p-2 border border-gray-200" bind:value={selected}>
+    {#each themeNames as theme}
+    <option value={theme}>{theme}</option>
+    {/each}
+    </select>
   </Label>
 </div>
 

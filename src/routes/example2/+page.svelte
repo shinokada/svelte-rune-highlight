@@ -2,36 +2,21 @@
   import HighlightCompo from '../utils/HighlightCompo.svelte';
   const modules = import.meta.glob('./md/*.md', { query: '?raw', import: 'default', eager: true });
   import themeNames from '../utils/themeNames.json';
-  // console.log('themeNames', themeNames);
-  import { Select, Label } from 'svelte-5-ui-lib';
-
-  const stylesImport = import.meta.glob('$lib/styles/*.css');
+  import { Label } from 'svelte-5-ui-lib';
   let selected = $state('github-dark');
-  const styles = Object.entries(stylesImport).map(([path, importFn]) => ({
-    value: path.replace('/src/lib/styles/', '').replace('.css', ''),
-    name: path.slice(path.lastIndexOf('/') + 1, -4)
-  }));
-  async function importStyles() {
-    await import(`../lib/styles/${selected}.css`);
-  }
-  $effect(() => {
-    importStyles().then(() => console.log('style imported'));
-    // import(`../lib/styles/${selected}.css`);
-  });
-  
-  const code = 'const add = (a: number, b: number) => a + b;';
-  const code2 = `<button on:click={() => { console.log(0); }}>Increment {count}</button>`;
-  const code3 = `body {\n  padding: 0;\n  color: red;\n}`;
 </script>
-
 
 <h2>Usage</h2>
 
-
+Seletcted: {selected}
 <div class="w-64">
   <Label>
     You can select a theme
-    <Select selectclass="mt-2" items={themeNames} bind:value={selected} />
+    <select class="mt-2 p-2 border border-gray-200" bind:value={selected}>
+    {#each themeNames as theme}
+    <option value={theme}>{theme}</option>
+    {/each}
+    </select>
   </Label>
 </div>
 
