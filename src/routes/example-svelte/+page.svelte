@@ -13,7 +13,20 @@
     name: path.slice(path.lastIndexOf('/') + 1, -4)
   }));
   $effect(() => {
-    import(`../../lib/styles/${selected}.css`);
+    let link: HTMLLinkElement;
+    (async () => {
+      const css = await import(`../../lib/styles/${selected}.css?url`);
+      link = document.createElement('link')
+
+      link.rel = 'stylesheet';
+      link.href = css.default;
+      document.head.append(link)
+    })();
+
+    return () => {
+      // clean up
+      link.remove()
+    };
   });
 </script>
 
