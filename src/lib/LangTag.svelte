@@ -12,16 +12,6 @@
 
 <pre class="{preClass} {langtag ? 'langtag' : ''}" data-language={languageName} {...restProps}><code class:hljs={true}>{#if highlighted}{@html highlighted}{:else}{code}{/if}</code></pre>
 
-<!--
-@component
-[Go to docs](https://svelte-rune-highlight.vercel.app/)
-## Props
-@props: code?: any;
-@props:highlighted?: string;
-@props:languageName?: string;
-@props:langtag?: boolean;
--->
-
 <style>
   .langtag {
     position: relative;
@@ -41,3 +31,14 @@
     padding: var(--langtag-padding, 1em);
   }
 </style>
+
+<!--
+@component
+[Go to docs](https://svelte-rune-highlight.vercel.app/)
+## Props
+@props: code?: any;
+@props:highlighted?: string;
+@props:languageName?: string;
+@props:langtag?: boolean;
+@props:preClass?: string;
+-->

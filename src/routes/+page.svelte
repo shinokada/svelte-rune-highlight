@@ -28,7 +28,8 @@
 </h1>
 
 <p>
-  Syntax highlighting for Svelte 5 Runes using <a class="hover:underline dark:text-primary-500" href="https://github.com/highlightjs/highlight.js">highlight.js</a>. 
+  Syntax highlighting for Svelte 5 Runes using <a class="hover:underline dark:text-primary-500" href="https://github.com/highlightjs/highlight.js">highlight.js</a>
+  .
 </p>
 <p>
   Credit: <a class="hover:underline dark:text-primary-500" href="https://www.npmjs.com/package/svelte-highlight">Svelte-Highlight</a>
@@ -39,7 +40,7 @@
 
 <p>Install Svelte 5 and enable runes in svelte.config.js:</p>
 
-<HighlightCompo code={modules['./md/installation-svelte5.md'] as string}  />
+<HighlightCompo code={modules['./md/installation-svelte5.md'] as string} />
 
 <p>Install svelte-rune-highlight:</p>
 

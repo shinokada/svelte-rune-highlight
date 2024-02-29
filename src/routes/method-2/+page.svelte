@@ -15,16 +15,16 @@
     let link: HTMLLinkElement;
     (async () => {
       const css = await import(`../../lib/styles/${selected}.css?url`);
-      link = document.createElement('link')
+      link = document.createElement('link');
 
       link.rel = 'stylesheet';
       link.href = css.default;
-      document.head.append(link)
+      document.head.append(link);
     })();
 
     return () => {
       // clean up
-      link.remove()
+      link.remove();
     };
   });
 </script>

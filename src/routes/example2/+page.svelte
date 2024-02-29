@@ -12,10 +12,10 @@ Seletcted: {selected}
 <div class="w-64">
   <Label>
     You can select a theme
-    <select class="mt-2 p-2 border border-gray-200" bind:value={selected}>
-    {#each themeNames as theme}
-    <option value={theme}>{theme}</option>
-    {/each}
+    <select class="mt-2 border border-gray-200 p-2" bind:value={selected}>
+      {#each themeNames as theme}
+        <option value={theme}>{theme}</option>
+      {/each}
     </select>
   </Label>
 </div>
@@ -24,8 +24,4 @@ Seletcted: {selected}
 
 <HighlightCompo code={modules['./md/setup.md'] as string} theme={selected} />
 
-
 <HighlightCompo code={modules['./md/default-sidebar.md'] as string} theme={selected} />
-
-
-

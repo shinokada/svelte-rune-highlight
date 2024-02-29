@@ -1,5 +1,4 @@
 <script lang="ts">
-
   import LangTag from './LangTag.svelte';
   import hljs from 'highlight.js/lib/core';
   import xml from 'highlight.js/lib/languages/xml';
@@ -34,7 +33,7 @@
 @component
 [Go to docs](https://svelte-rune-highlight.vercel.app/)
 ## Props
-@props: children?: any;
-@props:code?: string;
+@props: code?:  string; = '', langtag;
 @props:langtag?: boolean;
+@props:preClass?: string;
 -->

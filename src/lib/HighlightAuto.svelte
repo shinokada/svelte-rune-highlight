@@ -4,7 +4,7 @@
     code?: string;
     langtag?: boolean;
   }
-  let { code='', langtag = false, ...restProps } = $props<Props>();
+  let { code = '', langtag = false, ...restProps } = $props<Props>();
 
   import hljs from 'highlight.js';
   import { createEventDispatcher } from 'svelte';
@@ -30,6 +30,6 @@
 @component
 [Go to docs](https://svelte-rune-highlight.vercel.app/)
 ## Props
-@props: code?: any;
+@props: code?:  string; = '', langtag;
 @props:langtag?: boolean;
 -->

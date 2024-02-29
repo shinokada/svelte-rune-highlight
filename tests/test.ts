@@ -24,5 +24,3 @@ test('line-numbers page has expected h1', async ({ page }) => {
   await page.goto('/line-numbers');
   await expect(page.getByRole('heading', { name: 'Line Numbers' })).toBeVisible();
 });
-
-
