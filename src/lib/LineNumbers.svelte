@@ -1,26 +1,39 @@
 <script lang="ts">
+  import hljs from 'highlight.js/lib/core';
+  import LangTag from './LangTag.svelte';
+
   interface Props {
-    highlighted?: string;
+    numbers?: boolean;
+    language?: any;
+    code?: string;
+    langtag?: boolean;
     hideBorder?: boolean;
     wrapLines?: boolean;
     startingLineNumber?: number;
     highlightedLines?: number[];
   }
-  
-  let { highlighted = '', hideBorder, wrapLines, startingLineNumber = 1, highlightedLines = [], ...restProps } = $props<Props>();
 
-  console.log('highlighted in LineNumbers: ', highlighted, 'hideBorder: ', hideBorder, 'wrapLines: ', wrapLines);
-  
+  let { numbers, language, code = '', langtag = false, hideBorder, wrapLines, startingLineNumber = 1, highlightedLines = [],  ...restProps } = $props<Props>();
+
   const DIGIT_WIDTH = 12;
   const MIN_DIGITS = 2;
   const HIGHLIGHTED_BACKGROUND = 'rgba(254, 241, 96, 0.2)';
 
-  let lines = highlighted.split('\n');
-  let len_digits = lines.length.toString().length;
-  let len = len_digits - MIN_DIGITS < 1 ? MIN_DIGITS : len_digits;
-  let width = len * DIGIT_WIDTH;
+  let highlighted: string = $state('');
+  let lines = $state(<string[]>[]);
+  let width = $state(0);
+  $effect(() => {
+    hljs.registerLanguage(language.name, language.register);
+    highlighted = hljs.highlight(code, { language: language.name }).value;
+    lines = highlighted.split('\n');
+    let len_digits = lines.length.toString().length;
+    let len = len_digits - MIN_DIGITS < 1 ? MIN_DIGITS : len_digits;
+    width = len * DIGIT_WIDTH;
+  });
 </script>
 
+{#if numbers}
+  
 <div style:overflow-x="auto" {...restProps}>
   <table>
     <tbody class:hljs={true}>
@@ -47,17 +60,12 @@
   </table>
 </div>
 
-<!--
-@component
-[Go to docs](https://svelte-rune-highlight.vercel.app/)
-## Props
-@props: highlighted?:  string; = ', hideBorder, wrapLines, startingLineNumber;
-@props:hideBorder?: boolean;
-@props:wrapLines?: boolean;
-@props:startingLineNumber?: number;
-@props:highlightedLines?: number[];
--->
+{:else}
+<LangTag {...restProps} languageName={language.name} {langtag} {highlighted} {code} />
+{/if}
 
+
+{#if numbers}
 <style>
   pre {
     margin: 0;
@@ -142,3 +150,4 @@
     bottom: 1em;
   }
 </style>
+{/if}

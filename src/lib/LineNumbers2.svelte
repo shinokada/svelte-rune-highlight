@@ -1,8 +1,12 @@
 <script lang="ts">
   import hljs from 'highlight.js/lib/core';
+  // import { createEventDispatcher } from 'svelte';
   import LangTag from './LangTag.svelte';
+  import LineNumbers from './LineNumbers.svelte';
+  import type { Snippet } from 'svelte';
 
   interface Props {
+    // children?: Snippet;
     numbers?: boolean;
     language?: any;
     code?: string;
@@ -15,21 +19,27 @@
 
   let { numbers, language, code = '', langtag = false, hideBorder, wrapLines, startingLineNumber = 1, highlightedLines = [],  ...restProps } = $props<Props>();
 
+  // const dispatch = createEventDispatcher();
   const DIGIT_WIDTH = 12;
   const MIN_DIGITS = 2;
   const HIGHLIGHTED_BACKGROUND = 'rgba(254, 241, 96, 0.2)';
+
 
   let highlighted: string = $state('');
   let lines = $state(<string[]>[]);
   let width = $state(0);
   $effect(() => {
+    // if (highlighted) dispatch('highlight', { highlighted });
     hljs.registerLanguage(language.name, language.register);
     highlighted = hljs.highlight(code, { language: language.name }).value;
+    // console.log('highlighted', highlighted);
     lines = highlighted.split('\n');
     let len_digits = lines.length.toString().length;
     let len = len_digits - MIN_DIGITS < 1 ? MIN_DIGITS : len_digits;
     width = len * DIGIT_WIDTH;
   });
+  
+  // console.log('code: ', code);
 </script>
 
 {#if numbers}

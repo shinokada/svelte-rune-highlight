@@ -1,17 +1,13 @@
 <script lang="ts">
   import { Highlight, HighlightSvelte, HighlightAuto } from '$lib';
   import typescript from '$lib/languages/typescript';
+
   import HighlightCompo from './utils/HighlightCompo.svelte';
   const modules = import.meta.glob('./md/*.md', { query: '?raw', import: 'default', eager: true });
   import { removeHyphensAndCapitalize } from './utils/helpers';
   import { Label } from 'svelte-5-ui-lib';
   import themeNames from './utils/themeNames.json';
-  // const stylesImport = import.meta.glob('$lib/styles/*.css');
-  let selected = $state('github-dark');
-  // const styles = Object.entries(stylesImport).map(([path, importFn]) => ({
-  //   value: path.replace('/src/lib/styles/', '').replace('.css', ''),
-  //   name: path.slice(path.lastIndexOf('/') + 1, -4)
-  // }));
+
   const name = __NAME__;
   const version = __VERSION__;
   const githuburl = __GITHUBURL__;
@@ -50,52 +46,44 @@
 
 <p>Install Svelte 5 and enable runes in svelte.config.js:</p>
 
-<HighlightCompo code={modules['./md/installation-svelte5.md'] as string} theme={selected} />
+<HighlightCompo code={modules['./md/installation-svelte5.md'] as string}  />
 
 <p>Install svelte-rune-highlight:</p>
 
-<HighlightCompo code={modules['./md/installation.md'] as string} theme={selected} />
+<HighlightCompo code={modules['./md/installation.md'] as string} />
 
 <h2>Usage</h2>
-
-<h3>Styling</h3>
-
-<div class="w-64">
-  <Label>
-    You can select a theme
-    <select class="mt-2 p-2 border border-gray-200" bind:value={selected}>
-    {#each themeNames as theme}
-    <option value={theme}>{theme}</option>
-    {/each}
-    </select>
-  </Label>
-</div>
-
 <h3>Highlight</h3>
 
-<HighlightCompo code={modules['./md/highlight.md'] as string} theme={selected} />
+<HighlightCompo code={modules['./md/highlight.md'] as string} />
 <p>Above code will produce the following:</p>
+<div class='my-8 border border-gray-400'>
 <Highlight language={typescript} {code} />
+</div>
 
 <h3>HighlightSvelte</h3>
-<HighlightCompo code={modules['./md/highlight-svelte.md'] as string} theme={selected} />
+<HighlightCompo code={modules['./md/highlight-svelte.md'] as string} />
 <p>Above code will produce the following:</p>
+<div class='my-8 border border-gray-400'>
 <HighlightSvelte code={code2} />
+</div>
 
 <h3>HighlightAuto</h3>
-<HighlightCompo code={modules['./md/highlight-auto.md'] as string} theme={selected} />
+<HighlightCompo code={modules['./md/highlight-auto.md'] as string} />
 <p>Above code will produce the following:</p>
+<div class='my-8 border border-gray-400'>
 <HighlightAuto code={code3} />
+</div>
 
 <h3>Wrapper</h3>
 
 <p>You may want to create a wrapper:</p>
 
-<HighlightCompo code={modules['./md/wrapper.md'] as string} theme={selected} />
+<HighlightCompo code={modules['./md/wrapper.md'] as string} />
 
 <p>Create a md directory and add some markdown files. Then in your svelte file:</p>
 
-<HighlightCompo code={modules['./md/usage.md'] as string} theme={selected} />
+<HighlightCompo code={modules['./md/usage.md'] as string} />
 
 <p>
   Read more usage at <a class="hover:underline dark:text-primary-500" href="https://www.npmjs.com/package/svelte-highlight">Svelte-Highlight</a>

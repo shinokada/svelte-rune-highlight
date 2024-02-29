@@ -1,13 +1,10 @@
 <script lang="ts">
-  interface Props {
-    highlighted?: string;
 
-  }
   
   let { highlighted } = $props();
 
-  console.log(highlighted);
+  console.log('highlighted: ',highlighted);
   
 </script>
-
+NewLineNumbers: 
 {highlighted}

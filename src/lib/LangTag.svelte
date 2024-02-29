@@ -10,15 +10,7 @@
   let { code, highlighted, languageName = 'plaintext', langtag = false, preClass, ...restProps } = $props<Props>();
 </script>
 
-<pre class="{preClass} {langtag ? 'langtag' : ''}" data-language={languageName} {...restProps}>
-  <code class:hljs={true}>
-    {#if highlighted}
-      {@html highlighted}
-    {:else}
-      {code}
-    {/if}
-  </code>
-</pre>
+<pre class="{preClass} {langtag ? 'langtag' : ''}" data-language={languageName} {...restProps}><code class:hljs={true}>{#if highlighted}{@html highlighted}{:else}{code}{/if}</code></pre>
 
 <!--
 @component
