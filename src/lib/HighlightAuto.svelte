@@ -1,12 +1,10 @@
 <script lang="ts">
-  // @ts-check
-
   import LangTag from './LangTag.svelte';
   interface Props {
-    code?: any;
+    code?: string;
     langtag?: boolean;
   }
-  let { code, langtag = false, ...restProps } = $props<Props>();
+  let { code='', langtag = false, ...restProps } = $props<Props>();
 
   import hljs from 'highlight.js';
   import { createEventDispatcher } from 'svelte';

@@ -1,68 +1,40 @@
-<script>
-  import {Highlight, HighlightSvelte, HighlightAuto, LineNumbers} from "$lib";
-  import LineNumbers2 from "$lib/LineNumbers2.svelte";
+<script lang="ts">
+  import { Highlight } from "$lib";
+  // import Highlight from "$lib/Highlight.svelte";
+  import HighlightCompo from "../utils/HighlightCompo.svelte";
   import typescript from "$lib/languages/typescript";
-  import "$lib/styles/github-dark.css";
-  // import "$lib/styles/github.css";
-  const code = "const add = (a: number, b: number) => a + b;\nconsole.log(a);\nconsole.log(b);";
-  const test1 = `<Highlight language={typescript} {code} let:highlighted>\n  <LineNumbers {highlighted} />\n</Highlight>`
-  const test2 = `<Highlight language={typescript} {code} let:highlighted>\n  <LineNumbers {highlighted} hideBorder/>\n</Highlight>`
-  const test3 = `<Highlight language={typescript} {code} let:highlighted>\n  <LineNumbers {highlighted} wrapLines/>\n</Highlight>`
-  const test4 = `<Highlight language={typescript} {code} let:highlighted>\n  <LineNumbers {highlighted} startingLineNumber={42}/>\n</Highlight>`
-  const test5 = `<Highlight language={typescript} {code} let:highlighted>\n  <LineNumbers
-    {highlighted}
-    highlightedLines={[5, 6]}
-    --highlighted-background="#eee"
-  />\n</Highlight>`
-  const test6 = `<Highlight language={typescript} {code} let:highlighted>
-<LineNumbers
-{highlighted}
-highlightedLines={[0, 2]}
---line-number-color="pink"
---border-color="rgba(25, 155, 55, 1)"
---padding-left={0}
---padding-right="3em"
---highlighted-background="#6e6e6e"
-/>
-</Highlight>`
+  import markdown from "$lib/languages/markdown";
+  import yaml from "$lib/languages/yaml";
+  import json from "$lib/languages/json";
+  const modules = import.meta.glob('./samples/*.md', { query: '?raw', import: 'default', eager: true });
 </script>
 
-Test 0
-<LineNumbers2 language={typescript} {code}/>
-<LineNumbers2 language={typescript} {code} numbers/>
+<h1>Highlight Component</h1>
 
-Test 1
-<LineNumbers2 language={typescript} code={test1} numbers/>
+<p>The Highlight component requires language and code props. The langtag prop is optional and it will add a language tag.</p>
 
-Test 2
-<LineNumbers2 language={typescript} code={test2} hideBorder numbers/>
+<h2>Basic</h2>
+<Highlight language={typescript} code={modules['./samples/javascript.md'] as string} />
 
-Test 3
-<LineNumbers2 language={typescript} code={test3} wrapLines numbers/>
+<h2>Language Tag</h2>
 
-Test 4
-<LineNumbers2 language={typescript} code={test4} startingLineNumber={42} numbers/>
+<p>Set langtag to true to display the language name in the top right corner of the code block.</p>
 
-Test 5
+<h3>Markdown</h3>
+<Highlight language={markdown} code={modules['./samples/markdown.md'] as string} langtag  --langtag-color='lightgreen'/>
 
-<LineNumbers2
-  language={typescript}
-  code={test5}
-  highlightedLines={[5, 6]}
-  --highlighted-background="#666"
-  numbers
-/>
+<h3>YAML</h3>
+<Highlight language={yaml} code={modules['./samples/yaml.md'] as string} langtag  --langtag-color='lightcoral'/>
 
-Test 6
+<h3>JSON</h3>
+<Highlight language={json} code={modules['./samples/json.md'] as string} langtag --langtag-color='springgreen' />
 
-<LineNumbers2
-  language={typescript}
-  code={test6}
-  highlightedLines={[0, 2]}
-  --line-number-color="pink"
-  --border-color="rgba(25, 155, 55, 1)"
-  --padding-left={0}
-  --padding-right="3em"
-  --highlighted-background="#6e6e6e"
-  numbers
-/>
+
+<h2>Props</h2>
+
+<HighlightCompo code={modules['./samples/props.md'] as string} />
+
+<h2>Style Props</h2>
+<p>Customize the language tag background, color, and border-radius using style props.</p>
+
+<HighlightCompo code={modules['./samples/style-props.md'] as string} />

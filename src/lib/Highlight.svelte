@@ -3,9 +3,9 @@
   import LangTag from './LangTag.svelte';
 
   interface Props {
-    numbers?: boolean;
-    language?: any;
-    code?: string;
+    numberLine?: boolean;
+    language: any;
+    code: string;
     langtag?: boolean;
     hideBorder?: boolean;
     wrapLines?: boolean;
@@ -13,27 +13,22 @@
     highlightedLines?: number[];
   }
 
-  let { numbers, language, code = '', langtag = false, hideBorder, wrapLines, startingLineNumber = 1, highlightedLines = [],  ...restProps } = $props<Props>();
+  let { numberLine, language, code = '', langtag = false, hideBorder, wrapLines, startingLineNumber = 1, highlightedLines = [],  ...restProps } = $props<Props>();
 
   const DIGIT_WIDTH = 12;
   const MIN_DIGITS = 2;
   const HIGHLIGHTED_BACKGROUND = 'rgba(254, 241, 96, 0.2)';
 
-  let highlighted: string = $state('');
-  let lines = $state(<string[]>[]);
-  let width = $state(0);
-  $effect(() => {
-    hljs.registerLanguage(language.name, language.register);
-    highlighted = hljs.highlight(code, { language: language.name }).value;
-    lines = highlighted.split('\n');
-    let len_digits = lines.length.toString().length;
-    let len = len_digits - MIN_DIGITS < 1 ? MIN_DIGITS : len_digits;
-    width = len * DIGIT_WIDTH;
-  });
+  hljs.registerLanguage(language.name, language.register);
+
+  let highlighted: string = $state(hljs.highlight(code, { language: language.name }).value);
+  let lines = $state(<string[]>highlighted.split('\n'));
+  let len_digits = lines.length.toString().length;
+  let len = len_digits - MIN_DIGITS < 1 ? MIN_DIGITS : len_digits;
+  let width = len * DIGIT_WIDTH;
 </script>
 
-{#if numbers}
-  
+{#if numberLine}
 <div style:overflow-x="auto" {...restProps}>
   <table>
     <tbody class:hljs={true}>
@@ -59,13 +54,12 @@
     </tbody>
   </table>
 </div>
-
 {:else}
-<LangTag {...restProps} languageName={language.name} {langtag} {highlighted} {code} />
+<LangTag {...restProps} languageName={language.name} {langtag}  {highlighted} {code} />
 {/if}
 
 
-{#if numbers}
+{#if numberLine}
 <style>
   pre {
     margin: 0;
