@@ -1,5 +1,4 @@
 <script lang="ts">
-  // @ts-check
   interface Props {
     highlighted?: string;
     hideBorder?: boolean;
@@ -7,8 +6,11 @@
     startingLineNumber?: number;
     highlightedLines?: number[];
   }
+  
   let { highlighted = '', hideBorder, wrapLines, startingLineNumber = 1, highlightedLines = [], ...restProps } = $props<Props>();
 
+  console.log('highlighted in LineNumbers: ', highlighted, 'hideBorder: ', hideBorder, 'wrapLines: ', wrapLines);
+  
   const DIGIT_WIDTH = 12;
   const MIN_DIGITS = 2;
   const HIGHLIGHTED_BACKGROUND = 'rgba(254, 241, 96, 0.2)';
