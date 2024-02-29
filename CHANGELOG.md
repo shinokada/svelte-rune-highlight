@@ -1,5 +1,17 @@
 # svelte-rune-highlight
 
+## 0.3.0
+
+### Minor Changes
+
+- - edebb35chore: lib-helpers and format
+  - d1524ad (numberlines) feat: update all components
+  - 1bf9847 docs: adding menu
+  - 9e91731 fix: fixing number lines
+  - bca7148 feat: add new way to change style dynamically
+  - 809a55b fix: use JSON file for names
+  - 7d351f4 fix: update homepage
+
 ## 0.2.6
 
 ### Patch Changes
