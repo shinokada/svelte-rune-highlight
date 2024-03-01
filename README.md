@@ -11,44 +11,26 @@ This lib is ported from [Svelte-Highlight](https://www.npmjs.com/package/svelte-
 pnpm i -D svelte-rune-highlight
 ```
 
-## Usage
+## Docs
 
-You may want to create a wrapper:
+[Docs](https://svelte-rune-highlight.codewithshin.com/)
 
-```
-// utils/HighlightCompo.svelte
-<script lang="ts">
-  import { HighlightSvelte, Highlight } from '$lib';
-  // check colorscheme at https://highlightjs.org/demo
-  import githubDark from '$lib/styles/github-dark';
-  import markdown from '$lib/languages/markdown';
-  let { code, codeLang } = $props<{ code: string; codeLang?: string }>();
-</script>
+## Highlight component
 
-<svelte:head>
-  {@html githubDark}
-</svelte:head>
+[Highlight](https://svelte-rune-highlight.codewithshin.com/highlight)
 
-<div class="mx-auto my-8 max-w-4xl rounded-md border border-gray-200 bg-gray-50 p-0.5 dark:border-gray-600 dark:bg-gray-700">
-  {#if codeLang === 'md'}
-    <Highlight language={markdown} {code} />
-  {:else if code}
-    <HighlightSvelte {code} />
-  {:else}
-    no code is provided
-  {/if}
-</div>
-```
+## HighlightAuto component
 
-Create a md directory and add some markdown files. Then in your svelte file:
+[HighlightAuto](https://svelte-rune-highlight.codewithshin.com/auto)
 
-```
-<script lang="ts">
-  import HighlightCompo from '../utils/HighlightCompo.svelte';
-  const modules = import.meta.glob('./md/*.md', { query: '?raw', import: 'default', eager: true });
-</script>
+## HighlightSvelte component
 
-<HighlightCompo code={modules['./md/setup.md'] as string} />
-```
+[HighlightSvelte](https://svelte-rune-highlight.codewithshin.com/svelte)
 
-Read more usage at [Svelte-Highlight](https://www.npmjs.com/package/svelte-highlight).
+## Line numbers
+
+[Line numbers](https://svelte-rune-highlight.codewithshin.com/line-numbers)
+
+## Custom wrapper
+
+[Custom wrapper](https://svelte-rune-highlight.codewithshin.com/wrapper)

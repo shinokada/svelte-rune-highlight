@@ -7,7 +7,7 @@
   let toggleNav = nav.toggle;
   let closeNav = nav.close;
   let divClass = 'ml-auto w-full';
-  let ulclass = 'flex flex-col py-3 lg:flex-row lg:my-0 order-1 font-medium dark:lg:bg-transparent lg:bg-white lg:border-0';
+  let ulclass = 'flex flex-col py-3 lg:flex-row lg:my-0 order-1 font-medium dark:lg:bg-transparent lg:bg-white lg:border-0 lg:space-x-4';
   let navclass = 'w-full divide-gray-200 border-gray-200 bg-white text-gray-500 dark:divide-gray-700 dark:border-gray-700 dark:transparent dark:text-gray-400 sm:px-4';
 
   const stylesImport = import.meta.glob('$lib/styles/*.css');
@@ -57,6 +57,7 @@
       <NavLi href="/auto">Auto</NavLi>
       <NavLi href="/svelte">Svelte</NavLi>
       <NavLi href="/line-numbers">Line Numbers</NavLi>
+      <NavLi href="/wrapper">Wrapper</NavLi>
     </NavUl>
   </Navbar>
 </header>
