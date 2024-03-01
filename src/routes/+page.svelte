@@ -32,8 +32,7 @@
   .
 </p>
 <p>
-  Credit: <a class="hover:underline dark:text-primary-500" href="https://www.npmjs.com/package/svelte-highlight">Svelte-Highlight</a>
-  for Svelte 5 Runes.
+  Credit: <a class="hover:underline dark:text-primary-500" href="https://www.npmjs.com/package/svelte-highlight">Svelte-Highlight</a>.
 </p>
 
 <h2>Installation</h2>

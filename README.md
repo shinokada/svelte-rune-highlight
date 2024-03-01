@@ -1,5 +1,7 @@
 # Svelte Rune Highlight
 
+[DEMO](https://svelte-rune-highlight.codewithshin.com/)
+
 Syntax highlighting for Svelte using [highlight.js](https://github.com/highlightjs/highlight.js).
 This lib is ported from [Svelte-Highlight](https://www.npmjs.com/package/svelte-highlight).
 
