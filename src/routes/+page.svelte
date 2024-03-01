@@ -22,17 +22,11 @@
 </script>
 
 <h1>
-  <a class="hover:underline dark:text-primary-500" href={githuburl}>
     {removeHyphensAndCapitalize(name)}: v{version}
-  </a>
 </h1>
 
 <p>
-  Syntax highlighting for Svelte 5 Runes using <a class="hover:underline dark:text-primary-500" href="https://github.com/highlightjs/highlight.js">highlight.js</a>
-  .
-</p>
-<p>
-  Credit: <a class="hover:underline dark:text-primary-500" href="https://www.npmjs.com/package/svelte-highlight">Svelte-Highlight</a>.
+  Syntax highlighting for Svelte 5 Runes using <a class="hover:underline dark:text-primary-500" href="https://github.com/highlightjs/highlight.js">highlight.js</a>.
 </p>
 
 <h2>Installation</h2>
@@ -62,3 +56,7 @@
   <li>Vite: {viteVersion}</li>
   <li>highlight.js: {highlightjsVersion}</li>
 </ul>
+
+<h2>Credit</h2>
+  <p><a class="hover:underline dark:text-primary-500" href="https://www.npmjs.com/package/svelte-highlight">Svelte-Highlight</a>
+</p>

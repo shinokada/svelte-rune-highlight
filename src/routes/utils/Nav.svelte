@@ -36,9 +36,9 @@
 </script>
 
 <header class="sticky top-0 z-40 mx-auto w-full flex-none border-b border-gray-200 bg-white dark:border-gray-600 dark:bg-gray-900">
-  <Navbar {navclass} {toggleNav} {closeNav} {navStatus} breakPoint="lg" fluid div2class={divClass}>
+  <Navbar {navclass} {toggleNav} {closeNav} {navStatus} breakPoint="lg" fluid div2class={divClass} >
     {#snippet brand()}
-      <NavBrand siteName="Svelte Rune Highlight" />
+      <NavBrand siteName="Svelte Rune Highlight" spanclass="sm:text-2xl"/>
       <div class="ml-auto flex items-center lg:order-1">
         <a class="hidden whitespace-normal rounded-lg p-2.5 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:ring-0 focus:ring-gray-400 dark:hover:bg-gray-600 dark:hover:text-white sm:inline-block" href="https://github.com/shinokada/svelte-rune-highlight">
           <GitHub />
