@@ -1,12 +1,9 @@
 <script lang="ts">
-  import { Highlight, HighlightSvelte, HighlightAuto } from '$lib';
-  import typescript from '$lib/languages/typescript';
-
+  import { List, Li, A } from 'svelte-5-ui-lib';
   import HighlightCompo from './utils/HighlightCompo.svelte';
+  import { CheckOutline } from 'flowbite-svelte-icons';
   const modules = import.meta.glob('./md/*.md', { query: '?raw', import: 'default', eager: true });
   import { removeHyphensAndCapitalize } from './utils/helpers';
-  import { Label } from 'svelte-5-ui-lib';
-  import themeNames from './utils/themeNames.json';
 
   const name = __NAME__;
   const version = __VERSION__;
@@ -15,10 +12,6 @@
   const svelteKitVersion = __SVELTEKITVERSION__;
   const viteVersion = __VITEVERSION__;
   const highlightjsVersion = __HIGHLIGHTJSVERSION__;
-
-  const code = 'const add = (a: number, b: number) => a + b;';
-  const code2 = `<button on:click={() => { console.log(0); }}>Increment {count}</button>`;
-  const code3 = `body {\n  padding: 0;\n  color: red;\n}`;
 </script>
 
 <h1>
@@ -39,15 +32,26 @@
 
 <HighlightCompo code={modules['./md/installation.md'] as string} />
 
-<h2>Wrapper</h2>
+<h2>Components</h2>
 
-<p>The following is an example of how to use the wrapper:</p>
+<List tag="ul" class="space-y-1 text-gray-500 dark:text-gray-400">
+  <Li icon liclass="gap-3">
+    <CheckOutline class="w-5 h-5 text-green-500 dark:text-green-400" />
+    <A href='/highlight'>Highlight</A>
+  </Li>
+  <Li icon liclass="gap-3">
+    <CheckOutline class="w-5 h-5 text-green-500 dark:text-green-400" />
+    <A href='/auto'>HighlightAuto</A>
+  </Li>
+  <Li icon liclass="gap-3">
+    <CheckOutline class="w-5 h-5 text-green-500 dark:text-green-400" />
+    <A href='/svelte'>HighlightSvelte</A>
+  </Li>
+</List>
 
-<HighlightCompo code={modules['./md/wrapper.md'] as string} />
-
-<p>Create a md directory and add some markdown files. Then in your svelte file:</p>
-
-<HighlightCompo code={modules['./md/usage.md'] as string} />
+<h2>Credit</h2>
+  <p><a class="hover:underline dark:text-primary-500" href="https://www.npmjs.com/package/svelte-highlight">Svelte-Highlight</a>
+</p>
 
 <h2>Technical Details of this website</h2>
 <ul>
@@ -56,7 +60,3 @@
   <li>Vite: {viteVersion}</li>
   <li>highlight.js: {highlightjsVersion}</li>
 </ul>
-
-<h2>Credit</h2>
-  <p><a class="hover:underline dark:text-primary-500" href="https://www.npmjs.com/package/svelte-highlight">Svelte-Highlight</a>
-</p>

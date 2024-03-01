@@ -55,6 +55,9 @@ devDependencies:
   eslint-plugin-svelte:
     specifier: ^2.36.0-next.4
     version: 2.36.0-next.5(eslint@8.56.0)(svelte@5.0.0-next.69)
+  flowbite-svelte-icons:
+    specifier: 2.0.0-next.2
+    version: 2.0.0-next.2(svelte@5.0.0-next.69)(tailwind-merge@2.2.1)(tailwindcss@3.4.1)
   postcss:
     specifier: ^8.4.32
     version: 8.4.35
@@ -2253,6 +2256,18 @@ packages:
 
   /flatted@3.3.1:
     resolution: {integrity: sha512-X8cqMLLie7KsNUDSdzeN8FYK9rEt4Dt67OsG/DNGnYTSDBG4uFAJFBnUeiV+zCVAvwFy56IjM9sH51jVaEhNxw==}
+    dev: true
+
+  /flowbite-svelte-icons@2.0.0-next.2(svelte@5.0.0-next.69)(tailwind-merge@2.2.1)(tailwindcss@3.4.1):
+    resolution: {integrity: sha512-IUZKrT/Z9erDIGoMILp1W285/n/n2lpWkIYPs86zyxoxInfw+86oGrocHu5W0uuiMY/vLqXeLXGnENbn44YowA==}
+    peerDependencies:
+      svelte: ^5.0.0
+      tailwind-merge: ^2.0.0
+      tailwindcss: ^3.3.2
+    dependencies:
+      svelte: 5.0.0-next.69
+      tailwind-merge: 2.2.1
+      tailwindcss: 3.4.1
     dev: true
 
   /for-each@0.3.3:
