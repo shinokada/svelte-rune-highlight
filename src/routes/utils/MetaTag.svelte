@@ -1,4 +1,5 @@
 <svelte:head>
+  <title>Svelte Rune Highlight</title>
   <meta name="description" content="Syntax highlighting for Svelte 5 with  Runes" />
   <meta name="keywords" content="Svelte 5, Syntax-hightlighting, runes" />
   <meta name="robots" content="index,follow" />
