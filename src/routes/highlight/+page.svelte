@@ -48,7 +48,7 @@ The above code will produce:
 
 <HighlightCompo code={modules['./samples/props.md'] as string} />
 
-<h2>Style Props</h2>
+<h2>Language tag style</h2>
 <p>Customize the language tag background, color, and border-radius using style props.</p>
 
 <HighlightCompo code={modules['./samples/style-props.md'] as string} />
