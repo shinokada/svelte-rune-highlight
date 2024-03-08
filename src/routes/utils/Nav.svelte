@@ -11,7 +11,7 @@
   let navclass = 'w-full divide-gray-200 border-gray-200 bg-white text-gray-500 dark:divide-gray-700 dark:border-gray-700 dark:transparent dark:text-gray-400 sm:px-4';
 
   const stylesImport = import.meta.glob('$lib/styles/*.css');
-  let selected = $state('github-dark');
+  let selected = $state('gigavolt');
   const styles = Object.entries(stylesImport).map(([path, importFn]) => ({
     value: path.slice(path.lastIndexOf('/') + 1, -4),
     name: path.slice(path.lastIndexOf('/') + 1, -4)

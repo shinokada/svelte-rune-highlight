@@ -23,9 +23,7 @@
 </p>
 
 <h2>Installation</h2>
-
 <p>Install Svelte 5 and enable runes in svelte.config.js:</p>
-
 <HighlightCompo code={modules['./md/installation-svelte5.md'] as string} />
 
 <p>Install svelte-rune-highlight:</p>
