@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { List, Li, A } from 'svelte-5-ui-lib';
+  import { List, Li, A, Banner } from 'svelte-5-ui-lib';
   import HighlightCompo from './utils/HighlightCompo.svelte';
   import { CheckOutline } from 'flowbite-svelte-icons';
   const modules = import.meta.glob('./md/*.md', { query: '?raw', import: 'default', eager: true });
@@ -13,6 +13,13 @@
   const viteVersion = __VITEVERSION__;
   const highlightjsVersion = __HIGHLIGHTJSVERSION__;
 </script>
+
+
+<Banner id="default-banner" dismissable={false} classDiv='p-2'>
+  <p class="flex items-center gap-4 text-lg font-normal text-gray-900 dark:text-gray-100">
+      To Keep It Going, Please Show Your Love.<a href='https://ko-fi.com/Z8Z2CHALG' target='_blank'><img height='42' style='border:0px;height:42px;' src='https://storage.ko-fi.com/cdn/kofi3.png?v=3' alt='Buy Me a Coffee at ko-fi.com' /></a>
+  </p>
+</Banner>
 
 <h1>
     {removeHyphensAndCapitalize(name)}: v{version}
