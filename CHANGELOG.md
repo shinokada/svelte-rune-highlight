@@ -1,5 +1,12 @@
 # svelte-rune-highlight
 
+## 0.3.1
+
+### Patch Changes
+
+- fix: change <Props> to : Props. ([`865e7c5333e35da2d1063387d2129d350c0f0125`](https://github.com/shinokada/svelte-rune-highlight/commit/865e7c5333e35da2d1063387d2129d350c0f0125))
+  fix: update component docs.
+
 ## 0.3.0
 
 ### Minor Changes
