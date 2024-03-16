@@ -4,7 +4,6 @@
   "tabWidth": 2,
   "htmlWhitespaceSensitivity": "ignore",
   "trailingComma": "none",
-  "printWidth": 300,
   "plugins": ["prettier-plugin-svelte", "prettier-plugin-tailwindcss"],
   "overrides": [
     {

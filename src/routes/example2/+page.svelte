@@ -1,6 +1,10 @@
 <script lang="ts">
   import HighlightCompo from '../utils/HighlightCompo.svelte';
-  const modules = import.meta.glob('./md/*.md', { query: '?raw', import: 'default', eager: true });
+  const modules = import.meta.glob('./md/*.md', {
+    query: '?raw',
+    import: 'default',
+    eager: true
+  });
   import themeNames from '../utils/themeNames.json';
   import { Label } from 'svelte-5-ui-lib';
   let selected = $state('github-dark');
@@ -24,4 +28,7 @@ Seletcted: {selected}
 
 <HighlightCompo code={modules['./md/setup.md'] as string} theme={selected} />
 
-<HighlightCompo code={modules['./md/default-sidebar.md'] as string} theme={selected} />
+<HighlightCompo
+  code={modules['./md/default-sidebar.md'] as string}
+  theme={selected}
+/>

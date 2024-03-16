@@ -19,7 +19,18 @@
     highlightedLines?: number[];
   }
 
-  let { numberLine, language, code = '', langtag = false, preClass, hideBorder, wrapLines, startingLineNumber = 1, highlightedLines = [], ...restProps } = $props<Props>();
+  let {
+    numberLine,
+    language,
+    code = '',
+    langtag = false,
+    preClass,
+    hideBorder,
+    wrapLines,
+    startingLineNumber = 1,
+    highlightedLines = [],
+    ...restProps
+  }: Props = $props();
 
   // const dispatch = createEventDispatcher();
 
@@ -52,18 +63,32 @@
         {#each lines as line, i}
           {@const lineNumber = i + startingLineNumber}
           <tr>
-            <td class:hljs={true} class:hideBorder style:position="sticky" style:left="0" style:text-align="right" style:user-select="none" style:width={width + 'px'}>
+            <td
+              class:hljs={true}
+              class:hideBorder
+              style:position="sticky"
+              style:left="0"
+              style:text-align="right"
+              style:user-select="none"
+              style:width={width + 'px'}
+            >
               <code style:color="var(--line-number-color, currentColor)">
                 {lineNumber}
               </code>
               {#if highlightedLines.includes(i)}
-                <div class:line-background={true} style:background="var(--highlighted-background, {HIGHLIGHTED_BACKGROUND})" />
+                <div
+                  class:line-background={true}
+                  style:background="var(--highlighted-background, {HIGHLIGHTED_BACKGROUND})"
+                />
               {/if}
             </td>
             <td>
               <pre class:wrapLines><code>{@html line || '\n'}</code></pre>
               {#if highlightedLines.includes(i)}
-                <div class:line-background={true} style:background="var(--highlighted-background, {HIGHLIGHTED_BACKGROUND})" />
+                <div
+                  class:line-background={true}
+                  style:background="var(--highlighted-background, {HIGHLIGHTED_BACKGROUND})"
+                />
               {/if}
             </td>
           </tr>
@@ -72,20 +97,27 @@
     </table>
   </div>
 {:else}
-  <LangTag {preClass} {...restProps} languageName="svelte" {langtag} {highlighted} {code} />
+  <LangTag
+    {preClass}
+    {...restProps}
+    languageName="svelte"
+    {langtag}
+    {highlighted}
+    {code}
+  />
 {/if}
 
 <!--
 @component
-[Go to docs](https://svelte-rune-highlight.vercel.app/)
+[Go to docs](https://svelte-rune-highlight.codewithshin.com/)
 ## Props
 @props: numberLine?: boolean;
 @props:language?: any;
-@props:code?: string;
-@props:langtag?: boolean;
+@props:code?:  string; = '';
+@props:langtag?:  boolean; = false;
 @props:preClass?: string;
 @props:hideBorder?: boolean;
 @props:wrapLines?: boolean;
-@props:startingLineNumber?: number;
-@props:highlightedLines?: number[];
+@props:startingLineNumber?:  number; = 1;
+@props:highlightedLines?:  number[]; = [];
 -->

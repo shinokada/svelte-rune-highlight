@@ -4,7 +4,7 @@
     code?: string;
     langtag?: boolean;
   }
-  let { code = '', langtag = false, ...restProps } = $props<Props>();
+  let { code = '', langtag = false, ...restProps }: Props = $props();
 
   import hljs from 'highlight.js';
   import { createEventDispatcher } from 'svelte';
@@ -24,11 +24,17 @@
   });
 </script>
 
-<LangTag {...restProps} languageName={language} {langtag} {highlighted} {code} />
+<LangTag
+  {...restProps}
+  languageName={language}
+  {langtag}
+  {highlighted}
+  {code}
+/>
 
 <!--
 @component
-[Go to docs](https://svelte-rune-highlight.vercel.app/)
+[Go to docs](https://svelte-rune-highlight.codewithshin.com/)
 ## Props
 @props: code?:  string; = '', langtag;
 @props:langtag?: boolean;

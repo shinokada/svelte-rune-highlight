@@ -7,10 +7,21 @@
     preClass?: string;
   }
 
-  let { code, highlighted, languageName = 'plaintext', langtag = false, preClass, ...restProps } = $props<Props>();
+  let {
+    code,
+    highlighted,
+    languageName = 'plaintext',
+    langtag = false,
+    preClass,
+    ...restProps
+  }: Props = $props();
 </script>
 
-<pre class="{preClass} {langtag ? 'langtag' : ''}" data-language={languageName} {...restProps}><code class:hljs={true}>{#if highlighted}{@html highlighted}{:else}{code}{/if}</code></pre>
+<pre
+  class="{preClass} {langtag ? 'langtag' : ''}"
+  data-language={languageName}
+  {...restProps}><code
+    class:hljs={true}>{#if highlighted}{@html highlighted}{:else}{code}{/if}</code></pre>
 
 <style>
   .langtag {
@@ -34,11 +45,11 @@
 
 <!--
 @component
-[Go to docs](https://svelte-rune-highlight.vercel.app/)
+[Go to docs](https://svelte-rune-highlight.codewithshin.com/)
 ## Props
 @props: code?: any;
 @props:highlighted?: string;
-@props:languageName?: string;
-@props:langtag?: boolean;
+@props:languageName?:  string; = 'plaintext';
+@props:langtag?:  boolean; = false;
 @props:preClass?: string;
 -->

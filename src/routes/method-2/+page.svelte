@@ -1,7 +1,11 @@
 <script lang="ts">
   import { Highlight, HighlightSvelte, HighlightAuto } from '$lib';
   import typescript from '$lib/languages/typescript';
-  const modules = import.meta.glob('./codes/*.svelte', { query: '?raw', import: 'default', eager: true });
+  const modules = import.meta.glob('./codes/*.svelte', {
+    query: '?raw',
+    import: 'default',
+    eager: true
+  });
 
   import { Select, Label } from 'svelte-5-ui-lib';
 
@@ -38,10 +42,15 @@
 </div>
 
 <h2>Highlight</h2>
-<Highlight code={modules['./codes/setup.svelte'] as string} language={typescript} />
+<Highlight
+  code={modules['./codes/setup.svelte'] as string}
+  language={typescript}
+/>
 
 <h2>HighlightSvelte</h2>
-<HighlightSvelte code={modules['./codes/multi-level-dropdown.svelte'] as string} />
+<HighlightSvelte
+  code={modules['./codes/multi-level-dropdown.svelte'] as string}
+/>
 
 <h2>HighlightAuto</h2>
 <HighlightAuto code={modules['./codes/outline-with-icon.svelte'] as string} />

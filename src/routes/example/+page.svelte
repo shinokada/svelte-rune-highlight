@@ -2,7 +2,11 @@
   import { Highlight, HighlightSvelte, HighlightAuto } from '$lib';
   import typescript from '$lib/languages/typescript';
   import HighlightCompo from '../utils/HighlightCompo.svelte';
-  const modules = import.meta.glob('./md/*.{md,json}', { query: '?raw', import: 'default', eager: true });
+  const modules = import.meta.glob('./md/*.{md,json}', {
+    query: '?raw',
+    import: 'default',
+    eager: true
+  });
   import '$lib/styles/github-dark.css';
 </script>
 

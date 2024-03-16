@@ -12,7 +12,7 @@
     preClass?: string;
   }
 
-  let { code = '', langtag = false, preClass, ...restProps } = $props<Props>();
+  let { code = '', langtag = false, preClass, ...restProps }: Props = $props();
 
   // const dispatch = createEventDispatcher();
 
@@ -27,11 +27,18 @@
   // });
 </script>
 
-<LangTag {preClass} {...restProps} languageName="svelte" {langtag} {highlighted} {code} />
+<LangTag
+  {preClass}
+  {...restProps}
+  languageName="svelte"
+  {langtag}
+  {highlighted}
+  {code}
+/>
 
 <!--
 @component
-[Go to docs](https://svelte-rune-highlight.vercel.app/)
+[Go to docs](https://svelte-rune-highlight.codewithshin.com/)
 ## Props
 @props: code?:  string; = '', langtag;
 @props:langtag?: boolean;
