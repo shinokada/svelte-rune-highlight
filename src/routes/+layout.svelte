@@ -4,6 +4,9 @@
   import MetaTag from './utils/MetaTag.svelte';
   import Nav from './utils/Nav.svelte';
   import Footer from './utils/Footer.svelte';
+  import { inject } from '@vercel/analytics';
+
+  inject();
   let { children } = $props();
 </script>
 
