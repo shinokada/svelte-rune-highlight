@@ -1,5 +1,13 @@
 # svelte-rune-highlight
 
+## 0.4.0
+
+### Minor Changes
+
+- feat: add ThemeSelector component ([`e5a0109237f5b5f55dd22c3e22fe232433040038`](https://github.com/shinokada/svelte-rune-highlight/commit/e5a0109237f5b5f55dd22c3e22fe232433040038))
+
+- chore: dependencies update
+
 ## 0.3.1
 
 ### Patch Changes

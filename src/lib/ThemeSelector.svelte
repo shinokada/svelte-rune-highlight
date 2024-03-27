@@ -35,3 +35,10 @@
     <option value={theme.value}>{theme.value}</option>
   {/each}
 </select>
+
+<!--
+@component
+[Go to docs](https://svelte-rune-highlight.codewithshin.com/)
+## Props
+@props: class?: string;
+-->
