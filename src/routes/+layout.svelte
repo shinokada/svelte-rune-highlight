@@ -1,6 +1,6 @@
 <script lang="ts">
   import '../app.pcss';
-  import './utils/themes.css';
+  // import './utils/themes.css';// use this for method 2 to change code style dynamically
   import MetaTag from './utils/MetaTag.svelte';
   import Nav from './utils/Nav.svelte';
   import Footer from './utils/Footer.svelte';

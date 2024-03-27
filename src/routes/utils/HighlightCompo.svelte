@@ -6,7 +6,7 @@
     code,
     codeLang,
     theme = 'github-dark'
-  } = $props<{ code: string; codeLang?: string; theme?: string }>();
+  }: { code: string; codeLang?: string; theme?: string } = $props();
 </script>
 
 <div
