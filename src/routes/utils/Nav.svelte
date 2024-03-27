@@ -8,6 +8,7 @@
     uiHelpers,
     Darkmode
   } from 'svelte-5-ui-lib';
+  import {ThemeSelector} from '$lib';
   import GitHub from './GitHub.svelte';
   let nav = uiHelpers();
 
@@ -20,28 +21,28 @@
   let navclass =
     'w-full divide-gray-200 border-gray-200 bg-white text-gray-500 dark:divide-gray-700 dark:border-gray-700 dark:transparent dark:text-gray-400 sm:px-4';
 
-  const stylesImport = import.meta.glob('$lib/styles/*.css');
-  let selected = $state('gigavolt');
-  const styles = Object.entries(stylesImport).map(([path, importFn]) => ({
-    value: path.slice(path.lastIndexOf('/') + 1, -4),
-    name: path.slice(path.lastIndexOf('/') + 1, -4)
-  }));
+  // const stylesImport = import.meta.glob('$lib/styles/*.css');
+  // let selected = $state('gigavolt');
+  // const styles = Object.entries(stylesImport).map(([path, importFn]) => ({
+  //   value: path.slice(path.lastIndexOf('/') + 1, -4),
+  //   name: path.slice(path.lastIndexOf('/') + 1, -4)
+  // }));
   $effect(() => {
     navStatus = nav.isOpen;
-    let link: HTMLLinkElement;
-    (async () => {
-      const css = await import(`../../lib/styles/${selected}.css?url`);
-      link = document.createElement('link');
+    // let link: HTMLLinkElement;
+    // (async () => {
+    //   const css = await import(`../../lib/styles/${selected}.css?url`);
+    //   link = document.createElement('link');
 
-      link.rel = 'stylesheet';
-      link.href = css.default;
-      document.head.append(link);
-    })();
+    //   link.rel = 'stylesheet';
+    //   link.href = css.default;
+    //   document.head.append(link);
+    // })();
 
-    return () => {
-      // clean up
-      link.remove();
-    };
+    // return () => {
+    //   // clean up
+    //   link.remove();
+    // };
   });
 </script>
 
@@ -69,14 +70,7 @@
         <Darkmode
           btnclass="inline-block dark:hover:text-white hover:text-gray-900"
         />
-        <select
-          class="w-32 border border-gray-200 p-1 text-gray-800 dark:text-gray-800 md:w-36"
-          bind:value={selected}
-        >
-          {#each styles as theme}
-            <option value={theme.value}>{theme.value}</option>
-          {/each}
-        </select>
+        <ThemeSelector class="w-32 border border-gray-200 p-1 text-gray-800 dark:text-gray-800 md:w-36"/>
       </div>
     {/snippet}
     <NavUl {ulclass}>
