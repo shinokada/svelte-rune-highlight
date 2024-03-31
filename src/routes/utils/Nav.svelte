@@ -11,10 +11,6 @@
   import { CodeBlockSwitcher } from '$lib';
   import GitHub from './GitHub.svelte';
   const stylesImport = import.meta.glob('$lib/styles/*.css');
-  // import hljs from 'highlight.js';
-  // const defaultCss = import 'highlight.js/styles/default.css';
-  // console.log('defaultCss', defaultCss);
-  // console.log('stylesImport', stylesImport);
   let nav = uiHelpers();
 
   let navStatus = $state(false);
@@ -55,7 +51,7 @@
         <Darkmode
           btnclass="inline-block dark:hover:text-white hover:text-gray-900"
         />
-        <CodeBlockSwitcher class="w-32 border border-gray-200 p-1 text-gray-800 dark:text-gray-800 md:w-36"/>
+        <CodeBlockSwitcher {stylesImport} class="w-32 border border-gray-200 p-1 text-gray-800 dark:text-gray-800 md:w-36"/>
       </div>
     {/snippet}
     <NavUl {ulclass}>
@@ -64,7 +60,6 @@
       <NavLi href="/auto">Auto</NavLi>
       <NavLi href="/svelte">Svelte</NavLi>
       <NavLi href="/line-numbers">Line Numbers</NavLi>
-      <NavLi href="/code-block-switcher">Switcher</NavLi>
       <NavLi href="/wrapper">Wrapper</NavLi>
     </NavUl>
   </Navbar>
