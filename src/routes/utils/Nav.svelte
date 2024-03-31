@@ -10,6 +10,11 @@
   } from 'svelte-5-ui-lib';
   import { CodeBlockSwitcher } from '$lib';
   import GitHub from './GitHub.svelte';
+  const stylesImport = import.meta.glob('$lib/styles/*.css');
+  // import hljs from 'highlight.js';
+  // const defaultCss = import 'highlight.js/styles/default.css';
+  // console.log('defaultCss', defaultCss);
+  // console.log('stylesImport', stylesImport);
   let nav = uiHelpers();
 
   let navStatus = $state(false);

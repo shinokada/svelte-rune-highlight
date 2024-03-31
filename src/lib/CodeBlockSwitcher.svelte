@@ -1,19 +1,16 @@
 <script lang="ts">
   import { browser } from '$app/environment';
+  import cssNames from './cssNames.json'
   interface Props {
+ 
     class?: string;
   }
-  let { class: className }: Props = $props();
-  const stylesImport = import.meta.glob('./styles/*.css');
+  let {  class: className }: Props = $props();
   // @ts-ignore
   let selected: string = $state(
     browser && (localStorage.getItem('CODE_BLOCK_STYLE') ?? 'gigavolt')
   );
-
-  const styles = Object.entries(stylesImport).map(([path, importFn]) => ({
-    value: path.slice(path.lastIndexOf('/') + 1, -4),
-    name: path.slice(path.lastIndexOf('/') + 1, -4)
-  }));
+  
   $effect(() => {
     let link: HTMLLinkElement;
     (async () => {
@@ -36,8 +33,8 @@
 </script>
 
 <select class={className} bind:value={selected}>
-  {#each styles as theme}
-    <option value={theme.value}>{theme.value}</option>
+  {#each cssNames as theme}
+    <option value={theme}>{theme}</option>
   {/each}
 </select>
 

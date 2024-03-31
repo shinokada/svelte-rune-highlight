@@ -56,8 +56,8 @@ devDependencies:
     specifier: 2.36.0-next.9
     version: 2.36.0-next.9(eslint@8.57.0)(svelte@5.0.0-next.90)
   flowbite-svelte-icons:
-    specifier: 2.0.0-next.2
-    version: 2.0.0-next.2(svelte@5.0.0-next.90)(tailwind-merge@2.2.2)(tailwindcss@3.4.3)
+    specifier: 2.0.0-next.5
+    version: 2.0.0-next.5(svelte@5.0.0-next.90)(tailwind-merge@2.2.2)(tailwindcss@3.4.3)
   postcss:
     specifier: ^8.4.38
     version: 8.4.38
@@ -88,6 +88,9 @@ devDependencies:
   svelte-lib-helpers:
     specifier: ^0.4.5
     version: 0.4.5
+  svelte-rune-highlight:
+    specifier: ^0.5.0
+    version: 0.5.0(svelte@5.0.0-next.90)
   tailwindcss:
     specifier: ^3.4.3
     version: 3.4.3
@@ -2314,8 +2317,8 @@ packages:
     resolution: {integrity: sha512-X8cqMLLie7KsNUDSdzeN8FYK9rEt4Dt67OsG/DNGnYTSDBG4uFAJFBnUeiV+zCVAvwFy56IjM9sH51jVaEhNxw==}
     dev: true
 
-  /flowbite-svelte-icons@2.0.0-next.2(svelte@5.0.0-next.90)(tailwind-merge@2.2.2)(tailwindcss@3.4.3):
-    resolution: {integrity: sha512-IUZKrT/Z9erDIGoMILp1W285/n/n2lpWkIYPs86zyxoxInfw+86oGrocHu5W0uuiMY/vLqXeLXGnENbn44YowA==}
+  /flowbite-svelte-icons@2.0.0-next.5(svelte@5.0.0-next.90)(tailwind-merge@2.2.2)(tailwindcss@3.4.3):
+    resolution: {integrity: sha512-5B2O4M4/qsBn9nLx9u0P2IskrkhtEkTEBTJrz1ddwkg2FWp0mvfXck8FCtTGHWYKWlQEhhMPxlsKsLwk3jylIQ==}
     peerDependencies:
       svelte: ^5.0.0
       tailwind-merge: ^2.0.0
@@ -2586,7 +2589,6 @@ packages:
   /highlight.js@11.9.0:
     resolution: {integrity: sha512-fJ7cW7fQGCYAkgv4CPfwFHrfd/cLS4Hau96JuJ+ZTOWhjnhoeN1ub1tFmALm/+lW5z4WCAuAV9bm05AP0mS6Gw==}
     engines: {node: '>=12.0.0'}
-    dev: false
 
   /hosted-git-info@2.8.9:
     resolution: {integrity: sha512-mxIDAb9Lsm6DoOJ7xH+5+X4y1LU/4Hi50L9C5sIswK3JzULS4bwk1FvjdBgvYR4bzT4tuUQiC15FE2f5HbLvYw==}
@@ -4351,6 +4353,16 @@ packages:
       strip-indent: 3.0.0
       svelte: 5.0.0-next.90
       typescript: 5.4.3
+    dev: true
+
+  /svelte-rune-highlight@0.5.0(svelte@5.0.0-next.90):
+    resolution: {integrity: sha512-ACID//UL2N/se+OJ+o6QDSxcqqlOnaQ/71rmaQbRyhob7EjY0qK1zBR1uo8sOFrhD3UBD6E5ORizwzmKt91Ukw==}
+    engines: {node: '>=18.0.0', npm: '>=7.0.0'}
+    peerDependencies:
+      svelte: ^5.0.0-next.65
+    dependencies:
+      highlight.js: 11.9.0
+      svelte: 5.0.0-next.90
     dev: true
 
   /svelte2tsx@0.7.5(svelte@5.0.0-next.90)(typescript@5.4.3):

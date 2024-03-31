@@ -15,7 +15,8 @@ export default defineConfig({
     __SVELTEVERSION__: `"${sveltePackage.version}"`,
     __SVELTEKITVERSION__: `"${svelteKitPackage.version}"`,
     __VITEVERSION__: `"${vitePackage.version}"`,
-    __HIGHLIGHTJSVERSION__: `"${highlightjsPackage.version}"`
+    __HIGHLIGHTJSVERSION__: `"${highlightjsPackage.version}"`,
+    
   },
   test: {
     include: ['src/**/*.{test,spec}.{js,ts}']
