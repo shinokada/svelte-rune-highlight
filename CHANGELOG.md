@@ -1,5 +1,11 @@
 # svelte-rune-highlight
 
+## 0.5.2
+
+### Patch Changes
+
+- fix: remove CodeBlockSwitcher
+
 ## 0.5.1
 
 ### Patch Changes
