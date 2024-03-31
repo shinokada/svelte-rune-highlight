@@ -1,5 +1,11 @@
 # svelte-rune-highlight
 
+## 0.5.1
+
+### Patch Changes
+
+- fix: CodeBlockSwitcher import names using json file
+
 ## 0.5.0
 
 ### Minor Changes
