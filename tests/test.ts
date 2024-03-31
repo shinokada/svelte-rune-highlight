@@ -34,3 +34,11 @@ test('line-numbers page has expected h1', async ({ page }) => {
     page.getByRole('heading', { name: 'Line Numbers' })
   ).toBeVisible();
 });
+
+
+test('code-block-switcher page has expected h1', async ({ page }) => {
+  await page.goto('/code-block-switcher');
+  await expect(
+    page.getByRole('heading', { name: 'Code Block Swicher' })
+  ).toBeVisible();
+});
