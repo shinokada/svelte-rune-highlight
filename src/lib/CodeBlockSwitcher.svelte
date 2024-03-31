@@ -1,10 +1,15 @@
 <script lang="ts">
+  import { browser } from '$app/environment';
   interface Props {
     class?: string;
   }
   let { class: className }: Props = $props();
   const stylesImport = import.meta.glob('./styles/*.css');
-  let selected = $state('gigavolt');
+  // @ts-ignore
+  let selected: string = $state(
+    browser && (localStorage.getItem('CODE_BLOCK_STYLE') ?? 'gigavolt')
+  );
+
   const styles = Object.entries(stylesImport).map(([path, importFn]) => ({
     value: path.slice(path.lastIndexOf('/') + 1, -4),
     name: path.slice(path.lastIndexOf('/') + 1, -4)
@@ -19,7 +24,10 @@
       link.href = css.default;
       document.head.append(link);
     })();
-
+    if (browser) {
+      // get selected style from localStorage
+      localStorage.setItem('CODE_BLOCK_STYLE', selected);
+    }
     return () => {
       // clean up
       link.remove();
@@ -27,10 +35,7 @@
   });
 </script>
 
-<select
-  class="{className}"
-  bind:value={selected}
->
+<select class={className} bind:value={selected}>
   {#each styles as theme}
     <option value={theme.value}>{theme.value}</option>
   {/each}

@@ -8,7 +8,7 @@
     uiHelpers,
     Darkmode
   } from 'svelte-5-ui-lib';
-  import {ThemeSelector} from '$lib';
+  import { CodeBlockSwitcher } from '$lib';
   import GitHub from './GitHub.svelte';
   let nav = uiHelpers();
 
@@ -17,32 +17,12 @@
   let closeNav = nav.close;
   let divClass = 'ml-auto w-full';
   let ulclass =
-    'flex flex-col py-3 lg:flex-row lg:my-0 order-1 font-medium dark:lg:bg-transparent lg:bg-white lg:border-0 lg:space-x-4';
+    'flex flex-col py-3 lg:flex-row lg:my-0 order-1 font-medium dark:lg:bg-transparent lg:bg-white lg:border-0 lg:space-x-2 xl:space-x-4';
   let navclass =
     'w-full divide-gray-200 border-gray-200 bg-white text-gray-500 dark:divide-gray-700 dark:border-gray-700 dark:transparent dark:text-gray-400 sm:px-4';
 
-  // const stylesImport = import.meta.glob('$lib/styles/*.css');
-  // let selected = $state('gigavolt');
-  // const styles = Object.entries(stylesImport).map(([path, importFn]) => ({
-  //   value: path.slice(path.lastIndexOf('/') + 1, -4),
-  //   name: path.slice(path.lastIndexOf('/') + 1, -4)
-  // }));
   $effect(() => {
     navStatus = nav.isOpen;
-    // let link: HTMLLinkElement;
-    // (async () => {
-    //   const css = await import(`../../lib/styles/${selected}.css?url`);
-    //   link = document.createElement('link');
-
-    //   link.rel = 'stylesheet';
-    //   link.href = css.default;
-    //   document.head.append(link);
-    // })();
-
-    // return () => {
-    //   // clean up
-    //   link.remove();
-    // };
   });
 </script>
 
@@ -70,7 +50,7 @@
         <Darkmode
           btnclass="inline-block dark:hover:text-white hover:text-gray-900"
         />
-        <ThemeSelector class="w-32 border border-gray-200 p-1 text-gray-800 dark:text-gray-800 md:w-36"/>
+        <CodeBlockSwitcher class="w-32 border border-gray-200 p-1 text-gray-800 dark:text-gray-800 md:w-36"/>
       </div>
     {/snippet}
     <NavUl {ulclass}>
@@ -79,6 +59,7 @@
       <NavLi href="/auto">Auto</NavLi>
       <NavLi href="/svelte">Svelte</NavLi>
       <NavLi href="/line-numbers">Line Numbers</NavLi>
+      <NavLi href="/code-block-switcher">Switcher</NavLi>
       <NavLi href="/wrapper">Wrapper</NavLi>
     </NavUl>
   </Navbar>

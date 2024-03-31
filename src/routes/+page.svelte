@@ -71,6 +71,10 @@
     <CheckOutline class="h-5 w-5 text-green-500 dark:text-green-400" />
     <A href="/svelte">HighlightSvelte</A>
   </Li>
+  <Li icon liclass="gap-3">
+    <CheckOutline class="h-5 w-5 text-green-500 dark:text-green-400" />
+    <A href="/code-block-switcher">CodeBlockSwitcher</A>
+  </Li>
 </List>
 
 <h2>Credit</h2>
