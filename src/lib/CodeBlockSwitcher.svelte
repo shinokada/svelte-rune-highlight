@@ -1,12 +1,14 @@
 <script lang="ts">
   // users need to put styles dir where this component is used
+  // stylesDir need to be relative to this component
   import { browser } from '$app/environment';
 
   interface Props {
     stylesImport: any;
+    stylesDir?: string;
     class?: string;
   }
-  let { stylesImport, class: className }: Props = $props();
+  let { stylesImport, stylesDir = 'styles', class: className }: Props = $props();
  
   // @ts-ignore
   let selected: string = $state(
@@ -21,7 +23,7 @@
   $effect(() => {
     let link: HTMLLinkElement;
     (async () => {
-      const css = await import(`./styles/${selected}.css?url`);
+      const css = await import(`./${stylesDir}/${selected}.css?url`);
       link = document.createElement('link');
 
       link.rel = 'stylesheet';
