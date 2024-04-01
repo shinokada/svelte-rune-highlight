@@ -1,5 +1,11 @@
 # svelte-rune-highlight
 
+## 0.5.3
+
+### Patch Changes
+
+- fix: CodeBlockSwitcher requires stylesImport and users need to have styles dir where this component is used. ([`19e25651a94fafe3cce4f1ceebf2b5bffa07c626`](https://github.com/shinokada/svelte-rune-highlight/commit/19e25651a94fafe3cce4f1ceebf2b5bffa07c626))
+
 ## 0.5.2
 
 ### Patch Changes
