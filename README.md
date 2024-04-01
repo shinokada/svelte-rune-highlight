@@ -31,7 +31,7 @@ export default config;
 Install `svelte-rune-highlight`:
 
 ```
-pnpm i -D svelte-rune-highlight
+pnpm i -D svelte-rune-highlight highlight.js
 ```
 
 ## Docs
