@@ -1,5 +1,11 @@
 # svelte-rune-highlight
 
+## 0.5.4
+
+### Patch Changes
+
+- feat: add stylesDir, optional props to CodeBlockSwitcher ([`96ff944d5a743c977d8056404a81713d1369d080`](https://github.com/shinokada/svelte-rune-highlight/commit/96ff944d5a743c977d8056404a81713d1369d080))
+
 ## 0.5.3
 
 ### Patch Changes

@@ -52,5 +52,6 @@
 [Go to docs](https://svelte-rune-highlight.codewithshin.com/)
 ## Props
 @props: stylesImport: any;
+@props:stylesDir?: string;
 @props:class?: string;
 -->
