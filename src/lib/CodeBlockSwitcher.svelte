@@ -1,15 +1,13 @@
 <script lang="ts">
+  // users need to put styles dir where this component is used
   import { browser } from '$app/environment';
 
   interface Props {
-    stylesImport?: any;
+    stylesImport: any;
     class?: string;
   }
   let { stylesImport, class: className }: Props = $props();
-  // const stylesImport = import.meta.glob('./styles/*.css');
-  // import * as stylesImport from './cssNames.json'
-  // import * as allStyles from './styles'
-  // console.log('allStyles', allStyles)
+ 
   // @ts-ignore
   let selected: string = $state(
     browser && (localStorage.getItem('CODE_BLOCK_STYLE') ?? 'gigavolt')
