@@ -51,7 +51,7 @@
         <Darkmode
           btnclass="inline-block dark:hover:text-white hover:text-gray-900"
         />
-        <CodeBlockSwitcher {stylesImport} class="w-32 border border-gray-200 p-1 text-gray-800 dark:text-gray-800 md:w-36"/>
+        <CodeBlockSwitcher class="w-32 border border-gray-200 p-1 text-gray-800 dark:text-gray-800 md:w-36"/>
       </div>
     {/snippet}
     <NavUl {ulclass}>

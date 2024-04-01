@@ -1,4 +1,4 @@
-import './styles/index.js';
+export * from './styles'
 
 export { default as Highlight } from './Highlight.svelte';
 export { default as HighlightAuto } from './HighlightAuto.svelte';
