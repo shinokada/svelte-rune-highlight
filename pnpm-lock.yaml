@@ -89,8 +89,8 @@ devDependencies:
     specifier: ^0.4.5
     version: 0.4.5
   svelte-rune-highlight:
-    specifier: ^0.5.4
-    version: 0.5.4(svelte@5.0.0-next.90)
+    specifier: ^0.5.5
+    version: 0.5.5(svelte@5.0.0-next.90)
   tailwindcss:
     specifier: ^3.4.3
     version: 3.4.3
@@ -4355,8 +4355,8 @@ packages:
       typescript: 5.4.3
     dev: true
 
-  /svelte-rune-highlight@0.5.4(svelte@5.0.0-next.90):
-    resolution: {integrity: sha512-G/KcQJNHCLGc7qF32LjZ4Tuy/1bZ5FhmDqCeuqwfMnSWYpVE2xnMbyxfi1WimYfop/GXsJFB502rOOW9dT+5dQ==}
+  /svelte-rune-highlight@0.5.5(svelte@5.0.0-next.90):
+    resolution: {integrity: sha512-xvUeFTJFu8rkq9DhEYh0VNbPWnBwpphD7v/PctuYieKvMQL17XPbCAXAsB3ClCYOXrSjpqEqwmJ6jWdmtkCveg==}
     engines: {node: '>=18.0.0', npm: '>=7.0.0'}
     peerDependencies:
       svelte: ^5.0.0-next.65
