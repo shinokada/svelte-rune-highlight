@@ -8,7 +8,7 @@
     uiHelpers,
     Darkmode
   } from 'svelte-5-ui-lib';
-  import { CodeBlockSwitcher } from '$lib';
+  import  CodeBlockSwitcher  from './CodeBlockSwitcher.svelte';
   import GitHub from './GitHub.svelte';
   const stylesImport = import.meta.glob('$lib/styles/*.css');
   let nav = uiHelpers();
@@ -51,7 +51,7 @@
         <Darkmode
           btnclass="inline-block dark:hover:text-white hover:text-gray-900"
         />
-        <CodeBlockSwitcher {stylesImport} class="w-32 border border-gray-200 p-1 text-gray-800 dark:text-gray-800 md:w-36"/>
+        <CodeBlockSwitcher {stylesImport} class="w-32 border border-gray-200 ml-4 p-1 text-gray-800 dark:text-gray-800 md:w-36"/>
       </div>
     {/snippet}
     <NavUl {ulclass}>
@@ -60,7 +60,7 @@
       <NavLi href="/auto">Auto</NavLi>
       <NavLi href="/svelte">Svelte</NavLi>
       <NavLi href="/line-numbers">Line Numbers</NavLi>
-      <NavLi href="/wrapper">Wrapper</NavLi>
+      <NavLi href="/extend">Extend</NavLi>
     </NavUl>
   </Navbar>
 </header>

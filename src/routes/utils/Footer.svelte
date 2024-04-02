@@ -15,7 +15,7 @@
       <FooterLi href="/auto">Auto</FooterLi>
       <FooterLi href="/svelte">Svelte</FooterLi>
       <FooterLi href="/line-numbers">Line Numbers</FooterLi>
-      <FooterLi href="/wrapper">Wrapper</FooterLi>
+      <FooterLi href="/extend">Extend</FooterLi>
     </FooterUl>
   </div>
 </Footer>
