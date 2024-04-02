@@ -1,5 +1,11 @@
 # svelte-rune-highlight
 
+## 0.5.5
+
+### Patch Changes
+
+- docs: Extend page for CodeBlockSwitcher and wrapper example. ([`c7f897cc305f1bac4967428f941dbbad5efe6b4e`](https://github.com/shinokada/svelte-rune-highlight/commit/c7f897cc305f1bac4967428f941dbbad5efe6b4e))
+
 ## 0.5.4
 
 ### Patch Changes
