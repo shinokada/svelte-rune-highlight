@@ -1,5 +1,13 @@
 # svelte-rune-highlight
 
+## 0.5.6
+
+### Patch Changes
+
+- fix: remove un-used highlight.js from HighlightAuto ([`24184264448e14c789e80b083a906830870496ef`](https://github.com/shinokada/svelte-rune-highlight/commit/24184264448e14c789e80b083a906830870496ef))
+
+  chore: dependencies updates
+
 ## 0.5.5
 
 ### Patch Changes
