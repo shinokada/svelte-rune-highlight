@@ -6,7 +6,7 @@
   }
   let { code = '', langtag = false, ...restProps }: Props = $props();
 
-  import hljs from 'highlight.js';
+  // import hljs from 'highlight.js';
   import { createEventDispatcher } from 'svelte';
 
   /**
