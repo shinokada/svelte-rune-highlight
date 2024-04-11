@@ -4,7 +4,6 @@
   import xml from 'highlight.js/lib/languages/xml';
   import javascript from 'highlight.js/lib/languages/javascript';
   import css from 'highlight.js/lib/languages/css';
-  // import { createEventDispatcher } from 'svelte';
 
   interface Props {
     code?: string;
@@ -14,17 +13,11 @@
 
   let { code = '', langtag = false, preClass, ...restProps }: Props = $props();
 
-  // const dispatch = createEventDispatcher();
-
   hljs.registerLanguage('xml', xml);
   hljs.registerLanguage('javascript', javascript);
   hljs.registerLanguage('css', css);
 
   let highlighted = $state(hljs.highlightAuto(code).value);
-
-  // $effect(() => {
-  //   if (highlighted) dispatch('highlight', { highlighted });
-  // });
 </script>
 
 <LangTag

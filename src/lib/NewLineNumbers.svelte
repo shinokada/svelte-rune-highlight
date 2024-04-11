@@ -5,7 +5,6 @@
   import xml from 'highlight.js/lib/languages/xml';
   import javascript from 'highlight.js/lib/languages/javascript';
   import css from 'highlight.js/lib/languages/css';
-  // import { createEventDispatcher } from 'svelte';
 
   interface Props {
     numberLine?: boolean;
@@ -32,24 +31,16 @@
     ...restProps
   }: Props = $props();
 
-  // const dispatch = createEventDispatcher();
-
   hljs.registerLanguage('xml', xml);
   hljs.registerLanguage('javascript', javascript);
   hljs.registerLanguage('css', css);
 
   let highlighted = $state(hljs.highlightAuto(code).value);
 
-  // $effect(() => {
-  //   if (highlighted) dispatch('highlight', { highlighted });
-  // });
   const DIGIT_WIDTH = 12;
   const MIN_DIGITS = 2;
   const HIGHLIGHTED_BACKGROUND = 'rgba(254, 241, 96, 0.2)';
 
-  // hljs.registerLanguage(language.name, language.register);
-
-  // let highlighted: string = $state(hljs.highlight(code, { language: language.name }).value);
   let lines = $state(<string[]>highlighted.split('\n'));
   let len_digits = lines.length.toString().length;
   let len = len_digits - MIN_DIGITS < 1 ? MIN_DIGITS : len_digits;
