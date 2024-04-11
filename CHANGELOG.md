@@ -1,5 +1,11 @@
 # svelte-rune-highlight
 
+## 0.5.7
+
+### Patch Changes
+
+- fix: svelte next.100 installed ([`19aa11be49811bc35e380d00c934e66e25ab3d15`](https://github.com/shinokada/svelte-rune-highlight/commit/19aa11be49811bc35e380d00c934e66e25ab3d15))
+
 ## 0.5.6
 
 ### Patch Changes
