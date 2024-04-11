@@ -1,5 +1,11 @@
 # svelte-rune-highlight
 
+## 0.5.8
+
+### Patch Changes
+
+- fix: remove deprecated createEventDispatcher ([`6b3ed13ef61d15f91e25b8e8b24bd2a877aa618d`](https://github.com/shinokada/svelte-rune-highlight/commit/6b3ed13ef61d15f91e25b8e8b24bd2a877aa618d))
+
 ## 0.5.7
 
 ### Patch Changes
