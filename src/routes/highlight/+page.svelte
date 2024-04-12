@@ -16,12 +16,12 @@
 
 <h1>Highlight Component</h1>
 
+<h2>Basic</h2>
 <p>
   The Highlight component requires language and code props. The langtag prop is
   optional and it will add a language tag.
 </p>
 
-<h2>Basic</h2>
 <HighlightCompo code={modules['./samples/highlight/basic.md'] as string} />
 The above code will produce:
 <Highlight
@@ -31,12 +31,11 @@ The above code will produce:
 
 <h2>Language Tag</h2>
 
+<h3>Markdown</h3>
 <p>
   Set langtag and language props to display the language name in the top right
   corner of the code block.
 </p>
-
-<h3>Markdown</h3>
 <HighlightCompo code={modules['./samples/highlight/markdown.md'] as string} />
 
 <p>Here's what you'll see when you run this code:</p>
@@ -49,6 +48,8 @@ The above code will produce:
 />
 
 <h3>YAML</h3>
+
+<p>Yaml example: </p>
 <HighlightCompo code={modules['./samples/highlight/yaml.md'] as string} />
 
 <p>This code generates the following output:</p>
@@ -61,6 +62,7 @@ The above code will produce:
 />
 
 <h3>JSON</h3>
+<p>JSON example: </p>
 <HighlightCompo code={modules['./samples/highlight/json.md'] as string} />
 
 <p>The code produces this output:</p>
@@ -73,7 +75,7 @@ The above code will produce:
 />
 
 <h2>Props</h2>
-
+<p>Props example: </p>
 <HighlightCompo code={modules['./samples/props.md'] as string} />
 
 <h2>Language tag style</h2>

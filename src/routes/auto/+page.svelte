@@ -56,10 +56,12 @@ All the code has the same structure.
 <HighlightAuto code={modules['./samples/python.md'] as string} />
 
 <h3>Rust</h3>
+
 <HighlightAuto code={modules['./samples/rust.md'] as string} />
 
 <h2>Props</h2>
-<HighlightCompo code={modules['./samples/props.md'] as string} />
+
+<HighlightAuto code={modules['./samples/props.md'] as string} />
 
 <h2>Language Tag: Caution - This may not be accurate.</h2>
 

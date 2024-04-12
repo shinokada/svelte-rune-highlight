@@ -14,6 +14,7 @@
 
 <h1>HighlightSvelte Component</h1>
 
+<h2>Example 1</h2>
 <p>
   Use the HighlightSvelte component to highlight your Svelte code. The
   HighlightSvelte component requires code props. <code>langtag</code>
@@ -21,8 +22,6 @@
   <code>--langtag-color</code>
   are optional.
 </p>
-
-<h2>Example 1</h2>
 <HighlightCompo code={modules['./samples/highlight/example-1.md'] as string} />
 <p>Here's the resulting output from the code:</p>
 <HighlightSvelte
@@ -32,6 +31,7 @@
 />
 
 <h2>Example 2</h2>
+<p>Using different <code>--langtag-color</code>.</p>
 <HighlightCompo code={modules['./samples/highlight/example-2.md'] as string} />
 <p>The code creates this output:</p>
 <HighlightSvelte
@@ -41,7 +41,7 @@
 />
 
 <h2>Props</h2>
-
+<p>HighlightSvelte component has the following props:</p>
 <HighlightCompo code={modules['./samples/props.md'] as string} />
 
 <h2>Language tag style</h2>
