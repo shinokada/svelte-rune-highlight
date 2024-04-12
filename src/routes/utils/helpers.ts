@@ -12,3 +12,32 @@ export function removeHyphensAndCapitalize(str: string) {
   // Remove hyphens and ensure spaces after words
   return capitalized.replace(/-|\s{2,}/g, ' ');
 }
+
+export function clickToCopy(node: HTMLElement, target: string) {
+	async function copyText() {
+		try {
+			await navigator.clipboard.writeText(target);
+			
+			node.dispatchEvent(
+        new CustomEvent('copysuccess', {
+					bubbles: true
+				})
+      );
+		} catch(error) {
+			node.dispatchEvent(
+        new CustomEvent('copyerror', {
+					bubbles: true,
+					detail: error
+				})
+      );
+		}
+	}
+	
+	node.addEventListener('click', copyText);
+	
+	return {
+		destroy() {
+			node.removeEventListener('click', copyText);
+		}
+	}
+}
