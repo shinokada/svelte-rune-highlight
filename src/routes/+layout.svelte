@@ -1,11 +1,23 @@
 <script lang="ts">
   import '../app.pcss';
   import { Runatics } from 'runatics';
+  import { RunesMetaTags, deepMerge } from 'runes-meta-tags';
+  import { page } from '$app/stores';
   import Nav from './utils/Nav.svelte';
   import Footer from './utils/Footer.svelte';
   let { children, data } = $props();
   const analyticsId = data.ANALYTICS_ID
+  // meta tags
+  let metaTags = $state(
+    $page.data.pageMetaTags
+      ? deepMerge($page.data.layoutMetaTags, $page.data.pageMetaTags)
+      : data.layoutMetaTags
+  );
+  $effect(() => {
+    metaTags = $page.data.pageMetaTags ? deepMerge($page.data.layoutMetaTags, $page.data.pageMetaTags ) : data.layoutMetaTags
+  });
 </script>
+<RunesMetaTags {...metaTags}/>
 <Runatics {analyticsId} />
 
 <Nav />
