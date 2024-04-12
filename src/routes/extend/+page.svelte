@@ -15,19 +15,6 @@
 
 <h1>Extend</h1>
 
-<h2>Code Block Switcher</h2>
-
-
-<p>Use the <code>CodeBlockSwitcher</code> example to switch between code block styles.
-  Add <code>styles</code> directory where you use this component.
-  </p>
-  
-  <HighlightCompo code={modules['./md/block-switch.md'] as string} />
-  
-  <h2>Usage</h2>
-  
-  <HighlightCompo code={modules['./md/switch-usage.md'] as string} />
-
 <h2>Wrapper example</h2>
 
 <p>

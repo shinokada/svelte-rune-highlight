@@ -66,8 +66,10 @@
     "prettier-plugin-svelte": "^3.2.2",
     "prettier-plugin-tailwindcss": "^0.5.13",
     "publint": "^0.2.7",
+    "runatics": "^0.1.2",
+    "runes-meta-tags": "^0.2.3",
     "svelte": "5.0.0-next.100",
-    "svelte-5-ui-lib": "^0.4.7",
+    "svelte-5-ui-lib": "^0.4.8",
     "svelte-check": "^3.6.9",
     "svelte-lib-helpers": "^0.4.5",
     "svelte-rune-highlight": "^0.5.8",
@@ -75,7 +77,7 @@
     "tslib": "^2.6.2",
     "typescript": "^5.4.5",
     "vite": "^5.2.8",
-    "vitest": "^1.4.0"
+    "vitest": "^1.5.0"
   },
   "svelte": "./dist/index.js",
   "types": "./dist/index.d.ts",

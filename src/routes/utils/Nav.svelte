@@ -8,7 +8,7 @@
     uiHelpers,
     Darkmode
   } from 'svelte-5-ui-lib';
-  import  CodeBlockSwitcher  from './CodeBlockSwitcher.svelte';
+  import DynamicCodeBlockStyle from './DynamicCodeBlockStyle.svelte';
   import GitHub from './GitHub.svelte';
   const stylesImport = import.meta.glob('$lib/styles/*.css');
   let nav = uiHelpers();
@@ -51,7 +51,7 @@
         <Darkmode
           btnclass="inline-block dark:hover:text-white hover:text-gray-900"
         />
-        <CodeBlockSwitcher {stylesImport} class="w-32 border border-gray-200 ml-4 p-1 text-gray-800 dark:text-gray-800 md:w-36"/>
+        <DynamicCodeBlockStyle />
       </div>
     {/snippet}
     <NavUl {ulclass}>

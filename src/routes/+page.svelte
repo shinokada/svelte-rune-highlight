@@ -73,7 +73,7 @@
   </Li>
   <Li icon liclass="gap-3">
     <CheckOutline class="h-5 w-5 text-green-500 dark:text-green-400" />
-    <A href="/code-block-switcher">CodeBlockSwitcher</A>
+    <A href="/code-block-switcher">Line numbers</A>
   </Li>
 </List>
 
