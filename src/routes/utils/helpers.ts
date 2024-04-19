@@ -41,3 +41,14 @@ export function clickToCopy(node: HTMLElement, target: string) {
 		}
 	}
 }
+
+export function splitAndCapitalize(text: string) {
+  // Split the string using '/' as the delimiter
+  const parts = text.split('/');
+
+  // If there are no parts, return an empty string
+  if (!parts.length) return "";
+
+  // Get the last element of the array and capitalize it
+  return parts[parts.length - 1].charAt(0).toUpperCase() + parts[parts.length - 1].slice(1);
+}

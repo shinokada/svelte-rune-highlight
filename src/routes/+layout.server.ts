@@ -1,34 +1,39 @@
 import { ANALYTICS_ID } from '$env/static/private';
-import type { MetaProps } from 'runes-meta-tags'
+import type { MetaProps } from 'runes-meta-tags';
+import { splitAndCapitalize, removeHyphensAndCapitalize } from './utils/helpers';
 
 export const load = ({ url }) => {
+  const title = splitAndCapitalize(url.pathname) ? `${splitAndCapitalize(url.pathname)} - ${removeHyphensAndCapitalize(__NAME__)}` : `${removeHyphensAndCapitalize(__NAME__)}`;
+  const description = splitAndCapitalize(url.pathname) ? `${splitAndCapitalize(url.pathname)} component for Svelte 5 Runes.` : 'Syntax highlighting for Svelte 5 Runes using highlight.js';
+  const image = splitAndCapitalize(url.pathname) ? `https://open-graph-vercel.vercel.app/api/svelte-rune-highlight?title=${splitAndCapitalize(url.pathname)}` : 'https://open-graph-vercel.vercel.app/api/svelte-rune-highlight';
+  // console.log('url: ', splitAndCapitalize(url.pathname));
   const layoutMetaTags: MetaProps = {
-    title: 'Svelte Rune Highlight',
-    description: 'Syntax highlighting for Svelte 5 Runes using highlight.js.',
-    keywords: 'runes, Syntax, highlighting, svelte, sveltekit',
+    title,
+    description,
+    keywords: 'svelte, runes, syntax, highlightjs, library',
     twitter: {
       card: 'summary_large_image',
       site: '@shinokada',
       handle: '@shinokada',
-      title: 'Svelte Rune Highlight',
-      description: 'Syntax highlighting for Svelte 5 Runes using highlight.js.',
-      image: 'https://open-graph-vercel.vercel.app/api/svelte-rune-highlight',
-      imageAlt: 'Svelte Rune Highlight'
+      title,
+      description,
+      image,
+      imageAlt: title,
     },
     og: {
       type: 'website',
-      title: 'Svelte Rune Highlight',
-      description: 'Syntax highlighting for Svelte 5 Runes using highlight.js.',
+      title,
+      description,
       url: url.href,
-      image: 'https://open-graph-vercel.vercel.app/api/svelte-rune-highlight',
-      imageAlt: 'Svelte Rune Highlight',
+      image,
+      imageAlt: title,
       siteName: 'Svelte Rune Highlight',
       imageWidth: '1200',
       imageHeight: '630'
     }
   };
   return {
-    layoutMetaTags,
-    ANALYTICS_ID
+		layoutMetaTags,
+		ANALYTICS_ID
   };
 };

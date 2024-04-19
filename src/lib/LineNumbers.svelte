@@ -65,7 +65,7 @@
                 <div
                   class:line-background={true}
                   style:background="var(--highlighted-background, {HIGHLIGHTED_BACKGROUND})"
-                />
+                ></div>
               {/if}
             </td>
             <td>
@@ -74,7 +74,7 @@
                 <div
                   class:line-background={true}
                   style:background="var(--highlighted-background, {HIGHLIGHTED_BACKGROUND})"
-                />
+                  ></div>
               {/if}
             </td>
           </tr>

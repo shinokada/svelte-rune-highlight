@@ -2,7 +2,7 @@
   import { List, Li, A, Banner } from 'svelte-5-ui-lib';
   import HighlightCompo from './utils/HighlightCompo.svelte';
   import { CheckOutline } from 'flowbite-svelte-icons';
-  import { clickToCopy } from './utils/helpers';
+  // import { clickToCopy } from './utils/helpers';
   const modules = import.meta.glob('./md/*.md', {
     query: '?raw',
     import: 'default',
