@@ -15,8 +15,8 @@
     "url": "https://github.com/shinokada/svelte-rune-highlight"
   },
   "engines": {
-    "npm": ">=7.0.0",
-    "node": ">=18.0.0"
+    "npm": ">=8.0.0",
+    "node": ">=20.0.0"
   },
   "scripts": {
     "dev": "vite dev",
@@ -41,7 +41,7 @@
     "!dist/**/*.spec.*"
   ],
   "peerDependencies": {
-    "svelte": "^5.0.0-next.65"
+    "svelte": "^5.0.0"
   },
   "devDependencies": {
     "@biomejs/biome": "1.5.3",
@@ -52,13 +52,13 @@
     "@sveltejs/package": "^2.3.1",
     "@sveltejs/vite-plugin-svelte": "^3.1.0",
     "@svitejs/changesets-changelog-github-compact": "^1.1.0",
-    "@types/eslint": "8.56.0",
+    "@types/eslint": "8.56.10",
     "@typescript-eslint/eslint-plugin": "^7.7.0",
     "@typescript-eslint/parser": "^7.7.0",
     "autoprefixer": "^10.4.19",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-svelte": "2.36.0",
+    "eslint-plugin-svelte": "2.37.0",
     "flowbite-svelte-icons": "2.0.0-next.5",
     "postcss": "^8.4.38",
     "postcss-load-config": "^5.0.3",

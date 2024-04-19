@@ -35,8 +35,8 @@ devDependencies:
     specifier: ^1.1.0
     version: 1.1.0
   '@types/eslint':
-    specifier: 8.56.0
-    version: 8.56.0
+    specifier: 8.56.10
+    version: 8.56.10
   '@typescript-eslint/eslint-plugin':
     specifier: ^7.7.0
     version: 7.7.0(@typescript-eslint/parser@7.7.0)(eslint@8.57.0)(typescript@5.4.5)
@@ -53,11 +53,11 @@ devDependencies:
     specifier: ^9.1.0
     version: 9.1.0(eslint@8.57.0)
   eslint-plugin-svelte:
-    specifier: 2.36.0
-    version: 2.36.0(eslint@8.57.0)(svelte@5.0.0-next.108)
+    specifier: 2.37.0
+    version: 2.37.0(eslint@8.57.0)(svelte@5.0.0-next.108)
   flowbite-svelte-icons:
     specifier: 2.0.0-next.5
-    version: 2.0.0-next.5(svelte@5.0.0-next.108)(tailwind-merge@2.2.2)(tailwindcss@3.4.3)
+    version: 2.0.0-next.5(svelte@5.0.0-next.108)(tailwind-merge@2.3.0)(tailwindcss@3.4.3)
   postcss:
     specifier: ^8.4.38
     version: 8.4.38
@@ -95,8 +95,8 @@ devDependencies:
     specifier: ^0.4.5
     version: 0.4.5
   svelte-rune-highlight:
-    specifier: ^0.5.8
-    version: 0.5.8(svelte@5.0.0-next.108)
+    specifier: ^0.5.9
+    version: 0.5.9(svelte@5.0.0-next.108)
   tailwindcss:
     specifier: ^3.4.3
     version: 3.4.3
@@ -1068,8 +1068,8 @@ packages:
     resolution: {integrity: sha512-4Kh9a6B2bQciAhf7FSuMRRkUWecJgJu9nPnx3yzpsfXX/c50REIqpHY4C82bXP90qrLtXtkDxTZosYO3UpOwlA==}
     dev: true
 
-  /@types/eslint@8.56.0:
-    resolution: {integrity: sha512-FlsN0p4FhuYRjIxpbdXovvHQhtlG05O1GG/RNWvdAxTboR438IOTwmrY/vLA+Xfgg06BTkP045M3vpFwTMv1dg==}
+  /@types/eslint@8.56.10:
+    resolution: {integrity: sha512-Shavhk87gCtY2fhXDctcfS3e6FdxWkCx1iUZ9eEUbh7rTqlZT0/IzOkCOVt0fCjcFuZ9FPYfuezTBImfHCDBGQ==}
     dependencies:
       '@types/estree': 1.0.5
       '@types/json-schema': 7.0.15
@@ -2083,8 +2083,8 @@ packages:
       eslint: 8.57.0
     dev: true
 
-  /eslint-plugin-svelte@2.36.0(eslint@8.57.0)(svelte@5.0.0-next.108):
-    resolution: {integrity: sha512-D30hSj13Y8YEn7yGXos7EYp0lpEb3Z2V/M+6a3MZ13KGVhaefdW2A9j8IBIcW4YR+j6fo901USzLeXQz/XbWeQ==}
+  /eslint-plugin-svelte@2.37.0(eslint@8.57.0)(svelte@5.0.0-next.108):
+    resolution: {integrity: sha512-H/2Gz7agYHEMEEzRuLYuCmAIdjuBnbhFG9hOK0yCdSBvvJGJMkjo+lR6j67OIvLOavgp4L7zA5LnDKi8WqdPhQ==}
     engines: {node: ^14.17.0 || >=16.0.0}
     peerDependencies:
       eslint: ^7.0.0 || ^8.0.0-0 || ^9.0.0-0
@@ -2335,7 +2335,7 @@ packages:
     resolution: {integrity: sha512-X8cqMLLie7KsNUDSdzeN8FYK9rEt4Dt67OsG/DNGnYTSDBG4uFAJFBnUeiV+zCVAvwFy56IjM9sH51jVaEhNxw==}
     dev: true
 
-  /flowbite-svelte-icons@2.0.0-next.5(svelte@5.0.0-next.108)(tailwind-merge@2.2.2)(tailwindcss@3.4.3):
+  /flowbite-svelte-icons@2.0.0-next.5(svelte@5.0.0-next.108)(tailwind-merge@2.3.0)(tailwindcss@3.4.3):
     resolution: {integrity: sha512-5B2O4M4/qsBn9nLx9u0P2IskrkhtEkTEBTJrz1ddwkg2FWp0mvfXck8FCtTGHWYKWlQEhhMPxlsKsLwk3jylIQ==}
     peerDependencies:
       svelte: ^5.0.0
@@ -2343,7 +2343,7 @@ packages:
       tailwindcss: ^3.3.2
     dependencies:
       svelte: 5.0.0-next.108
-      tailwind-merge: 2.2.2
+      tailwind-merge: 2.3.0
       tailwindcss: 3.4.3
     dev: true
 
@@ -4265,7 +4265,7 @@ packages:
       '@sveltejs/kit': 2.5.6(@sveltejs/vite-plugin-svelte@3.1.0)(svelte@5.0.0-next.108)(vite@5.2.9)
       apexcharts: 3.48.0
       svelte: 5.0.0-next.108
-      tailwind-merge: 2.2.2
+      tailwind-merge: 2.3.0
       tailwindcss: 3.4.3
     dev: true
 
@@ -4378,8 +4378,8 @@ packages:
       typescript: 5.4.5
     dev: true
 
-  /svelte-rune-highlight@0.5.8(svelte@5.0.0-next.108):
-    resolution: {integrity: sha512-ZDEn0hIp3NSiymJQ5C75XuDMEbihUUmHve31MMTx/HJA8W2A4H+Y3u12uok9+NFi1kHB9mLYr5J+SqJGGsDXFA==}
+  /svelte-rune-highlight@0.5.9(svelte@5.0.0-next.108):
+    resolution: {integrity: sha512-TwriKXKe8/OW8QlYPwy0Qk2TtWc+0UOaI0ccIPoNeurqSurB+5U2Vp0jUcZuB+/4xNsfF8AS/YSDhZahWZDOFg==}
     engines: {node: '>=18.0.0', npm: '>=7.0.0'}
     peerDependencies:
       svelte: ^5.0.0-next.65
@@ -4473,8 +4473,8 @@ packages:
       svg.js: 2.7.1
     dev: true
 
-  /tailwind-merge@2.2.2:
-    resolution: {integrity: sha512-tWANXsnmJzgw6mQ07nE3aCDkCK4QdT3ThPMCzawoYA2Pws7vSTCvz3Vrjg61jVUGfFZPJzxEP+NimbcW+EdaDw==}
+  /tailwind-merge@2.3.0:
+    resolution: {integrity: sha512-vkYrLpIP+lgR0tQCG6AP7zZXCTLc1Lnv/CCRT3BqJ9CZ3ui2++GPaGb1x/ILsINIMSYqqvrpqjUFsMNLlW99EA==}
     dependencies:
       '@babel/runtime': 7.24.4
     dev: true
