@@ -1,5 +1,12 @@
 # svelte-rune-highlight
 
+## 0.5.9
+
+### Patch Changes
+
+- fix: use closing tag `</div>` ([`24548b69c37d4e99c44a05487ea2404725bd6396`](https://github.com/shinokada/svelte-rune-highlight/commit/24548b69c37d4e99c44a05487ea2404725bd6396))
+  tests: add home and highlight tests
+
 ## 0.5.8
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
   "name": "svelte-rune-highlight",
-  "version": "0.5.8",
+  "version": "0.5.9",
   "description": "A highlight library for Svelte 5 with Rune",
   "license": "MIT",
   "main": "dist/index.js",
@@ -72,7 +72,7 @@
     "svelte-5-ui-lib": "^0.4.10",
     "svelte-check": "^3.6.9",
     "svelte-lib-helpers": "^0.4.5",
-    "svelte-rune-highlight": "^0.5.8",
+    "svelte-rune-highlight": "^0.5.9",
     "tailwindcss": "^3.4.3",
     "tslib": "^2.6.2",
     "typescript": "^5.4.5",
