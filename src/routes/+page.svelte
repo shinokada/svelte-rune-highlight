@@ -13,9 +13,9 @@
   const name = __NAME__;
   const version = __VERSION__;
   const githuburl = __GITHUBURL__;
-  const svelteVersion = __SVELTEVERSION__;
-  const svelteKitVersion = __SVELTEKITVERSION__;
-  const viteVersion = __VITEVERSION__;
+  const svelteVersion = __SVELTE_VERSION__;
+  const svelteKitVersion = __SVELTEKIT_VERSION__;
+  const viteVersion = __VITE_VERSION__;
   const highlightjsVersion = __HIGHLIGHTJSVERSION__;
 </script>
 

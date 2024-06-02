@@ -5,18 +5,24 @@ import sveltePackage from './node_modules/svelte/package.json' assert { type: 'j
 import svelteKitPackage from './node_modules/@sveltejs/kit/package.json' assert { type: 'json' };
 import vitePackage from './node_modules/vite/package.json' assert { type: 'json' };
 import highlightjsPackage from './node_modules/highlight.js/package.json' assert { type: 'json' };
+import svelte5uilibPackage from 'svelte-5-ui-lib/package.json' assert { type: 'json' };
+import runesmetatagsPackage from 'runes-meta-tags/package.json' assert { type: 'json' };
+import runaticsPackage from './node_modules/runatics/package.json' assert { type: 'json' };
 
 export default defineConfig({
   plugins: [sveltekit()],
   define: {
-    __NAME__: `"${pkg.name}"`,
-    __VERSION__: `"${pkg.version}"`,
-    __GITHUBURL__: `"${pkg.repository.url}"`,
-    __SVELTEVERSION__: `"${sveltePackage.version}"`,
-    __SVELTEKITVERSION__: `"${svelteKitPackage.version}"`,
-    __VITEVERSION__: `"${vitePackage.version}"`,
-    __HIGHLIGHTJSVERSION__: `"${highlightjsPackage.version}"`,
-    
+    __NAME__: JSON.stringify(pkg.name),
+    __DESCRIPTION__: JSON.stringify(pkg.description),
+    __VERSION__: JSON.stringify(pkg.version),
+    __GITHUBURL__: JSON.stringify(pkg.repository.url),
+    __RUNATICS_VERSION__: JSON.stringify(runaticsPackage.version),
+    __RUNES_METATAGS_VERSION__: JSON.stringify(runesmetatagsPackage.version),
+    __SVELTE_VERSION__: JSON.stringify(sveltePackage.version),
+    __SVELTEKIT_VERSION__: JSON.stringify(svelteKitPackage.version),
+    __SVELTE_5_UI_LIB_VERSION__: JSON.stringify(svelte5uilibPackage.version),
+    __VITE_VERSION__: JSON.stringify(vitePackage.version),
+    __HIGHLIGHTJSVERSION__: JSON.stringify(highlightjsPackage.version),
   },
   test: {
     include: ['src/**/*.{test,spec}.{js,ts}']
