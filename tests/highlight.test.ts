@@ -20,7 +20,7 @@ test('highlight page has expected meta description', async ({ page }) => {
 
 test('highlight page has expected meta keywords', async ({ page }) => {
   const metaKeywords = page.locator('meta[name="keywords"]');
-  await expect(metaKeywords).toHaveAttribute('content', 'svelte, runes, syntax, highlightjs, library');
+  await expect(metaKeywords).toHaveAttribute('content', 'highlightjs, svelte, runes, syntax, library');
 });
 
 test('highlight page has expected meta og', async ({ page }) => {

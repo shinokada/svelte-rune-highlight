@@ -1,16 +1,15 @@
 import { ANALYTICS_ID } from '$env/static/private';
 import type { MetaProps } from 'runes-meta-tags';
-import { splitAndCapitalize, removeHyphensAndCapitalize } from './utils/helpers';
 
+const title = 'Svelte Rune Highlight';
+const description = 'Syntax highlighting for Svelte 5 Runes using highlight.js';
+const keywords = 'highlightjs, svelte, runes, syntax, library';
+const image = 'https://open-graph-vercel.vercel.app/api/svelte-rune-highlight';
 export const load = ({ url }) => {
-  const title = splitAndCapitalize(url.pathname) ? `${splitAndCapitalize(url.pathname)} - ${removeHyphensAndCapitalize(__NAME__)}` : `${removeHyphensAndCapitalize(__NAME__)}`;
-  const description = splitAndCapitalize(url.pathname) ? `${splitAndCapitalize(url.pathname)} component for Svelte 5 Runes.` : 'Syntax highlighting for Svelte 5 Runes using highlight.js';
-  const image = splitAndCapitalize(url.pathname) ? `https://open-graph-vercel.vercel.app/api/svelte-rune-highlight?title=${splitAndCapitalize(url.pathname)}` : 'https://open-graph-vercel.vercel.app/api/svelte-rune-highlight';
-  // console.log('url: ', splitAndCapitalize(url.pathname));
   const layoutMetaTags: MetaProps = {
     title,
     description,
-    keywords: 'svelte, runes, syntax, highlightjs, library',
+    keywords,
     twitter: {
       card: 'summary_large_image',
       site: '@shinokada',
@@ -27,7 +26,7 @@ export const load = ({ url }) => {
       url: url.href,
       image,
       imageAlt: title,
-      siteName: 'Svelte Rune Highlight',
+      siteName: title,
       imageWidth: '1200',
       imageHeight: '630'
     }

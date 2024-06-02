@@ -19,7 +19,7 @@
   const highlightjsVersion = __HIGHLIGHTJSVERSION__;
 </script>
 
-<Banner id="default-banner" dismissable={false} classDiv="p-2">
+<Banner id="default-banner" dismissable={false} divclass="p-2">
   <p
     class="flex items-center gap-4 text-lg font-normal text-gray-900 dark:text-gray-100"
   >

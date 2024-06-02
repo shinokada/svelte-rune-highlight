@@ -3,9 +3,9 @@
   const stylesImport = import.meta.glob('./highlight/styles/*.css');
   const localStorageName = __NAME__.replace(/[\s-]/g, '_').toUpperCase(); + '_CODE_BLOCK_STYLE';
   
-  // @ts-ignore
-  let selected: string = $state(
-    browser && (localStorage.getItem(localStorageName) ?? 'gigavolt')
+
+  let selected = $state(
+    browser && (localStorage.getItem(localStorageName) ?? 'material-darker')
   );
 
   const styles = Object.entries(stylesImport).map(([path, importFn]) => ({
@@ -23,7 +23,7 @@
       link.href = css.default;
       document.head.append(link);
     })();
-    if (browser) {
+    if (browser && selected) {
       // get selected style from localStorage
       localStorage.setItem(localStorageName, selected);
     }
@@ -43,9 +43,3 @@
   {/each}
 </select>
 
-<!--
-@component
-[Go to docs](https://runes-webkit.codewithshin.com/)
-## Props
-@props: 
--->

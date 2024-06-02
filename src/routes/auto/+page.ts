@@ -1,7 +1,7 @@
 import type { MetaProps } from 'runes-meta-tags'
 
 export const load = () => {
-  const pageMetaTags = Object.freeze({
+  const pageMetaTags: MetaProps = {
     title: 'HighlightAuto Component - Svelte Rune Highlight',
     description: 'Auto syntax highlight component for Svelte Runes.',
     og: {
@@ -12,6 +12,6 @@ export const load = () => {
       title: 'HighlightAuto Component - Svelte Rune Highlight',
       description: 'Auto syntax highlight component for Svelte Runes.',
     },
-  }) satisfies MetaProps;
+  };
   return { pageMetaTags };
 }

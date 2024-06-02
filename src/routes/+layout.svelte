@@ -17,8 +17,10 @@
     metaTags = $page.data.pageMetaTags ? deepMerge($page.data.layoutMetaTags, $page.data.pageMetaTags ) : data.layoutMetaTags
   });
 </script>
-<RunesMetaTags {...metaTags}/>
+
 <Runatics {analyticsId} />
+<RunesMetaTags {...metaTags}/>
+
 
 <Nav />
 <div
