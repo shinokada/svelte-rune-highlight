@@ -5,8 +5,8 @@ import sveltePackage from './node_modules/svelte/package.json' assert { type: 'j
 import svelteKitPackage from './node_modules/@sveltejs/kit/package.json' assert { type: 'json' };
 import vitePackage from './node_modules/vite/package.json' assert { type: 'json' };
 import highlightjsPackage from './node_modules/highlight.js/package.json' assert { type: 'json' };
-import svelte5uilibPackage from 'svelte-5-ui-lib/package.json' assert { type: 'json' };
-import runesmetatagsPackage from 'runes-meta-tags/package.json' assert { type: 'json' };
+import svelte5uilibPackage from './node_modules/svelte-5-ui-lib/package.json' assert { type: 'json' };
+import runesmetatagsPackage from './node_modules/runes-meta-tags/package.json' assert { type: 'json' };
 import runaticsPackage from './node_modules/runatics/package.json' assert { type: 'json' };
 
 export default defineConfig({
