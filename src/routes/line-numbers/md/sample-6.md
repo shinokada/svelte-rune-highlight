@@ -1,6 +1,6 @@
 <Highlight
   language={typescript}
-  code={modules['./samples/sample-6.svelte'] as string}
+  code={modules['./samples/sample-6.svelte']}
   highlightedLines={[1, 3]}
   --line-number-color="pink"
   --border-color="rgba(25, 155, 55, 1)"

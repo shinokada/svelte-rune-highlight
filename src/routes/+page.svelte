@@ -19,7 +19,7 @@
   const highlightjsVersion = __HIGHLIGHTJSVERSION__;
 </script>
 
-<Banner id="default-banner" dismissable={false} divclass="p-2">
+<Banner id="default-banner" dismissable={false} divClass="p-2">
   <p
     class="flex items-center gap-4 text-lg font-normal text-gray-900 dark:text-gray-100"
   >
@@ -60,19 +60,19 @@
 <h2>Components</h2>
 
 <List tag="ul" class="space-y-1 text-gray-500 dark:text-gray-400">
-  <Li icon liclass="gap-3">
+  <Li icon class="gap-3">
     <CheckOutline class="h-5 w-5 text-green-500 dark:text-green-400" />
     <A href="/highlight">Highlight</A>
   </Li>
-  <Li icon liclass="gap-3">
+  <Li icon class="gap-3">
     <CheckOutline class="h-5 w-5 text-green-500 dark:text-green-400" />
     <A href="/auto">HighlightAuto</A>
   </Li>
-  <Li icon liclass="gap-3">
+  <Li icon class="gap-3">
     <CheckOutline class="h-5 w-5 text-green-500 dark:text-green-400" />
     <A href="/svelte">HighlightSvelte</A>
   </Li>
-  <Li icon liclass="gap-3">
+  <Li icon class="gap-3">
     <CheckOutline class="h-5 w-5 text-green-500 dark:text-green-400" />
     <A href="/code-block-switcher">Line numbers</A>
   </Li>
