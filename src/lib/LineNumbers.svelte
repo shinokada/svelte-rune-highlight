@@ -183,12 +183,13 @@
 @component
 [Go to docs](https://svelte-rune-highlight.codewithshin.com/)
 ## Props
-@props: numbers?: boolean;
-@props:language?: any;
-@props:code?:  string; = '';
-@props:langtag?:  boolean; = false;
-@props:hideBorder?: boolean;
-@props:wrapLines?: boolean;
-@props:startingLineNumber?:  number; = 1;
-@props:highlightedLines?:  number[]; = [];
+@prop numbers
+@prop language
+@prop code = ''
+@prop langtag = false
+@prop hideBorder
+@prop wrapLines
+@prop startingLineNumber = 1
+@prop highlightedLines = []
+@prop ...restProps
 -->

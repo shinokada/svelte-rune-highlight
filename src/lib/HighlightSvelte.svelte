@@ -33,7 +33,8 @@
 @component
 [Go to docs](https://svelte-rune-highlight.codewithshin.com/)
 ## Props
-@props: code?:  string; = '', langtag;
-@props:langtag?: boolean;
-@props:preClass?: string;
+@prop code = ''
+@prop langtag = false
+@prop preClass
+@prop ...restProps
 -->

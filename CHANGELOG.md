@@ -1,5 +1,11 @@
 # svelte-rune-highlight
 
+## 0.5.10
+
+### Patch Changes
+
+- fix: use derived to be reactive ([`b6687af3744c54cb080d402a44b1bd792714de7e`](https://github.com/shinokada/svelte-rune-highlight/commit/b6687af3744c54cb080d402a44b1bd792714de7e))
+
 ## 0.5.9
 
 ### Patch Changes

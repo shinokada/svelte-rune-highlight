@@ -47,9 +47,10 @@
 @component
 [Go to docs](https://svelte-rune-highlight.codewithshin.com/)
 ## Props
-@props: code?: any;
-@props:highlighted?: string;
-@props:languageName?:  string; = 'plaintext';
-@props:langtag?:  boolean; = false;
-@props:preClass?: string;
+@prop code
+@prop highlighted
+@prop languageName = 'plaintext'
+@prop langtag = false
+@prop preClass
+@prop ...restProps
 -->
