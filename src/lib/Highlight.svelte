@@ -34,7 +34,7 @@
   let highlighted: string = $derived(
     hljs.highlight(code, { language: language.name }).value
   );
-  let lines = $derived(<string[]>highlighted.split('\n'));
+  let lines = $derived(highlighted.split('\n'));
   let len_digits = $derived(lines.length.toString().length);
   let len = $derived(len_digits - MIN_DIGITS < 1 ? MIN_DIGITS : len_digits);
   let width = $derived(len * DIGIT_WIDTH);

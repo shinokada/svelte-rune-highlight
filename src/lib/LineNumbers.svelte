@@ -30,7 +30,7 @@
   const HIGHLIGHTED_BACKGROUND = 'rgba(254, 241, 96, 0.2)';
 
   let highlighted: string = $state('');
-  let lines = $state(<string[]>[]);
+  let lines: string[] = $state([]);
   let width = $state(0);
   $effect(() => {
     hljs.registerLanguage(language.name, language.register);
