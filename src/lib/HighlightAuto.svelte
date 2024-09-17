@@ -9,9 +9,13 @@
   let { code = '', langtag = false, ...restProps }: Props = $props();
   let highlighted: string = $state('');
   let language: string = $state('');
-
+  function updateHighlight() {
+    const result = hljs.highlightAuto(code);
+    highlighted = result.value;
+    language = result.language || '';
+  }
   $effect(() => {
-    ({ value: highlighted, language = '' } = hljs.highlightAuto(code));
+    updateHighlight();
   });
 </script>
 
