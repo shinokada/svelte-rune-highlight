@@ -1,5 +1,11 @@
 # svelte-rune-highlight
 
+## 0.5.11
+
+### Patch Changes
+
+- fix: HighlightAuto ([`139cb2846f8321abf251dd5553d4187f546cd545`](https://github.com/shinokada/svelte-rune-highlight/commit/139cb2846f8321abf251dd5553d4187f546cd545))
+
 ## 0.5.10
 
 ### Patch Changes
