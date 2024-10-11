@@ -1,6 +1,6 @@
 {
   "name": "svelte-rune-highlight",
-  "version": "0.5.11",
+  "version": "0.5.12",
   "description": "A highlight library for Svelte 5 with Rune",
   "license": "MIT",
   "main": "dist/index.js",
@@ -33,7 +33,7 @@
     "test:unit": "vitest",
     "copy:packagejson": "svelte-lib-helpers package",
     "gen:docs5": "svelte-lib-helpers docs5",
-    "lib-helpers": "npm run gen:docs5 && npm run package && npm run copy:packagejson"
+    "lib-helpers": "pnpm format && pnpm gen:docs5 && pnpm package && pnpm  copy:packagejson"
   },
   "files": [
     "dist",

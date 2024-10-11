@@ -1,5 +1,11 @@
 # svelte-rune-highlight
 
+## 0.5.12
+
+### Patch Changes
+
+- types: update ([`ffbf11497ae5b33d199f04cff0af1d3e779354b1`](https://github.com/shinokada/svelte-rune-highlight/commit/ffbf11497ae5b33d199f04cff0af1d3e779354b1))
+
 ## 0.5.11
 
 ### Patch Changes
