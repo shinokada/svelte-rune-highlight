@@ -30,7 +30,5 @@ test('line-numbers page has expected h1', async ({ page }) => {
 
 test('extend page has expected h1', async ({ page }) => {
   await page.goto('/extend');
-  await expect(
-    page.getByRole('heading', { name: 'Extend' })
-  ).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Extend' })).toBeVisible();
 });

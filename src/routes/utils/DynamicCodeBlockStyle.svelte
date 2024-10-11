@@ -1,8 +1,9 @@
 <script lang="ts">
   import { browser } from '$app/environment';
   const stylesImport = import.meta.glob('./highlight/styles/*.css');
-  const localStorageName = __NAME__.replace(/[\s-]/g, '_').toUpperCase(); + '_CODE_BLOCK_STYLE';
-  
+  /*eslint no-undef: "off"*/
+  const localStorageName =
+    __NAME__.replace(/[\s-]/g, '_').toUpperCase() + '_CODE_BLOCK_STYLE';
 
   let selected = $state(
     browser && (localStorage.getItem(localStorageName) ?? 'material-darker')
@@ -13,7 +14,7 @@
     name: path.slice(path.lastIndexOf('/') + 1, -4)
   }));
 
-   $effect(() => {
+  $effect(() => {
     let link: HTMLLinkElement;
     (async () => {
       const css = await import(`./highlight/styles/${selected}.css?url`);
@@ -42,4 +43,3 @@
     <option value={theme.value}>{theme.value}</option>
   {/each}
 </select>
-

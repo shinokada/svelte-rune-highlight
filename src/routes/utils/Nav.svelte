@@ -49,7 +49,7 @@
           <GitHub />
         </a>
         <Darkmode
-          class="inline-block dark:hover:text-white hover:text-gray-900 mr-4"
+          class="mr-4 inline-block hover:text-gray-900 dark:hover:text-white"
         />
         <DynamicCodeBlockStyle />
       </div>

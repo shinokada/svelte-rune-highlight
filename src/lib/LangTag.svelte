@@ -1,6 +1,6 @@
 <script lang="ts">
   interface Props {
-    code?: any;
+    code?: string;
     highlighted?: string;
     languageName?: string;
     langtag?: boolean;

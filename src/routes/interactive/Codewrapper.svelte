@@ -1,5 +1,5 @@
 <script lang="ts">
-  import LangTag from "$lib/LangTag.svelte";
+  import LangTag from '$lib/LangTag.svelte';
   import hljs from 'highlight.js/lib/core';
   import xml from 'highlight.js/lib/languages/xml';
   import javascript from 'highlight.js/lib/languages/javascript';
@@ -18,12 +18,5 @@
 </script>
 
 <div class="bg-red-500 p-4">
-
-  <LangTag 
-  {preClass}
-  {...restProps}
-  languageName="svelte"
-  {langtag}
- 
-  {code}/>
+  <LangTag {preClass} {...restProps} languageName="svelte" {langtag} {code} />
 </div>

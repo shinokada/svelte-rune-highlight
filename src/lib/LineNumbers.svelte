@@ -2,10 +2,16 @@
   import hljs from 'highlight.js/lib/core';
   import LangTag from './LangTag.svelte';
 
+  /* eslint-disable  @typescript-eslint/no-explicit-any */
+  type HighlightLanguage = {
+    name: string;
+    register: (hljs: any) => any;
+  };
+
   interface Props {
     numbers?: boolean;
-    language?: any;
-    code?: string;
+    language: HighlightLanguage;
+    code: string;
     langtag?: boolean;
     hideBorder?: boolean;
     wrapLines?: boolean;
@@ -74,7 +80,7 @@
                 <div
                   class:line-background={true}
                   style:background="var(--highlighted-background, {HIGHLIGHTED_BACKGROUND})"
-                  ></div>
+                ></div>
               {/if}
             </td>
           </tr>

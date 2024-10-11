@@ -22,7 +22,7 @@ export default defineConfig({
     __SVELTEKIT_VERSION__: JSON.stringify(svelteKitPackage.version),
     __SVELTE_5_UI_LIB_VERSION__: JSON.stringify(svelte5uilibPackage.version),
     __VITE_VERSION__: JSON.stringify(vitePackage.version),
-    __HIGHLIGHTJSVERSION__: JSON.stringify(highlightjsPackage.version),
+    __HIGHLIGHTJSVERSION__: JSON.stringify(highlightjsPackage.version)
   },
   test: {
     include: ['src/**/*.{test,spec}.{js,ts}']

@@ -17,7 +17,7 @@ export const load = ({ url }) => {
       title,
       description,
       image,
-      imageAlt: title,
+      imageAlt: title
     },
     og: {
       type: 'website',
@@ -32,7 +32,7 @@ export const load = ({ url }) => {
     }
   };
   return {
-		layoutMetaTags,
-		ANALYTICS_ID
+    layoutMetaTags,
+    ANALYTICS_ID
   };
 };

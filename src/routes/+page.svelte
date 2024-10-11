@@ -9,7 +9,7 @@
     eager: true
   });
   import { removeHyphensAndCapitalize } from './utils/helpers';
-
+  /*eslint no-undef: "off"*/
   const name = __NAME__;
   const version = __VERSION__;
   const githuburl = __GITHUBURL__;

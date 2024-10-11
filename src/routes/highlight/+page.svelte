@@ -49,7 +49,7 @@ The above code will produce:
 
 <h3>YAML</h3>
 
-<p>Yaml example: </p>
+<p>Yaml example:</p>
 <HighlightCompo code={modules['./samples/highlight/yaml.md'] as string} />
 
 <p>This code generates the following output:</p>
@@ -62,7 +62,7 @@ The above code will produce:
 />
 
 <h3>JSON</h3>
-<p>JSON example: </p>
+<p>JSON example:</p>
 <HighlightCompo code={modules['./samples/highlight/json.md'] as string} />
 
 <p>The code produces this output:</p>
@@ -75,7 +75,7 @@ The above code will produce:
 />
 
 <h2>Props</h2>
-<p>Props example: </p>
+<p>Props example:</p>
 <HighlightCompo code={modules['./samples/props.md'] as string} />
 
 <h2>Language tag style</h2>

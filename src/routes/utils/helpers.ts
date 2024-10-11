@@ -14,32 +14,32 @@ export function removeHyphensAndCapitalize(str: string) {
 }
 
 export function clickToCopy(node: HTMLElement, target: string) {
-	async function copyText() {
-		try {
-			await navigator.clipboard.writeText(target);
-			
-			node.dispatchEvent(
+  async function copyText() {
+    try {
+      await navigator.clipboard.writeText(target);
+
+      node.dispatchEvent(
         new CustomEvent('copysuccess', {
-					bubbles: true
-				})
+          bubbles: true
+        })
       );
-		} catch(error) {
-			node.dispatchEvent(
+    } catch (error) {
+      node.dispatchEvent(
         new CustomEvent('copyerror', {
-					bubbles: true,
-					detail: error
-				})
+          bubbles: true,
+          detail: error
+        })
       );
-		}
-	}
-	
-	node.addEventListener('click', copyText);
-	
-	return {
-		destroy() {
-			node.removeEventListener('click', copyText);
-		}
-	}
+    }
+  }
+
+  node.addEventListener('click', copyText);
+
+  return {
+    destroy() {
+      node.removeEventListener('click', copyText);
+    }
+  };
 }
 
 export function splitAndCapitalize(text: string) {
@@ -47,8 +47,11 @@ export function splitAndCapitalize(text: string) {
   const parts = text.split('/');
 
   // If there are no parts, return an empty string
-  if (!parts.length) return "";
+  if (!parts.length) return '';
 
   // Get the last element of the array and capitalize it
-  return parts[parts.length - 1].charAt(0).toUpperCase() + parts[parts.length - 1].slice(1);
+  return (
+    parts[parts.length - 1].charAt(0).toUpperCase() +
+    parts[parts.length - 1].slice(1)
+  );
 }

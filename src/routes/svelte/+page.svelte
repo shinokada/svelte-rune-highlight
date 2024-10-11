@@ -31,7 +31,10 @@
 />
 
 <h2>Example 2</h2>
-<p>Using different <code>--langtag-color</code>.</p>
+<p>
+  Using different <code>--langtag-color</code>
+  .
+</p>
 <HighlightCompo code={modules['./samples/highlight/example-2.md'] as string} />
 <p>The code creates this output:</p>
 <HighlightSvelte
