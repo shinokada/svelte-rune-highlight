@@ -48,6 +48,7 @@
   });
 </script>
 
+<!-- eslint-disable svelte/no-at-html-tags -->
 {#if numbers}
   <div style:overflow-x="auto" {...restProps}>
     <table>

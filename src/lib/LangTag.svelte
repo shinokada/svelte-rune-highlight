@@ -16,7 +16,7 @@
     ...restProps
   }: Props = $props();
 </script>
-
+<!-- eslint-disable svelte/no-at-html-tags -->
 <pre
   class="{preClass} {langtag ? 'langtag' : ''}"
   data-language={languageName}

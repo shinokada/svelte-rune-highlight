@@ -1,13 +1,6 @@
 <script lang="ts">
   import { HighlightAuto } from '$lib';
   import HighlightCompo from '../utils/HighlightCompo.svelte';
-  import typescript from '$lib/languages/typescript';
-  import markdown from '$lib/languages/markdown';
-  import javascript from '$lib/languages/javascript';
-  import json from '$lib/languages/json';
-  import css from '$lib/languages/css';
-  import python from '$lib/languages/python';
-  import rust from '$lib/languages/rust';
   const modules = import.meta.glob('./samples/*.md', {
     query: '?raw',
     import: 'default',

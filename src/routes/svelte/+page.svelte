@@ -6,10 +6,6 @@
     import: 'default',
     eager: true
   });
-
-  const code = 'const add = (a: number, b: number) => a + b;';
-  const code2 = `<button on:click={() => { console.log(0); }}>Increment {count}</button>`;
-  const code3 = `body {\n  padding: 0;\n  color: red;\n}`;
 </script>
 
 <h1>HighlightSvelte Component</h1>

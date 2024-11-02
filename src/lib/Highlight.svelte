@@ -72,6 +72,7 @@
                 ></div>
               {/if}
             </td>
+            <!-- eslint-disable svelte/no-at-html-tags -->
             <td>
               <pre class:wrapLines><code>{@html line || '\n'}</code></pre>
               {#if highlightedLines.includes(i)}

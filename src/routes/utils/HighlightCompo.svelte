@@ -14,10 +14,6 @@
     text = 'Success!';
   }
 
-  function copyError(event: CustomEvent) {
-    text = `Error! ${event.detail}`;
-  }
-
   function trigger() {
     open = true;
     counter = 2;

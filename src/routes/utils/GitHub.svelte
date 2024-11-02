@@ -1,7 +1,4 @@
 <script lang="ts">
-  interface Props {
-    size?: 'sm' | 'md' | 'lg';
-  }
   let { size = 'lg' } = $props();
 
   const sizes = {

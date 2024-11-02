@@ -1,6 +1,5 @@
 <script lang="ts">
   import {
-    Label,
     Navbar,
     NavLi,
     NavBrand,
@@ -10,7 +9,7 @@
   } from 'svelte-5-ui-lib';
   import DynamicCodeBlockStyle from './DynamicCodeBlockStyle.svelte';
   import GitHub from './GitHub.svelte';
-  const stylesImport = import.meta.glob('$lib/styles/*.css');
+
   let nav = uiHelpers();
 
   let navStatus = $state(false);
