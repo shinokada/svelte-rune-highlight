@@ -9,6 +9,7 @@
   } from 'svelte-5-ui-lib';
   import DynamicCodeBlockStyle from './DynamicCodeBlockStyle.svelte';
   import GitHub from './GitHub.svelte';
+  import Bluesky from './Bluesky.svelte';
 
   let nav = uiHelpers();
 
@@ -41,6 +42,12 @@
     {#snippet brand()}
       <NavBrand siteName="Svelte Rune Highlight" spanClass="sm:text-2xl" />
       <div class="ml-auto flex items-center lg:order-1">
+        <a
+          class="hidden whitespace-normal rounded-lg p-2.5 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:ring-0 focus:ring-gray-400 dark:hover:bg-gray-600 dark:hover:text-white sm:inline-block"
+          href="https://bsky.app/profile/shinichiokada.bsky.social"
+        >
+          <Bluesky />
+        </a>
         <a
           class="hidden whitespace-normal rounded-lg p-2.5 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:ring-0 focus:ring-gray-400 dark:hover:bg-gray-600 dark:hover:text-white sm:inline-block"
           href="https://github.com/shinokada/svelte-rune-highlight"
