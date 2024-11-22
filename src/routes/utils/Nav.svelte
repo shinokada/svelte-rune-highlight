@@ -10,6 +10,12 @@
   import DynamicCodeBlockStyle from './DynamicCodeBlockStyle.svelte';
   import GitHub from './GitHub.svelte';
   import Bluesky from './Bluesky.svelte';
+  import { page } from '$app/stores';
+
+  let activeUrl = $state($page.url.pathname);
+  $effect(() => {
+    activeUrl = $page.url.pathname;
+  });
 
   let nav = uiHelpers();
 
@@ -60,7 +66,7 @@
         <DynamicCodeBlockStyle />
       </div>
     {/snippet}
-    <NavUl class={ulclass}>
+    <NavUl {activeUrl} class={ulclass}>
       <NavLi href="/">Home</NavLi>
       <NavLi href="/highlight">Highlight</NavLi>
       <NavLi href="/auto">Auto</NavLi>
