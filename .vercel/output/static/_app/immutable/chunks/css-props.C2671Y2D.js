@@ -1,0 +1,1 @@
+import{b as e,h as i,i as f,j as d,k as p}from"./runtime.B-swgO6H.js";function c(r,a){f&&d(p(r)),e(()=>{var t=a();for(var s in t){var o=t[s];o?r.style.setProperty(s,o):r.style.removeProperty(s)}}),i(()=>{r.remove()})}export{c};
