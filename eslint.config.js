@@ -33,6 +33,9 @@ export default [
   {
     ignores: [
       '.vercel/',
+      'src/routes/utils/highlight/',
+      'src/lib/languages/',
+      'src/lib/styles/',
       'build/',
       '.svelte-kit/',
       'dist/',

@@ -5,3 +5,6 @@ yarn.lock
 *.md
 samples/
 LangTag.svelte
+/src/routes/utils/highlight/
+/src/lib/languages/
+/src/lib/styles/

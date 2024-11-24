@@ -14,10 +14,6 @@
     "type": "git",
     "url": "https://github.com/shinokada/svelte-rune-highlight"
   },
-  "engines": {
-    "npm": ">=8.0.0",
-    "node": "^20.0.0"
-  },
   "scripts": {
     "dev": "vite dev",
     "build": "vite build && npm run package",
@@ -34,7 +30,7 @@
     "copy:packagejson": "svelte-lib-helpers package",
     "gen:docs5": "svelte-lib-helpers docs5",
     "lib-helpers": "pnpm format && pnpm gen:docs5 && pnpm package && pnpm  copy:packagejson",
-    "c": "npx changeset",
+    "ch": "npx changeset",
     "cv": "npx changeset version",
     "cp": "npx changeset publish"
   },
@@ -69,9 +65,9 @@
     "publint": "^0.2.12",
     "runatics": "^0.1.3",
     "runes-meta-tags": "^0.4.2",
-    "runes-webkit": "^0.9.46",
+    "runes-webkit": "^0.9.47",
     "svelte": "5.2.7",
-    "svelte-5-ui-lib": "^0.11.2",
+    "svelte-5-ui-lib": "^0.12.1",
     "svelte-check": "^4.1.0",
     "svelte-lib-helpers": "^0.4.16",
     "tailwindcss": "^3.4.15",
