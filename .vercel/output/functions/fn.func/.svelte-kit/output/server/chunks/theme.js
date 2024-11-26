@@ -1152,7 +1152,7 @@ const getDefaultConfig = () => {
        * Font Variant Numeric
        * @see https://tailwindcss.com/docs/font-variant-numeric
        */
-      "fvn-fraction": ["diagonal-fractions", "stacked-fractons"],
+      "fvn-fraction": ["diagonal-fractions", "stacked-fractions"],
       /**
        * Letter Spacing
        * @see https://tailwindcss.com/docs/letter-spacing
@@ -3934,7 +3934,7 @@ ce({
   }
 });
 const darkmode = ce({
-  base: "text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none rounded-lg text-sm p-2.5"
+  base: "text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none rounded-lg text-sm p-2.5 focus:ring-1"
 });
 ce({
   slots: {

@@ -248,7 +248,8 @@ function Darkmode($$payload, $$props) {
     "aria-label": ariaLabel,
     type: "button",
     ...restProps,
-    class: btnCls
+    class: btnCls,
+    tabindex: 0
   })}><span class="hidden dark:block">`;
   if (lightIcon) {
     $$payload.out += "<!--[-->";

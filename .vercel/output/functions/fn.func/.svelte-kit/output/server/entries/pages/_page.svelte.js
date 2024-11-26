@@ -367,8 +367,8 @@ function _page($$payload, $$props) {
   });
   const name = "svelte-rune-highlight";
   const version = "0.5.13";
-  const svelteVersion = "5.2.7";
-  const svelteKitVersion = "2.8.2";
+  const svelteVersion = "5.2.8";
+  const svelteKitVersion = "2.8.4";
   const viteVersion = "5.4.11";
   const highlightjsVersion = "11.10.0";
   Banner($$payload, {
