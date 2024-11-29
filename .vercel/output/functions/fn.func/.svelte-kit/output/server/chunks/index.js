@@ -1,4 +1,4 @@
-const DEV = false;
+const BROWSER = false;
 var is_array = Array.isArray;
 var array_from = Array.from;
 var define_property = Object.defineProperty;
@@ -101,10 +101,23 @@ function destroy_derived_children(derived) {
     }
   }
 }
+function get_derived_parent_effect(derived) {
+  var parent = derived.parent;
+  while (parent !== null) {
+    if ((parent.f & DERIVED) === 0) {
+      return (
+        /** @type {Effect} */
+        parent
+      );
+    }
+    parent = parent.parent;
+  }
+  return null;
+}
 function execute_derived(derived) {
   var value;
   var prev_active_effect = active_effect;
-  set_active_effect(derived.parent);
+  set_active_effect(get_derived_parent_effect(derived));
   {
     try {
       destroy_derived_children(derived);
@@ -124,11 +137,11 @@ function update_derived(derived) {
     derived.version = increment_version();
   }
 }
-function destroy_derived(signal) {
-  destroy_derived_children(signal);
-  remove_reactions(signal, 0);
-  set_signal_status(signal, DESTROYED);
-  signal.v = signal.children = signal.deps = signal.ctx = signal.reactions = null;
+function destroy_derived(derived) {
+  destroy_derived_children(derived);
+  remove_reactions(derived, 0);
+  set_signal_status(derived, DESTROYED);
+  derived.v = derived.children = derived.deps = derived.ctx = derived.reactions = null;
 }
 function push_effect(effect2, parent_effect) {
   var parent_last = parent_effect.last;
@@ -482,7 +495,7 @@ function update_effect(effect2) {
     var teardown = update_reaction(effect2);
     effect2.teardown = typeof teardown === "function" ? teardown : null;
     effect2.version = current_version;
-    if (DEV) ;
+    if (BROWSER) ;
   } catch (error) {
     handle_error(
       /** @type {Error} */
@@ -632,7 +645,7 @@ function flush_sync(fn) {
       flush_sync();
     }
     flush_count = 0;
-    if (DEV) ;
+    if (BROWSER) ;
     return result;
   } finally {
     scheduler_mode = previous_scheduler_mode;
@@ -676,8 +689,25 @@ function get(signal) {
       signal
     );
     var parent = derived.parent;
-    if (parent !== null && !parent.deriveds?.includes(derived)) {
-      (parent.deriveds ??= []).push(derived);
+    var target = derived;
+    while (parent !== null) {
+      if ((parent.f & DERIVED) !== 0) {
+        var parent_derived = (
+          /** @type {Derived} */
+          parent
+        );
+        target = parent_derived;
+        parent = parent_derived.parent;
+      } else {
+        var parent_effect = (
+          /** @type {Effect} */
+          parent
+        );
+        if (!parent_effect.deriveds?.includes(target)) {
+          (parent_effect.deriveds ??= []).push(target);
+        }
+        break;
+      }
     }
   }
   if (is_derived) {
@@ -1079,9 +1109,9 @@ function ensure_array_like(array_like_or_iterator) {
 export {
   store_get as $,
   effect_root as A,
-  BLOCK_EFFECT as B,
+  BROWSER as B,
   CLEAN as C,
-  DEV as D,
+  DERIVED as D,
   is_passive_event as E,
   create_text as F,
   branch as G,
@@ -1115,7 +1145,7 @@ export {
   copy_payload as a6,
   assign_payload as a7,
   add_styles as a8,
-  DERIVED as b,
+  BLOCK_EFFECT as b,
   increment_version as c,
   derived_sources as d,
   DIRTY as e,
