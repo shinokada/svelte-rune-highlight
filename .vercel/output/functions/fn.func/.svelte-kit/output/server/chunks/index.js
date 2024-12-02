@@ -11,16 +11,17 @@ const RENDER_EFFECT = 1 << 3;
 const BLOCK_EFFECT = 1 << 4;
 const BRANCH_EFFECT = 1 << 5;
 const ROOT_EFFECT = 1 << 6;
-const UNOWNED = 1 << 7;
-const DISCONNECTED = 1 << 8;
-const CLEAN = 1 << 9;
-const DIRTY = 1 << 10;
-const MAYBE_DIRTY = 1 << 11;
-const INERT = 1 << 12;
-const DESTROYED = 1 << 13;
-const EFFECT_RAN = 1 << 14;
-const HEAD_EFFECT = 1 << 18;
-const EFFECT_HAS_DERIVED = 1 << 19;
+const BOUNDARY_EFFECT = 1 << 7;
+const UNOWNED = 1 << 8;
+const DISCONNECTED = 1 << 9;
+const CLEAN = 1 << 10;
+const DIRTY = 1 << 11;
+const MAYBE_DIRTY = 1 << 12;
+const INERT = 1 << 13;
+const DESTROYED = 1 << 14;
+const EFFECT_RAN = 1 << 15;
+const HEAD_EFFECT = 1 << 19;
+const EFFECT_HAS_DERIVED = 1 << 20;
 const LEGACY_PROPS = Symbol("legacy props");
 function effect_update_depth_exceeded() {
   {
@@ -285,7 +286,7 @@ function destroy_effect(effect2, remove_dom = true) {
   if (parent !== null && parent.first !== null) {
     unlink_effect(effect2);
   }
-  effect2.next = effect2.prev = effect2.teardown = effect2.ctx = effect2.deps = effect2.parent = effect2.fn = effect2.nodes_start = effect2.nodes_end = null;
+  effect2.next = effect2.prev = effect2.teardown = effect2.ctx = effect2.deps = effect2.fn = effect2.nodes_start = effect2.nodes_end = null;
 }
 function unlink_effect(effect2) {
   var parent = effect2.parent;
@@ -307,6 +308,7 @@ function lifecycle_outside_component(name) {
 }
 const FLUSH_MICROTASK = 0;
 const FLUSH_SYNC = 1;
+let is_throwing_error = false;
 let scheduler_mode = FLUSH_MICROTASK;
 let is_micro_task_queued = false;
 let is_flushing_effect = false;
@@ -381,9 +383,41 @@ function check_dirtiness(reaction) {
   }
   return false;
 }
-function handle_error(error, effect2, component_context2) {
+function propagate_error(error, effect2) {
+  var current = effect2;
+  while (current !== null) {
+    if ((current.f & BOUNDARY_EFFECT) !== 0) {
+      try {
+        current.fn(error);
+        return;
+      } catch {
+        current.f ^= BOUNDARY_EFFECT;
+      }
+    }
+    current = current.parent;
+  }
+  is_throwing_error = false;
+  throw error;
+}
+function should_rethrow_error(effect2) {
+  return (effect2.f & DESTROYED) === 0 && (effect2.parent === null || (effect2.parent.f & BOUNDARY_EFFECT) === 0);
+}
+function handle_error(error, effect2, previous_effect, component_context2) {
+  if (is_throwing_error) {
+    if (previous_effect === null) {
+      is_throwing_error = false;
+    }
+    if (should_rethrow_error(effect2)) {
+      throw error;
+    }
+    return;
+  }
+  if (previous_effect !== null) {
+    is_throwing_error = true;
+  }
   {
-    throw error;
+    propagate_error(error, effect2);
+    return;
   }
 }
 function update_reaction(reaction) {
@@ -483,6 +517,7 @@ function update_effect(effect2) {
   }
   set_signal_status(effect2, CLEAN);
   var previous_effect = active_effect;
+  var previous_component_context = component_context;
   active_effect = effect2;
   try {
     if ((flags & BLOCK_EFFECT) !== 0) {
@@ -497,10 +532,7 @@ function update_effect(effect2) {
     effect2.version = current_version;
     if (BROWSER) ;
   } catch (error) {
-    handle_error(
-      /** @type {Error} */
-      error
-    );
+    handle_error(error, effect2, previous_effect, previous_component_context || effect2.ctx);
   } finally {
     active_effect = previous_effect;
   }
@@ -541,14 +573,20 @@ function flush_queued_effects(effects) {
   if (length === 0) return;
   for (var i = 0; i < length; i++) {
     var effect2 = effects[i];
-    if ((effect2.f & (DESTROYED | INERT)) === 0 && check_dirtiness(effect2)) {
-      update_effect(effect2);
-      if (effect2.deps === null && effect2.first === null && effect2.nodes_start === null) {
-        if (effect2.teardown === null) {
-          unlink_effect(effect2);
-        } else {
-          effect2.fn = null;
+    if ((effect2.f & (DESTROYED | INERT)) === 0) {
+      try {
+        if (check_dirtiness(effect2)) {
+          update_effect(effect2);
+          if (effect2.deps === null && effect2.first === null && effect2.nodes_start === null) {
+            if (effect2.teardown === null) {
+              unlink_effect(effect2);
+            } else {
+              effect2.fn = null;
+            }
+          }
         }
+      } catch (error) {
+        handle_error(error, effect2, null, effect2.ctx);
       }
     }
   }
@@ -590,12 +628,19 @@ function process_effects(effect2, collected_effects) {
     var flags = current_effect.f;
     var is_branch = (flags & BRANCH_EFFECT) !== 0;
     var is_skippable_branch = is_branch && (flags & CLEAN) !== 0;
+    var sibling = current_effect.next;
     if (!is_skippable_branch && (flags & INERT) === 0) {
       if ((flags & RENDER_EFFECT) !== 0) {
         if (is_branch) {
           current_effect.f ^= CLEAN;
-        } else if (check_dirtiness(current_effect)) {
-          update_effect(current_effect);
+        } else {
+          try {
+            if (check_dirtiness(current_effect)) {
+              update_effect(current_effect);
+            }
+          } catch (error) {
+            handle_error(error, current_effect, null, current_effect.ctx);
+          }
         }
         var child = current_effect.first;
         if (child !== null) {
@@ -606,7 +651,6 @@ function process_effects(effect2, collected_effects) {
         effects.push(current_effect);
       }
     }
-    var sibling = current_effect.next;
     if (sibling === null) {
       let parent = current_effect.parent;
       while (parent !== null) {
