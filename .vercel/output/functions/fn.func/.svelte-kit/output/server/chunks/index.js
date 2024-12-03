@@ -1062,10 +1062,11 @@ function spread_attributes(attrs, classes, styles, flags = 0) {
     if (typeof attrs[name] === "function") continue;
     if (name[0] === "$" && name[1] === "$") continue;
     if (INVALID_ATTR_NAME_CHAR_REGEX.test(name)) continue;
+    var value = attrs[name];
     if (lowercase) {
       name = name.toLowerCase();
     }
-    attr_str += attr(name, attrs[name], is_html && is_boolean_attribute(name));
+    attr_str += attr(name, value, is_html && is_boolean_attribute(name));
   }
   return attr_str;
 }
