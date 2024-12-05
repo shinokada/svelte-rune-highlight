@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { List, Li, A, Banner } from 'svelte-5-ui-lib';
+  import { List, Li, A, Banner } from 'flowbite-svelte';
   import HighlightCompo from './utils/HighlightCompo.svelte';
   import { CheckOutline } from 'flowbite-svelte-icons';
   // import { clickToCopy } from './utils/helpers';

@@ -1,5 +1,5 @@
 import { Y as spread_attributes, V as attr, a3 as bind_props, S as pop, Q as push, X as escape_html, R as setContext, a4 as element, Z as getContext } from "../../chunks/index.js";
-import { i as banner, j as closeButtonVariants, l as list, t as twMerge } from "../../chunks/theme.js";
+import { i as banner, j as closeButtonVariants, l as list, t as twMerge } from "../../chunks/cjs.js";
 import { A } from "../../chunks/A.js";
 import { H as HighlightCompo } from "../../chunks/HighlightCompo.js";
 const linear = (x) => x;
@@ -255,7 +255,7 @@ const __vite_glob_0_5 = `<Sidebar aclass='p-2'>
   </SidebarGroup>
 </Sidebar>
 `;
-const __vite_glob_0_6 = "<script>\n  import { Sidebar, SidebarGroup, SidebarItem, SidebarDropdownWrapper } from 'svelte-5-ui-lib';\n  import { ChartSolid, GridSolid, MailBoxSolid, UserSolid, ArrowRightToBracketSolid, EditSolid, ShoppingBagSolid, FireSolid, BookSolid, RestoreWindowOutline } from 'flowbite-svelte-icons';\n  import PlusPlaceholder from '../../utils/PlusPlaceholder.svelte';\n  const spanclass = 'flex-1 ms-3 whitespace-nowrap';\n  const activeClass = 'flex items-center p-2 text-base font-normal text-primary-900 bg-primary-200 dark:bg-primary-700 rounded-lg dark:text-white hover:bg-primary-100 dark:hover:bg-gray-700';\n  const nonActiveClass = 'flex items-center p-2 text-base font-normal text-green-900 rounded-lg dark:text-white hover:bg-green-100 dark:hover:bg-green-700';\n<\/script>\n";
+const __vite_glob_0_6 = "<script>\n  import { Sidebar, SidebarGroup, SidebarItem, SidebarDropdownWrapper } from 'flowbite-svelte';\n  import { ChartSolid, GridSolid, MailBoxSolid, UserSolid, ArrowRightToBracketSolid, EditSolid, ShoppingBagSolid, FireSolid, BookSolid, RestoreWindowOutline } from 'flowbite-svelte-icons';\n  import PlusPlaceholder from '../../utils/PlusPlaceholder.svelte';\n  const spanclass = 'flex-1 ms-3 whitespace-nowrap';\n  const activeClass = 'flex items-center p-2 text-base font-normal text-primary-900 bg-primary-200 dark:bg-primary-700 rounded-lg dark:text-white hover:bg-primary-100 dark:hover:bg-gray-700';\n  const nonActiveClass = 'flex items-center p-2 text-base font-normal text-green-900 rounded-lg dark:text-white hover:bg-green-100 dark:hover:bg-green-700';\n<\/script>\n";
 const __vite_glob_0_7 = `<script lang="ts">
   import HighlightCompo from '../utils/HighlightCompo.svelte';
   const modules = import.meta.glob('./md/*.md', { query: '?raw', import: 'default', eager: true });
@@ -367,9 +367,9 @@ function _page($$payload, $$props) {
   });
   const name = "svelte-rune-highlight";
   const version = "0.5.13";
-  const svelteVersion = "5.5.0";
+  const svelteVersion = "5.7.0";
   const svelteKitVersion = "2.9.0";
-  const viteVersion = "6.0.2";
+  const viteVersion = "6.0.3";
   const highlightjsVersion = "11.10.0";
   Banner($$payload, {
     id: "default-banner",

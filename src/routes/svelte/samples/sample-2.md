@@ -1,5 +1,5 @@
 <script>
-	import { Navbar, NavLi, NavBrand, NavUl, uiHelpers } from 'svelte-5-ui-lib';
+	import { Navbar, NavLi, NavBrand, NavUl, uiHelpers } from 'flowbite-svelte';
 	let nav = uiHelpers();
 
 	let navStatus = $state(false);

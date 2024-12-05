@@ -1,6 +1,6 @@
 import { a5 as css_props, S as pop, Q as push } from "../../../chunks/index.js";
 import { H as Highlight } from "../../../chunks/Highlight.js";
-import "../../../chunks/theme.js";
+import "../../../chunks/cjs.js";
 import { A } from "../../../chunks/A.js";
 import { H as HighlightCompo, m as markdown } from "../../../chunks/HighlightCompo.js";
 import { t as typescript } from "../../../chunks/typescript.js";

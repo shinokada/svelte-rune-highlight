@@ -7,7 +7,7 @@ const __vite_glob_0_1 = `<HighlightSvelte code={modules['./samples/sample-2.svel
 const __vite_glob_0_2 = "code?: string;\nlangtag?: boolean;\npreClass?: string;\n";
 const __vite_glob_0_3 = "<script lang=\"ts\">\n  import { HighlightSvelte } from 'svelte-rune-highlight';\n  const code2 = `<button on:click={() => { console.log(0); }}>Increment {count}</button>`;\n<\/script>\n\n<HighlightSvelte code={code2} />\n\n";
 const __vite_glob_0_4 = `<script>
-	import { Navbar, NavLi, NavBrand, NavUl, uiHelpers } from 'svelte-5-ui-lib';
+	import { Navbar, NavLi, NavBrand, NavUl, uiHelpers } from 'flowbite-svelte';
 	let nav = uiHelpers();
 
 	let navStatus = $state(false);

@@ -6,10 +6,10 @@
     NavUl,
     uiHelpers,
     Darkmode
-  } from 'svelte-5-ui-lib';
+  } from 'flowbite-svelte';
   import DynamicCodeBlockStyle from './DynamicCodeBlockStyle.svelte';
+  import { Bluesky } from 'runes-webkit';
   import GitHub from './GitHub.svelte';
-  import Bluesky from './Bluesky.svelte';
   import { page } from '$app/stores';
 
   let activeUrl = $state($page.url.pathname);
@@ -50,7 +50,7 @@
       <div class="ml-auto flex items-center lg:order-1">
         <a
           class="hidden whitespace-normal rounded-lg p-2.5 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:ring-0 focus:ring-gray-400 dark:hover:bg-gray-600 dark:hover:text-white sm:inline-block"
-          href="https://bsky.app/profile/shinichiokada.bsky.social"
+          href="https://bsky.app/profile/codewithshin.com"
         >
           <Bluesky />
         </a>

@@ -1,6 +1,6 @@
 import { H as Highlight } from "./Highlight.js";
 import { H as HighlightSvelte } from "./HighlightSvelte.js";
-import "./theme.js";
+import "./cjs.js";
 import register from "highlight.js/lib/languages/markdown";
 const markdown = { name: "markdown", register };
 function HighlightCompo($$payload, $$props) {

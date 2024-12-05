@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Highlight } from '$lib';
-  import { A } from 'svelte-5-ui-lib';
+  import { A } from 'flowbite-svelte';
   // import Highlight from "$lib/Highlight.svelte";
   import HighlightCompo from '../utils/HighlightCompo.svelte';
   import typescript from '$lib/languages/typescript';

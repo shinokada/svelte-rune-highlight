@@ -1,7 +1,7 @@
 import { Q as push, Y as spread_attributes, V as attr, S as pop, Z as getContext, a3 as bind_props, a1 as spread_props, a6 as copy_payload, a7 as assign_payload, _ as ensure_array_like, X as escape_html } from "../../../chunks/index.js";
 import { L as LangTag, H as Highlight } from "../../../chunks/Highlight.js";
 import { H as HighlightSvelte } from "../../../chunks/HighlightSvelte.js";
-import { s as spinner, r as radio } from "../../../chunks/theme.js";
+import { s as spinner, r as radio } from "../../../chunks/cjs.js";
 import { L as Label } from "../../../chunks/Label.js";
 import hljs from "highlight.js/lib/core";
 import xml from "highlight.js/lib/languages/xml";

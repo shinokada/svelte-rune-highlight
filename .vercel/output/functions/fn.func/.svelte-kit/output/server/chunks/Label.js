@@ -1,5 +1,5 @@
 import { Y as spread_attributes, S as pop, Q as push } from "./index.js";
-import { m as label } from "./theme.js";
+import { m as label } from "./cjs.js";
 function Label($$payload, $$props) {
   push();
   let {

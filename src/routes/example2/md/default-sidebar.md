@@ -1,5 +1,5 @@
 <script>
-	import { ButtonGroup, Button, GradientButton } from 'svelte-5-ui-lib';
+	import { ButtonGroup, Button, GradientButton } from 'flowbite-svelte';
 	import {
 		UserCircleSolid,
 		AdjustmentsVerticalSolid,

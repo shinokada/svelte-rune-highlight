@@ -311,6 +311,7 @@ const FLUSH_SYNC = 1;
 let is_throwing_error = false;
 let scheduler_mode = FLUSH_MICROTASK;
 let is_micro_task_queued = false;
+let last_scheduled_effect = null;
 let is_flushing_effect = false;
 function set_is_flushing_effect(value) {
   is_flushing_effect = value;
@@ -540,8 +541,16 @@ function update_effect(effect2) {
 function infinite_loop_guard() {
   if (flush_count > 1e3) {
     flush_count = 0;
-    {
+    try {
       effect_update_depth_exceeded();
+    } catch (error) {
+      if (last_scheduled_effect !== null) {
+        {
+          handle_error(error, last_scheduled_effect, null);
+        }
+      } else {
+        throw error;
+      }
     }
   }
   flush_count++;
@@ -601,6 +610,7 @@ function process_deferred() {
   flush_queued_root_effects(previous_queued_root_effects);
   if (!is_micro_task_queued) {
     flush_count = 0;
+    last_scheduled_effect = null;
   }
 }
 function schedule_effect(signal) {
@@ -610,6 +620,7 @@ function schedule_effect(signal) {
       queueMicrotask(process_deferred);
     }
   }
+  last_scheduled_effect = signal;
   var effect2 = signal;
   while (effect2.parent !== null) {
     effect2 = effect2.parent;
@@ -689,6 +700,7 @@ function flush_sync(fn) {
       flush_sync();
     }
     flush_count = 0;
+    last_scheduled_effect = null;
     if (BROWSER) ;
     return result;
   } finally {

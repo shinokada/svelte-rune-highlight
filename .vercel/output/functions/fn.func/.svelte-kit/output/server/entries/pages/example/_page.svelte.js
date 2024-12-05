@@ -64,7 +64,7 @@ Pro
 `;
 const __vite_glob_0_1 = '<Sidebar>\n  <SidebarGroup>\n    <SidebarItem label="Dashboard" href="/">\n      {#snippet icon()}\n        <ChartSolid\n          class="h-5 w-5 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"\n        />\n      {/snippet}\n    </SidebarItem>\n    <SidebarItem label="Kanban" {spanclass}>\n      {#snippet icon()}\n        <GridSolid\n          class="h-5 w-5 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"\n        />\n      {/snippet}\n      {#snippet subtext()}\n        <span\n          class="ms-3 inline-flex items-center justify-center rounded-full bg-gray-200 px-2 text-sm font-medium text-gray-800 dark:bg-gray-700 dark:text-gray-300"\n        >\n          Pro\n        </span>\n      {/snippet}\n    </SidebarItem>\n    <SidebarItem label="Inbox" {spanclass}>\n      {#snippet icon()}\n        <MailBoxSolid\n          class="h-5 w-5 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"\n        />\n      {/snippet}\n      {#snippet subtext()}\n        <span\n          class="ms-3 inline-flex h-3 w-3 items-center justify-center rounded-full bg-primary-200 p-3 text-sm font-medium text-primary-600 dark:bg-primary-900 dark:text-primary-200"\n        >\n          3\n        </span>\n      {/snippet}\n    </SidebarItem>\n    <SidebarItem label="Sidebar" href="/sidebar">\n      {#snippet icon()}\n        <UserSolid\n          class="h-5 w-5 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"\n        />\n      {/snippet}\n    </SidebarItem>\n  </SidebarGroup>\n  <SidebarGroup border>\n    <SidebarItem label="Upgrade to Pro">\n      {#snippet icon()}\n        <FireSolid\n          class="h-5 w-5 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"\n        />\n      {/snippet}\n    </SidebarItem>\n    <SidebarItem label="Documentation">\n      {#snippet icon()}\n        <BookSolid\n          class="h-5 w-5 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"\n        />\n      {/snippet}\n    </SidebarItem>\n    <SidebarItem label="Components">\n      {#snippet icon()}\n        <RestoreWindowOutline\n          class="h-5 w-5 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"\n        />\n      {/snippet}\n    </SidebarItem>\n  </SidebarGroup>\n</Sidebar>\n';
 const __vite_glob_0_2 = `<script>
-	import { ButtonGroup, Button, GradientButton } from 'svelte-5-ui-lib';
+	import { ButtonGroup, Button, GradientButton } from 'flowbite-svelte';
 	import {
 		UserCircleSolid,
 		AdjustmentsVerticalSolid,
@@ -162,7 +162,7 @@ const __vite_glob_0_3 = `<Sidebar aclass='p-2'>
 `;
 const __vite_glob_0_4 = '[\n  {\n    "id": 1,\n    "product": "T-Shirt",\n    "price": 19.99\n  },\n  {\n    "id": 2,\n    "product": "Jeans",\n    "price": 49.99\n  }\n]\n';
 const __vite_glob_0_5 = `<script lang="ts">
-  import { Checkbox, Helper, Label } from 'svelte-5-ui-lib';
+  import { Checkbox, Helper, Label } from 'flowbite-svelte';
 <\/script>
 `;
 function _page($$payload, $$props) {

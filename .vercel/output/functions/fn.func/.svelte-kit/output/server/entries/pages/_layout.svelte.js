@@ -1,6 +1,6 @@
 import { T as head, S as pop, Q as push, V as attr, W as stringify, X as escape_html, Y as spread_attributes, R as setContext, Z as getContext, _ as ensure_array_like, $ as store_get, a0 as unsubscribe_stores, a1 as spread_props } from "../../chunks/index.js";
 import { p as page } from "../../chunks/stores.js";
-import { d as darkmode, f as footer, a as footerBrand, b as footerLi, c as footerUl, n as navbar, e as navbrand, g as navLi, h as navUl } from "../../chunks/theme.js";
+import { d as darkmode, f as footer, a as footerBrand, b as footerLi, c as footerUl, n as navbar, e as navbrand, g as navLi, h as navUl } from "../../chunks/cjs.js";
 import { w as writable } from "../../chunks/index2.js";
 function Runatics($$payload, $$props) {
   push();
