@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/shinokada/svelte-rune-highlight"
+    "url": "git+https://github.com/shinokada/svelte-rune-highlight.git"
   },
   "scripts": {
     "dev": "vite dev",
