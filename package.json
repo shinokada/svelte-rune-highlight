@@ -29,7 +29,7 @@
     "test:unit": "vitest",
     "copy:packagejson": "svelte-lib-helpers package",
     "gen:docs5": "svelte-lib-helpers docs5",
-    "lib-helpers": "pnpm format && pnpm gen:docs5 && pnpm package && pnpm  copy:packagejson",
+    "lib-helpers": "pnpm format && pnpm gen:docs5 && pnpm package && pnpm copy:packagejson",
     "ch": "npx changeset",
     "cv": "npx changeset version",
     "cp": "npx changeset publish"
@@ -97,34 +97,6 @@
     "./*.svelte": {
       "types": "./dist/*.svelte.d.ts",
       "import": "./dist/*.svelte"
-    },
-    "./styles/*.css": {
-      "import": "./dist/styles/*.css"
-    },
-    "./styles": {
-      "types": "./dist/styles/index.d.ts",
-      "import": "./dist/styles/index.js"
-    },
-    "./styles/*": {
-      "types": "./dist/styles/*.d.ts",
-      "import": "./dist/styles/*.js"
-    },
-    "./styles/*.js": {
-      "types": "./dist/styles/*.d.ts",
-      "import": "./dist/styles/*.js"
-    },
-    "./languages": {
-      "types": "./dist/languages/index.d.ts",
-      "import": "./dist/languages/index.js"
-    },
-    "./languages/*": {
-      "types": "./dist/languages/*.d.ts",
-      "import": "./dist/languages/*.js"
-    },
-    "./languages/*.js": {
-      "types": "./dist/languages/*.d.ts",
-      "import": "./dist/languages/*.js"
-    },
-    "./package.json": "./package.json"
+    }
   }
 }
