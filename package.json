@@ -93,6 +93,9 @@
     ".": {
       "types": "./dist/index.d.ts",
       "svelte": "./dist/index.js"
+    },
+    "./languages/markdown": {
+      "import": "./dist/languages/markdown.js"
     }
   }
 }
