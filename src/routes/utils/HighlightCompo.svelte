@@ -28,7 +28,7 @@
 
 {#if open}
   <div class="relative">
-    <Badge large class="absolute -top-10 right-0">
+    <Badge large class="absolute -top-15 right-0">
       <span class="font-medium">{text}</span>
     </Badge>
   </div>

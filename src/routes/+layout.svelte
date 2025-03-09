@@ -1,5 +1,5 @@
 <script lang="ts">
-  import '../app.pcss';
+  import '../app.css';
   import { Runatics } from 'runatics';
   import { RunesMetaTags, deepMerge } from 'runes-meta-tags';
   import { page } from '$app/stores';
