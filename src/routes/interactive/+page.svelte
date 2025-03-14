@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Highlight, HighlightSvelte, LangTag } from '$lib';
-  import { Label, Radio, Spinner, type SpinnerProps } from 'flowbite-svelte';
+  import { Label, Radio, Spinner, type SpinnerProps } from 'svelte-5-ui-lib';
   import Codewrapper from './Codewrapper.svelte';
   import typescript from '$lib/languages/typescript';
   import '$lib/styles/github-dark.css';

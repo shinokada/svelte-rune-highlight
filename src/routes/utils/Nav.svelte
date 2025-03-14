@@ -6,7 +6,7 @@
     NavUl,
     uiHelpers,
     Darkmode
-  } from 'flowbite-svelte';
+  } from 'svelte-5-ui-lib';
   import DynamicCodeBlockStyle from './DynamicCodeBlockStyle.svelte';
   import { Bluesky } from 'runes-webkit';
   import GitHub from './GitHub.svelte';

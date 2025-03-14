@@ -6,7 +6,7 @@
     eager: true
   });
   import themeNames from '../utils/themeNames.json';
-  import { Label } from 'flowbite-svelte';
+  import { Label } from 'svelte-5-ui-lib';
   let selected = $state('github-dark');
 </script>
 

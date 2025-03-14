@@ -1,6 +1,6 @@
 <script lang="ts">
   import { HighlightSvelte, Highlight } from '$lib';
-  import { Badge } from 'flowbite-svelte';
+  import { Badge } from 'svelte-5-ui-lib';
   import { clickToCopy } from './helpers';
   import markdown from '$lib/languages/markdown';
   let { code, codeLang }: { code: string; codeLang?: string; theme?: string } =
