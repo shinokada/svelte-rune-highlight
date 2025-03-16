@@ -1,5 +1,11 @@
 # svelte-rune-highlight
 
+## 0.5.14
+
+### Patch Changes
+
+- feat: add backgroud-color style to Highlight component
+
 ## 0.5.13
 
 ### Patch Changes

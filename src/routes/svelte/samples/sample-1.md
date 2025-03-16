@@ -4,4 +4,3 @@
 </script>
 
 <HighlightSvelte code={code2} />
-
