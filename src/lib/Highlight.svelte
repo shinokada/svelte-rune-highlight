@@ -18,7 +18,7 @@
 		startingLineNumber?: number;
 		highlightedLines?: number[];
 		backgroudColor?: string;
-    position?: 'static' | 'relative' | 'abolute' | 'sticky' | undefined;
+		position?: 'static' | 'relative' | 'abolute' | 'sticky' | undefined;
 	}
 
 	let {
@@ -31,7 +31,7 @@
 		startingLineNumber = 1,
 		highlightedLines = [],
 		backgroudColor,
-    position = 'sticky',
+		position = 'sticky',
 		...restProps
 	}: Props = $props();
 
@@ -58,7 +58,7 @@
 						<td
 							class:hljs={true}
 							class:hideBorder
-							style:position={position}
+							style:position
 							style:left="0"
 							style:text-align="right"
 							style:user-select="none"
@@ -194,5 +194,6 @@
 @prop startingLineNumber = 1
 @prop highlightedLines = []
 @prop backgroudColor
+@prop position = 'sticky'
 @prop ...restProps
 -->
