@@ -34,6 +34,7 @@
 	hideBorder
 	numberLine
 	backgroudColor="red"
+  position="static"
 />
 
 <h2>Wraped Lines</h2>

@@ -53,9 +53,21 @@
 
 <Highlight
 	language={typescript}
-	code={modules['./md/background-color.md'] as string}
+	code={modules['./md/sample-1.md'] as string}
 	numberLine
 	backgroudColor="red"
+/>
+
+<h2>Position</h2>
+
+<p>Use one of 'static' | 'relative' | 'abolute' | 'sticky' | undefined. The default value is 'sticky'.</p>
+
+<Highlight
+  language={typescript}
+  code={modules['./md/position-static.md'] as string}
+  numberLine
+  backgroudColor="#326bfc"
+  position="static"
 />
 
 <h2>Starting Line Number</h2>
