@@ -56,6 +56,15 @@
   numberLine
 />
 
+<h2>Background color</h2>
+
+<Highlight
+  language={typescript}
+  code={modules['./md/background-color.md'] as string}
+  numberLine
+  backgroudColor="red"
+/>
+
 <h2>Starting Line Number</h2>
 
 <p>

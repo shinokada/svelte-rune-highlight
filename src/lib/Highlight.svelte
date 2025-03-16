@@ -17,6 +17,7 @@
     wrapLines?: boolean;
     startingLineNumber?: number;
     highlightedLines?: number[];
+    backgroudColor?: string;
   }
 
   let {
@@ -28,6 +29,7 @@
     wrapLines,
     startingLineNumber = 1,
     highlightedLines = [],
+    backgroudColor,
     ...restProps
   }: Props = $props();
 
@@ -61,6 +63,7 @@
               style:text-align="right"
               style:user-select="none"
               style:width={width + 'px'}
+              style:background-color={backgroudColor}
             >
               <code style:color="var(--line-number-color, currentColor)">
                 {lineNumber}
