@@ -22,7 +22,7 @@
 			document.head.append(link);
 		})();
 		if (browser && selected) {
-			// get selected style from localStorage
+			// set selected style to localStorage
 			localStorage.setItem(localStorageName, selected);
 		}
 		return () => {
