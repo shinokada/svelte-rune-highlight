@@ -53,7 +53,7 @@
 
 <Highlight
 	language={typescript}
-	code={modules['./md/sample-1.md'] as string}
+	code={modules['./md/background-color.md'] as string}
 	numberLine
 	backgroudColor="red"
 />
