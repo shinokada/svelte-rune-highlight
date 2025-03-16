@@ -1,8 +1,8 @@
 <Highlight
-language={typescript}
-code={modules['./md/sample-1.md'] as string}
-numberLine
-backgroudColor="red"
+  language={typescript}
+  code={modules['./md/sample-1.md'] as string}
+  numberLine
+  backgroudColor="red"
 />
 
 <Avatar src="/images/profile-picture-3.webp" dot={{ placement: 'top-right', color: 'red' }} rounded />
