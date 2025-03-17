@@ -1,9 +1,9 @@
 <Highlight
-  language={typescript}
-  code={modules['./md/position-static.md'] as string}
-  numberLine
-  backgroudColor="#326bfc"
-  position="static"
+language={typescript}
+code={modules['./md/position-static.md'] as string}
+numberLine
+backgroudColor="#326bfc"
+position="static"
 />
 
 <Avatar src="/images/profile-picture-3.webp" dot={{ placement: 'top-right', color: 'red' }} rounded />

@@ -1,6 +1,6 @@
 {
 	"name": "svelte-rune-highlight",
-	"version": "0.5.15",
+	"version": "0.6.0",
 	"description": "A highlight library for Svelte 5 with Rune",
 	"license": "MIT",
 	"main": "dist/index.js",

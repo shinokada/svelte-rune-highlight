@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
-  interface Props {
-    localStorageName?: string;
-  }
+	interface Props {
+		localStorageName?: string;
+	}
 
-  let { localStorageName = "CODE_THEME"}: Props = $props();
+	let { localStorageName = 'CODE_THEME' }: Props = $props();
 
 	const stylesImport = import.meta.glob('./styles/*.css');
 	/*eslint no-undef: "off"*/
@@ -46,3 +46,10 @@
 		<option value={theme.value}>{theme.value}</option>
 	{/each}
 </select>
+
+<!--
+@component
+[Go to docs](https://svelte-rune-highlight.codewithshin.com/)
+## Props
+@prop localStorageName = 'CODE_THEME'
+-->

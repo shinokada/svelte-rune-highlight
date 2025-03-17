@@ -1,5 +1,11 @@
 # svelte-rune-highlight
 
+## 0.6.0
+
+### Minor Changes
+
+- feat: add CodeThemeSelector component
+
 ## 0.5.15
 
 ### Patch Changes
