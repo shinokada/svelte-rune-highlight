@@ -1,13 +1,13 @@
 <script lang="ts">
 	import { Navbar, NavLi, NavBrand, NavUl, uiHelpers, Darkmode } from 'svelte-5-ui-lib';
-	import DynamicCodeBlockStyle from './DynamicCodeBlockStyle.svelte';
+	import { CodeThemeSelector } from '$lib';
 	import { Bluesky } from 'runes-webkit';
 	import GitHub from './GitHub.svelte';
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 
-	let activeUrl = $state($page.url.pathname);
+	let activeUrl = $state(page.url.pathname);
 	$effect(() => {
-		activeUrl = $page.url.pathname;
+		activeUrl = page.url.pathname;
 	});
 
 	let nav = uiHelpers();
@@ -46,7 +46,7 @@
 					<GitHub />
 				</a>
 				<Darkmode class="mr-4 inline-block hover:text-gray-900 dark:hover:text-white" />
-				<DynamicCodeBlockStyle />
+				<CodeThemeSelector localStorageName="SVELTE_RUNE_HIGHLIGHT"/>
 			</div>
 		{/snippet}
 		<NavUl {activeUrl} class={ulclass}>
@@ -55,6 +55,7 @@
 			<NavLi href="/auto">Auto</NavLi>
 			<NavLi href="/svelte">Svelte</NavLi>
 			<NavLi href="/line-numbers">Line Numbers</NavLi>
+			<NavLi href="/code-theme">Code Theme</NavLi>
 			<NavLi href="/extend">Extend</NavLi>
 		</NavUl>
 	</Navbar>
