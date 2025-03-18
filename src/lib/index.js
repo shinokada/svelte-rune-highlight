@@ -1,4 +1,5 @@
 export * from './styles';
+export * from './languages'
 
 export { default as Highlight } from './Highlight.svelte';
 export { default as HighlightAuto } from './HighlightAuto.svelte';

@@ -58,9 +58,8 @@
 			"import": "./dist/index.js",
 			"default": "./dist/index.js"
 		},
-		"./languages/markdown": {
-			"import": "./dist/languages/markdown.js"
-		}
+		"./languages/*": "./dist/languages/*",
+    "./styles/*": "./dist/styles/*"
 	},
 	"peerDependencies": {
 		"svelte": "^5.0.0"

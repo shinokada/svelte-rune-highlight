@@ -1,22 +1,13 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
-	interface Props {
-		localStorageName?: string;
-	}
+	import styles from './styles/themes.json';
 
-	let { localStorageName = 'CODE_THEME' }: Props = $props();
-
-	const stylesImport = import.meta.glob('./styles/*.css');
+	let { localStorageName = 'CODE_BLOCK_STYLE'} = $props();
 	/*eslint no-undef: "off"*/
 	// const localStorageName = __NAME__.replace(/[\s-]/g, '_').toUpperCase() + '_CODE_BLOCK_STYLE';
 
 	let selected = $state(browser && (localStorage.getItem(localStorageName) ?? 'material-darker'));
-
-	const styles = Object.entries(stylesImport).map(([path]) => ({
-		value: path.slice(path.lastIndexOf('/') + 1, -4),
-		name: path.slice(path.lastIndexOf('/') + 1, -4)
-	}));
-
+	
 	$effect(() => {
 		let link: HTMLLinkElement;
 		(async () => {
@@ -43,13 +34,6 @@
 	bind:value={selected}
 >
 	{#each styles as theme}
-		<option value={theme.value}>{theme.value}</option>
+		<option value={theme}>{theme}</option>
 	{/each}
 </select>
-
-<!--
-@component
-[Go to docs](https://svelte-rune-highlight.codewithshin.com/)
-## Props
-@prop localStorageName = 'CODE_THEME'
--->

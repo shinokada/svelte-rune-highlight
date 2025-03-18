@@ -46,7 +46,7 @@
 					<GitHub />
 				</a>
 				<Darkmode class="mr-4 inline-block hover:text-gray-900 dark:hover:text-white" />
-				<CodeThemeSelector localStorageName="SVELTE_RUNE_HIGHLIGHT" />
+				<CodeThemeSelector />
 			</div>
 		{/snippet}
 		<NavUl {activeUrl} class={ulclass}>
