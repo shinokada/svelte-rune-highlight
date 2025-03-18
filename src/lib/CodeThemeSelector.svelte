@@ -6,7 +6,11 @@
 		localStorageName: string;
 		class: string;
 	}
-	let { localStorageName = 'CODE_BLOCK_STYLE', class:className = "w-32 border border-gray-200 p-1 text-gray-800 md:w-36 bg-white dark:bg-white dark:text-gray-800" }: Props = $props();
+	let {
+		localStorageName = 'CODE_BLOCK_STYLE',
+		class:
+			className = 'w-32 border border-gray-200 p-1 text-gray-800 md:w-36 bg-white dark:bg-white dark:text-gray-800'
+	}: Props = $props();
 
 	let selected = $state(browser && (localStorage.getItem(localStorageName) ?? 'material-darker'));
 
@@ -31,11 +35,17 @@
 	});
 </script>
 
-<select
-	class={className}
-	bind:value={selected}
->
+<select class={className} bind:value={selected}>
 	{#each styles as theme}
 		<option value={theme}>{theme}</option>
 	{/each}
 </select>
+
+<!--
+@component
+[Go to docs](https://svelte-rune-highlight.codewithshin.com/)
+## Props
+@prop localStorageName = 'CODE_BLOCK_STYLE'
+@prop class:
+			className = 'w-32 border border-gray-200 p-1 text-gray-800 md:w-36 bg-white dark:bg-white dark:text-gray-800'
+-->

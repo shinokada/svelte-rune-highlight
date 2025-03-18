@@ -1,5 +1,11 @@
 # svelte-rune-highlight
 
+## 0.6.2
+
+### Patch Changes
+
+- fix: package.json to export languages and styles
+
 ## 0.6.1
 
 ### Patch Changes
