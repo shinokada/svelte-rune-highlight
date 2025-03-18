@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
 	import styles from './styles/themes.json';
-
+	
 	interface Props {
 		localStorageName?: string;
 		class?: string;
@@ -17,7 +17,7 @@
 	$effect(() => {
 		let link: HTMLLinkElement;
 		(async () => {
-			const css = await import(`$lib/styles/${selected}.css?url`);
+			const css = await import(`./styles/${selected}.css`);
 			link = document.createElement('link');
 
 			link.rel = 'stylesheet';
