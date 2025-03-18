@@ -2,9 +2,11 @@
 	import { browser } from '$app/environment';
 	import styles from './styles/themes.json';
 
-	let { localStorageName = 'CODE_BLOCK_STYLE' } = $props();
-	/*eslint no-undef: "off"*/
-	// const localStorageName = __NAME__.replace(/[\s-]/g, '_').toUpperCase() + '_CODE_BLOCK_STYLE';
+	interface Props {
+		localStorageName: string;
+		class: string;
+	}
+	let { localStorageName = 'CODE_BLOCK_STYLE', class:className = "w-32 border border-gray-200 p-1 text-gray-800 md:w-36 bg-white dark:bg-white dark:text-gray-800" }: Props = $props();
 
 	let selected = $state(browser && (localStorage.getItem(localStorageName) ?? 'material-darker'));
 
@@ -30,7 +32,7 @@
 </script>
 
 <select
-	class="w-32 border border-gray-200 p-1 text-gray-800 md:w-36 dark:bg-white dark:text-gray-800"
+	class={className}
 	bind:value={selected}
 >
 	{#each styles as theme}

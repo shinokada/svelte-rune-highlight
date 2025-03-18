@@ -58,8 +58,14 @@
 			"import": "./dist/index.js",
 			"default": "./dist/index.js"
 		},
-		"./languages/*": "./dist/languages/*",
-		"./styles/*": "./dist/styles/*"
+		"./languages/*": {
+        "types": "./dist/languages/*.d.ts",
+        "import": "./dist/languages/*.js"
+    },
+    "./styles/*": {
+        "types": "./dist/styles/*.d.ts",
+        "import": "./dist/styles/*.css"
+    }
 	},
 	"peerDependencies": {
 		"svelte": "^5.0.0"
