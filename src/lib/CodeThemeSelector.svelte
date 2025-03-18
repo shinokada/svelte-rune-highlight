@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
 	import styles from './styles/themes.json';
-	
+
 	interface Props {
 		localStorageName?: string;
 		class?: string;

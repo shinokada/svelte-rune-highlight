@@ -55,7 +55,6 @@
 			<NavLi href="/auto">Auto</NavLi>
 			<NavLi href="/svelte">Svelte</NavLi>
 			<NavLi href="/line-numbers">Line Numbers</NavLi>
-			<NavLi href="/code-theme">Code Theme</NavLi>
 			<NavLi href="/extend">Extend</NavLi>
 		</NavUl>
 	</Navbar>
