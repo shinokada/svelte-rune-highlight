@@ -1,5 +1,11 @@
 # svelte-rune-highlight
 
+## 0.6.3
+
+### Patch Changes
+
+- fix: update CodeThemeSelector
+
 ## 0.6.2
 
 ### Patch Changes

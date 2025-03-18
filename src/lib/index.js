@@ -1,5 +1,7 @@
-export * from './styles';
-export * from './languages';
+import * as styles from './styles';
+import * as languages from './languages';
+
+export { styles, languages };
 
 export { default as Highlight } from './Highlight.svelte';
 export { default as HighlightAuto } from './HighlightAuto.svelte';
