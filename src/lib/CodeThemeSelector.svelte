@@ -3,8 +3,8 @@
 	import styles from './styles/themes.json';
 
 	interface Props {
-		localStorageName: string;
-		class: string;
+		localStorageName?: string;
+		class?: string;
 	}
 	let {
 		localStorageName = 'CODE_BLOCK_STYLE',
@@ -17,7 +17,7 @@
 	$effect(() => {
 		let link: HTMLLinkElement;
 		(async () => {
-			const css = await import(`./styles/${selected}.css?url`);
+			const css = await import(`$lib/styles/${selected}.css?url`);
 			link = document.createElement('link');
 
 			link.rel = 'stylesheet';
