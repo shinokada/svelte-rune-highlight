@@ -2,12 +2,12 @@
 	import { browser } from '$app/environment';
 	import styles from './styles/themes.json';
 
-	let { localStorageName = 'CODE_BLOCK_STYLE'} = $props();
+	let { localStorageName = 'CODE_BLOCK_STYLE' } = $props();
 	/*eslint no-undef: "off"*/
 	// const localStorageName = __NAME__.replace(/[\s-]/g, '_').toUpperCase() + '_CODE_BLOCK_STYLE';
 
 	let selected = $state(browser && (localStorage.getItem(localStorageName) ?? 'material-darker'));
-	
+
 	$effect(() => {
 		let link: HTMLLinkElement;
 		(async () => {
