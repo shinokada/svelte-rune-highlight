@@ -13,7 +13,13 @@
 
 <h2>CSS</h2>
 
-<p><a class="underline" href="https://github.com/shinokada/svelte-rune-highlight/tree/main/src/routes/utils/highlight">Copy this directory</a> to your `src/routes/utils` directory.</p>
+<p>
+	<a
+		class="underline"
+		href="https://github.com/shinokada/svelte-rune-highlight/tree/main/src/routes/utils/highlight"
+		>Copy this directory</a
+	> to your `src/routes/utils` directory.
+</p>
 
 <h2>ThemeSelector</h2>
 

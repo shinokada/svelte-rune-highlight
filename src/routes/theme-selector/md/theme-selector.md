@@ -33,10 +33,13 @@
 </script>
 
 <select
-	class="w-32 border border-gray-200 p-1 text-gray-800 md:w-36 dark:bg-white dark:text-gray-800"
-	bind:value={selected}
+class="w-32 border border-gray-200 p-1 text-gray-800 md:w-36 dark:bg-white dark:text-gray-800"
+bind:value={selected}
+
 >
-	{#each styles as theme}
-		<option value={theme.value}>{theme.value}</option>
-	{/each}
+
+    {#each styles as theme}
+    	<option value={theme.value}>{theme.value}</option>
+    {/each}
+
 </select>
