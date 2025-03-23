@@ -21,11 +21,11 @@ test('line-numbers page has expected h1', async ({ page }) => {
 });
 
 test('extend page has expected h1', async ({ page }) => {
-	await page.goto('/extend');
-	await expect(page.getByRole('heading', { name: 'Extend' })).toBeVisible();
+	await page.goto('/wrapper');
+	await expect(page.getByRole('heading', { name: 'Wrapper' })).toBeVisible();
 });
 
-test('Code Theme page has expected h1', async ({ page }) => {
-	await page.goto('/code-theme');
-	await expect(page.getByRole('heading', { name: 'Code Theme' })).toBeVisible();
+test('Theme selector page has expected h1', async ({ page }) => {
+	await page.goto('/theme-selector');
+	await expect(page.getByRole('heading', { name: 'Theme Selector' })).toBeVisible();
 });

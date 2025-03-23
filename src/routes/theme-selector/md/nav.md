@@ -1,8 +1,6 @@
 <script lang="ts">
 	import { Navbar, NavLi, NavBrand, NavUl, uiHelpers, Darkmode } from 'svelte-5-ui-lib';
-	import DynamicCodeBlockStyle from './DynamicCodeBlockStyle.svelte';
-	import { Bluesky } from 'runes-webkit';
-	import GitHub from './GitHub.svelte';
+	import ThemeSelector from './ThemeSelector.svelte';
 	import { page } from '$app/state';
 
 	let activeUrl = $state(page.url.pathname);
@@ -33,30 +31,13 @@
 		{#snippet brand()}
 			<NavBrand siteName="Svelte Rune Highlight" spanClass="sm:text-2xl" />
 			<div class="ml-auto flex items-center lg:order-1">
-				<a
-					class="hidden rounded-lg p-2.5 whitespace-normal hover:bg-gray-100 hover:text-gray-900 focus:ring-0 focus:ring-gray-400 focus:outline-none sm:inline-block dark:hover:bg-gray-600 dark:hover:text-white"
-					href="https://bsky.app/profile/codewithshin.com"
-				>
-					<Bluesky />
-				</a>
-				<a
-					class="hidden rounded-lg p-2.5 whitespace-normal hover:bg-gray-100 hover:text-gray-900 focus:ring-0 focus:ring-gray-400 focus:outline-none sm:inline-block dark:hover:bg-gray-600 dark:hover:text-white"
-					href="https://github.com/shinokada/svelte-rune-highlight"
-				>
-					<GitHub />
-				</a>
 				<Darkmode class="mr-4 inline-block hover:text-gray-900 dark:hover:text-white" />
-				<DynamicCodeBlockStyle />
+				<ThemeSelector />
 			</div>
 		{/snippet}
 		<NavUl {activeUrl} class={ulclass}>
 			<NavLi href="/">Home</NavLi>
-			<NavLi href="/highlight">Highlight</NavLi>
-			<NavLi href="/auto">Auto</NavLi>
-			<NavLi href="/svelte">Svelte</NavLi>
-			<NavLi href="/line-numbers">Line Numbers</NavLi>
-			<NavLi href="/wrapper">Wrapper</NavLi>
-			<NavLi href="/theme-selector">Theme Selector</NavLi>
+			<NavLi href="/about">About</NavLi>
 		</NavUl>
 	</Navbar>
 </header>

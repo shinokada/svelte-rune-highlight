@@ -7,9 +7,9 @@
 	});
 </script>
 
-<h1>Extend</h1>
+<h1>Wrapper</h1>
 
-<h2>Wrapper example</h2>
+<h2>Example</h2>
 
 <p>The following is an example of how to create a custom wrapper for your svelte file:</p>
 
