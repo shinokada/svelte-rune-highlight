@@ -8,4 +8,3 @@ export { default as HighlightAuto } from './HighlightAuto.svelte';
 export { default as HighlightSvelte } from './HighlightSvelte.svelte';
 export { default as cssNames } from './cssNames.json';
 export { default as LangTag } from './LangTag.svelte';
-export { default as CodeThemeSelector } from './CodeThemeSelector.svelte';

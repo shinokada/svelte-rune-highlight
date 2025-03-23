@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Navbar, NavLi, NavBrand, NavUl, uiHelpers, Darkmode } from 'svelte-5-ui-lib';
-	import { CodeThemeSelector } from '$lib';
+	import DynamicCodeBlockStyle from './DynamicCodeBlockStyle.svelte';
 	import { Bluesky } from 'runes-webkit';
 	import GitHub from './GitHub.svelte';
 	import { page } from '$app/state';
@@ -46,7 +46,7 @@
 					<GitHub />
 				</a>
 				<Darkmode class="mr-4 inline-block hover:text-gray-900 dark:hover:text-white" />
-				<CodeThemeSelector />
+				<DynamicCodeBlockStyle />
 			</div>
 		{/snippet}
 		<NavUl {activeUrl} class={ulclass}>
