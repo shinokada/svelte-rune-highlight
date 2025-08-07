@@ -1,5 +1,11 @@
 # svelte-rune-highlight
 
+## 0.6.8
+
+### Patch Changes
+
+- docs: add +layout.svelte to installation
+
 ## 0.6.7
 
 ### Patch Changes
