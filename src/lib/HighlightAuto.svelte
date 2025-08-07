@@ -5,8 +5,9 @@
 	interface Props {
 		code?: string;
 		langtag?: boolean;
+		class?: string;
 	}
-	let { code = '', langtag = false, ...restProps }: Props = $props();
+	let { code = '', langtag = false, class: className, ...restProps }: Props = $props();
 	let highlighted: string = $state('');
 	let language: string = $state('');
 	function updateHighlight() {
@@ -19,7 +20,7 @@
 	});
 </script>
 
-<LangTag {...restProps} languageName={language} {langtag} {highlighted} {code} />
+<LangTag class={className} {...restProps} languageName={language} {langtag} {highlighted} {code} />
 
 <!--
 @component
@@ -27,5 +28,6 @@
 ## Props
 @prop code = ''
 @prop langtag = false
+@prop class: className
 @prop ...restProps
 -->

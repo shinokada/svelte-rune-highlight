@@ -1,6 +1,6 @@
 {
 	"name": "svelte-rune-highlight",
-	"version": "0.6.6",
+	"version": "0.6.7",
 	"description": "A highlight library for Svelte 5 with Rune",
 	"license": "MIT",
 	"main": "dist/index.js",
@@ -78,7 +78,7 @@
 		"@sveltejs/adapter-auto": "^4.0.0",
 		"@sveltejs/kit": "^2.25.0",
 		"@sveltejs/package": "^2.4.0",
-		"@sveltejs/vite-plugin-svelte": "^5.1.1",
+		"@sveltejs/vite-plugin-svelte": "^6.1.0",
 		"@svitejs/changesets-changelog-github-compact": "^1.2.0",
 		"@tailwindcss/vite": "^4.1.11",
 		"@testing-library/jest-dom": "^6.6.3",

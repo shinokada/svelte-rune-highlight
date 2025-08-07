@@ -1,5 +1,11 @@
 # svelte-rune-highlight
 
+## 0.6.7
+
+### Patch Changes
+
+- feat: add class
+
 ## 0.6.6
 
 ### Patch Changes
@@ -140,7 +146,6 @@
 ### Minor Changes
 
 - feat: CodeBlockSwitcher component is added ([`96f3543695d077b610cbd64b8556ed100f301f64`](https://github.com/shinokada/svelte-rune-highlight/commit/96f3543695d077b610cbd64b8556ed100f301f64))
-
   - chore: dependencies update
 
 ## 0.4.0

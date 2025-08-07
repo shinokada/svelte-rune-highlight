@@ -19,6 +19,7 @@
 		highlightedLines?: number[];
 		backgroudColor?: string;
 		position?: 'static' | 'relative' | 'abolute' | 'sticky' | undefined;
+		class?: string;
 	}
 
 	let {
@@ -32,6 +33,7 @@
 		highlightedLines = [],
 		backgroudColor,
 		position = 'sticky',
+		class: className,
 		...restProps
 	}: Props = $props();
 
@@ -49,7 +51,7 @@
 </script>
 
 {#if numberLine}
-	<div style:overflow-x="auto" {...restProps}>
+	<div style:overflow-x="auto" {...restProps} class={className}>
 		<table>
 			<tbody class:hljs={true}>
 				{#each lines as line, i}
@@ -91,7 +93,14 @@
 		</table>
 	</div>
 {:else}
-	<LangTag {...restProps} languageName={language.name} {langtag} {highlighted} {code} />
+	<LangTag
+		class={className}
+		{...restProps}
+		languageName={language.name}
+		{langtag}
+		{highlighted}
+		{code}
+	/>
 {/if}
 
 {#if numberLine}
@@ -195,5 +204,6 @@
 @prop highlightedLines = []
 @prop backgroudColor
 @prop position = 'sticky'
+@prop class: className
 @prop ...restProps
 -->

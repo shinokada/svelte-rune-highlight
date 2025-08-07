@@ -1,10 +1,12 @@
 <script lang="ts">
-	interface Props {
+	import type { HTMLAttributes } from 'svelte/elements';
+
+	interface Props extends HTMLAttributes<HTMLPreElement> {
 		code?: string;
 		highlighted?: string;
 		languageName?: string;
 		langtag?: boolean;
-		preClass?: string;
+		class?: string;
 	}
 
 	let {
@@ -12,14 +14,16 @@
 		highlighted,
 		languageName = 'plaintext',
 		langtag = false,
-		preClass,
+		class: className,
 		...restProps
 	}: Props = $props();
 </script>
 
 <!-- eslint-disable svelte/no-at-html-tags -->
-<pre class="{preClass} {langtag ? 'langtag' : ''}" data-language={languageName} {...restProps}><code
-		class:hljs={true}
+<pre
+	class="{className} {langtag ? 'langtag' : ''}"
+	data-language={languageName}
+	{...restProps}><code class:hljs={true}
 		>{#if highlighted}{@html highlighted}{:else}{code}{/if}</code
 	></pre>
 
@@ -51,6 +55,6 @@
 @prop highlighted
 @prop languageName = 'plaintext'
 @prop langtag = false
-@prop preClass
+@prop class: className
 @prop ...restProps
 -->
