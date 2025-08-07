@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Navbar, NavLi, NavBrand, NavUl, uiHelpers, Darkmode } from 'svelte-5-ui-lib';
+	import { Navbar, NavLi, NavBrand, NavUl, uiHelpers, DarkMode } from 'flowbite-svelte';
 	import DynamicCodeBlockStyle from './DynamicCodeBlockStyle.svelte';
 	import { Bluesky } from 'runes-webkit';
 	import GitHub from './GitHub.svelte';
@@ -29,26 +29,28 @@
 <header
 	class="sticky top-0 z-40 mx-auto w-full flex-none border-b border-gray-200 bg-white dark:border-gray-600 dark:bg-gray-900"
 >
-	<Navbar {navClass} {toggleNav} {closeNav} {navStatus} breakPoint="lg" fluid div2Class={divClass}>
-		{#snippet brand()}
-			<NavBrand siteName="Svelte Rune Highlight" spanClass="sm:text-2xl" />
-			<div class="ml-auto flex items-center lg:order-1">
-				<a
-					class="hidden rounded-lg p-2.5 whitespace-normal hover:bg-gray-100 hover:text-gray-900 focus:ring-0 focus:ring-gray-400 focus:outline-none sm:inline-block dark:hover:bg-gray-600 dark:hover:text-white"
-					href="https://bsky.app/profile/codewithshin.com"
-				>
-					<Bluesky />
-				</a>
-				<a
-					class="hidden rounded-lg p-2.5 whitespace-normal hover:bg-gray-100 hover:text-gray-900 focus:ring-0 focus:ring-gray-400 focus:outline-none sm:inline-block dark:hover:bg-gray-600 dark:hover:text-white"
-					href="https://github.com/shinokada/svelte-rune-highlight"
-				>
-					<GitHub />
-				</a>
-				<Darkmode class="mr-4 inline-block hover:text-gray-900 dark:hover:text-white" />
-				<DynamicCodeBlockStyle />
-			</div>
-		{/snippet}
+	<Navbar fluid>
+		<NavBrand class="sm:text-2xl">
+			<span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white"
+				>Svelte Rune Highlight</span
+			>
+		</NavBrand>
+		<div class="ml-auto flex items-center lg:order-1">
+			<a
+				class="hidden rounded-lg p-2.5 whitespace-normal hover:bg-gray-100 hover:text-gray-900 focus:ring-0 focus:ring-gray-400 focus:outline-none sm:inline-block dark:hover:bg-gray-600 dark:hover:text-white"
+				href="https://bsky.app/profile/codewithshin.com"
+			>
+				<Bluesky />
+			</a>
+			<a
+				class="hidden rounded-lg p-2.5 whitespace-normal hover:bg-gray-100 hover:text-gray-900 focus:ring-0 focus:ring-gray-400 focus:outline-none sm:inline-block dark:hover:bg-gray-600 dark:hover:text-white"
+				href="https://github.com/shinokada/svelte-rune-highlight"
+			>
+				<GitHub />
+			</a>
+			<DarkMode class="mr-4 inline-block hover:text-gray-900 dark:hover:text-white" />
+			<DynamicCodeBlockStyle />
+		</div>
 		<NavUl {activeUrl} class={ulclass}>
 			<NavLi href="/">Home</NavLi>
 			<NavLi href="/highlight">Highlight</NavLi>

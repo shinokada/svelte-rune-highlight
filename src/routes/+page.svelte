@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { List, Li, A, Banner } from 'svelte-5-ui-lib';
+	import { List, Li, A, Banner } from 'flowbite-svelte';
 	import HighlightCompo from './utils/HighlightCompo.svelte';
 	import { CheckOutline } from 'flowbite-svelte-icons';
 	// import { clickToCopy } from './utils/helpers';
@@ -18,7 +18,7 @@
 	const highlightjsVersion = __HIGHLIGHTJSVERSION__;
 </script>
 
-<Banner id="default-banner" dismissable={false} divClass="p-2">
+<Banner id="default-banner" dismissable={false} class="p-2">
 	<p class="flex items-center gap-4 text-lg font-normal text-gray-900 dark:text-gray-100">
 		To Keep It Going, Please Show Your Love.
 		<a href="https://ko-fi.com/Z8Z2CHALG" target="_blank">

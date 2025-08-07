@@ -20,7 +20,7 @@
 
 	// Clean class concatenation
 	let classes = $derived([className, langtag && 'langtag'].filter(Boolean).join(' '));
-	
+
 	// Ensure we have a valid language name
 	let displayLanguage = $derived(languageName || 'plaintext');
 </script>
@@ -31,8 +31,7 @@
 	data-language={displayLanguage}
 	role="img"
 	aria-label="Code block in {displayLanguage}"
-	{...restProps}
->
+	{...restProps}>
 	<code class="hljs">
 		{#if highlighted}
 			{@html highlighted}
@@ -81,3 +80,15 @@
 		line-height: var(--code-line-height, 1.5);
 	}
 </style>
+
+<!--
+@component
+[Go to docs](https://svelte-rune-highlight.codewithshin.com/)
+## Props
+@prop code = ''
+@prop highlighted = ''
+@prop languageName = 'plaintext'
+@prop langtag = false
+@prop class: className = ''
+@prop ...restProps
+-->

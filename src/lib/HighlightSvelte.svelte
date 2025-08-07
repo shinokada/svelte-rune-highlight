@@ -36,13 +36,13 @@
 			// For Svelte files, try XML first (for template), then auto-detect
 			// This gives better results than pure auto-detection
 			const xmlResult = hljs.highlight(code, { language: 'xml', ignoreIllegals: true });
-			
+
 			// If XML highlighting seems poor (low relevance), try auto-detection
 			if (xmlResult.relevance < 5) {
 				const autoResult = hljs.highlightAuto(code, ['javascript', 'xml', 'css']);
 				return autoResult.relevance > xmlResult.relevance ? autoResult.value : xmlResult.value;
 			}
-			
+
 			return xmlResult.value;
 		} catch (error) {
 			console.warn('Highlight.js failed for Svelte code:', error);
@@ -51,11 +51,14 @@
 	});
 </script>
 
-<LangTag 
-	class={className} 
-	{...restProps} 
-	languageName="svelte" 
-	{langtag} 
-	{highlighted} 
-	{code} 
-/>
+<LangTag class={className} {...restProps} languageName="svelte" {langtag} {highlighted} {code} />
+
+<!--
+@component
+[Go to docs](https://svelte-rune-highlight.codewithshin.com/)
+## Props
+@prop code = ''
+@prop langtag = false
+@prop class: className
+@prop ...restProps
+-->

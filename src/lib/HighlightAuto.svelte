@@ -8,15 +8,15 @@
 		langtag?: boolean;
 		class?: string;
 	}
-	
+
 	let { code = '', langtag = false, class: className, ...restProps }: Props = $props();
-	
+
 	// Use $derived for reactive highlighting - more efficient than $state + $effect
 	let highlightResult = $derived.by(() => {
 		if (!code.trim()) {
 			return { value: '', language: 'plaintext' };
 		}
-		
+
 		try {
 			return hljs.highlightAuto(code);
 		} catch (error) {
@@ -24,16 +24,19 @@
 			return { value: code, language: 'plaintext' };
 		}
 	});
-	
+
 	let highlighted = $derived(highlightResult.value);
 	let language = $derived(highlightResult.language || 'plaintext');
 </script>
 
-<LangTag 
-	class={className} 
-	{...restProps} 
-	languageName={language} 
-	{langtag} 
-	{highlighted} 
-	{code} 
-/>
+<LangTag class={className} {...restProps} languageName={language} {langtag} {highlighted} {code} />
+
+<!--
+@component
+[Go to docs](https://svelte-rune-highlight.codewithshin.com/)
+## Props
+@prop code = ''
+@prop langtag = false
+@prop class: className
+@prop ...restProps
+-->
