@@ -7,21 +7,28 @@ This lib is ported from [Svelte-Highlight](https://www.npmjs.com/package/svelte-
 
 ## Installation
 
-```
+```sh
 pnpm i -D svelte-rune-highlight highlight.js
+```
 
-// +layout.svelte
+Then in +layout.svelte
+
+```svelte
 <script lang="ts">
-  // select your faviroite scheme from https://highlightjs.org/demo
-  import githubDark from 'svelte-rune-highlight/styles/github-dark';
-  let { children } = $props();
+	// select your faviroite scheme from https://highlightjs.org/demo
+	import 'highlight.js/styles/github-dark.css';
 </script>
+```
 
+or use directly from cdnjs
+
+```svelte
 <svelte:head>
-  {@html githubDark}
+	<link
+		rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/dark.min.css"
+	/>
 </svelte:head>
-
-{@render children?.()}
 ```
 
 ## Docs

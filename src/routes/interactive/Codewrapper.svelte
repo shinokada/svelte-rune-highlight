@@ -8,15 +8,15 @@
 	interface Props {
 		code?: string;
 		langtag?: boolean;
-		preClass?: string;
+		class?: string;
 	}
 
-	let { code, langtag = false, preClass, ...restProps }: Props = $props();
+	let { code, langtag = false, class: className, ...restProps }: Props = $props();
 	hljs.registerLanguage('xml', xml);
 	hljs.registerLanguage('javascript', javascript);
 	hljs.registerLanguage('css', css);
 </script>
 
 <div class="bg-red-500 p-4">
-	<LangTag {preClass} {...restProps} languageName="svelte" {langtag} {code} />
+	<LangTag class={className} {...restProps} languageName="svelte" {langtag} {code} />
 </div>

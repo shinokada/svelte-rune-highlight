@@ -35,7 +35,7 @@
 		"test:e2e": "playwright test",
 		"copy:packagejson": "svelte-lib-helpers package",
 		"gen:docs5": "svelte-lib-helpers docs5",
-		"lib-helpers": "pnpm format && pnpm gen:docs5 && pnpm package && pnpm copy:packagejson",
+		"lib-helpers": "pnpm format && pnpm gen:docs5 && pnpm package",
 		"ch": "npx changeset",
 		"cv": "npx changeset version",
 		"cp": "npx changeset publish"

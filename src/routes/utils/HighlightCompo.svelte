@@ -2,7 +2,7 @@
 	import { HighlightSvelte, Highlight } from '$lib';
 	import { Badge } from 'svelte-5-ui-lib';
 	import { clickToCopy } from './helpers';
-	import markdown from '$lib/languages/markdown';
+	import markdown from 'highlight.js/lib/languages/markdown';
 	let { code, codeLang }: { code: string; codeLang?: string; theme?: string } = $props();
 
 	let text = $state('');
@@ -23,6 +23,11 @@
 		if (--counter > 0) return setTimeout(timeout, 1000);
 		open = false;
 	}
+
+	const mdLang = {
+		name: 'markdown',
+		register: markdown
+	};
 </script>
 
 {#if open}
@@ -65,7 +70,7 @@
 		</button>
 	</div>
 	{#if codeLang === 'md'}
-		<Highlight language={markdown} {code} />
+		<Highlight language={mdLang} {code} />
 	{:else if code}
 		<HighlightSvelte {code} />
 	{:else}

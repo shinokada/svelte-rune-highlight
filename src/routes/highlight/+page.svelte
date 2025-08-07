@@ -3,15 +3,32 @@
 	import { A } from 'svelte-5-ui-lib';
 	// import Highlight from "$lib/Highlight.svelte";
 	import HighlightCompo from '../utils/HighlightCompo.svelte';
-	import typescript from '$lib/languages/typescript';
-	import markdown from '$lib/languages/markdown';
-	import yaml from '$lib/languages/yaml';
-	import json from '$lib/languages/json';
+	import typescript from 'highlight.js/lib/languages/typescript';
+	import markdown from 'highlight.js/lib/languages/markdown';
+	import yaml from 'highlight.js/lib/languages/yaml';
+	import json from 'highlight.js/lib/languages/json';
 	const modules = import.meta.glob('./samples/**/*.md', {
 		query: '?raw',
 		import: 'default',
 		eager: true
 	});
+
+	const tsLang = {
+		name: 'typescript',
+		register: typescript
+	};
+	const mdLang = {
+		name: 'markdown',
+		register: markdown
+	};
+	const yamlLang = {
+		name: 'yaml',
+		register: yaml
+	};
+	const jsonLang = {
+		name: 'json',
+		register: json
+	};
 </script>
 
 <h1>Highlight Component</h1>
@@ -24,7 +41,7 @@
 
 <HighlightCompo code={modules['./samples/highlight/basic.md'] as string} />
 The above code will produce:
-<Highlight language={typescript} code={modules['./samples/javascript.md'] as string} />
+<Highlight language={tsLang} code={modules['./samples/javascript.md'] as string} />
 
 <h2>Language Tag</h2>
 
@@ -38,7 +55,7 @@ The above code will produce:
 <p>Here's what you'll see when you run this code:</p>
 
 <Highlight
-	language={markdown}
+	language={mdLang}
 	code={modules['./samples/markdown.md'] as string}
 	langtag
 	--langtag-color="lightgreen"
@@ -52,7 +69,7 @@ The above code will produce:
 <p>This code generates the following output:</p>
 
 <Highlight
-	language={yaml}
+	language={yamlLang}
 	code={modules['./samples/yaml.md'] as string}
 	langtag
 	--langtag-color="lightcoral"
@@ -65,7 +82,7 @@ The above code will produce:
 <p>The code produces this output:</p>
 
 <Highlight
-	language={json}
+	language={jsonLang}
 	code={modules['./samples/json.md'] as string}
 	langtag
 	--langtag-color="springgreen"

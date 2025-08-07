@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Highlight } from 'svelte-rune-highlight';
-  import yaml from 'svelte-rune-highlight/languages/yaml';
+  import yaml from 'highlight.js/lib/languages/yaml';
   const modules = import.meta.glob('./samples/*.md', { query: '?raw', import: 'default', eager: true });
 </script>
 

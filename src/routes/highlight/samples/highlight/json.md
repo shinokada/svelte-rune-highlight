@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Highlight } from 'svelte-rune-highlight';
-  import json from 'svelte-rune-highlight/languages/json';
+  import json from 'highlight.js/lib/languages/json';
   const modules = import.meta.glob('./samples/*.md', { query: '?raw', import: 'default', eager: true });
 </script>
 

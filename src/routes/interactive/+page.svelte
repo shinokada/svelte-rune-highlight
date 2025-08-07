@@ -2,8 +2,8 @@
 	import { Highlight, HighlightSvelte, LangTag } from '$lib';
 	import { Label, Radio, Spinner, type SpinnerProps } from 'svelte-5-ui-lib';
 	import Codewrapper from './Codewrapper.svelte';
-	import typescript from '$lib/languages/typescript';
-	import '$lib/styles/github-dark.css';
+	import typescript from 'highlight.js/lib/languages/typescript';
+	import 'highlight.js/styles/github-dark.css';
 	const sizes = ['4', '5', '6', '8', '10', '12', '16'];
 	let spinnerSize = $state('8');
 	// code generator
@@ -14,6 +14,10 @@
 			return `<Spinner${props.join('')} />`;
 		})()
 	);
+	const tsLang = {
+		name: 'typescript',
+		register: typescript
+	};
 </script>
 
 <h2>HighlightSvelte</h2>
@@ -30,7 +34,7 @@
 </div>
 {generatedCode}
 Highlight
-<Highlight code={generatedCode} language={typescript} numberLine />
+<Highlight code={generatedCode} language={tsLang} numberLine />
 HighlightSvelte
 <HighlightSvelte code={generatedCode} />
 LangTag

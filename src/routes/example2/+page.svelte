@@ -1,11 +1,16 @@
 <script lang="ts">
 	import { Highlight } from '$lib';
-	import typescript from '$lib/languages/typescript';
+	import typescript from 'highlight.js/lib/languages/typescript';
 	const modules = import.meta.glob('./md/*.md', {
 		query: '?raw',
 		import: 'default',
 		eager: true
 	});
+
+	const tsLang = {
+		name: 'typescript',
+		register: typescript
+	};
 </script>
 
 <h1>Line Numbers</h1>
@@ -19,7 +24,7 @@
 	props to add line numbers.
 </p>
 
-<Highlight language={typescript} code={modules['./md/sample-1.md'] as string} numberLine />
+<Highlight language={tsLang} code={modules['./md/sample-1.md'] as string} numberLine />
 
 <h2>Hide Border</h2>
 
@@ -29,7 +34,7 @@
 </p>
 
 <Highlight
-	language={typescript}
+	language={tsLang}
 	code={modules['./md/sample-2.md'] as string}
 	hideBorder
 	numberLine
@@ -44,12 +49,7 @@
 	props to wrap lines.
 </p>
 
-<Highlight
-	language={typescript}
-	code={modules['./md/sample-3.md'] as string}
-	wrapLines
-	numberLine
-/>
+<Highlight language={tsLang} code={modules['./md/sample-3.md'] as string} wrapLines numberLine />
 
 <h2>Starting Line Number</h2>
 
@@ -59,7 +59,7 @@
 </p>
 
 <Highlight
-	language={typescript}
+	language={tsLang}
 	code={modules['./md/sample-4.md'] as string}
 	startingLineNumber={42}
 	numberLine
@@ -75,7 +75,7 @@
 </p>
 
 <Highlight
-	language={typescript}
+	language={tsLang}
 	code={modules['./md/sample-5.md'] as string}
 	highlightedLines={[2, 4]}
 	--highlighted-background="#666"
@@ -98,7 +98,7 @@
 </p>
 
 <Highlight
-	language={typescript}
+	language={tsLang}
 	code={modules['./md/sample-6.md'] as string}
 	highlightedLines={[1, 3]}
 	--line-number-color="pink"

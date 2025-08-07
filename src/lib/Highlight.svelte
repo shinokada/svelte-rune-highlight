@@ -1,11 +1,11 @@
 <script lang="ts">
 	import hljs from 'highlight.js/lib/core';
+	import type { LanguageFn } from 'highlight.js';
 	import LangTag from './LangTag.svelte';
 
-	/* eslint-disable  @typescript-eslint/no-explicit-any */
 	type HighlightLanguage = {
 		name: string;
-		register: (hljs: any) => any;
+		register: LanguageFn;
 	};
 
 	interface Props {
