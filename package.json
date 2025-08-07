@@ -1,6 +1,6 @@
 {
 	"name": "svelte-rune-highlight",
-	"version": "0.6.8",
+	"version": "0.6.9",
 	"description": "A highlight library for Svelte 5 with Rune",
 	"license": "MIT",
 	"main": "dist/index.js",
@@ -54,17 +54,7 @@
 	"exports": {
 		".": {
 			"types": "./dist/index.d.ts",
-			"svelte": "./dist/index.js",
-			"import": "./dist/index.js",
-			"default": "./dist/index.js"
-		},
-		"./languages/*": {
-			"types": "./dist/languages/*.d.ts",
-			"import": "./dist/languages/*.js"
-		},
-		"./styles/*": {
-			"types": "./dist/styles/*.d.ts",
-			"import": "./dist/styles/*.css"
+			"svelte": "./dist/index.js"
 		}
 	},
 	"peerDependencies": {
