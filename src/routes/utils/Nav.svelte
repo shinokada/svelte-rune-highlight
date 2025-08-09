@@ -3,6 +3,7 @@
     Navbar,
     NavLi,
     NavBrand,
+    NavHamburger,
     NavUl,
     uiHelpers,
     DarkMode,
@@ -29,23 +30,24 @@
     navStatus = nav.isOpen;
   });
 
-  let activeClass = 'p-2 text-sm lg:text-base';
-  let nonActiveClass = 'p-2 text-sm lg:text-base';
+  let activeClass = 'p-2 text-base hover:text-gray-600';
+  let nonActiveClass = 'p-2 text-base hover:text-gray-600';
 </script>
 
 <Navbar
-  breakpoint="lg"
+  breakpoint="xl"
   fluid
-  class="fixed top-0 left-0 z-50 border-b border-gray-100 bg-white sm:px-12  lg:py-0 dark:border-gray-700 dark:bg-stone-950"
-  navContainerClass="lg:justify-between"
+  class="fixed top-0 left-0 z-50 border-b border-gray-100 bg-white sm:px-12  py-4 dark:border-gray-700 dark:bg-stone-950"
+  navContainerClass="xl:justify-between"
 >
   <NavBrand href="/">
-    <span class="self-center text-2xl font-semibold whitespace-nowrap sm:text-3xl dark:text-white"
+    <span class="self-center text-2xl xl:text-3xl font-semibold whitespace-nowrap dark:text-white"
       >Svelte Rune Highlight</span
     >
   </NavBrand>
-  <div class="flex md:order-2">
-    <DynamicCodeBlockStyle />
+  <div class="flex xl:order-2 justify-end">
+    <NavHamburger class="order-3"/>
+    <DynamicCodeBlockStyle class="hidden xl:block"/>
     <DotsHorizontalOutline class="mt-1.5 mr-4 ml-6 dark:text-white" size="lg" />
     <Dropdown simple class="p-1">
       {#if blueskyUrl}
@@ -65,9 +67,10 @@
     <DarkMode class="m-0 p-2" />
   </div>
   <NavUl
+    breakpoint="xl"
     {activeUrl}
-    class="order-2 lg:order-1"
-    classes={{ active: activeClass, nonActive: nonActiveClass }}
+    class="order-2 xl:order-1"
+    classes={{ active: activeClass, nonActive: nonActiveClass, ul:"p-0" }}
   >
     <NavLi href="/">Home</NavLi>
     <NavLi href="/highlight">Highlight</NavLi>
