@@ -32,13 +32,7 @@
 	role="img"
 	aria-label="Code block in {displayLanguage}"
 	{...restProps}>
-	<code class="hljs">
-		{#if highlighted}
-			{@html highlighted}
-		{:else}
-			{code}
-		{/if}
-	</code>
+	<code class="hljs">{#if highlighted}{@html highlighted}{:else}{code}{/if}</code>
 </pre>
 
 <style>

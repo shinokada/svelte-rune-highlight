@@ -6,81 +6,81 @@
 @source "../node_modules/flowbite-svelte-icons/dist";
 
 @theme {
-	--z-index-100: 100;
+  --z-index-100: 100;
 
-	--color-primary-50: #ecfeff;
-	--color-primary-100: #cffafe;
-	--color-primary-200: #a5f3fc;
-	--color-primary-300: #67e8f9;
-	--color-primary-400: #22d3ee;
-	--color-primary-500: #06b6d4;
-	--color-primary-600: #0891b2;
-	--color-primary-700: #0e7490;
-	--color-primary-800: #155e75;
-	--color-primary-900: #164e63;
+  --color-primary-50: #ecfeff;
+  --color-primary-100: #cffafe;
+  --color-primary-200: #a5f3fc;
+  --color-primary-300: #67e8f9;
+  --color-primary-400: #22d3ee;
+  --color-primary-500: #06b6d4;
+  --color-primary-600: #0891b2;
+  --color-primary-700: #0e7490;
+  --color-primary-800: #155e75;
+  --color-primary-900: #164e63;
 }
 
 @layer base {
-	html {
-		-webkit-text-size-adjust: 100%;
-		font-family:
-			Inter,
-			ui-sans-serif,
-			system-ui,
-			-apple-system,
-			Segoe UI,
-			Roboto,
-			Helvetica Neue,
-			Arial,
-			Noto Sans,
-			sans-serif,
-			Apple Color Emoji,
-			Segoe UI Emoji,
-			Segoe UI Symbol,
-			Noto Color Emoji;
-		line-height: 1.5;
-		-moz-tab-size: 4;
-		tab-size: 4;
-	}
+  html {
+    -webkit-text-size-adjust: 100%;
+    font-family:
+      Inter,
+      ui-sans-serif,
+      system-ui,
+      -apple-system,
+      Segoe UI,
+      Roboto,
+      Helvetica Neue,
+      Arial,
+      Noto Sans,
+      sans-serif,
+      Apple Color Emoji,
+      Segoe UI Emoji,
+      Segoe UI Symbol,
+      Noto Color Emoji;
+    line-height: 1.5;
+    -moz-tab-size: 4;
+    tab-size: 4;
+  }
 
-	h1,
-	h2,
-	h3,
-	p,
-	ul,
-	li,
-	table {
-		@apply tracking-wide dark:text-white;
-	}
+  h1,
+  h2,
+  h3,
+  p,
+  ul,
+  li,
+  table {
+    @apply tracking-wide dark:text-white;
+  }
 
-	h1 {
-		@apply text-primary-800 dark:text-primary-400 my-8 text-3xl;
-	}
+  h1 {
+    @apply text-primary-800 dark:text-primary-400 my-8 text-3xl;
+  }
 
-	h2 {
-		@apply my-6 text-2xl;
-	}
+  h2 {
+    @apply my-6 text-2xl;
+  }
 
-	h3 {
-		@apply my-5 text-xl;
-	}
+  h3 {
+    @apply my-5 text-xl;
+  }
 
-	p {
-		@apply my-3 text-lg;
-	}
+  p {
+    @apply my-3 text-lg;
+  }
 
-	code {
-		@apply text-primary-700 dark:text-primary-400;
-	}
+  code {
+    @apply text-primary-700 dark:text-primary-400;
+  }
 
-	#mainContent > pre {
-		@apply mx-auto my-4 w-full overflow-auto rounded-xl border border-gray-200 bg-gray-50 bg-gradient-to-r p-2 text-sm text-gray-600 sm:p-6 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-400;
-	}
+  #mainContent > pre {
+    @apply mx-auto my-4 w-full overflow-auto rounded-xl border border-gray-200 bg-gray-50 bg-gradient-to-r p-2 text-sm text-gray-600 sm:p-6 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-400;
+  }
 }
 
 @layer components {
-	/* overwrite runeswebkit.css using !important */
-	.dark_bg_theme {
-		@apply dark:bg-stone-900;
-	}
+  /* overwrite runeswebkit.css using !important */
+  .dark_bg_theme {
+    @apply dark:bg-stone-900;
+  }
 }

@@ -1,5 +1,11 @@
 # svelte-rune-highlight
 
+## 0.7.0
+
+### Minor Changes
+
+- feat: dependencies update, component update
+
 ## 0.6.9
 
 ### Patch Changes

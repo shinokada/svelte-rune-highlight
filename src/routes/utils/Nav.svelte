@@ -1,64 +1,80 @@
 <script lang="ts">
-	import { Navbar, NavLi, NavBrand, NavUl, uiHelpers, DarkMode } from 'flowbite-svelte';
-	import DynamicCodeBlockStyle from './DynamicCodeBlockStyle.svelte';
-	import { Bluesky } from 'runes-webkit';
-	import GitHub from './GitHub.svelte';
-	import { page } from '$app/state';
+  import {
+    Navbar,
+    NavLi,
+    NavBrand,
+    NavUl,
+    uiHelpers,
+    DarkMode,
+    Dropdown,
+    DropdownItem
+  } from 'flowbite-svelte';
+  import DynamicCodeBlockStyle from './DynamicCodeBlockStyle.svelte';
+  import { Bluesky, DotsHorizontalOutline, GithubSolid, XSolid } from 'runes-webkit';
+  import { page } from '$app/state';
 
-	let activeUrl = $state(page.url.pathname);
-	$effect(() => {
-		activeUrl = page.url.pathname;
-	});
+  const githubUrl = `https://github.com/shinokada/${__NAME__}`;
+  const twitterUrl = 'https://twitter.com/shinokada';
+  const blueskyUrl = 'https://bsky.app/profile/codewithshin.com';
 
-	let nav = uiHelpers();
+  let activeUrl = $state(page.url.pathname);
+  $effect(() => {
+    activeUrl = page.url.pathname;
+  });
 
-	let navStatus = $state(false);
-	let toggleNav = nav.toggle;
-	let closeNav = nav.close;
-	let divClass = 'ml-auto w-full';
-	let ulclass =
-		'flex flex-col py-3 lg:flex-row lg:my-0 order-1 font-medium dark:lg:bg-transparent lg:bg-white lg:border-0 lg:space-x-2 xl:space-x-4';
-	let navClass =
-		'w-full divide-gray-200 border-gray-200 bg-white text-gray-500 dark:divide-gray-700 dark:border-gray-700 dark:transparent dark:text-gray-400 sm:px-4';
+  let nav = uiHelpers();
+  let navStatus = $state(false);
 
-	$effect(() => {
-		navStatus = nav.isOpen;
-	});
+  $effect(() => {
+    navStatus = nav.isOpen;
+  });
+
+  let activeClass = 'p-2 text-sm lg:text-base';
+  let nonActiveClass = 'p-2 text-sm lg:text-base';
 </script>
 
-<header
-	class="sticky top-0 z-40 mx-auto w-full flex-none border-b border-gray-200 bg-white dark:border-gray-600 dark:bg-gray-900"
+<Navbar
+  breakpoint="lg"
+  fluid
+  class="fixed top-0 left-0 z-50 border-b border-gray-100 bg-white sm:px-12  lg:py-0 dark:border-gray-700 dark:bg-stone-950"
+  navContainerClass="lg:justify-between"
 >
-	<Navbar fluid>
-		<NavBrand class="sm:text-2xl">
-			<span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white"
-				>Svelte Rune Highlight</span
-			>
-		</NavBrand>
-		<div class="ml-auto flex items-center lg:order-1">
-			<a
-				class="hidden rounded-lg p-2.5 whitespace-normal hover:bg-gray-100 hover:text-gray-900 focus:ring-0 focus:ring-gray-400 focus:outline-none sm:inline-block dark:hover:bg-gray-600 dark:hover:text-white"
-				href="https://bsky.app/profile/codewithshin.com"
-			>
-				<Bluesky />
-			</a>
-			<a
-				class="hidden rounded-lg p-2.5 whitespace-normal hover:bg-gray-100 hover:text-gray-900 focus:ring-0 focus:ring-gray-400 focus:outline-none sm:inline-block dark:hover:bg-gray-600 dark:hover:text-white"
-				href="https://github.com/shinokada/svelte-rune-highlight"
-			>
-				<GitHub />
-			</a>
-			<DarkMode class="mr-4 inline-block hover:text-gray-900 dark:hover:text-white" />
-			<DynamicCodeBlockStyle />
-		</div>
-		<NavUl {activeUrl} class={ulclass}>
-			<NavLi href="/">Home</NavLi>
-			<NavLi href="/highlight">Highlight</NavLi>
-			<NavLi href="/auto">Auto</NavLi>
-			<NavLi href="/svelte">Svelte</NavLi>
-			<NavLi href="/line-numbers">Line Numbers</NavLi>
-			<NavLi href="/wrapper">Wrapper</NavLi>
-			<NavLi href="/theme-selector">Theme Selector</NavLi>
-		</NavUl>
-	</Navbar>
-</header>
+  <NavBrand href="/">
+    <span class="self-center text-2xl font-semibold whitespace-nowrap sm:text-3xl dark:text-white"
+      >Svelte Rune Highlight</span
+    >
+  </NavBrand>
+  <div class="flex md:order-2">
+    <DynamicCodeBlockStyle />
+    <DotsHorizontalOutline class="mt-1.5 mr-4 ml-6 dark:text-white" size="lg" />
+    <Dropdown simple class="p-1">
+      {#if blueskyUrl}
+        <DropdownItem href={blueskyUrl} target="_blank" class="m-0 p-0.5">
+          <Bluesky size="30" />
+        </DropdownItem>
+      {/if}
+      {#if twitterUrl}
+        <DropdownItem href={twitterUrl} target="_blank" class="m-0 p-2"><XSolid /></DropdownItem>
+      {/if}
+      {#if githubUrl}
+        <DropdownItem href={githubUrl} target="_blank" class="m-0 p-2">
+          <GithubSolid />
+        </DropdownItem>
+      {/if}
+    </Dropdown>
+    <DarkMode class="m-0 p-2" />
+  </div>
+  <NavUl
+    {activeUrl}
+    class="order-2 lg:order-1"
+    classes={{ active: activeClass, nonActive: nonActiveClass }}
+  >
+    <NavLi href="/">Home</NavLi>
+    <NavLi href="/highlight">Highlight</NavLi>
+    <NavLi href="/auto">Auto</NavLi>
+    <NavLi href="/svelte">Svelte</NavLi>
+    <NavLi href="/line-numbers">Line Numbers</NavLi>
+    <NavLi href="/wrapper">Wrapper</NavLi>
+    <NavLi href="/theme-selector">Theme Selector</NavLi>
+  </NavUl>
+</Navbar>

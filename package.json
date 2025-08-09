@@ -1,108 +1,107 @@
 {
-	"name": "svelte-rune-highlight",
-	"version": "0.6.9",
-	"description": "A highlight library for Svelte 5 with Rune",
-	"license": "MIT",
-	"main": "dist/index.js",
-	"homepage": "https://svelte-rune-highlight.codewithshin.com/",
-	"author": {
-		"name": "Shinichi Okada",
-		"email": "connect@codewithshin.com",
-		"url": "https://blog.codewithshin.com"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/shinokada/svelte-rune-highlight.git"
-	},
-	"keywords": [
-		"svelte 5",
-		"svelte runes",
-		"highlight.js",
-		"syntax-highlight"
-	],
-	"scripts": {
-		"dev": "vite dev",
-		"build": "vite build && npm run package",
-		"preview": "vite preview",
-		"prepare": "svelte-kit sync || echo ''",
-		"package": "svelte-kit sync && svelte-package && publint",
-		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-		"format": "prettier --write .",
-		"lint": "prettier --check . && eslint .",
-		"test:unit": "vitest",
-		"test": "npm run test:unit -- --run && npm run test:e2e",
-		"test:e2e": "playwright test",
-		"copy:packagejson": "svelte-lib-helpers package",
-		"gen:docs5": "svelte-lib-helpers docs5",
-		"lib-helpers": "pnpm format && pnpm gen:docs5 && pnpm package",
-		"ch": "npx changeset",
-		"cv": "npx changeset version",
-		"cp": "npx changeset publish"
-	},
-	"files": [
-		"dist",
-		"!dist/**/*.test.*",
-		"!dist/**/*.spec.*"
-	],
-	"sideEffects": [
-		"**/*.css"
-	],
-	"svelte": "./dist/index.js",
-	"types": "./dist/index.d.ts",
-	"type": "module",
-	"exports": {
-		".": {
-			"types": "./dist/index.d.ts",
-			"svelte": "./dist/index.js"
-		}
-	},
-	"peerDependencies": {
-		"svelte": "^5.0.0"
-	},
-	"devDependencies": {
-		"@changesets/cli": "^2.29.5",
-		"@eslint/compat": "^1.3.1",
-		"@eslint/js": "^9.31.0",
-		"@playwright/test": "^1.54.1",
-		"@sveltejs/adapter-auto": "^4.0.0",
-		"@sveltejs/kit": "^2.25.0",
-		"@sveltejs/package": "^2.4.0",
-		"@sveltejs/vite-plugin-svelte": "^6.1.0",
-		"@svitejs/changesets-changelog-github-compact": "^1.2.0",
-		"@tailwindcss/vite": "^4.1.11",
-		"@testing-library/jest-dom": "^6.6.3",
-		"@testing-library/svelte": "^5.2.8",
-		"eslint": "^9.31.0",
-		"eslint-config-prettier": "^10.1.5",
-		"eslint-plugin-svelte": "^3.11.0",
-		"flowbite-svelte": "^1.11.3",
-		"flowbite-svelte-icons": "^2.2.1",
-		"globals": "^16.3.0",
-		"jsdom": "^26.1.0",
-		"prettier": "^3.6.2",
-		"prettier-plugin-svelte": "^3.4.0",
-		"prettier-plugin-tailwindcss": "^0.6.14",
-		"publint": "^0.3.12",
-		"runatics": "^0.1.4",
-		"runes-meta-tags": "^0.4.4",
-		"runes-webkit": "^0.9.59",
-		"svelte": "^5.36.5",
-		"svelte-5-ui-lib": "^0.12.6",
-		"svelte-check": "^4.2.2",
-		"svelte-lib-helpers": "^0.4.30",
-		"tailwindcss": "^4.1.11",
-		"typescript": "^5.8.3",
-		"typescript-eslint": "^8.37.0",
-		"vite": "^6.3.5",
-		"vitest": "^3.2.4"
-	},
-	"pnpm": {
-		"onlyBuiltDependencies": [
-			"esbuild"
-		]
-	},
-	"dependencies": {
-		"highlight.js": "^11.11.1"
-	}
+  "name": "svelte-rune-highlight",
+  "version": "0.7.0",
+  "description": "A highlight library for Svelte 5 with Rune",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "homepage": "https://svelte-rune-highlight.codewithshin.com/",
+  "author": {
+    "name": "Shinichi Okada",
+    "email": "connect@codewithshin.com",
+    "url": "https://blog.codewithshin.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shinokada/svelte-rune-highlight.git"
+  },
+  "keywords": [
+    "svelte 5",
+    "svelte runes",
+    "highlight.js",
+    "syntax-highlight"
+  ],
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build && npm run package",
+    "preview": "vite preview",
+    "prepare": "svelte-kit sync || echo ''",
+    "package": "svelte-kit sync && svelte-package && publint",
+    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+    "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+    "format": "prettier --write .",
+    "lint": "prettier --check . && eslint .",
+    "test:unit": "vitest",
+    "test": "npm run test:unit -- --run && npm run test:e2e",
+    "test:e2e": "playwright test",
+    "copy:packagejson": "svelte-lib-helpers package",
+    "gen:docs5": "svelte-lib-helpers docs5",
+    "lib-helpers": "pnpm format && pnpm gen:docs5 && pnpm package",
+    "ch": "npx changeset",
+    "cv": "npx changeset version",
+    "cp": "npx changeset publish"
+  },
+  "files": [
+    "dist",
+    "!dist/**/*.test.*",
+    "!dist/**/*.spec.*"
+  ],
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "svelte": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "svelte": "./dist/index.js"
+    }
+  },
+  "peerDependencies": {
+    "svelte": "^5.0.0"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.29.5",
+    "@eslint/compat": "^1.3.2",
+    "@eslint/js": "^9.33.0",
+    "@playwright/test": "^1.54.2",
+    "@sveltejs/adapter-auto": "^6.0.2",
+    "@sveltejs/kit": "^2.27.3",
+    "@sveltejs/package": "^2.4.1",
+    "@sveltejs/vite-plugin-svelte": "^6.1.1",
+    "@svitejs/changesets-changelog-github-compact": "^1.2.0",
+    "@tailwindcss/vite": "^4.1.11",
+    "@testing-library/jest-dom": "^6.6.4",
+    "@testing-library/svelte": "^5.2.8",
+    "eslint": "^9.33.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-svelte": "^3.11.0",
+    "flowbite-svelte": "^1.11.4",
+    "flowbite-svelte-icons": "^2.2.1",
+    "globals": "^16.3.0",
+    "jsdom": "^26.1.0",
+    "prettier": "^3.6.2",
+    "prettier-plugin-svelte": "^3.4.0",
+    "prettier-plugin-tailwindcss": "^0.6.14",
+    "publint": "^0.3.12",
+    "runatics": "^0.1.4",
+    "runes-meta-tags": "^0.4.4",
+    "runes-webkit": "^0.10.1",
+    "svelte": "^5.38.0",
+    "svelte-check": "^4.3.1",
+    "svelte-lib-helpers": "^0.4.30",
+    "tailwindcss": "^4.1.11",
+    "typescript": "^5.9.2",
+    "typescript-eslint": "^8.39.0",
+    "vite": "^6.3.5",
+    "vitest": "^3.2.4"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
+  },
+  "dependencies": {
+    "highlight.js": "^11.11.1"
+  }
 }
