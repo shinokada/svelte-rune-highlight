@@ -20,7 +20,7 @@
 </p>
 <HighlightCompo code={modules['./samples/highlight/example-1.md'] as string} class="max-w-5xl" />
 <p>Here's the resulting output from the code:</p>
-<HighlightSvelte code={modules['./samples/sample-1.md'] as string} langtag --langtag-color="aqua" />
+<HighlightSvelte code={modules['./samples/sample-1.md'] as string} langtag --langtag-color="red" />
 
 <h2>Example 2</h2>
 <p>
