@@ -80,5 +80,6 @@
 @prop languageName = 'plaintext'
 @prop langtag = false
 @prop class: className = ''
+@prop codeClass
 @prop ...restProps
 -->

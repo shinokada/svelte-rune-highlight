@@ -1,5 +1,12 @@
 # svelte-rune-highlight
 
+## 0.7.1
+
+### Patch Changes
+
+- fix: LangTag update
+  docs: pages update
+
 ## 0.7.0
 
 ### Minor Changes

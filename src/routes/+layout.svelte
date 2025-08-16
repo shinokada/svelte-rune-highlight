@@ -8,15 +8,9 @@
   let { children, data } = $props();
   const analyticsId = data.ANALYTICS_ID;
   // meta tags
-  let metaTags = $state(
-    page.data.pageMetaTags
-      ? deepMerge(page.data.layoutMetaTags, page.data.pageMetaTags)
-      : data.layoutMetaTags
-  );
+  let metaTags = $state(page.data.pageMetaTags ? deepMerge(page.data.layoutMetaTags, page.data.pageMetaTags) : data.layoutMetaTags);
   $effect(() => {
-    metaTags = page.data.pageMetaTags
-      ? deepMerge(page.data.layoutMetaTags, page.data.pageMetaTags)
-      : data.layoutMetaTags;
+    metaTags = page.data.pageMetaTags ? deepMerge(page.data.layoutMetaTags, page.data.pageMetaTags) : data.layoutMetaTags;
   });
 </script>
 

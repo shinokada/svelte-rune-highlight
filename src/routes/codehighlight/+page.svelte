@@ -11,15 +11,7 @@ Basic usage with auto-detection
 <CodeHighlight code={jsCode} />
 
 With all features
-<CodeHighlight
-  code={jsCode}
-  language="javascript"
-  theme="github-dark"
-  lineNumbers={true}
-  copyButton={true}
-  --langtag-background="red"
-  --langtag-color="LightCyan" --code-font-size="20px"
-/>
+<CodeHighlight code={jsCode} language="javascript" theme="github-dark" lineNumbers={true} copyButton={true} --langtag-background="red" --langtag-color="LightCyan" --code-font-size="20px" />
 
 Completely custom styling
 

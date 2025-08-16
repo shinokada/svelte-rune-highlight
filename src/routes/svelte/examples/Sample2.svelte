@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { HighlightSvelte } from "svelte-rune-highlight";
+  import { HighlightSvelte } from 'svelte-rune-highlight';
   const exampleModules = import.meta.glob('./*.*', {
     query: '?raw',
     import: 'default',

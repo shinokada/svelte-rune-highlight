@@ -14,4 +14,4 @@
   };
 </script>
 
-<Highlight langtag --langtag-color="DeepPink" --code-font-size="10px"  language={jsonLang} {code}  />
+<Highlight langtag --langtag-color="DeepPink" --code-font-size="10px" language={jsonLang} {code} />

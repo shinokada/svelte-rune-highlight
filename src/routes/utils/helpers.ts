@@ -93,10 +93,7 @@ export const isGeneratedCodeOverflow = (code: string): boolean => {
   return lines.length > 7;
 };
 
-export const isSvelteOverflow = (
-  sveltefile: string,
-  exampleModules: Record<string, string>
-): boolean => {
+export const isSvelteOverflow = (sveltefile: string, exampleModules: Record<string, string>): boolean => {
   const filePath = `./examples/${sveltefile}`;
   const fileContent = exampleModules[filePath];
 
@@ -110,15 +107,10 @@ export const isSvelteOverflow = (
 };
 
 export function replaceLibImport(componentString: string): string {
-  return componentString
-    .replace(/from ["']\$lib["']/g, "from 'svelte-5-ui-lib'")
-    .replace(/from ["']\$lib\//g, "from 'svelte-5-ui-lib/");
+  return componentString.replace(/from ["']\$lib["']/g, "from 'svelte-5-ui-lib'").replace(/from ["']\$lib\//g, "from 'svelte-5-ui-lib/");
 }
 
-export function getExampleFileName(
-  selectedExample: string,
-  exampleArr: { name: string }[]
-): string {
+export function getExampleFileName(selectedExample: string, exampleArr: { name: string }[]): string {
   const foundExample = exampleArr.find((example) => example.name === selectedExample);
 
   if (!foundExample) {

@@ -13,4 +13,4 @@ if (age > 18) {
   };
 </script>
 
-<Highlight langtag --langtag-color="LightCyan" --code-font-size="20px"  language={jsLang} {code}  />
+<Highlight langtag --langtag-color="LightCyan" --code-font-size="20px" language={jsLang} {code} />

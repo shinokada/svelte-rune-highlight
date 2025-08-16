@@ -57,34 +57,19 @@
         {#each lines as line, i}
           {@const lineNumber = i + startingLineNumber}
           <tr>
-            <td
-              class:hljs={true}
-              class:hideBorder
-              style:position
-              style:left="0"
-              style:text-align="right"
-              style:user-select="none"
-              style:width={width + 'px'}
-              style:background-color={backgroudColor}
-            >
+            <td class:hljs={true} class:hideBorder style:position style:left="0" style:text-align="right" style:user-select="none" style:width={width + 'px'} style:background-color={backgroudColor}>
               <code style:color="var(--line-number-color, currentColor)">
                 {lineNumber}
               </code>
               {#if highlightedLines.includes(i)}
-                <div
-                  class:line-background={true}
-                  style:background="var(--highlighted-background, {HIGHLIGHTED_BACKGROUND})"
-                ></div>
+                <div class:line-background={true} style:background="var(--highlighted-background, {HIGHLIGHTED_BACKGROUND})"></div>
               {/if}
             </td>
             <!-- eslint-disable svelte/no-at-html-tags -->
             <td>
               <pre class:wrapLines><code>{@html line || '\n'}</code></pre>
               {#if highlightedLines.includes(i)}
-                <div
-                  class:line-background={true}
-                  style:background="var(--highlighted-background, {HIGHLIGHTED_BACKGROUND})"
-                ></div>
+                <div class:line-background={true} style:background="var(--highlighted-background, {HIGHLIGHTED_BACKGROUND})"></div>
               {/if}
             </td>
           </tr>
@@ -93,14 +78,7 @@
     </table>
   </div>
 {:else}
-  <LangTag
-    class={className}
-    {...restProps}
-    languageName={language.name}
-    {langtag}
-    {highlighted}
-    {code}
-  />
+  <LangTag class={className} {...restProps} languageName={language.name} {langtag} {highlighted} {code} />
 {/if}
 
 {#if numberLine}

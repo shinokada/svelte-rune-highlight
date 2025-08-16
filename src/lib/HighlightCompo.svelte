@@ -14,13 +14,7 @@
     replaceLib?: string;
   }
 
-  let {
-    code,
-    codeLang,
-    contentClass = 'overflow-hidden',
-    replaceLib = 'svelte-runes-highlight',
-    class: className
-  }: Props = $props();
+  let { code, codeLang, contentClass = 'overflow-hidden', replaceLib = 'svelte-runes-highlight', class: className }: Props = $props();
 
   let value = $state(code);
   if (replaceLib) {
@@ -48,18 +42,8 @@
 </script>
 
 <div class={base}>
-  <div
-    class="{contentClass} {showExpandButton ? 'pb-8' : ''}"
-    class:max-h-72={!expand}
-    tabindex="-1"
-    use:checkOverflow
-  >
-    <Clipboard
-      size="xs"
-      color="alternative"
-      bind:value
-      class="absolute top-8 right-2 w-20 bg-gray-50 focus:ring-0 dark:bg-gray-800"
-    >
+  <div class="{contentClass} {showExpandButton ? 'pb-8' : ''}" class:max-h-72={!expand} tabindex="-1" use:checkOverflow>
+    <Clipboard size="xs" color="alternative" bind:value class="absolute top-8 right-2 w-20 bg-gray-50 focus:ring-0 dark:bg-gray-800">
       {#snippet children(success)}
         {#if success}
           Copied
@@ -89,11 +73,11 @@
 
 <!--
 @component
-[Go to docs](https://runes-webkit.codewithshin.com/)
+[Go to docs](https://svelte-rune-highlight.codewithshin.com/)
 ## Props
-@props: code: any;
-@props:codeLang: any;
-@props:contentClass: any = "overflow-hidden";
-@props:replaceLib: any = "runes-webkit";
-@props:class: string;
+@prop code
+@prop codeLang
+@prop contentClass = 'overflow-hidden'
+@prop replaceLib = 'svelte-runes-highlight'
+@prop class: className
 -->

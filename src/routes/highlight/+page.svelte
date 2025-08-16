@@ -14,36 +14,23 @@
 <H1>Highlight Component</H1>
 
 <H2>Basic</H2>
-<P>
-  The Highlight component requires language and code props. The langtag prop is optional and it will add a language tag.
-</P>
+<P>The Highlight component requires language and code props. The langtag prop is optional and it will add a language tag.</P>
 
 <CodeWrapper>
   <ExampleComponents.JsLang />
   {#snippet codeblock()}
-    <HighlightCompo
-      codeLang="ts"
-      code={exampleModules['./examples/JsLang.svelte'] as string}
-      clipboardClass="top-2"
-    />
+    <HighlightCompo codeLang="ts" code={exampleModules['./examples/JsLang.svelte'] as string} clipboardClass="top-2" />
   {/snippet}
 </CodeWrapper>
 
 <H2>Language Tag with different styles</H2>
 
 <H3>Markdown</H3>
-<P>
-  Set langtag and language props to display the language name in the top right corner of the code
-  block.
-</P>
+<P>Set langtag and language props to display the language name in the top right corner of the code block.</P>
 <CodeWrapper>
   <ExampleComponents.MdLang />
   {#snippet codeblock()}
-    <HighlightCompo
-      codeLang="ts"
-      code={exampleModules['./examples/MdLang.svelte'] as string}
-      clipboardClass="top-2"
-    />
+    <HighlightCompo codeLang="ts" code={exampleModules['./examples/MdLang.svelte'] as string} clipboardClass="top-2" />
   {/snippet}
 </CodeWrapper>
 
@@ -51,25 +38,16 @@
 <CodeWrapper>
   <ExampleComponents.YmlLang />
   {#snippet codeblock()}
-    <HighlightCompo
-      codeLang="ts"
-      code={exampleModules['./examples/YmlLang.svelte'] as string}
-      clipboardClass="top-2"
-    />
+    <HighlightCompo codeLang="ts" code={exampleModules['./examples/YmlLang.svelte'] as string} clipboardClass="top-2" />
   {/snippet}
 </CodeWrapper>
-
 
 <H3>JSON</H3>
 
 <CodeWrapper>
   <ExampleComponents.JsonLang />
   {#snippet codeblock()}
-    <HighlightCompo
-      codeLang="ts"
-      code={exampleModules['./examples/JsonLang.svelte'] as string}
-      clipboardClass="top-2"
-    />
+    <HighlightCompo codeLang="ts" code={exampleModules['./examples/JsonLang.svelte'] as string} clipboardClass="top-2" />
   {/snippet}
 </CodeWrapper>
 
@@ -78,22 +56,14 @@
 <CodeWrapper>
   <ExampleComponents.TsLang />
   {#snippet codeblock()}
-    <HighlightCompo
-      codeLang="ts"
-      code={exampleModules['./examples/TsLang.svelte'] as string}
-      clipboardClass="top-2"
-    />
+    <HighlightCompo codeLang="ts" code={exampleModules['./examples/TsLang.svelte'] as string} clipboardClass="top-2" />
   {/snippet}
 </CodeWrapper>
 
 <H2>Props</H2>
 <CodeWrapper>
   {#snippet codeblock()}
-    <HighlightCompo
-      codeLang="ts"
-      code={exampleModules['./examples/props.md'] as string}
-      clipboardClass="top-2"
-    />
+    <HighlightCompo codeLang="ts" code={exampleModules['./examples/props.md'] as string} clipboardClass="top-2" />
   {/snippet}
 </CodeWrapper>
 
@@ -103,10 +73,6 @@
 
 <CodeWrapper>
   {#snippet codeblock()}
-    <HighlightCompo
-      codeLang="ts"
-      code={exampleModules['./examples/style-props.md'] as string}
-      clipboardClass="top-2"
-    />
+    <HighlightCompo codeLang="ts" code={exampleModules['./examples/style-props.md'] as string} clipboardClass="top-2" />
   {/snippet}
 </CodeWrapper>

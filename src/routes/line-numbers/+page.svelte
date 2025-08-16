@@ -31,10 +31,7 @@
 <CodeWrapper>
   <ExampleComponents.Example1 />
   {#snippet codeblock()}
-    <HighlightCompo
-      code={exampleModules['./examples/Example1.svelte'] as string}
-      clipboardClass="top-2"
-    />
+    <HighlightCompo code={exampleModules['./examples/Example1.svelte'] as string} clipboardClass="top-2" />
   {/snippet}
 </CodeWrapper>
 
@@ -47,10 +44,7 @@
 <CodeWrapper>
   <ExampleComponents.Example2 />
   {#snippet codeblock()}
-    <HighlightCompo
-      code={exampleModules['./examples/Example2.svelte'] as string}
-      clipboardClass="top-2"
-    />
+    <HighlightCompo code={exampleModules['./examples/Example2.svelte'] as string} clipboardClass="top-2" />
   {/snippet}
 </CodeWrapper>
 
@@ -63,10 +57,7 @@
 <CodeWrapper>
   <ExampleComponents.Example3 />
   {#snippet codeblock()}
-    <HighlightCompo
-      code={exampleModules['./examples/Example3.svelte'] as string}
-      clipboardClass="top-2"
-    />
+    <HighlightCompo code={exampleModules['./examples/Example3.svelte'] as string} clipboardClass="top-2" />
   {/snippet}
 </CodeWrapper>
 
@@ -75,26 +66,18 @@
 <CodeWrapper>
   <ExampleComponents.Example4 />
   {#snippet codeblock()}
-    <HighlightCompo
-      code={exampleModules['./examples/Example4.svelte'] as string}
-      clipboardClass="top-2"
-    />
+    <HighlightCompo code={exampleModules['./examples/Example4.svelte'] as string} clipboardClass="top-2" />
   {/snippet}
 </CodeWrapper>
 
 <H2>Position</H2>
 
-<P>
-  Use one of 'static' | 'relative' | 'abolute' | 'sticky' | undefined. The default value is 'sticky'.
-</P>
+<P>Use one of 'static' | 'relative' | 'abolute' | 'sticky' | undefined. The default value is 'sticky'.</P>
 
 <CodeWrapper>
   <ExampleComponents.Example5 />
   {#snippet codeblock()}
-    <HighlightCompo
-      code={exampleModules['./examples/Example5.svelte'] as string}
-      clipboardClass="top-2"
-    />
+    <HighlightCompo code={exampleModules['./examples/Example5.svelte'] as string} clipboardClass="top-2" />
   {/snippet}
 </CodeWrapper>
 
@@ -107,10 +90,7 @@
 <CodeWrapper>
   <ExampleComponents.Example6 />
   {#snippet codeblock()}
-    <HighlightCompo
-      code={exampleModules['./examples/Example6.svelte'] as string}
-      clipboardClass="top-2"
-    />
+    <HighlightCompo code={exampleModules['./examples/Example6.svelte'] as string} clipboardClass="top-2" />
   {/snippet}
 </CodeWrapper>
 
@@ -123,10 +103,7 @@
 <CodeWrapper>
   <ExampleComponents.Example7 />
   {#snippet codeblock()}
-    <HighlightCompo
-      code={exampleModules['./examples/Example7.svelte'] as string}
-      clipboardClass="top-2"
-    />
+    <HighlightCompo code={exampleModules['./examples/Example7.svelte'] as string} clipboardClass="top-2" />
   {/snippet}
 </CodeWrapper>
 
@@ -139,10 +116,6 @@
 <CodeWrapper>
   <ExampleComponents.Example8 />
   {#snippet codeblock()}
-    <HighlightCompo
-      code={exampleModules['./examples/Example8.svelte'] as string}
-      clipboardClass="top-2"
-    />
+    <HighlightCompo code={exampleModules['./examples/Example8.svelte'] as string} clipboardClass="top-2" />
   {/snippet}
 </CodeWrapper>
-

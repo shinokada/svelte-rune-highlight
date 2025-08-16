@@ -12,16 +12,7 @@
     [key: string]: any;
   }
 
-  let {
-    code = '',
-    language = 'auto',
-    theme = '',
-    lineNumbers = false,
-    copyButton = false,
-    class: className = '',
-    style = '',
-    ...restProps
-  }: Props = $props();
+  let { code = '', language = 'auto', theme = '', lineNumbers = false, copyButton = false, class: className = '', style = '', ...restProps }: Props = $props();
 
   let preElement = $state<HTMLPreElement>();
   let codeElement = $state<HTMLElement>();
@@ -87,36 +78,19 @@
   });
 </script>
 
-<div
-  class="code-highlight-container {className}"
-  {style}
-  data-theme={theme || undefined}
-  data-language={detectedLanguage}
-  {...restProps}
->
+<div class="code-highlight-container {className}" {style} data-theme={theme || undefined} data-language={detectedLanguage} {...restProps}>
   {#if copyButton}
     <div class="code-highlight-header">
       <span class="code-highlight-language">{detectedLanguage}</span>
-      <button
-        class="code-highlight-copy-btn"
-        onclick={copyToClipboard}
-        aria-label="Copy code to clipboard"
-      >
+      <button class="code-highlight-copy-btn" onclick={copyToClipboard} aria-label="Copy code to clipboard">
         {copied ? 'Copied!' : 'Copy'}
       </button>
     </div>
   {/if}
 
-  <pre
-    bind:this={preElement}
-    class="code-highlight-pre"
-    class:has-line-numbers={lineNumbers}>{#if lineNumbers}<div
-        class="code-highlight-line-numbers">{#each codeLines as _, index}<span
+  <pre bind:this={preElement} class="code-highlight-pre" class:has-line-numbers={lineNumbers}>{#if lineNumbers}<div class="code-highlight-line-numbers">{#each codeLines as _, index}<span
             class="code-highlight-line-number">{index + 1}</span
-          >{/each}</div>{/if}<code
-      bind:this={codeElement}
-      class="code-highlight-code hljs"
-      data-language={detectedLanguage}></code></pre>
+          >{/each}</div>{/if}<code bind:this={codeElement} class="code-highlight-code hljs" data-language={detectedLanguage}></code></pre>
 </div>
 
 <style>
@@ -148,15 +122,13 @@
     font-weight: 500;
     text-transform: uppercase;
     color: #6b7280;
-    font-family:
-      ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', Menlo, monospace;
+    font-family: ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', Menlo, monospace;
   }
 
   .code-highlight-copy-btn {
     padding: 0.25rem 0.5rem;
     font-size: 0.75rem;
-    font-family:
-      ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', Menlo, monospace;
+    font-family: ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', Menlo, monospace;
     background: transparent;
     border: 1px solid #d1d5db;
     border-radius: 0.25rem;
@@ -194,8 +166,7 @@
     font-size: 0; /* This removes whitespace between inline elements */
     position: relative;
     overflow: auto;
-    font-family:
-      ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', Menlo, monospace;
+    font-family: ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', Menlo, monospace;
     line-height: 1.5;
     background-color: #f8f9fa;
     border: 1px solid #e9ecef;
@@ -223,8 +194,7 @@
     text-align: right;
     min-width: 2rem;
     line-height: 1.75;
-    font-family:
-      ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', Menlo, monospace;
+    font-family: ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', Menlo, monospace;
     margin: 0;
     padding: 0;
   }
@@ -245,8 +215,7 @@
     font-size: 0.875rem;
     line-height: 1.5;
     display: block;
-    font-family:
-      ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', Menlo, monospace;
+    font-family: ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', Menlo, monospace;
   }
 
   .has-line-numbers .code-highlight-code {
@@ -265,8 +234,7 @@
 
   /* Handle potential conflicts with CSS resets/frameworks */
   .code-highlight-container [class*='hljs'] {
-    font-family:
-      ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', Menlo, monospace !important;
+    font-family: ui-monospace, SFMono-Regular, 'SF Mono', Consolas, 'Liberation Mono', Menlo, monospace !important;
     font-size: 0.875rem !important;
     line-height: 1.5 !important;
   }
@@ -275,3 +243,17 @@
     padding: 1rem 1rem 0 1rem !important;
   }
 </style>
+
+<!--
+@component
+[Go to docs](https://svelte-rune-highlight.codewithshin.com/)
+## Props
+@prop code = ''
+@prop language = 'auto'
+@prop theme = ''
+@prop lineNumbers = false
+@prop copyButton = false
+@prop class: className = ''
+@prop style = ''
+@prop ...restProps
+-->
