@@ -1,9 +1,9 @@
 <script lang="ts">
   import { browser } from '$app/environment';
   interface Props {
-    class?:string;
+    class?: string;
   }
-  let { class:className }:Props = $props()
+  let { class: className }: Props = $props();
   const stylesImport = import.meta.glob('./highlight/styles/*.css');
   /*eslint no-undef: "off"*/
   const localStorageName = __NAME__.replace(/[\s-]/g, '_').toUpperCase() + '_CODE_BLOCK_STYLE';

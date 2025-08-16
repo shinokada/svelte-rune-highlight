@@ -1,9 +1,10 @@
 import tailwindcss from '@tailwindcss/vite';
+import path from 'path';
 import { svelteTesting } from '@testing-library/svelte/vite';
 import { sveltekit } from '@sveltejs/kit/vite';
 import { defineConfig } from 'vite';
 import pkg from './package.json' with { type: 'json' };
-import devtoolsJson from "vite-plugin-devtools-json";
+import devtoolsJson from 'vite-plugin-devtools-json';
 import sveltePackage from './node_modules/svelte/package.json' with { type: 'json' };
 import svelteKitPackage from './node_modules/@sveltejs/kit/package.json' with { type: 'json' };
 import vitePackage from './node_modules/vite/package.json' with { type: 'json' };
@@ -24,6 +25,11 @@ export default defineConfig({
     __SVELTEKIT_VERSION__: JSON.stringify(svelteKitPackage.version),
     __VITE_VERSION__: JSON.stringify(vitePackage.version),
     __HIGHLIGHTJSVERSION__: JSON.stringify(highlightjsPackage.version)
+  },
+  resolve: {
+    alias: {
+      'svelte-rune-highlight': path.resolve(process.cwd(), './src/lib/index.ts')
+    }
   },
   test: {
     workspace: [

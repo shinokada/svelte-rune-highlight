@@ -1,49 +1,118 @@
 <script lang="ts">
-  import { HighlightAuto } from '$lib';
   import { HighlightCompo } from 'runes-webkit';
-  const modules = import.meta.glob('./samples/*.md', {
+  import { P } from 'flowbite-svelte';
+  import { CodeWrapper, H1, H2, H3 } from '../utils';
+
+  const code = `<HighlightAuto code={sample-code} />`;
+
+  import * as ExampleComponents from './examples';
+  const exampleModules = import.meta.glob('./examples/*.svelte', {
     query: '?raw',
     import: 'default',
     eager: true
-  });
-
-  const code = `<HighlightAuto code={sample-code} />`;
+  }) as Record<string, string>;
 </script>
 
-<h1>HighlightAuto Component</h1>
+<H1>HighlightAuto Component</H1>
 
-HighlightAuto automatically detects the programming language of the provided code using Highlight.js
-and applies syntax highlighting. Optionally, it can display a language tag overlay showing the
-detected language.
+<P
+  >HighlightAuto automatically detects the programming language of the provided code using
+  Highlight.js and applies syntax highlighting. Optionally, it can display a language tag overlay
+  showing the detected language.</P
+>
 
-<HighlightCompo {code} class="max-w-5xl" />
+<HighlightCompo {code} clipboardClass="top-2" />
 
-<h2>Examples</h2>
-<h3>Javascript</h3>
-<HighlightAuto code={modules['./samples/javascript.md'] as string} />
+<H2>Examples</H2>
+<H3>HTML</H3>
+<CodeWrapper>
+  <ExampleComponents.Html />
+  {#snippet codeblock()}
+    <HighlightCompo
+      codeLang="ts"
+      code={exampleModules['./examples/Html.svelte'] as string}
+      clipboardClass="top-2"
+    />
+  {/snippet}
+</CodeWrapper>
 
-<h3>Markdown</h3>
-<HighlightAuto code={modules['./samples/markdown.md'] as string} />
+<H3>CSS</H3>
+<CodeWrapper>
+  <ExampleComponents.Css />
+  {#snippet codeblock()}
+    <HighlightCompo
+      codeLang="ts"
+      code={exampleModules['./examples/Css.svelte'] as string}
+      clipboardClass="top-2"
+    />
+  {/snippet}
+</CodeWrapper>
 
-<h3>HTML</h3>
-<HighlightAuto code={modules['./samples/html.md'] as string} langtag --langtag-color="red" />
+<H3>Javascript</H3>
+<P>You can use vite's `import.meta.glob()`:</P>
+<CodeWrapper>
+  <ExampleComponents.Javascript />
+  {#snippet codeblock()}
+    <HighlightCompo
+      codeLang="ts"
+      code={exampleModules['./examples/Javascript.svelte'] as string}
+      clipboardClass="top-2"
+    />
+  {/snippet}
+</CodeWrapper>
 
-<h3>CSS</h3>
-<HighlightAuto code={modules['./samples/css.md'] as string} langtag --langtag-color="red" />
+<H3>Markdown</H3>
+<CodeWrapper>
+  <ExampleComponents.Markdown />
+  {#snippet codeblock()}
+    <HighlightCompo
+      codeLang="ts"
+      code={exampleModules['./examples/Markdown.svelte'] as string}
+      clipboardClass="top-2"
+    />
+  {/snippet}
+</CodeWrapper>
 
-<h3>Typescript</h3>
-<HighlightAuto code={modules['./samples/typescript.md'] as string} langtag --langtag-color="red" />
+<H3>Typescript</H3>
+<CodeWrapper>
+  <ExampleComponents.Typescript />
+  {#snippet codeblock()}
+    <HighlightCompo
+      codeLang="ts"
+      code={exampleModules['./examples/Typescript.svelte'] as string}
+      clipboardClass="top-2"
+    />
+  {/snippet}
+</CodeWrapper>
 
-<h3>Python</h3>
-<HighlightAuto code={modules['./samples/python.md'] as string} />
+<H3>Python</H3>
+<CodeWrapper>
+  <ExampleComponents.Python />
+  {#snippet codeblock()}
+    <HighlightCompo
+      codeLang="ts"
+      code={exampleModules['./examples/Python.svelte'] as string}
+      clipboardClass="top-2"
+    />
+  {/snippet}
+</CodeWrapper>
 
-<h3>Rust</h3>
-
-<HighlightAuto code={modules['./samples/rust.md'] as string} />
+<H3>Rust</H3>
+<CodeWrapper>
+  <ExampleComponents.Rust />
+  {#snippet codeblock()}
+    <HighlightCompo
+      codeLang="ts"
+      code={exampleModules['./examples/Rust.svelte'] as string}
+      clipboardClass="top-2"
+    />
+  {/snippet}
+</CodeWrapper>
 
 <h2>Props</h2>
-
-<HighlightAuto code={modules['./samples/props.md'] as string} />
+<CodeWrapper>
+  <ExampleComponents.Props />
+</CodeWrapper>
 
 <h2>Language Tag: Caution - This may not be accurate.</h2>
 
@@ -51,5 +120,6 @@ detected language.
 
 <h2>Language tag style</h2>
 <p>Customize the language tag background, color, and border-radius using style props.</p>
-
-<HighlightCompo code={modules['./samples/style-props.md'] as string} class="max-w-5xl" />
+<CodeWrapper>
+  <ExampleComponents.StyleProps />
+</CodeWrapper>

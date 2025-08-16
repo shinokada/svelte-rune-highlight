@@ -1,101 +1,112 @@
 <script lang="ts">
-  import { Highlight } from '$lib';
-  import { A } from 'flowbite-svelte';
   import { HighlightCompo } from 'runes-webkit';
-  import typescript from 'highlight.js/lib/languages/typescript';
-  import markdown from 'highlight.js/lib/languages/markdown';
-  import yaml from 'highlight.js/lib/languages/yaml';
-  import json from 'highlight.js/lib/languages/json';
-  const modules = import.meta.glob('./samples/**/*.md', {
+  import { P } from 'flowbite-svelte';
+  import { CodeWrapper, H1, H2, H3 } from '../utils';
+
+  import * as ExampleComponents from './examples';
+  const exampleModules = import.meta.glob('./examples/*.*', {
     query: '?raw',
     import: 'default',
     eager: true
-  });
-
-  const tsLang = {
-    name: 'typescript',
-    register: typescript
-  };
-  const mdLang = {
-    name: 'markdown',
-    register: markdown
-  };
-  const yamlLang = {
-    name: 'yaml',
-    register: yaml
-  };
-  const jsonLang = {
-    name: 'json',
-    register: json
-  };
+  }) as Record<string, string>;
 </script>
 
-<h1>Highlight Component</h1>
+<H1>Highlight Component</H1>
 
-<h2>Basic</h2>
-<p>
-  The Highlight component requires language and code props. The langtag prop is optional and it will
-  add a language tag.
-</p>
+<H2>Basic</H2>
+<P>
+  The Highlight component requires language and code props. The langtag prop is optional and it will add a language tag.
+</P>
 
-<HighlightCompo code={modules['./samples/highlight/basic.md'] as string} class="max-w-5xl" />
-The above code will produce:
-<Highlight language={tsLang} code={modules['./samples/javascript.md'] as string} />
+<CodeWrapper>
+  <ExampleComponents.JsLang />
+  {#snippet codeblock()}
+    <HighlightCompo
+      codeLang="ts"
+      code={exampleModules['./examples/JsLang.svelte'] as string}
+      clipboardClass="top-2"
+    />
+  {/snippet}
+</CodeWrapper>
 
-<h2>Language Tag</h2>
+<H2>Language Tag with different styles</H2>
 
-<h3>Markdown</h3>
-<p>
+<H3>Markdown</H3>
+<P>
   Set langtag and language props to display the language name in the top right corner of the code
   block.
-</p>
-<HighlightCompo code={modules['./samples/highlight/markdown.md'] as string} class="max-w-5xl" />
+</P>
+<CodeWrapper>
+  <ExampleComponents.MdLang />
+  {#snippet codeblock()}
+    <HighlightCompo
+      codeLang="ts"
+      code={exampleModules['./examples/MdLang.svelte'] as string}
+      clipboardClass="top-2"
+    />
+  {/snippet}
+</CodeWrapper>
 
-<p>Here's what you'll see when you run this code:</p>
+<H3>YAML</H3>
+<CodeWrapper>
+  <ExampleComponents.YmlLang />
+  {#snippet codeblock()}
+    <HighlightCompo
+      codeLang="ts"
+      code={exampleModules['./examples/YmlLang.svelte'] as string}
+      clipboardClass="top-2"
+    />
+  {/snippet}
+</CodeWrapper>
 
-<Highlight
-  language={mdLang}
-  code={modules['./samples/markdown.md'] as string}
-  langtag
-  --langtag-color="lightgreen"
-/>
 
-<h3>YAML</h3>
+<H3>JSON</H3>
 
-<p>Yaml example:</p>
-<HighlightCompo code={modules['./samples/highlight/yaml.md'] as string} class="max-w-5xl" />
+<CodeWrapper>
+  <ExampleComponents.JsonLang />
+  {#snippet codeblock()}
+    <HighlightCompo
+      codeLang="ts"
+      code={exampleModules['./examples/JsonLang.svelte'] as string}
+      clipboardClass="top-2"
+    />
+  {/snippet}
+</CodeWrapper>
 
-<p>This code generates the following output:</p>
+<H3>Typescript</H3>
 
-<Highlight
-  language={yamlLang}
-  code={modules['./samples/yaml.md'] as string}
-  langtag
-  --langtag-color="lightcoral"
-/>
+<CodeWrapper>
+  <ExampleComponents.TsLang />
+  {#snippet codeblock()}
+    <HighlightCompo
+      codeLang="ts"
+      code={exampleModules['./examples/TsLang.svelte'] as string}
+      clipboardClass="top-2"
+    />
+  {/snippet}
+</CodeWrapper>
 
-<h3>JSON</h3>
-<p>JSON example:</p>
-<HighlightCompo code={modules['./samples/highlight/json.md'] as string} class="max-w-5xl" />
+<H2>Props</H2>
+<CodeWrapper>
+  {#snippet codeblock()}
+    <HighlightCompo
+      codeLang="ts"
+      code={exampleModules['./examples/props.md'] as string}
+      clipboardClass="top-2"
+    />
+  {/snippet}
+</CodeWrapper>
 
-<p>The code produces this output:</p>
+<H2>Language tag style</H2>
 
-<Highlight
-  language={jsonLang}
-  code={modules['./samples/json.md'] as string}
-  langtag
-  --langtag-color="springgreen"
-/>
+<P>Customize the language tag background, color, and border-radius using style props.</P>
 
-<h2>Props</h2>
-<p>Props example:</p>
-<HighlightCompo code={modules['./samples/props.md'] as string} class="max-w-5xl" />
-
-<h2>Language tag style</h2>
-<p>Customize the language tag background, color, and border-radius using style props.</p>
-
-<HighlightCompo code={modules['./samples/style-props.md'] as string} class="max-w-5xl" />
-
-<p>
-  See more about line numbers in the <A href="/line-numbers">Line Numbers</A> page.
-</p>
+<CodeWrapper>
+  {#snippet codeblock()}
+    <HighlightCompo
+      codeLang="ts"
+      code={exampleModules['./examples/style-props.md'] as string}
+      clipboardClass="top-2"
+    />
+  {/snippet}
+</CodeWrapper>

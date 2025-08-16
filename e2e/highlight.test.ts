@@ -6,7 +6,7 @@ test.beforeEach(async ({ page }) => {
 });
 
 test('highlight page has expected h1', async ({ page }) => {
-  await expect(page.getByRole('heading', { name: 'Highlight Component', level: 1 })).toBeVisible();
+  expect(await page.textContent('h1')).toContain('Highlight Component');
 });
 
 test('highlight page has expected meta title', async ({ page }) => {

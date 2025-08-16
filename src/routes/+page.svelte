@@ -48,7 +48,7 @@
 
 <h2>Installation</h2>
 
-<HighlightCompo code={modules['./md/installation.md'] as string} class="max-w-5xl" />
+<HighlightCompo code={modules['./md/installation.md'] as string} clipboardClass="top-2" />
 
 <h2>Components</h2>
 

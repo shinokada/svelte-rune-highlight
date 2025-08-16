@@ -15,7 +15,7 @@
       <FooterLink href="/auto">Auto</FooterLink>
       <FooterLink href="/svelte">Svelte</FooterLink>
       <FooterLink href="/line-numbers">Line Numbers</FooterLink>
-      <FooterLink href="/extend">Extend</FooterLink>
+      <FooterLink href="/theme-selector">Theme Selector</FooterLink>
     </FooterLinkGroup>
   </div>
 </Footer>

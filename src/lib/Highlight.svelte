@@ -18,7 +18,7 @@
     startingLineNumber?: number;
     highlightedLines?: number[];
     backgroudColor?: string;
-    position?: 'static' | 'relative' | 'abolute' | 'sticky' | undefined;
+    position?: 'static' | 'relative' | 'absolute' | 'sticky' | undefined;
     class?: string;
   }
 
@@ -51,7 +51,7 @@
 </script>
 
 {#if numberLine}
-  <div style:overflow-x="auto" {...restProps} class={className}>
+  <div style:overflow-x="auto" {...restProps} class="highlight-table {className}">
     <table>
       <tbody class:hljs={true}>
         {#each lines as line, i}
@@ -105,43 +105,43 @@
 
 {#if numberLine}
   <style>
-    pre {
+    .highlight-table pre {
       margin: 0;
     }
 
-    table,
-    tr,
-    td {
+    .highlight-table table,
+    .highlight-table tr,
+    .highlight-table td {
       padding: 0;
       border: 0;
       margin: 0;
       vertical-align: baseline;
     }
 
-    table {
+    .highlight-table table {
       width: 100%;
       border-collapse: collapse;
       border-spacing: 0;
     }
 
-    tr:first-of-type td {
+    .highlight-table tr:first-of-type td {
       padding-top: 1em;
     }
 
-    tr:last-child td {
+    .highlight-table tr:last-child td {
       padding-bottom: 1em;
     }
 
-    tr td:first-of-type {
+    .highlight-table tr td:first-of-type {
       z-index: 2;
     }
 
-    td {
+    .highlight-table td {
       padding-left: var(--padding-left, 1em);
       padding-right: var(--padding-right, 1em);
     }
 
-    td.hljs:not(.hideBorder):after {
+    .highlight-table td.hljs:not(.hideBorder):after {
       content: '';
       position: absolute;
       top: 0;
@@ -151,22 +151,22 @@
       background: var(--border-color, currentColor);
     }
 
-    .wrapLines {
+    .highlight-table .wrapLines {
       white-space: pre-wrap;
     }
 
-    td,
-    td > code,
-    pre {
+    .highlight-table td,
+    .highlight-table td > code,
+    .highlight-table pre {
       position: relative;
     }
 
-    td > code,
-    pre {
+    .highlight-table td > code,
+    .highlight-table pre {
       z-index: 1;
     }
 
-    .line-background {
+    .highlight-table .line-background {
       position: absolute;
       z-index: 0;
       top: 0;
@@ -175,16 +175,16 @@
       height: 100%;
     }
 
-    tr:first-of-type td .line-background,
-    tr:last-of-type td .line-background {
+    .highlight-table tr:first-of-type td .line-background,
+    .highlight-table tr:last-of-type td .line-background {
       height: calc(100% - 1em);
     }
 
-    tr:first-of-type td .line-background {
+    .highlight-table tr:first-of-type td .line-background {
       top: 1em;
     }
 
-    tr:last-of-type td .line-background {
+    .highlight-table tr:last-of-type td .line-background {
       bottom: 1em;
     }
   </style>

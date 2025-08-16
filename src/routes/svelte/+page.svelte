@@ -1,42 +1,66 @@
 <script lang="ts">
-  import { HighlightSvelte } from '$lib';
+
   import { HighlightCompo } from 'runes-webkit';
-  const modules = import.meta.glob('./samples/**/*.md', {
+  import { P } from 'flowbite-svelte';
+  import { CodeWrapper, H1, H2 } from '../utils';
+
+  import * as ExampleComponents from './examples';
+  const exampleModules = import.meta.glob('./examples/*.*', {
     query: '?raw',
     import: 'default',
     eager: true
-  });
+  }) as Record<string, string>;
 </script>
 
-<h1>HighlightSvelte Component</h1>
+<H1>HighlightSvelte Component</H1>
 
-<h2>Example 1</h2>
-<p>
-  Use the HighlightSvelte component to highlight your Svelte code. The HighlightSvelte component
-  requires code props. <code>langtag</code>
-  and
-  <code>--langtag-color</code>
-  are optional.
-</p>
-<HighlightCompo code={modules['./samples/highlight/example-1.md'] as string} class="max-w-5xl" />
-<p>Here's the resulting output from the code:</p>
-<HighlightSvelte code={modules['./samples/sample-1.md'] as string} langtag --langtag-color="red" />
+<H2>Example 1</H2>
+<P>
+  Use the HighlightSvelte component to highlight your Svelte code. The HighlightSvelte component requires code props. <code>langtag</code> and <code>--langtag-color</code> are optional.
+</P>
 
-<h2>Example 2</h2>
-<p>
-  Using different <code>--langtag-color</code>
-  .
-</p>
-<HighlightCompo code={modules['./samples/highlight/example-2.md'] as string} class="max-w-5xl" />
-<p>The code creates this output:</p>
-<HighlightSvelte code={modules['./samples/sample-2.md'] as string} langtag --langtag-color="red" />
+<CodeWrapper>
+  <ExampleComponents.Sample1 />
+  {#snippet codeblock()}
+    <HighlightCompo
+      codeLang="ts"
+      code={exampleModules['./examples/Sample1.svelte'] as string}
+      clipboardClass="top-2"
+    />
+  {/snippet}
+</CodeWrapper>
 
-<h2>Props</h2>
-<p>HighlightSvelte component has the following props:</p>
-<HighlightCompo code={modules['./samples/props.md'] as string} class="max-w-5xl" />
+<H2>Example 2</H2>
+<P>
+  Using different <code>--langtag-color</code>.
+</P>
 
-<h2>Language tag style</h2>
+<CodeWrapper>
+  <ExampleComponents.Sample2 />
+  {#snippet codeblock()}
+    <HighlightCompo
+      codeLang="ts"
+      code={exampleModules['./examples/Sample2.svelte'] as string}
+      clipboardClass="top-2"
+    />
+  {/snippet}
+</CodeWrapper>
 
-<p>Customize the language tag background, color, and border-radius using style props.</p>
+<H2>Props</H2>
+<P>HighlightSvelte component has the following props:</P>
 
-<HighlightCompo code={modules['./samples/style-props.md'] as string} class="max-w-5xl" />
+<CodeWrapper>
+  {#snippet codeblock()}
+    <HighlightCompo code={exampleModules['./examples/props.md'] as string} class="max-w-5xl" />
+  {/snippet}
+</CodeWrapper>
+
+<H2>Language tag style</H2>
+
+<P>Customize the language tag background, color, and border-radius using style props.</P>
+
+<CodeWrapper>
+  {#snippet codeblock()}
+    <HighlightCompo code={exampleModules['./examples/style-props.md'] as string} class="max-w-5xl" />
+  {/snippet}
+</CodeWrapper>
