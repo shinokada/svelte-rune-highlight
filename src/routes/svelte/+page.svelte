@@ -21,7 +21,7 @@
 <CodeWrapper>
   <ExampleComponents.Sample1 />
   {#snippet codeblock()}
-    <HighlightCompo codeLang="ts" code={exampleModules['./examples/Sample1.svelte'] as string} clipboardClass="top-2" />
+    <HighlightCompo codeLang="ts" code={exampleModules['./examples/Sample1.svelte'] as string}  />
   {/snippet}
 </CodeWrapper>
 
@@ -33,7 +33,7 @@
 <CodeWrapper>
   <ExampleComponents.Sample2 />
   {#snippet codeblock()}
-    <HighlightCompo codeLang="ts" code={exampleModules['./examples/Sample2.svelte'] as string} clipboardClass="top-2" />
+    <HighlightCompo codeLang="ts" code={exampleModules['./examples/Sample2.svelte'] as string}  />
   {/snippet}
 </CodeWrapper>
 

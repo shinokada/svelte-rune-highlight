@@ -20,14 +20,14 @@
   detected language.</P
 >
 
-<HighlightCompo {code} clipboardClass="top-2" />
+<HighlightCompo {code}  />
 
 <H2>Examples</H2>
 <H3>HTML</H3>
 <CodeWrapper>
   <ExampleComponents.Html />
   {#snippet codeblock()}
-    <HighlightCompo codeLang="ts" code={exampleModules['./examples/Html.svelte'] as string} clipboardClass="top-2" />
+    <HighlightCompo codeLang="ts" code={exampleModules['./examples/Html.svelte'] as string}  />
   {/snippet}
 </CodeWrapper>
 
@@ -35,7 +35,7 @@
 <CodeWrapper>
   <ExampleComponents.Css />
   {#snippet codeblock()}
-    <HighlightCompo codeLang="ts" code={exampleModules['./examples/Css.svelte'] as string} clipboardClass="top-2" />
+    <HighlightCompo codeLang="ts" code={exampleModules['./examples/Css.svelte'] as string}  />
   {/snippet}
 </CodeWrapper>
 
@@ -44,7 +44,7 @@
 <CodeWrapper>
   <ExampleComponents.Javascript />
   {#snippet codeblock()}
-    <HighlightCompo codeLang="ts" code={exampleModules['./examples/Javascript.svelte'] as string} clipboardClass="top-2" />
+    <HighlightCompo codeLang="ts" code={exampleModules['./examples/Javascript.svelte'] as string}  />
   {/snippet}
 </CodeWrapper>
 
@@ -52,7 +52,7 @@
 <CodeWrapper>
   <ExampleComponents.Markdown />
   {#snippet codeblock()}
-    <HighlightCompo codeLang="ts" code={exampleModules['./examples/Markdown.svelte'] as string} clipboardClass="top-2" />
+    <HighlightCompo codeLang="ts" code={exampleModules['./examples/Markdown.svelte'] as string}  />
   {/snippet}
 </CodeWrapper>
 
@@ -60,7 +60,7 @@
 <CodeWrapper>
   <ExampleComponents.Typescript />
   {#snippet codeblock()}
-    <HighlightCompo codeLang="ts" code={exampleModules['./examples/Typescript.svelte'] as string} clipboardClass="top-2" />
+    <HighlightCompo codeLang="ts" code={exampleModules['./examples/Typescript.svelte'] as string}  />
   {/snippet}
 </CodeWrapper>
 
@@ -68,7 +68,7 @@
 <CodeWrapper>
   <ExampleComponents.Python />
   {#snippet codeblock()}
-    <HighlightCompo codeLang="ts" code={exampleModules['./examples/Python.svelte'] as string} clipboardClass="top-2" />
+    <HighlightCompo codeLang="ts" code={exampleModules['./examples/Python.svelte'] as string}  />
   {/snippet}
 </CodeWrapper>
 
@@ -76,7 +76,7 @@
 <CodeWrapper>
   <ExampleComponents.Rust />
   {#snippet codeblock()}
-    <HighlightCompo codeLang="ts" code={exampleModules['./examples/Rust.svelte'] as string} clipboardClass="top-2" />
+    <HighlightCompo codeLang="ts" code={exampleModules['./examples/Rust.svelte'] as string}  />
   {/snippet}
 </CodeWrapper>
 

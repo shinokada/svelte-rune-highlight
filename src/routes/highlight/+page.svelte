@@ -19,7 +19,7 @@
 <CodeWrapper>
   <ExampleComponents.JsLang />
   {#snippet codeblock()}
-    <HighlightCompo codeLang="ts" code={exampleModules['./examples/JsLang.svelte'] as string} clipboardClass="top-2" />
+    <HighlightCompo codeLang="ts" code={exampleModules['./examples/JsLang.svelte'] as string}  />
   {/snippet}
 </CodeWrapper>
 
@@ -30,7 +30,7 @@
 <CodeWrapper>
   <ExampleComponents.MdLang />
   {#snippet codeblock()}
-    <HighlightCompo codeLang="ts" code={exampleModules['./examples/MdLang.svelte'] as string} clipboardClass="top-2" />
+    <HighlightCompo codeLang="ts" code={exampleModules['./examples/MdLang.svelte'] as string}  />
   {/snippet}
 </CodeWrapper>
 
@@ -38,7 +38,7 @@
 <CodeWrapper>
   <ExampleComponents.YmlLang />
   {#snippet codeblock()}
-    <HighlightCompo codeLang="ts" code={exampleModules['./examples/YmlLang.svelte'] as string} clipboardClass="top-2" />
+    <HighlightCompo codeLang="ts" code={exampleModules['./examples/YmlLang.svelte'] as string}  />
   {/snippet}
 </CodeWrapper>
 
@@ -47,7 +47,7 @@
 <CodeWrapper>
   <ExampleComponents.JsonLang />
   {#snippet codeblock()}
-    <HighlightCompo codeLang="ts" code={exampleModules['./examples/JsonLang.svelte'] as string} clipboardClass="top-2" />
+    <HighlightCompo codeLang="ts" code={exampleModules['./examples/JsonLang.svelte'] as string}  />
   {/snippet}
 </CodeWrapper>
 
@@ -56,14 +56,14 @@
 <CodeWrapper>
   <ExampleComponents.TsLang />
   {#snippet codeblock()}
-    <HighlightCompo codeLang="ts" code={exampleModules['./examples/TsLang.svelte'] as string} clipboardClass="top-2" />
+    <HighlightCompo codeLang="ts" code={exampleModules['./examples/TsLang.svelte'] as string}  />
   {/snippet}
 </CodeWrapper>
 
 <H2>Props</H2>
 <CodeWrapper>
   {#snippet codeblock()}
-    <HighlightCompo codeLang="ts" code={exampleModules['./examples/props.md'] as string} clipboardClass="top-2" />
+    <HighlightCompo codeLang="ts" code={exampleModules['./examples/props.md'] as string}  />
   {/snippet}
 </CodeWrapper>
 
@@ -73,6 +73,6 @@
 
 <CodeWrapper>
   {#snippet codeblock()}
-    <HighlightCompo codeLang="ts" code={exampleModules['./examples/style-props.md'] as string} clipboardClass="top-2" />
+    <HighlightCompo codeLang="ts" code={exampleModules['./examples/style-props.md'] as string}  />
   {/snippet}
 </CodeWrapper>
