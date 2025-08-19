@@ -18,7 +18,7 @@
 <RunesMetaTags {...metaTags} />
 
 <Nav />
-<div class="relative mx-auto mt-16 h-full max-w-5xl overflow-y-auto px-8 pb-20">
+<div class="relative mx-auto mt-16 h-full max-w-4xl overflow-y-auto px-8 pb-20">
   {@render children()}
 </div>
 <Footer />
