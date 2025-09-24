@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://svelte-rune-highlight.codewithshin.com/sitemap.xml

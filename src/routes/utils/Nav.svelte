@@ -53,5 +53,6 @@
     <NavLi href="/svelte">Svelte</NavLi>
     <NavLi href="/line-numbers">Line Numbers</NavLi>
     <NavLi href="/theme-selector">Theme Selector</NavLi>
+    <NavLi href="/wrapper">Wrapper</NavLi>
   </NavUl>
 </Navbar>
