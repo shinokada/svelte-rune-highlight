@@ -45,6 +45,7 @@
 
   hljs.registerLanguage(language.name, language.register);
 
+  // eslint-disable-next-line svelte/prefer-svelte-reactivity
   let allHighlightedLines = $derived.by(() => {
     const lines = new Set(highlightedLines);
     

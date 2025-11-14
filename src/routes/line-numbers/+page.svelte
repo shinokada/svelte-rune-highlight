@@ -41,7 +41,7 @@
   {/snippet}
 </CodeWrapper>
 
-<H2>Wraped Lines</H2>
+<H2>Wrapped Lines</H2>
 
 <P>
   Add <code>wrapLines</code> props to wrap lines.
@@ -133,7 +133,7 @@
 
 <H2>Highlighting lines</H2>
 <P>Use highlightedLines and/or highlightedRanges props to highlight lines as the following example.</P>
-
+<P>[start, end] ranges are inclusive and 1‑based.</P>
 <CodeWrapper>
   <ExampleComponents.RangeEx />
   {#snippet codeblock()}

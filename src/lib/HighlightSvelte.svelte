@@ -50,6 +50,7 @@
   }
 
   let allHighlightedLines = $derived.by(() => {
+    // eslint-disable-next-line svelte/prefer-svelte-reactivity
     const lines = new Set(highlightedLines);
 
     // Add ranges

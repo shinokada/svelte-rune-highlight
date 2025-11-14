@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { HighlightSvelte } from '$lib';
+  import { HighlightSvelte } from 'svelte-rune-highlight';
   const examples = import.meta.glob('../../examples/*.svelte', {
     query: '?raw',
     import: 'default',
