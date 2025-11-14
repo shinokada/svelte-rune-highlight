@@ -20,7 +20,7 @@
   detected language.</P
 >
 
-<HighlightCompo {code}  />
+<HighlightCompo {code} />
 
 <H2>Examples</H2>
 <H3>HTML</H3>
@@ -102,5 +102,3 @@
 <CodeWrapper>
   <ExampleComponents.StyleProps />
 </CodeWrapper>
-
-

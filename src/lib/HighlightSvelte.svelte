@@ -208,3 +208,21 @@
     }
   </style>
 {/if}
+
+<!--
+@component
+[Go to docs](https://svelte-rune-highlight.codewithshin.com/)
+## Props
+@prop code = ''
+@prop langtag = false
+@prop numberLine
+@prop hideBorder
+@prop wrapLines
+@prop startingLineNumber = 1
+@prop highlightedLines = []
+@prop highlightedRanges = []
+@prop backgroundColor
+@prop position = 'sticky'
+@prop class: className
+@prop ...restProps
+-->

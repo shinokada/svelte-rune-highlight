@@ -47,14 +47,14 @@
 
   let allHighlightedLines = $derived.by(() => {
     const lines = new Set(highlightedLines);
-    
+
     // Add ranges
     for (const [start, end] of highlightedRanges) {
       for (let i = start; i <= end; i++) {
         lines.add(i);
       }
     }
-    
+
     return lines;
   });
 

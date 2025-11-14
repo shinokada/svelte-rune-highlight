@@ -8,7 +8,6 @@
     import: 'default',
     eager: true
   });
-
 </script>
 
 <H1>Line Numbers</H1>
@@ -140,4 +139,3 @@
     <HighlightCompo code={exampleModules['./examples/RangeEx.svelte'] as string} />
   {/snippet}
 </CodeWrapper>
-

@@ -87,8 +87,8 @@
     </div>
   {/if}
 
-  <pre class="code-highlight-pre" class:has-line-numbers={lineNumbers}>{#if lineNumbers}<div class="code-highlight-line-numbers">{#each codeLines as _, index}<span
-            class="code-highlight-line-number">{index + 1}</span
+  <pre class="code-highlight-pre" class:has-line-numbers={lineNumbers}>{#if lineNumbers}<div class="code-highlight-line-numbers">{#each codeLines as _, index}<span class="code-highlight-line-number"
+            >{index + 1}</span
           >{/each}</div>{/if}<code bind:this={codeElement} class="code-highlight-code hljs" data-language={detectedLanguage}></code></pre>
 </div>
 

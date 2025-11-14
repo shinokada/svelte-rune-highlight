@@ -66,14 +66,14 @@
 
   let allHighlightedLines = $derived.by(() => {
     const lines = new Set(highlightedLines);
-    
+
     // Add ranges
     for (const [start, end] of highlightedRanges) {
       for (let i = start; i <= end; i++) {
         lines.add(i);
       }
     }
-    
+
     return lines;
   });
 
@@ -85,9 +85,7 @@
 
     try {
       // If languages array is provided, only detect from those languages
-      return languages && languages.length > 0
-        ? hljs.highlightAuto(code, languages)
-        : hljs.highlightAuto(code);
+      return languages && languages.length > 0 ? hljs.highlightAuto(code, languages) : hljs.highlightAuto(code);
     } catch (error) {
       console.warn('Highlight.js auto-detection failed:', error);
       return { value: code, language: 'plaintext' };
@@ -109,33 +107,18 @@
         {#each lines as line, i (i + startingLineNumber)}
           {@const lineNumber = i + startingLineNumber}
           <tr>
-            <td
-              class:hljs={true}
-              class:hideBorder
-              style:position
-              style:left="0"
-              style:text-align="right"
-              style:user-select="none"
-              style:width={width + 'px'}
-              style:background-color={backgroundColor}
-            >
+            <td class:hljs={true} class:hideBorder style:position style:left="0" style:text-align="right" style:user-select="none" style:width={width + 'px'} style:background-color={backgroundColor}>
               <code style:color="var(--line-number-color, currentColor)">
                 {lineNumber}
               </code>
               {#if allHighlightedLines.has(lineNumber)}
-                <div
-                  class:line-background={true}
-                  style:background="var(--highlighted-background, {HIGHLIGHTED_BACKGROUND})"
-                ></div>
+                <div class:line-background={true} style:background="var(--highlighted-background, {HIGHLIGHTED_BACKGROUND})"></div>
               {/if}
             </td>
             <td>
               <pre class:wrapLines><code>{@html line || '\n'}</code></pre>
               {#if allHighlightedLines.has(lineNumber)}
-                <div
-                  class:line-background={true}
-                  style:background="var(--highlighted-background, {HIGHLIGHTED_BACKGROUND})"
-                ></div>
+                <div class:line-background={true} style:background="var(--highlighted-background, {HIGHLIGHTED_BACKGROUND})"></div>
               {/if}
             </td>
           </tr>
@@ -248,7 +231,7 @@
 @prop highlightedRanges = []
 @prop backgroundColor
 @prop position = 'sticky'
-@prop languages - Optional subset of languages for detection
-@prop class
+@prop languages
+@prop class: className
 @prop ...restProps
 -->

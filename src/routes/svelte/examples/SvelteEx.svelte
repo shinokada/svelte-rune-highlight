@@ -7,4 +7,4 @@
   });
 </script>
 
-<HighlightSvelte code={examples['../../examples/Numberline.svelte'] as string} numberLine highlightedLines={[3, 7]} --highlighted-background="#be46d4"/>
+<HighlightSvelte code={examples['../../examples/Numberline.svelte'] as string} numberLine highlightedLines={[3, 7]} --highlighted-background="#be46d4" />

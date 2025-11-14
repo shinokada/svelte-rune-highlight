@@ -1,5 +1,11 @@
 # svelte-rune-highlight
 
+## 0.8.0
+
+### Minor Changes
+
+- feat: highlightedRanges
+
 ## 0.7.1
 
 ### Patch Changes

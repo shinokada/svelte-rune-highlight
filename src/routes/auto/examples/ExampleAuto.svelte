@@ -12,20 +12,10 @@
 </script>
 
 <!-- Basic auto-detection -->
-<HighlightAuto code={unknownCode} class="border-b"/>
+<HighlightAuto code={unknownCode} class="border-b" />
 
 <!-- With line numbers and highlighting -->
-<HighlightAuto 
-  code={unknownCode} 
-  numberLine
-  highlightedLines={[1]}
-  highlightedRanges={[[2, 3]]}
-  class="border-b"
-/>
+<HighlightAuto code={unknownCode} numberLine highlightedLines={[1]} highlightedRanges={[[2, 3]]} class="border-b" />
 
 <!-- Restrict to web languages -->
-<HighlightAuto 
-  code={webCode} 
-  languages={['javascript', 'typescript']}
-  numberLine
-/>
+<HighlightAuto code={webCode} languages={['javascript', 'typescript']} numberLine />

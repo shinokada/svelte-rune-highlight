@@ -3,4 +3,4 @@
   const code = `<button onclick={() => { console.log(0); }}>Increment {count}</button>`;
 </script>
 
-<HighlightSvelte {code} langtag --langtag-color="green"/>
+<HighlightSvelte {code} langtag --langtag-color="green" />
