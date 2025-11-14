@@ -6,6 +6,6 @@ wrapLines?: boolean;
 startingLineNumber?: number;
 highlightedLines?: number[];
 highlightedRanges?: [number, number][]; 
-backgroudColor?: string;
+backgroundColor?: string;
 position?: 'static' | 'relative' | 'absolute' | 'sticky' | undefined;
 class?: string;

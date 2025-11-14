@@ -18,7 +18,7 @@
     startingLineNumber?: number;
     highlightedLines?: number[];
     highlightedRanges?: [number, number][];
-    backgroudColor?: string;
+    backgroundColor?: string;
     position?: 'static' | 'relative' | 'absolute' | 'sticky' | undefined;
     class?: string;
   }
@@ -33,7 +33,7 @@
     startingLineNumber = 1,
     highlightedLines = [],
     highlightedRanges = [],
-    backgroudColor,
+    backgroundColor,
     position = 'sticky',
     class: className = 'relative',
     ...restProps
@@ -72,7 +72,7 @@
         {#each lines as line, i}
           {@const lineNumber = i + startingLineNumber}
           <tr>
-            <td class:hljs={true} class:hideBorder style:position style:left="0" style:text-align="right" style:user-select="none" style:width={width + 'px'} style:background-color={backgroudColor}>
+            <td class:hljs={true} class:hideBorder style:position style:left="0" style:text-align="right" style:user-select="none" style:width={width + 'px'} style:background-color={backgroundColor}>
               <code style:color="var(--line-number-color, currentColor)">
                 {lineNumber}
               </code>
@@ -196,7 +196,7 @@
 @prop startingLineNumber = 1
 @prop highlightedLines = []
 @prop highlightedRanges = []
-@prop backgroudColor
+@prop backgroundColor
 @prop position = 'sticky'
 @prop class: className = 'relative'
 @prop ...restProps

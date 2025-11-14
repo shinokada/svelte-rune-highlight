@@ -12,4 +12,4 @@
   };
 </script>
 
-<Highlight language={tsLang} code={examples['./sample-1.md'] as string} numberLine backgroudColor="red" />
+<Highlight language={tsLang} code={examples['./sample-1.md'] as string} numberLine backgroundColor="red" />

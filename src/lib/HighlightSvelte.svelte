@@ -13,8 +13,8 @@
     wrapLines?: boolean;
     startingLineNumber?: number;
     highlightedLines?: number[];
-    highlightedRanges?: [number, number][]; 
-    backgroudColor?: string;
+    highlightedRanges?: [number, number][];
+    backgroundColor?: string;
     position?: 'static' | 'relative' | 'absolute' | 'sticky' | undefined;
     class?: string;
   }
@@ -28,7 +28,7 @@
     startingLineNumber = 1,
     highlightedLines = [],
     highlightedRanges = [],
-    backgroudColor,
+    backgroundColor,
     position = 'sticky',
     class: className,
     ...restProps
@@ -51,14 +51,18 @@
 
   let allHighlightedLines = $derived.by(() => {
     const lines = new Set(highlightedLines);
-    
+
     // Add ranges
     for (const [start, end] of highlightedRanges) {
+      if (typeof start !== 'number' || typeof end !== 'number' || start < 1 || end < 1) {
+        console.warn('Invalid range:', [start, end]);
+        continue;
+      }
       for (let i = start; i <= end; i++) {
         lines.add(i);
       }
     }
-    
+
     return lines;
   });
 
@@ -92,36 +96,21 @@
   <div style:overflow-x="auto" {...restProps} class="highlight-table {className}">
     <table>
       <tbody class:hljs={true}>
-        {#each lines as line, i}
+        {#each lines as line, i (i + startingLineNumber)}
           {@const lineNumber = i + startingLineNumber}
           <tr>
-            <td
-              class:hljs={true}
-              class:hideBorder
-              style:position
-              style:left="0"
-              style:text-align="right"
-              style:user-select="none"
-              style:width={width + 'px'}
-              style:background-color={backgroudColor}
-            >
+            <td class:hljs={true} class:hideBorder style:position style:left="0" style:text-align="right" style:user-select="none" style:width={width + 'px'} style:background-color={backgroundColor}>
               <code style:color="var(--line-number-color, currentColor)">
                 {lineNumber}
               </code>
               {#if allHighlightedLines.has(lineNumber)}
-                <div
-                  class:line-background={true}
-                  style:background="var(--highlighted-background, {HIGHLIGHTED_BACKGROUND})"
-                ></div>
+                <div class:line-background={true} style:background="var(--highlighted-background, {HIGHLIGHTED_BACKGROUND})"></div>
               {/if}
             </td>
             <td>
               <pre class:wrapLines><code>{@html line || '\n'}</code></pre>
               {#if allHighlightedLines.has(lineNumber)}
-                <div
-                  class:line-background={true}
-                  style:background="var(--highlighted-background, {HIGHLIGHTED_BACKGROUND})"
-                ></div>
+                <div class:line-background={true} style:background="var(--highlighted-background, {HIGHLIGHTED_BACKGROUND})"></div>
               {/if}
             </td>
           </tr>

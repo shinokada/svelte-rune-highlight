@@ -7,7 +7,7 @@ wrapLines,
 startingLineNumber = 1,
 highlightedLines = [],
 highlightedRanges = [],
-backgroudColor,
+backgroundColor,
 position = 'sticky',
 class: className = 'relative',
 ...restProps

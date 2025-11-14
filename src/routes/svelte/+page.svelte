@@ -49,7 +49,7 @@
 
 <H2>Using highlightedRanges</H2>
 
-<P>Use highlightedLines and/or highlightedRanges props to highlight liens as the following example.</P>
+<P>Use highlightedLines and/or highlightedRanges props to highlight lines as the following example.</P>
 
 <CodeWrapper>
   <ExampleComponents.RangeEx />

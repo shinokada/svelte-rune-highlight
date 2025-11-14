@@ -87,15 +87,6 @@
   {/snippet}
 </CodeWrapper>
 
-<H2>Types</H2>
-
-<CodeWrapper>
-  <ExampleComponents.TypeEx />
-  {#snippet codeblock()}
-    <HighlightCompo code={exampleModules['./examples/TypeEx.svelte'] as string} replaceLib="svelte-rune-highlight" />
-  {/snippet}
-</CodeWrapper>
-
 <H2>Highlighted Lines and Highlighted Background</H2>
 
 <P>
@@ -140,8 +131,8 @@
   {/snippet}
 </CodeWrapper>
 
-<H2>Highlightin lines</H2>
-<P>Use highlightedLines and/or highlightedRanges props to highlight liens as the following example.</P>
+<H2>Highlighting lines</H2>
+<P>Use highlightedLines and/or highlightedRanges props to highlight lines as the following example.</P>
 
 <CodeWrapper>
   <ExampleComponents.RangeEx />

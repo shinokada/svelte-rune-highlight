@@ -1,10 +1,10 @@
 <script lang="ts">
   import { HighlightSvelte } from '$lib';
-  const examples = import.meta.glob('./*.svelte', {
+  const examples = import.meta.glob('../../examples/*.svelte', {
     query: '?raw',
     import: 'default',
     eager: true
   });
 </script>
 
-<HighlightSvelte code={examples['./Numberline.svelte'] as string} numberLine />
+<HighlightSvelte code={examples['../../examples/Numberline.svelte'] as string} numberLine />
