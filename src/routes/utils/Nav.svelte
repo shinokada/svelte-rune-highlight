@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Navbar, NavLi, NavBrand, NavHamburger, NavUl, uiHelpers, DarkMode, Dropdown, DropdownItem } from 'flowbite-svelte';
+  import { Navbar, NavLi, NavBrand, NavHamburger, NavUl, DarkMode, Dropdown, DropdownItem } from 'flowbite-svelte';
   import DynamicCodeBlockStyle from './DynamicCodeBlockStyle.svelte';
   import { Bluesky, DotsHorizontalOutline, GithubSolid, XSolid } from 'runes-webkit';
   import { page } from '$app/state';
@@ -9,12 +9,9 @@
   const blueskyUrl = 'https://bsky.app/profile/codewithshin.com';
 
   let activeUrl = $state(page.url.pathname);
-  let nav = uiHelpers();
-  let navStatus = $state(false);
 
   $effect(() => {
     activeUrl = page.url.pathname;
-    navStatus = nav.isOpen;
   });
 
   let activeClass = 'p-2 text-base hover:text-gray-600';

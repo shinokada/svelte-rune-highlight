@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { HighlightCompo } from 'runes-webkit'
+  import HighlightCompo from './utils/HighlightCompo.svelte'
   const modules = import.meta.glob('./md/*.md', { query: '?raw', import: 'default', eager: true });
 </script>
 

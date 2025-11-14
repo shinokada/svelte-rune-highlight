@@ -17,7 +17,8 @@
     wrapLines?: boolean;
     startingLineNumber?: number;
     highlightedLines?: number[];
-    backgroudColor?: string;
+    highlightedRanges?: [number, number][];
+    backgroundColor?: string;
     position?: 'static' | 'relative' | 'absolute' | 'sticky' | undefined;
     class?: string;
   }
@@ -31,7 +32,8 @@
     wrapLines,
     startingLineNumber = 1,
     highlightedLines = [],
-    backgroudColor,
+    highlightedRanges = [],
+    backgroundColor,
     position = 'sticky',
     class: className = 'relative',
     ...restProps
@@ -42,6 +44,19 @@
   const HIGHLIGHTED_BACKGROUND = 'rgba(254, 241, 96, 0.2)';
 
   hljs.registerLanguage(language.name, language.register);
+
+  let allHighlightedLines = $derived.by(() => {
+    const lines = new Set(highlightedLines);
+    
+    // Add ranges
+    for (const [start, end] of highlightedRanges) {
+      for (let i = start; i <= end; i++) {
+        lines.add(i);
+      }
+    }
+    
+    return lines;
+  });
 
   let highlighted: string = $derived(hljs.highlight(code, { language: language.name }).value);
   let lines = $derived(highlighted.split('\n'));
@@ -57,18 +72,18 @@
         {#each lines as line, i}
           {@const lineNumber = i + startingLineNumber}
           <tr>
-            <td class:hljs={true} class:hideBorder style:position style:left="0" style:text-align="right" style:user-select="none" style:width={width + 'px'} style:background-color={backgroudColor}>
+            <td class:hljs={true} class:hideBorder style:position style:left="0" style:text-align="right" style:user-select="none" style:width={width + 'px'} style:background-color={backgroundColor}>
               <code style:color="var(--line-number-color, currentColor)">
                 {lineNumber}
               </code>
-              {#if highlightedLines.includes(i)}
+              {#if allHighlightedLines.has(lineNumber)}
                 <div class:line-background={true} style:background="var(--highlighted-background, {HIGHLIGHTED_BACKGROUND})"></div>
               {/if}
             </td>
             <!-- eslint-disable svelte/no-at-html-tags -->
             <td>
               <pre class:wrapLines><code>{@html line || '\n'}</code></pre>
-              {#if highlightedLines.includes(i)}
+              {#if allHighlightedLines.has(lineNumber)}
                 <div class:line-background={true} style:background="var(--highlighted-background, {HIGHLIGHTED_BACKGROUND})"></div>
               {/if}
             </td>
@@ -180,7 +195,8 @@
 @prop wrapLines
 @prop startingLineNumber = 1
 @prop highlightedLines = []
-@prop backgroudColor
+@prop highlightedRanges = []
+@prop backgroundColor
 @prop position = 'sticky'
 @prop class: className = 'relative'
 @prop ...restProps

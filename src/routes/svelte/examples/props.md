@@ -1,3 +1,12 @@
-code?: string;
-langtag?: boolean;
-preClass?: string;
+code = '',
+langtag = false,
+numberLine,
+hideBorder,
+wrapLines,
+startingLineNumber = 1,
+highlightedLines = [],
+highlightedRanges = [],
+backgroundColor,
+position = 'sticky',
+class: className,
+...restProps

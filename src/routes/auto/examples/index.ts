@@ -7,3 +7,4 @@ export { default as Python } from './Python.svelte';
 export { default as Rust } from './Rust.svelte';
 export { default as StyleProps } from './StyleProps.svelte';
 export { default as Typescript } from './Typescript.svelte';
+export { default as ExampleAuto } from './ExampleAuto.svelte';

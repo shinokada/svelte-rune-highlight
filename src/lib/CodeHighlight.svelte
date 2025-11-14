@@ -14,7 +14,6 @@
 
   let { code = '', language = 'auto', theme = '', lineNumbers = false, copyButton = false, class: className = '', style = '', ...restProps }: Props = $props();
 
-  let preElement = $state<HTMLPreElement>();
   let codeElement = $state<HTMLElement>();
   let copied = $state(false);
 
@@ -88,7 +87,7 @@
     </div>
   {/if}
 
-  <pre bind:this={preElement} class="code-highlight-pre" class:has-line-numbers={lineNumbers}>{#if lineNumbers}<div class="code-highlight-line-numbers">{#each codeLines as _, index}<span
+  <pre class="code-highlight-pre" class:has-line-numbers={lineNumbers}>{#if lineNumbers}<div class="code-highlight-line-numbers">{#each codeLines as _, index}<span
             class="code-highlight-line-number">{index + 1}</span
           >{/each}</div>{/if}<code bind:this={codeElement} class="code-highlight-code hljs" data-language={detectedLanguage}></code></pre>
 </div>

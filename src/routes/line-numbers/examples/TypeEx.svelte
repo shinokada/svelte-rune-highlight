@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Highlight } from 'svelte-rune-highlight';
   import typescript from 'highlight.js/lib/languages/typescript';
-  const examples = import.meta.glob('./*.md', {
+  const examples = import.meta.glob('./*.ts', {
     query: '?raw',
     import: 'default',
     eager: true
@@ -12,4 +12,4 @@
   };
 </script>
 
-<Highlight language={tsLang} code={examples['./sample-1.md'] as string} hideBorder numberLine />
+<Highlight language={tsLang} code={examples['./sample-types.ts'] as string} numberLine />

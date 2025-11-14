@@ -67,6 +67,13 @@
   {/snippet}
 </CodeWrapper>
 
+<H2>Types</H2>
+<CodeWrapper>
+  {#snippet codeblock()}
+    <HighlightCompo codeLang="ts" code={exampleModules['./examples/types.md'] as string}  />
+  {/snippet}
+</CodeWrapper>
+
 <H2>Language tag style</H2>
 
 <P>Customize the language tag background, color, and border-radius using style props.</P>

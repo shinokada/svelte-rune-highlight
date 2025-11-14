@@ -27,7 +27,7 @@
 <CodeWrapper>
   <ExampleComponents.Html />
   {#snippet codeblock()}
-    <HighlightCompo codeLang="ts" code={exampleModules['./examples/Html.svelte'] as string}  />
+    <HighlightCompo codeLang="ts" code={exampleModules['./examples/Html.svelte'] as string} />
   {/snippet}
 </CodeWrapper>
 
@@ -35,7 +35,7 @@
 <CodeWrapper>
   <ExampleComponents.Css />
   {#snippet codeblock()}
-    <HighlightCompo codeLang="ts" code={exampleModules['./examples/Css.svelte'] as string}  />
+    <HighlightCompo codeLang="ts" code={exampleModules['./examples/Css.svelte'] as string} />
   {/snippet}
 </CodeWrapper>
 
@@ -44,7 +44,7 @@
 <CodeWrapper>
   <ExampleComponents.Javascript />
   {#snippet codeblock()}
-    <HighlightCompo codeLang="ts" code={exampleModules['./examples/Javascript.svelte'] as string}  />
+    <HighlightCompo codeLang="ts" code={exampleModules['./examples/Javascript.svelte'] as string} />
   {/snippet}
 </CodeWrapper>
 
@@ -52,7 +52,7 @@
 <CodeWrapper>
   <ExampleComponents.Markdown />
   {#snippet codeblock()}
-    <HighlightCompo codeLang="ts" code={exampleModules['./examples/Markdown.svelte'] as string}  />
+    <HighlightCompo codeLang="ts" code={exampleModules['./examples/Markdown.svelte'] as string} />
   {/snippet}
 </CodeWrapper>
 
@@ -60,7 +60,7 @@
 <CodeWrapper>
   <ExampleComponents.Typescript />
   {#snippet codeblock()}
-    <HighlightCompo codeLang="ts" code={exampleModules['./examples/Typescript.svelte'] as string}  />
+    <HighlightCompo codeLang="ts" code={exampleModules['./examples/Typescript.svelte'] as string} />
   {/snippet}
 </CodeWrapper>
 
@@ -68,7 +68,7 @@
 <CodeWrapper>
   <ExampleComponents.Python />
   {#snippet codeblock()}
-    <HighlightCompo codeLang="ts" code={exampleModules['./examples/Python.svelte'] as string}  />
+    <HighlightCompo codeLang="ts" code={exampleModules['./examples/Python.svelte'] as string} />
   {/snippet}
 </CodeWrapper>
 
@@ -76,21 +76,31 @@
 <CodeWrapper>
   <ExampleComponents.Rust />
   {#snippet codeblock()}
-    <HighlightCompo codeLang="ts" code={exampleModules['./examples/Rust.svelte'] as string}  />
+    <HighlightCompo codeLang="ts" code={exampleModules['./examples/Rust.svelte'] as string} />
   {/snippet}
 </CodeWrapper>
 
-<h2>Props</h2>
+<H3>Other examples</H3>
+<CodeWrapper>
+  <ExampleComponents.ExampleAuto />
+  {#snippet codeblock()}
+    <HighlightCompo codeLang="ts" code={exampleModules['./examples/ExampleAuto.svelte'] as string} />
+  {/snippet}
+</CodeWrapper>
+
+<H2>Props</H2>
 <CodeWrapper>
   <ExampleComponents.Props />
 </CodeWrapper>
 
-<h2>Language Tag: Caution - This may not be accurate.</h2>
+<H2>Language Tag: Caution - This may not be accurate.</H2>
 
 <p>Set langtag to true to display the language name in the top right corner of the code block.</p>
 
-<h2>Language tag style</h2>
+<H2>Language tag style</H2>
 <p>Customize the language tag background, color, and border-radius using style props.</p>
 <CodeWrapper>
   <ExampleComponents.StyleProps />
 </CodeWrapper>
+
+

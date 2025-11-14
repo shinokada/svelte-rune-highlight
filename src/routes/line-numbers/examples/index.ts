@@ -6,3 +6,6 @@ export { default as Example5 } from './Example5.svelte';
 export { default as Example6 } from './Example6.svelte';
 export { default as Example7 } from './Example7.svelte';
 export { default as Example8 } from './Example8.svelte';
+export { default as TypeEx } from './TypeEx.svelte';
+export { default as SvelteEx } from './SvelteEx.svelte';
+export { default as RangeEx } from './RangeEx.svelte';

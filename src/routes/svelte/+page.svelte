@@ -37,12 +37,43 @@
   {/snippet}
 </CodeWrapper>
 
+
+<H2>Numberline for Svelte file</H2>
+
+<CodeWrapper>
+  <ExampleComponents.SvelteEx />
+  {#snippet codeblock()}
+    <HighlightCompo code={exampleModules['./examples/SvelteEx.svelte'] as string} />
+  {/snippet}
+</CodeWrapper>
+
+<H2>Using highlightedRanges</H2>
+
+<P>Use highlightedLines and/or highlightedRanges props to highlight lines as the following example.</P>
+
+<CodeWrapper>
+  <ExampleComponents.RangeEx />
+  {#snippet codeblock()}
+    <HighlightCompo code={exampleModules['./examples/RangeEx.svelte'] as string} />
+  {/snippet}
+</CodeWrapper>
+
+
 <H2>Props</H2>
 <P>HighlightSvelte component has the following props:</P>
 
 <CodeWrapper>
   {#snippet codeblock()}
     <HighlightCompo code={exampleModules['./examples/props.md'] as string} class="max-w-5xl" />
+  {/snippet}
+</CodeWrapper>
+
+<H2>Types</H2>
+<P>HighlightSvelte component has the following types:</P>
+
+<CodeWrapper>
+  {#snippet codeblock()}
+    <HighlightCompo code={exampleModules['./examples/types.md'] as string} class="max-w-5xl" />
   {/snippet}
 </CodeWrapper>
 
