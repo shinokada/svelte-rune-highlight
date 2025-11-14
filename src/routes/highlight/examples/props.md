@@ -1,8 +1,13 @@
-numberLine?: boolean;
-language: any;
-code: string;
-langtag?: boolean;
-hideBorder?: boolean;
-wrapLines?: boolean;
-startingLineNumber?: number = 1;
-highlightedLines?: number[];
+numberLine,
+language,
+code = '',
+langtag = false,
+hideBorder,
+wrapLines,
+startingLineNumber = 1,
+highlightedLines = [],
+highlightedRanges = [],
+backgroudColor,
+position = 'sticky',
+class: className = 'relative',
+...restProps

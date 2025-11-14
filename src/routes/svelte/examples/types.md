@@ -1,0 +1,11 @@
+code?: string;
+langtag?: boolean;
+numberLine?: boolean;
+hideBorder?: boolean;
+wrapLines?: boolean;
+startingLineNumber?: number;
+highlightedLines?: number[];
+highlightedRanges?: [number, number][]; 
+backgroudColor?: string;
+position?: 'static' | 'relative' | 'absolute' | 'sticky' | undefined;
+class?: string;

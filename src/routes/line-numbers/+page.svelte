@@ -1,10 +1,7 @@
 <script lang="ts">
   import { HighlightCompo } from 'runes-webkit';
   import { P } from 'flowbite-svelte';
-  import { CodeWrapper, H1, H2, H3 } from '../utils';
-
-  import { Highlight } from '$lib';
-  import typescript from 'highlight.js/lib/languages/typescript';
+  import { CodeWrapper, H1, H2 } from '../utils';
   import * as ExampleComponents from './examples';
   const exampleModules = import.meta.glob('./examples/*.*', {
     query: '?raw',
@@ -12,10 +9,6 @@
     eager: true
   });
 
-  const tsLang = {
-    name: 'typescript',
-    register: typescript
-  };
 </script>
 
 <H1>Line Numbers</H1>
@@ -31,7 +24,7 @@
 <CodeWrapper>
   <ExampleComponents.Example1 />
   {#snippet codeblock()}
-    <HighlightCompo code={exampleModules['./examples/Example1.svelte'] as string}  />
+    <HighlightCompo code={exampleModules['./examples/Example1.svelte'] as string} replaceLib="svelte-rune-highlight" />
   {/snippet}
 </CodeWrapper>
 
@@ -44,7 +37,7 @@
 <CodeWrapper>
   <ExampleComponents.Example2 />
   {#snippet codeblock()}
-    <HighlightCompo code={exampleModules['./examples/Example2.svelte'] as string}  />
+    <HighlightCompo code={exampleModules['./examples/Example2.svelte'] as string} replaceLib="svelte-rune-highlight" />
   {/snippet}
 </CodeWrapper>
 
@@ -57,7 +50,7 @@
 <CodeWrapper>
   <ExampleComponents.Example3 />
   {#snippet codeblock()}
-    <HighlightCompo code={exampleModules['./examples/Example3.svelte'] as string}  />
+    <HighlightCompo code={exampleModules['./examples/Example3.svelte'] as string} replaceLib="svelte-rune-highlight" />
   {/snippet}
 </CodeWrapper>
 
@@ -66,7 +59,7 @@
 <CodeWrapper>
   <ExampleComponents.Example4 />
   {#snippet codeblock()}
-    <HighlightCompo code={exampleModules['./examples/Example4.svelte'] as string}  />
+    <HighlightCompo code={exampleModules['./examples/Example4.svelte'] as string} replaceLib="svelte-rune-highlight" />
   {/snippet}
 </CodeWrapper>
 
@@ -77,7 +70,7 @@
 <CodeWrapper>
   <ExampleComponents.Example5 />
   {#snippet codeblock()}
-    <HighlightCompo code={exampleModules['./examples/Example5.svelte'] as string}  />
+    <HighlightCompo code={exampleModules['./examples/Example5.svelte'] as string} replaceLib="svelte-rune-highlight" />
   {/snippet}
 </CodeWrapper>
 
@@ -90,7 +83,16 @@
 <CodeWrapper>
   <ExampleComponents.Example6 />
   {#snippet codeblock()}
-    <HighlightCompo code={exampleModules['./examples/Example6.svelte'] as string}  />
+    <HighlightCompo code={exampleModules['./examples/Example6.svelte'] as string} replaceLib="svelte-rune-highlight" />
+  {/snippet}
+</CodeWrapper>
+
+<H2>Types</H2>
+
+<CodeWrapper>
+  <ExampleComponents.TypeEx />
+  {#snippet codeblock()}
+    <HighlightCompo code={exampleModules['./examples/TypeEx.svelte'] as string} replaceLib="svelte-rune-highlight" />
   {/snippet}
 </CodeWrapper>
 
@@ -103,7 +105,7 @@
 <CodeWrapper>
   <ExampleComponents.Example7 />
   {#snippet codeblock()}
-    <HighlightCompo code={exampleModules['./examples/Example7.svelte'] as string}  />
+    <HighlightCompo code={exampleModules['./examples/Example7.svelte'] as string} replaceLib="svelte-rune-highlight" />
   {/snippet}
 </CodeWrapper>
 
@@ -116,6 +118,35 @@
 <CodeWrapper>
   <ExampleComponents.Example8 />
   {#snippet codeblock()}
-    <HighlightCompo code={exampleModules['./examples/Example8.svelte'] as string}  />
+    <HighlightCompo code={exampleModules['./examples/Example8.svelte'] as string} replaceLib="svelte-rune-highlight" />
   {/snippet}
 </CodeWrapper>
+
+<H2>Types</H2>
+
+<CodeWrapper>
+  <ExampleComponents.TypeEx />
+  {#snippet codeblock()}
+    <HighlightCompo code={exampleModules['./examples/TypeEx.svelte'] as string} replaceLib="svelte-rune-highlight" />
+  {/snippet}
+</CodeWrapper>
+
+<H2>Numberline for Svelte file</H2>
+
+<CodeWrapper>
+  <ExampleComponents.SvelteEx />
+  {#snippet codeblock()}
+    <HighlightCompo code={exampleModules['./examples/SvelteEx.svelte'] as string} replaceLib="svelte-rune-highlight" />
+  {/snippet}
+</CodeWrapper>
+
+<H2>Highlightin lines</H2>
+<P>Use highlightedLines and/or highlightedRanges props to highlight liens as the following example.</P>
+
+<CodeWrapper>
+  <ExampleComponents.RangeEx />
+  {#snippet codeblock()}
+    <HighlightCompo code={exampleModules['./examples/RangeEx.svelte'] as string} replaceLib="svelte-rune-highlight" />
+  {/snippet}
+</CodeWrapper>
+
