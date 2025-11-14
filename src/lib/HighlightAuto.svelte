@@ -15,7 +15,7 @@
    * @prop {number} [startingLineNumber=1] - Starting line number.
    * @prop {number[]} [highlightedLines=[]] - Individual lines to highlight.
    * @prop {[number, number][]} [highlightedRanges=[]] - Ranges of lines to highlight.
-   * @prop {string} [backgroudColor] - Background color for line numbers.
+   * @prop {string} [backgroundColor] - Background color for line numbers.
    * @prop {'static' | 'relative' | 'absolute' | 'sticky'} [position='sticky'] - Position style for line numbers.
    * @prop {string[]} [languages] - Optional subset of languages to detect from.
    * @prop {string} [class] - Additional classes for the root element.
@@ -38,7 +38,7 @@
     startingLineNumber?: number;
     highlightedLines?: number[];
     highlightedRanges?: [number, number][];
-    backgroudColor?: string;
+    backgroundColor?: string;
     position?: 'static' | 'relative' | 'absolute' | 'sticky' | undefined;
     languages?: string[];
     class?: string;
@@ -53,7 +53,7 @@
     startingLineNumber = 1,
     highlightedLines = [],
     highlightedRanges = [],
-    backgroudColor,
+    backgroundColor,
     position = 'sticky',
     languages,
     class: className,
@@ -106,7 +106,7 @@
   <div style:overflow-x="auto" {...restProps} class="highlight-table {className}">
     <table>
       <tbody class:hljs={true}>
-        {#each lines as line, i}
+        {#each lines as line, i (i + startingLineNumber)}
           {@const lineNumber = i + startingLineNumber}
           <tr>
             <td
@@ -117,7 +117,7 @@
               style:text-align="right"
               style:user-select="none"
               style:width={width + 'px'}
-              style:background-color={backgroudColor}
+              style:background-color={backgroundColor}
             >
               <code style:color="var(--line-number-color, currentColor)">
                 {lineNumber}
@@ -246,7 +246,7 @@
 @prop startingLineNumber = 1
 @prop highlightedLines = []
 @prop highlightedRanges = []
-@prop backgroudColor
+@prop backgroundColor
 @prop position = 'sticky'
 @prop languages - Optional subset of languages for detection
 @prop class

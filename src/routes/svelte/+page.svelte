@@ -43,7 +43,7 @@
 <CodeWrapper>
   <ExampleComponents.SvelteEx />
   {#snippet codeblock()}
-    <HighlightCompo code={exampleModules['./examples/SvelteEx.svelte'] as string} replaceLib="svelte-rune-highlight" />
+    <HighlightCompo code={exampleModules['./examples/SvelteEx.svelte'] as string} />
   {/snippet}
 </CodeWrapper>
 
@@ -54,7 +54,7 @@
 <CodeWrapper>
   <ExampleComponents.RangeEx />
   {#snippet codeblock()}
-    <HighlightCompo code={exampleModules['./examples/RangeEx.svelte'] as string} replaceLib="svelte-rune-highlight" />
+    <HighlightCompo code={exampleModules['./examples/RangeEx.svelte'] as string} />
   {/snippet}
 </CodeWrapper>
 

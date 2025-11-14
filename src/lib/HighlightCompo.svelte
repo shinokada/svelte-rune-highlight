@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { HighlightSvelte, Highlight } from 'svelte-rune-highlight';
+  import { HighlightSvelte, Highlight } from '$lib';
   import markdown from 'highlight.js/lib/languages/markdown';
   import { Clipboard } from 'flowbite-svelte';
   import { replaceLibImport } from './helpers';

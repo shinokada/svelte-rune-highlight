@@ -1,7 +1,7 @@
 // utils/HighlightCompo.svelte
 
 <script lang="ts">
-  import { HighlightSvelte, Highlight } from '$lib';
+  import { HighlightSvelte, Highlight } from 'svelte-rune-highlight';
   // check colorscheme at https://highlightjs.org/demo
   import githubDark from 'highlight.js/styles/github-dark';
   import markdown from 'highlight.js/lib/languages/markdown';

@@ -24,7 +24,7 @@
 <CodeWrapper>
   <ExampleComponents.Example1 />
   {#snippet codeblock()}
-    <HighlightCompo code={exampleModules['./examples/Example1.svelte'] as string} replaceLib="svelte-rune-highlight" />
+    <HighlightCompo code={exampleModules['./examples/Example1.svelte'] as string} />
   {/snippet}
 </CodeWrapper>
 
@@ -37,7 +37,7 @@
 <CodeWrapper>
   <ExampleComponents.Example2 />
   {#snippet codeblock()}
-    <HighlightCompo code={exampleModules['./examples/Example2.svelte'] as string} replaceLib="svelte-rune-highlight" />
+    <HighlightCompo code={exampleModules['./examples/Example2.svelte'] as string} />
   {/snippet}
 </CodeWrapper>
 
@@ -50,7 +50,7 @@
 <CodeWrapper>
   <ExampleComponents.Example3 />
   {#snippet codeblock()}
-    <HighlightCompo code={exampleModules['./examples/Example3.svelte'] as string} replaceLib="svelte-rune-highlight" />
+    <HighlightCompo code={exampleModules['./examples/Example3.svelte'] as string} />
   {/snippet}
 </CodeWrapper>
 
@@ -59,7 +59,7 @@
 <CodeWrapper>
   <ExampleComponents.Example4 />
   {#snippet codeblock()}
-    <HighlightCompo code={exampleModules['./examples/Example4.svelte'] as string} replaceLib="svelte-rune-highlight" />
+    <HighlightCompo code={exampleModules['./examples/Example4.svelte'] as string} />
   {/snippet}
 </CodeWrapper>
 
@@ -70,7 +70,7 @@
 <CodeWrapper>
   <ExampleComponents.Example5 />
   {#snippet codeblock()}
-    <HighlightCompo code={exampleModules['./examples/Example5.svelte'] as string} replaceLib="svelte-rune-highlight" />
+    <HighlightCompo code={exampleModules['./examples/Example5.svelte'] as string} />
   {/snippet}
 </CodeWrapper>
 
@@ -83,7 +83,7 @@
 <CodeWrapper>
   <ExampleComponents.Example6 />
   {#snippet codeblock()}
-    <HighlightCompo code={exampleModules['./examples/Example6.svelte'] as string} replaceLib="svelte-rune-highlight" />
+    <HighlightCompo code={exampleModules['./examples/Example6.svelte'] as string} />
   {/snippet}
 </CodeWrapper>
 
@@ -96,7 +96,7 @@
 <CodeWrapper>
   <ExampleComponents.Example7 />
   {#snippet codeblock()}
-    <HighlightCompo code={exampleModules['./examples/Example7.svelte'] as string} replaceLib="svelte-rune-highlight" />
+    <HighlightCompo code={exampleModules['./examples/Example7.svelte'] as string} />
   {/snippet}
 </CodeWrapper>
 
@@ -109,7 +109,7 @@
 <CodeWrapper>
   <ExampleComponents.Example8 />
   {#snippet codeblock()}
-    <HighlightCompo code={exampleModules['./examples/Example8.svelte'] as string} replaceLib="svelte-rune-highlight" />
+    <HighlightCompo code={exampleModules['./examples/Example8.svelte'] as string} />
   {/snippet}
 </CodeWrapper>
 
@@ -118,7 +118,7 @@
 <CodeWrapper>
   <ExampleComponents.TypeEx />
   {#snippet codeblock()}
-    <HighlightCompo code={exampleModules['./examples/TypeEx.svelte'] as string} replaceLib="svelte-rune-highlight" />
+    <HighlightCompo code={exampleModules['./examples/TypeEx.svelte'] as string} />
   {/snippet}
 </CodeWrapper>
 
@@ -127,7 +127,7 @@
 <CodeWrapper>
   <ExampleComponents.SvelteEx />
   {#snippet codeblock()}
-    <HighlightCompo code={exampleModules['./examples/SvelteEx.svelte'] as string} replaceLib="svelte-rune-highlight" />
+    <HighlightCompo code={exampleModules['./examples/SvelteEx.svelte'] as string} />
   {/snippet}
 </CodeWrapper>
 
@@ -137,7 +137,7 @@
 <CodeWrapper>
   <ExampleComponents.RangeEx />
   {#snippet codeblock()}
-    <HighlightCompo code={exampleModules['./examples/RangeEx.svelte'] as string} replaceLib="svelte-rune-highlight" />
+    <HighlightCompo code={exampleModules['./examples/RangeEx.svelte'] as string} />
   {/snippet}
 </CodeWrapper>
 
