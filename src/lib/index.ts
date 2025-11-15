@@ -12,23 +12,18 @@ export { default as CodeHighlight } from './CodeHighlight.svelte';
 export { default as HighlightCompo } from './HighlightCompo.svelte';
 
 export function copyToClipboard(text: string): Promise<void> {
-  if (!navigator.clipboard) {
+  if (typeof navigator === 'undefined' || !navigator.clipboard) {
     return Promise.reject(new Error('Clipboard API not available'));
   }
-  return navigator.clipboard
-    .writeText(text)
-    .then(() => {
-      // Successfully copied
-    })
-    .catch((err) => {
-      console.error("Failed to copy: ", err);
-      throw err; // Re-throw the error so the caller can handle it if needed
-    });
+  return navigator.clipboard.writeText(text).catch((err) => {
+    console.error("Failed to copy: ", err);
+    throw err; // Re-throw the error so the caller can handle it if needed
+  });
 }
 
 
 export function replaceLibImport(
-  componentString: string | undefined, 
+  componentString: string | undefined,
   libraryName: string = 'svelte-rune-highlight'
 ): string {
   if (typeof componentString !== 'string') {
