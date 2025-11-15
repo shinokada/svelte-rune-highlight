@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { HighlightCompo } from 'runes-webkit';
+  import { HighlightCompo } from '$lib';
   import { P } from 'flowbite-svelte';
   import { CodeWrapper, H1, H2 } from '../utils';
   import * as ExampleComponents from './examples';

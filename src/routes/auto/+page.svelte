@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { HighlightCompo } from 'runes-webkit';
+  import { HighlightCompo } from '$lib';
   import { P } from 'flowbite-svelte';
   import { CodeWrapper, H1, H2, H3 } from '../utils';
 
@@ -27,7 +27,7 @@
 <CodeWrapper>
   <ExampleComponents.Html />
   {#snippet codeblock()}
-    <HighlightCompo codeLang="ts" code={exampleModules['./examples/Html.svelte'] as string} />
+    <HighlightCompo code={exampleModules['./examples/Html.svelte'] as string} />
   {/snippet}
 </CodeWrapper>
 
@@ -35,7 +35,7 @@
 <CodeWrapper>
   <ExampleComponents.Css />
   {#snippet codeblock()}
-    <HighlightCompo codeLang="ts" code={exampleModules['./examples/Css.svelte'] as string} />
+    <HighlightCompo code={exampleModules['./examples/Css.svelte'] as string} />
   {/snippet}
 </CodeWrapper>
 
@@ -44,7 +44,7 @@
 <CodeWrapper>
   <ExampleComponents.Javascript />
   {#snippet codeblock()}
-    <HighlightCompo codeLang="ts" code={exampleModules['./examples/Javascript.svelte'] as string} />
+    <HighlightCompo code={exampleModules['./examples/Javascript.svelte'] as string} />
   {/snippet}
 </CodeWrapper>
 
@@ -52,7 +52,7 @@
 <CodeWrapper>
   <ExampleComponents.Markdown />
   {#snippet codeblock()}
-    <HighlightCompo codeLang="ts" code={exampleModules['./examples/Markdown.svelte'] as string} />
+    <HighlightCompo code={exampleModules['./examples/Markdown.svelte'] as string} />
   {/snippet}
 </CodeWrapper>
 
@@ -60,7 +60,7 @@
 <CodeWrapper>
   <ExampleComponents.Typescript />
   {#snippet codeblock()}
-    <HighlightCompo codeLang="ts" code={exampleModules['./examples/Typescript.svelte'] as string} />
+    <HighlightCompo code={exampleModules['./examples/Typescript.svelte'] as string} />
   {/snippet}
 </CodeWrapper>
 
@@ -68,7 +68,7 @@
 <CodeWrapper>
   <ExampleComponents.Python />
   {#snippet codeblock()}
-    <HighlightCompo codeLang="ts" code={exampleModules['./examples/Python.svelte'] as string} />
+    <HighlightCompo code={exampleModules['./examples/Python.svelte'] as string} />
   {/snippet}
 </CodeWrapper>
 
@@ -76,7 +76,7 @@
 <CodeWrapper>
   <ExampleComponents.Rust />
   {#snippet codeblock()}
-    <HighlightCompo codeLang="ts" code={exampleModules['./examples/Rust.svelte'] as string} />
+    <HighlightCompo code={exampleModules['./examples/Rust.svelte'] as string} />
   {/snippet}
 </CodeWrapper>
 
@@ -84,7 +84,7 @@
 <CodeWrapper>
   <ExampleComponents.ExampleAuto />
   {#snippet codeblock()}
-    <HighlightCompo codeLang="ts" code={exampleModules['./examples/ExampleAuto.svelte'] as string} />
+    <HighlightCompo code={exampleModules['./examples/ExampleAuto.svelte'] as string} />
   {/snippet}
 </CodeWrapper>
 

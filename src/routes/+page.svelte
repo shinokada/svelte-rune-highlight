@@ -1,6 +1,6 @@
 <script lang="ts">
   import { List, Li, A, Banner } from 'flowbite-svelte';
-  import { HighlightCompo } from 'runes-webkit';
+  import { HighlightCompo } from '$lib';
   import { CheckOutline } from 'flowbite-svelte-icons';
   // import { clickToCopy } from './utils/helpers';
   const modules = import.meta.glob('./md/*.md', {
