@@ -48,4 +48,6 @@ export const languages = {
   js: { name: "javascript", register: javascript },
   json: { name: "json", register: json },
   yaml: { name: "yaml", register: yaml }
-};
+} as const;
+
+export type SupportedLanguage = "svelte" | keyof typeof languages;

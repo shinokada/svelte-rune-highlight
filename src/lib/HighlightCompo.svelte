@@ -1,9 +1,8 @@
 <script lang="ts">
-  import { HighlightSvelte, Highlight, copyToClipboard, replaceLibImport, languages } from "$lib";
-  import { highlightcompo } from "./theme";
-  import { onDestroy } from "svelte";
-
-  export type SupportedLanguage = "svelte" | "md" | "ts" | "js" | "json" | "yaml";
+  import { HighlightSvelte, Highlight, copyToClipboard, replaceLibImport, languages } from '$lib';
+  import type { SupportedLanguage } from '$lib';
+  import { highlightcompo } from './theme';
+  import { onDestroy } from 'svelte';
 
   interface Props {
     code: string;
@@ -13,20 +12,10 @@
     replaceLib?: string | false;
   }
 
-  let { 
-    code, 
-    lang = "svelte",
-    contentClass = "overflow-hidden", 
-    replaceLib = "runes-webkit", 
-    class: className 
-  }: Props = $props();
+  let { code, lang = 'svelte', contentClass = 'overflow-hidden', replaceLib = 'runes-webkit', class: className }: Props = $props();
 
   // Apply library replacement if specified
-  const displayCode = $derived(
-    replaceLib && typeof replaceLib === "string"
-      ? replaceLibImport(code, replaceLib)
-      : code
-  );
+  const displayCode = $derived(replaceLib && typeof replaceLib === 'string' ? replaceLibImport(code, replaceLib) : code);
 
   let showExpandButton: boolean = $state(false);
   let expand: boolean = $state(false);
@@ -48,19 +37,27 @@
   function handleCopyClick() {
     if (!displayCode) return;
 
+    // Clear any existing timeout to prevent overlapping timers
+    if (timeoutId) {
+      clearTimeout(timeoutId);
+      timeoutId = null;
+    }
+
     copyToClipboard(displayCode)
       .then(() => {
         copiedStatus = true;
         copyError = false;
         timeoutId = setTimeout(() => {
           copiedStatus = false;
+          timeoutId = null;
         }, 2000);
       })
       .catch((err) => {
-        console.error("Error in copying:", err);
+        console.error('Error in copying:', err);
         copyError = true;
         timeoutId = setTimeout(() => {
           copyError = false;
+          timeoutId = null;
         }, 2000);
       });
   }
@@ -69,24 +66,20 @@
   onDestroy(() => {
     if (timeoutId) {
       clearTimeout(timeoutId);
+      timeoutId = null;
     }
   });
 </script>
 
 <div class={base}>
-  <div 
-    class="{contentClass} {showExpandButton ? 'pb-8' : ''}" 
-    class:max-h-72={!expand} 
-    tabindex="-1" 
-    use:checkOverflow
-  >
+  <div class="{contentClass} {showExpandButton ? 'pb-8' : ''}" class:max-h-72={!expand} tabindex="-1" use:checkOverflow>
     <!-- Copy Button -->
     {#if displayCode}
       <button
         onclick={handleCopyClick}
         type="button"
-        aria-label={copiedStatus ? "Code copied to clipboard" : "Copy code to clipboard"}
-        class="absolute top-4 right-2 z-10 rounded-lg bg-gray-50 px-3 py-1.5 text-xs font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-gray-200 dark:bg-gray-800 dark:focus:ring-gray-700"
+        aria-label={copiedStatus ? 'Code copied to clipboard' : 'Copy code to clipboard'}
+        class="absolute top-4 right-2 z-10 rounded-lg bg-gray-50 px-3 py-1.5 text-xs font-medium transition-colors focus:ring-2 focus:ring-gray-200 focus:outline-none dark:bg-gray-800 dark:focus:ring-gray-700"
         class:text-green-700={copiedStatus}
         class:bg-green-50={copiedStatus}
         class:dark:text-green-400={copiedStatus}
@@ -111,11 +104,9 @@
     {/if}
 
     <!-- Code Content -->
-    {#if !code}
-      <div class="p-4 text-sm text-gray-500 dark:text-gray-400">
-        No code provided
-      </div>
-    {:else if lang === "svelte"}
+    {#if !displayCode}
+      <div class="p-4 text-sm text-gray-500 dark:text-gray-400">No code provided</div>
+    {:else if lang === 'svelte'}
       <HighlightSvelte code={displayCode} class="m-0 p-0" />
     {:else if lang && lang in languages}
       <Highlight language={languages[lang]} code={displayCode} class="m-0 p-0" />
@@ -130,10 +121,10 @@
       onclick={handleExpandClick}
       type="button"
       aria-expanded={expand}
-      aria-label={expand ? "Collapse code" : "Expand code"}
+      aria-label={expand ? 'Collapse code' : 'Expand code'}
       class="hover:text-primary-700 absolute start-0 bottom-0 w-full border-t border-gray-200 bg-gray-100 px-5 py-2.5 text-sm font-medium text-gray-900 hover:bg-gray-100 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
     >
-      {expand ? "Collapse code" : "Expand code"}
+      {expand ? 'Collapse code' : 'Expand code'}
     </button>
   {/if}
 </div>
