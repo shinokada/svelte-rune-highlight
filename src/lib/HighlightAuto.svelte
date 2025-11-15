@@ -77,7 +77,6 @@
     return lines;
   });
 
-  // Use $derived for reactive highlighting - more efficient than $state + $effect
   let highlightResult = $derived.by(() => {
     if (!code.trim()) {
       return { value: '', language: 'plaintext' };

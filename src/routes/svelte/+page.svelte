@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { HighlightCompo } from 'runes-webkit';
+  import { HighlightCompo } from '$lib';
   import { P } from 'flowbite-svelte';
   import { CodeWrapper, H1, H2 } from '../utils';
 
@@ -21,7 +21,7 @@
 <CodeWrapper>
   <ExampleComponents.Sample1 />
   {#snippet codeblock()}
-    <HighlightCompo codeLang="ts" code={exampleModules['./examples/Sample1.svelte'] as string} />
+    <HighlightCompo code={exampleModules['./examples/Sample1.svelte'] as string} />
   {/snippet}
 </CodeWrapper>
 
@@ -33,7 +33,7 @@
 <CodeWrapper>
   <ExampleComponents.Sample2 />
   {#snippet codeblock()}
-    <HighlightCompo codeLang="ts" code={exampleModules['./examples/Sample2.svelte'] as string} />
+    <HighlightCompo code={exampleModules['./examples/Sample2.svelte'] as string} />
   {/snippet}
 </CodeWrapper>
 
