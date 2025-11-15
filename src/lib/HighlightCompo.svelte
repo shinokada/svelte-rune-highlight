@@ -129,3 +129,14 @@
     </button>
   {/if}
 </div>
+
+<!--
+@component
+[Go to docs](https://svelte-rune-highlight.codewithshin.com/)
+## Props
+@prop code
+@prop lang = 'svelte'
+@prop contentClass = 'overflow-hidden'
+@prop replaceLib = 'runes-webkit'
+@prop class: className
+-->
