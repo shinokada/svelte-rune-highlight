@@ -54,6 +54,7 @@
       })
       .catch((err) => {
         console.error('Error in copying:', err);
+        copiedStatus = false;
         copyError = true;
         timeoutId = setTimeout(() => {
           copyError = false;

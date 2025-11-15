@@ -29,16 +29,16 @@ export function copyToClipboard(text: string): Promise<void> {
 
 export function replaceLibImport(
   componentString: string | undefined, 
-  libraryName: string = 'flowbite-svelte'
+  libraryName: string = 'svelte-rune-highlight'
 ): string {
   if (typeof componentString !== 'string') {
-    return ''; // More graceful than throwing
+    return '';
   }
 
-  // Handle both single and double quotes
+  // Handle $lib and optional subpaths, both quote styles
   return componentString
-    .replace(/from '\$lib'/g, `from '${libraryName}'`)
-    .replace(/from "\$lib"/g, `from "${libraryName}"`);
+    .replace(/from '\$lib(\/[^']*)?'/g, (_m, subpath = '') => `from '${libraryName}${subpath}'`)
+    .replace(/from "\$lib(\/[^"]*)?"/g, (_m, subpath = '') => `from "${libraryName}${subpath}"`);
 }
 
 // Language configurations
