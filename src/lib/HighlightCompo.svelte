@@ -1,14 +1,9 @@
 <script lang="ts">
-  import { HighlightSvelte, Highlight, copyToClipboard, replaceLibImport } from "$lib";
-  import markdown from "highlight.js/lib/languages/markdown";
-  import typescript from "highlight.js/lib/languages/typescript";
-  import javascript from "highlight.js/lib/languages/javascript";
-  import json from "highlight.js/lib/languages/json";
-  import yaml from "highlight.js/lib/languages/yaml";
+  import { HighlightSvelte, Highlight, copyToClipboard, replaceLibImport, languages } from "$lib";
   import { highlightcompo } from "./theme";
   import { onDestroy } from "svelte";
 
-  type SupportedLanguage = "svelte" | "md" | "ts" | "js" | "json" | "yaml";
+  export type SupportedLanguage = "svelte" | "md" | "ts" | "js" | "json" | "yaml";
 
   interface Props {
     code: string;
@@ -27,9 +22,11 @@
   }: Props = $props();
 
   // Apply library replacement if specified
-  if (replaceLib && typeof replaceLib === "string") {
-    code = replaceLibImport(code, replaceLib);
-  }
+  const displayCode = $derived(
+    replaceLib && typeof replaceLib === "string"
+      ? replaceLibImport(code, replaceLib)
+      : code
+  );
 
   let showExpandButton: boolean = $state(false);
   let expand: boolean = $state(false);
@@ -49,9 +46,9 @@
   };
 
   function handleCopyClick() {
-    if (!code) return;
+    if (!displayCode) return;
 
-    copyToClipboard(code)
+    copyToClipboard(displayCode)
       .then(() => {
         copiedStatus = true;
         copyError = false;
@@ -74,15 +71,6 @@
       clearTimeout(timeoutId);
     }
   });
-
-  // Language configurations
-  const languages = {
-    md: { name: "markdown", register: markdown },
-    ts: { name: "typescript", register: typescript },
-    js: { name: "javascript", register: javascript },
-    json: { name: "json", register: json },
-    yaml: { name: "yaml", register: yaml }
-  };
 </script>
 
 <div class={base}>
@@ -93,7 +81,7 @@
     use:checkOverflow
   >
     <!-- Copy Button -->
-    {#if code}
+    {#if displayCode}
       <button
         onclick={handleCopyClick}
         type="button"
@@ -123,16 +111,16 @@
     {/if}
 
     <!-- Code Content -->
-    {#if lang === "svelte"}
-      <HighlightSvelte {code} class="m-0 p-0" />
-    {:else if lang && languages[lang]}
-      <Highlight language={languages[lang]} {code} class="m-0 p-0" />
-    {:else if code}
-      <HighlightSvelte {code} class="m-0 p-0" />
-    {:else}
+    {#if !code}
       <div class="p-4 text-sm text-gray-500 dark:text-gray-400">
         No code provided
       </div>
+    {:else if lang === "svelte"}
+      <HighlightSvelte code={displayCode} class="m-0 p-0" />
+    {:else if lang && lang in languages}
+      <Highlight language={languages[lang]} code={displayCode} class="m-0 p-0" />
+    {:else}
+      <HighlightSvelte code={displayCode} class="m-0 p-0" />
     {/if}
   </div>
 
