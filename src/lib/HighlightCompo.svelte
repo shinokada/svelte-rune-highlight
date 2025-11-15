@@ -10,9 +10,10 @@
     lang?: SupportedLanguage;
     class?: string;
     replaceLib?: string | false;
+    showCopy?: boolean;
   }
 
-  let { code, lang = 'svelte', contentClass = 'overflow-hidden', replaceLib = 'runes-webkit', class: className }: Props = $props();
+  let { code, lang = 'svelte', contentClass = 'overflow-hidden', replaceLib = 'svelte-rune-highlight', showCopy = true, class: className }: Props = $props();
 
   // Apply library replacement if specified
   const displayCode = $derived(replaceLib && typeof replaceLib === 'string' ? replaceLibImport(code, replaceLib) : code);
@@ -75,7 +76,7 @@
 <div class={base}>
   <div class="{contentClass} {showExpandButton ? 'pb-8' : ''}" class:max-h-72={!expand} tabindex="-1" use:checkOverflow>
     <!-- Copy Button -->
-    {#if displayCode}
+    {#if displayCode && showCopy}
       <button
         onclick={handleCopyClick}
         type="button"
@@ -137,6 +138,7 @@
 @prop code
 @prop lang = 'svelte'
 @prop contentClass = 'overflow-hidden'
-@prop replaceLib = 'runes-webkit'
+@prop replaceLib = 'svelte-rune-highlight'
+@prop showCopy = true
 @prop class: className
 -->
