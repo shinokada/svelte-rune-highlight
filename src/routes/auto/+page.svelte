@@ -3,8 +3,6 @@
   import { P, List, Li, Table } from 'flowbite-svelte';
   import { CodeWrapper, H1, H2, H3 } from '../utils';
 
-  const code = `<HighlightAuto code={sample-code} />`;
-
   import * as ExampleComponents from './examples';
   const exampleModules = import.meta.glob('./examples/*.svelte', {
     query: '?raw',
