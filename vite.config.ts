@@ -2,7 +2,7 @@ import tailwindcss from '@tailwindcss/vite';
 import path from 'path';
 import { svelteTesting } from '@testing-library/svelte/vite';
 import { sveltekit } from '@sveltejs/kit/vite';
-import { defineConfig } from 'vite';
+import { defineConfig } from 'vitest/config';
 import pkg from './package.json' with { type: 'json' };
 import devtoolsJson from 'vite-plugin-devtools-json';
 import sveltePackage from './node_modules/svelte/package.json' with { type: 'json' };
@@ -32,7 +32,7 @@ export default defineConfig({
     }
   },
   test: {
-    workspace: [
+    projects: [
       {
         extends: './vite.config.ts',
         plugins: [svelteTesting()],
