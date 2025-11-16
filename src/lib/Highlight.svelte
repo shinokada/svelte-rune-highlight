@@ -1,27 +1,8 @@
 <script lang="ts">
   import hljs from 'highlight.js/lib/core';
-  import type { LanguageFn } from 'highlight.js';
   import LangTag from './LangTag.svelte';
-
-  type HighlightLanguage = {
-    name: string;
-    register: LanguageFn;
-  };
-
-  interface Props {
-    numberLine?: boolean;
-    language: HighlightLanguage;
-    code: string;
-    langtag?: boolean;
-    hideBorder?: boolean;
-    wrapLines?: boolean;
-    startingLineNumber?: number;
-    highlightedLines?: number[];
-    highlightedRanges?: [number, number][];
-    backgroundColor?: string;
-    position?: 'static' | 'relative' | 'absolute' | 'sticky' | undefined;
-    class?: string;
-  }
+  import type { HighlightProps} from "./types"
+  import { replaceLibImport } from '$lib';
 
   let {
     numberLine,
@@ -35,15 +16,22 @@
     highlightedRanges = [],
     backgroundColor,
     position = 'sticky',
+    replaceLib,
     class: className = 'relative',
     ...restProps
-  }: Props = $props();
+  }: HighlightProps = $props();
 
   const DIGIT_WIDTH = 12;
   const MIN_DIGITS = 2;
   const HIGHLIGHTED_BACKGROUND = 'rgba(254, 241, 96, 0.2)';
 
   hljs.registerLanguage(language.name, language.register);
+
+  const displayCode = $derived(
+    replaceLib && typeof replaceLib === 'string' 
+      ? replaceLibImport(code, replaceLib) 
+      : code
+  );
 
   let allHighlightedLines = $derived.by(() => {
     const lines = new Set(highlightedLines);
@@ -58,7 +46,7 @@
     return lines;
   });
 
-  let highlighted: string = $derived(hljs.highlight(code, { language: language.name }).value);
+  let highlighted: string = $derived(hljs.highlight(displayCode, { language: language.name }).value);
   let lines = $derived(highlighted.split('\n'));
   let len_digits = $derived(lines.length.toString().length);
   let len = $derived(len_digits - MIN_DIGITS < 1 ? MIN_DIGITS : len_digits);
@@ -93,7 +81,7 @@
     </table>
   </div>
 {:else}
-  <LangTag class={className} {...restProps} languageName={language.name} {langtag} {highlighted} {code} />
+  <LangTag class={className} {...restProps} languageName={language.name} {langtag} {highlighted} code={displayCode} />
 {/if}
 
 {#if numberLine}

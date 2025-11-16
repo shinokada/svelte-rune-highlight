@@ -28,21 +28,8 @@
    */
   import LangTag from './LangTag.svelte';
   import hljs from 'highlight.js';
-
-  interface Props {
-    code?: string;
-    langtag?: boolean;
-    numberLine?: boolean;
-    hideBorder?: boolean;
-    wrapLines?: boolean;
-    startingLineNumber?: number;
-    highlightedLines?: number[];
-    highlightedRanges?: [number, number][];
-    backgroundColor?: string;
-    position?: 'static' | 'relative' | 'absolute' | 'sticky' | undefined;
-    languages?: string[];
-    class?: string;
-  }
+  import type { HighlightAutoProps } from './types';
+  import { replaceLibImport } from '$lib';
 
   let {
     code = '',
@@ -56,13 +43,20 @@
     backgroundColor,
     position = 'sticky',
     languages,
+    replaceLib,
     class: className,
     ...restProps
-  }: Props = $props();
+  }: HighlightAutoProps = $props();
 
   const DIGIT_WIDTH = 12;
   const MIN_DIGITS = 2;
   const HIGHLIGHTED_BACKGROUND = 'rgba(254, 241, 96, 0.2)';
+
+  const displayCode = $derived(
+    replaceLib && typeof replaceLib === 'string' 
+      ? replaceLibImport(code, replaceLib) 
+      : code
+  );
 
   let allHighlightedLines = $derived.by(() => {
     const lines = new Set(highlightedLines);
@@ -78,16 +72,16 @@
   });
 
   let highlightResult = $derived.by(() => {
-    if (!code.trim()) {
+    if (!displayCode.trim()) {
       return { value: '', language: 'plaintext' };
     }
 
     try {
       // If languages array is provided, only detect from those languages
-      return languages && languages.length > 0 ? hljs.highlightAuto(code, languages) : hljs.highlightAuto(code);
+      return languages && languages.length > 0 ? hljs.highlightAuto(displayCode, languages) : hljs.highlightAuto(displayCode);
     } catch (error) {
       console.warn('Highlight.js auto-detection failed:', error);
-      return { value: code, language: 'plaintext' };
+      return { value: displayCode, language: 'plaintext' };
     }
   });
 

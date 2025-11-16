@@ -1,18 +1,10 @@
 <script lang="ts">
   import { HighlightSvelte, Highlight, copyToClipboard, replaceLibImport, languages } from '$lib';
-  import type { SupportedLanguage } from '$lib';
   import { highlightcompo } from './theme';
   import { onDestroy } from 'svelte';
+  import type { HighlightCompoProps } from "./types";
 
-  interface Props {
-    code: string;
-    contentClass?: string;
-    lang?: SupportedLanguage;
-    class?: string;
-    replaceLib?: string | false;
-  }
-
-  let { code, lang = 'svelte', contentClass = 'overflow-hidden', replaceLib = 'runes-webkit', class: className }: Props = $props();
+  let { code, lang = 'svelte', contentClass = 'overflow-hidden', replaceLib, showCopy = true, class: className }: HighlightCompoProps = $props();
 
   // Apply library replacement if specified
   const displayCode = $derived(replaceLib && typeof replaceLib === 'string' ? replaceLibImport(code, replaceLib) : code);
@@ -75,7 +67,7 @@
 <div class={base}>
   <div class="{contentClass} {showExpandButton ? 'pb-8' : ''}" class:max-h-72={!expand} tabindex="-1" use:checkOverflow>
     <!-- Copy Button -->
-    {#if displayCode}
+    {#if displayCode && showCopy}
       <button
         onclick={handleCopyClick}
         type="button"
@@ -137,6 +129,7 @@
 @prop code
 @prop lang = 'svelte'
 @prop contentClass = 'overflow-hidden'
-@prop replaceLib = 'runes-webkit'
+@prop replaceLib = 'svelte-rune-highlight'
+@prop showCopy = true
 @prop class: className
 -->

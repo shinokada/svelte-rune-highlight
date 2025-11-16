@@ -1,14 +1,5 @@
 <script lang="ts">
-  import type { HTMLAttributes } from 'svelte/elements';
-
-  interface Props extends HTMLAttributes<HTMLPreElement> {
-    code?: string;
-    highlighted?: string;
-    languageName?: string;
-    langtag?: boolean;
-    class?: string;
-    codeClass?: string;
-  }
+  import type { LangTagProps } from './types';
 
   let {
     code = '',
@@ -18,7 +9,7 @@
     class: className = '',
     codeClass,
     ...restProps
-  }: Props = $props();
+  }: LangTagProps = $props();
 
   // Clean class concatenation
   let preClass = $derived([className, langtag && 'langtag'].filter(Boolean).join(' '));

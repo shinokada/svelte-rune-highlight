@@ -1,10 +1,6 @@
 <script lang="ts">
   import { HighlightAuto } from 'svelte-rune-highlight';
-  const examples = import.meta.glob('../../examples/*.md', {
-    query: '?raw',
-    import: 'default',
-    eager: true
-  });
+  import tyCode from '../../examples/tsCode.ts?raw';
 </script>
 
-<HighlightAuto code={examples['../../examples/ts.md'] as string} />
+<HighlightAuto code={tyCode} />
