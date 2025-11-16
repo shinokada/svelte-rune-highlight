@@ -28,17 +28,17 @@ export function defaultPathToName(path: string): string | undefined {
  *   return path.match(/\/ui\/(.+)\.svelte$/)?.[1];
  * });
  */
-export function transformComponents(
-  componentModules: Record<string, { default: any }>,
+export function transformComponents<T = any>(
+  componentModules: Record<string, { default: T }>,
   pathToName: (path: string) => string | undefined = defaultPathToName
-): Record<string, any> {
+): Record<string, T> {
   return Object.fromEntries(
     Object.entries(componentModules)
       .map(([path, mod]) => {
         const name = pathToName(path);
         return name ? [name, mod.default] : null;
       })
-      .filter((entry): entry is [string, any] => entry !== null)
+      .filter((entry): entry is [string, T] => entry !== null)
   );
 }
 
@@ -112,7 +112,7 @@ export const pathExtractors = {
    */
   inDirectory: (dirName: string) => (path: string): string | undefined => {
     const escapedDir = dirName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-    const regex = new RegExp(`\\/${escapedDir}\\/(.+)\\.svelte$`);
+    const regex = new RegExp(`\\/${escapedDir}\\/([^/]+(?:\\/[^/]+)*)\\.svelte$`);
     return path.match(regex)?.[1];
   }
 };
