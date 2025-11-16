@@ -8,12 +8,12 @@
   import ExampleCode from './examples/ExampleWrapperEx.svelte?raw';
   import MyExampleCode from '../utils/MyExampleWrapper.svelte?raw';
   import MyExampleWrapperCode from './examples/MyExampleWrapperEx.svelte?raw';
-    import H3 from '../utils/H3.svelte';
 </script>
 
-<H1>ExampleWrapper</H1>
+<H1>Wrappers</H1>
 
 <H2>ExampleWrapper</H2>
+<P>A flexible component that displays both rendered Svelte components and their source code side-by-side. Supports name-based lookup or direct component/code props with automatic $lib import replacement.</P>
 
 <HighlightSvelte code={ExampleCode} langtag replaceLib='svelte-rune-highlight'/>
 
@@ -21,6 +21,7 @@
 <ExampleWrapper component={SampleCode} code={sampleCodeRaw} />
 
 <H2>MyExampleWrapper</H2>
+<P>Project-specific wrapper that auto-discovers example components from a directory, simplifying usage to just passing a component name.</P>
 <P>If you have multiple files to display, it is possible to use ExampleWrapper. Create MyExampleWrapper as the following:</P>
 <HighlightSvelte code={MyExampleCode} langtag replaceLib="svelte-rune-highlight" />
 
@@ -28,8 +29,3 @@
 <HighlightSvelte code={MyExampleWrapperCode} langtag />
 <P>The following is the output.</P>
 <MyExampleWrapper name="svelteCode" />
-
-
-
-
-

@@ -1,4 +1,4 @@
-import { languages } from '$lib';
+import type { languages } from '$lib';
 import type { LanguageFn } from 'highlight.js';
 import type { HTMLAttributes } from 'svelte/elements';
 import type { Component } from 'svelte';

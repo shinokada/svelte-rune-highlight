@@ -94,7 +94,7 @@ export const pathExtractors = {
    * './examples/ui/Button.svelte' => 'ui/Button'
    */
   withParent: (path: string): string | undefined => {
-    const match = path.match(/([^\/]+\/[^\/]+)\.svelte$/);
+    const match = path.match(/([^/]+\/[^/]+)\.svelte$/);
     return match?.[1];
   },
   
@@ -111,7 +111,8 @@ export const pathExtractors = {
    * Usage: pathExtractors.inDirectory('components')
    */
   inDirectory: (dirName: string) => (path: string): string | undefined => {
-    const regex = new RegExp(`\\/${dirName}\\/(.+)\\.svelte$`);
+    const escapedDir = dirName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const regex = new RegExp(`\\/${escapedDir}\\/(.+)\\.svelte$`);
     return path.match(regex)?.[1];
   }
 };

@@ -4,7 +4,7 @@
   import xml from 'highlight.js/lib/languages/xml';
   import javascript from 'highlight.js/lib/languages/javascript';
   import css from 'highlight.js/lib/languages/css';
-  import type { HighlightSvelteProps } from "./types";
+  import type { HighlightSvelteProps } from './types';
   import { replaceLibImport } from '$lib';
 
   let {
@@ -55,11 +55,9 @@
     return lines;
   });
 
-  const displayCode = $derived(
-    replaceLib && typeof replaceLib === 'string' 
-      ? replaceLibImport(code, replaceLib) 
-      : code
-  );
+  const displayCode = $derived(replaceLib && typeof replaceLib === 'string' ? replaceLibImport(code, replaceLib) : code);
+
+  const escapeHtml = (str: string) => str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
 
   let highlighted = $derived.by(() => {
     if (!displayCode.trim()) {
@@ -77,7 +75,7 @@
       return xmlResult.value;
     } catch (error) {
       console.warn('Highlight.js failed for Svelte code:', error);
-      return displayCode;
+      return escapeHtml(displayCode);
     }
   });
 
@@ -218,6 +216,7 @@
 @prop highlightedRanges = []
 @prop backgroundColor
 @prop position = 'sticky'
+@prop replaceLib
 @prop class: className
 @prop ...restProps
 -->

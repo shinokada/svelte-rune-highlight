@@ -4,7 +4,7 @@
   // Import components dynamically
   const componentModules = import.meta.glob('../examples/*.svelte', {
     eager: true
-  }) as Record<string, { default: any }>;
+  }) as Record<string, { default: unknown }>;
   
   // Import source code
   const exampleModules = import.meta.glob('../examples/*.svelte', {

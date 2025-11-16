@@ -22,7 +22,7 @@ test('line-numbers page has expected h1', async ({ page }) => {
 
 test('ExampleWrapper page has expected h1', async ({ page }) => {
   await page.goto('/wrapper');
-  await expect(page.getByRole('heading', { name: 'ExampleWrapper' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Wrappers' })).toBeVisible();
 });
 
 test('Theme selector page has expected h1', async ({ page }) => {
