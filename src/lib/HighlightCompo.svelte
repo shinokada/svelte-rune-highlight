@@ -4,7 +4,7 @@
   import { onDestroy } from 'svelte';
   import type { HighlightCompoProps } from "./types";
 
-  let { code, lang = 'svelte', contentClass = 'overflow-hidden', replaceLib = 'svelte-rune-highlight', showCopy = true, class: className }: HighlightCompoProps = $props();
+  let { code, lang = 'svelte', contentClass = 'overflow-hidden', replaceLib, showCopy = true, class: className }: HighlightCompoProps = $props();
 
   // Apply library replacement if specified
   const displayCode = $derived(replaceLib && typeof replaceLib === 'string' ? replaceLibImport(code, replaceLib) : code);

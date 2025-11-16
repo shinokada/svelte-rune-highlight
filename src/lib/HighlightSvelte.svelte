@@ -5,6 +5,7 @@
   import javascript from 'highlight.js/lib/languages/javascript';
   import css from 'highlight.js/lib/languages/css';
   import type { HighlightSvelteProps } from "./types";
+  import { replaceLibImport } from '$lib';
 
   let {
     code = '',
@@ -17,6 +18,7 @@
     highlightedRanges = [],
     backgroundColor,
     position = 'sticky',
+    replaceLib,
     class: className,
     ...restProps
   }: HighlightSvelteProps = $props();
@@ -53,23 +55,29 @@
     return lines;
   });
 
+  const displayCode = $derived(
+    replaceLib && typeof replaceLib === 'string' 
+      ? replaceLibImport(code, replaceLib) 
+      : code
+  );
+
   let highlighted = $derived.by(() => {
-    if (!code.trim()) {
+    if (!displayCode.trim()) {
       return '';
     }
 
     try {
-      const xmlResult = hljs.highlight(code, { language: 'xml', ignoreIllegals: true });
+      const xmlResult = hljs.highlight(displayCode, { language: 'xml', ignoreIllegals: true });
 
       if (xmlResult.relevance < 5) {
-        const autoResult = hljs.highlightAuto(code, ['javascript', 'xml', 'css']);
+        const autoResult = hljs.highlightAuto(displayCode, ['javascript', 'xml', 'css']);
         return autoResult.relevance > xmlResult.relevance ? autoResult.value : xmlResult.value;
       }
 
       return xmlResult.value;
     } catch (error) {
       console.warn('Highlight.js failed for Svelte code:', error);
-      return code;
+      return displayCode;
     }
   });
 
@@ -106,7 +114,7 @@
     </table>
   </div>
 {:else}
-  <LangTag class={className} {...restProps} languageName="svelte" {langtag} {highlighted} {code} />
+  <LangTag class={className} {...restProps} languageName="svelte" {langtag} {highlighted} code={displayCode} />
 {/if}
 
 {#if numberLine}

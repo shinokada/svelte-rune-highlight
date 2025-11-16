@@ -1,0 +1,1 @@
+export { default as svelteCode } from './svelteCode.svelte';

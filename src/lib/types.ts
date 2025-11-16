@@ -1,8 +1,23 @@
 import { languages } from '$lib';
 import type { LanguageFn } from 'highlight.js';
 import type { HTMLAttributes } from 'svelte/elements';
+import type { Component } from 'svelte';
 
 export type SupportedLanguage = 'svelte' | keyof typeof languages;
+
+export interface ExampleWrapperProps extends HTMLAttributes<HTMLDivElement> {
+  name?: string;
+  component?: Component;
+  code?: string;
+  components?: Record<string, Component>;
+  modules?: Record<string, string>;
+  innerClass?: string;
+  class?: string;
+  codeClass?: string;
+  lang?: SupportedLanguage;
+  showCopy?: boolean;
+  replaceLib?: string | false;
+}
 
 export type HighlightLanguage = {
   name: string;
@@ -20,6 +35,7 @@ export interface HighlightProps {
   highlightedLines?: number[];
   highlightedRanges?: [number, number][];
   backgroundColor?: string;
+  replaceLib?: string | false;
   position?: 'static' | 'relative' | 'absolute' | 'sticky' | undefined;
   class?: string;
 }
@@ -36,6 +52,7 @@ export interface HighlightAutoProps {
   backgroundColor?: string;
   position?: 'static' | 'relative' | 'absolute' | 'sticky' | undefined;
   languages?: string[];
+  replaceLib?: string | false;
   class?: string;
 }
 
@@ -58,6 +75,7 @@ export interface HighlightSvelteProps {
   highlightedLines?: number[];
   highlightedRanges?: [number, number][];
   backgroundColor?: string;
+  replaceLib?: string | false;
   position?: 'static' | 'relative' | 'absolute' | 'sticky' | undefined;
   class?: string;
 }

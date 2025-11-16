@@ -2,6 +2,7 @@
   import hljs from 'highlight.js/lib/core';
   import LangTag from './LangTag.svelte';
   import type { HighlightProps} from "./types"
+  import { replaceLibImport } from '$lib';
 
   let {
     numberLine,
@@ -15,6 +16,7 @@
     highlightedRanges = [],
     backgroundColor,
     position = 'sticky',
+    replaceLib,
     class: className = 'relative',
     ...restProps
   }: HighlightProps = $props();
@@ -24,6 +26,12 @@
   const HIGHLIGHTED_BACKGROUND = 'rgba(254, 241, 96, 0.2)';
 
   hljs.registerLanguage(language.name, language.register);
+
+  const displayCode = $derived(
+    replaceLib && typeof replaceLib === 'string' 
+      ? replaceLibImport(code, replaceLib) 
+      : code
+  );
 
   let allHighlightedLines = $derived.by(() => {
     const lines = new Set(highlightedLines);
@@ -38,7 +46,7 @@
     return lines;
   });
 
-  let highlighted: string = $derived(hljs.highlight(code, { language: language.name }).value);
+  let highlighted: string = $derived(hljs.highlight(displayCode, { language: language.name }).value);
   let lines = $derived(highlighted.split('\n'));
   let len_digits = $derived(lines.length.toString().length);
   let len = $derived(len_digits - MIN_DIGITS < 1 ? MIN_DIGITS : len_digits);
@@ -73,7 +81,7 @@
     </table>
   </div>
 {:else}
-  <LangTag class={className} {...restProps} languageName={language.name} {langtag} {highlighted} {code} />
+  <LangTag class={className} {...restProps} languageName={language.name} {langtag} {highlighted} code={displayCode} />
 {/if}
 
 {#if numberLine}
