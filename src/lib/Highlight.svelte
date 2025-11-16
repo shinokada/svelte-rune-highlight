@@ -1,27 +1,7 @@
 <script lang="ts">
   import hljs from 'highlight.js/lib/core';
-  import type { LanguageFn } from 'highlight.js';
   import LangTag from './LangTag.svelte';
-
-  type HighlightLanguage = {
-    name: string;
-    register: LanguageFn;
-  };
-
-  interface Props {
-    numberLine?: boolean;
-    language: HighlightLanguage;
-    code: string;
-    langtag?: boolean;
-    hideBorder?: boolean;
-    wrapLines?: boolean;
-    startingLineNumber?: number;
-    highlightedLines?: number[];
-    highlightedRanges?: [number, number][];
-    backgroundColor?: string;
-    position?: 'static' | 'relative' | 'absolute' | 'sticky' | undefined;
-    class?: string;
-  }
+  import type { HighlightProps} from "./types"
 
   let {
     numberLine,
@@ -37,7 +17,7 @@
     position = 'sticky',
     class: className = 'relative',
     ...restProps
-  }: Props = $props();
+  }: HighlightProps = $props();
 
   const DIGIT_WIDTH = 12;
   const MIN_DIGITS = 2;

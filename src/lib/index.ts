@@ -41,4 +41,4 @@ export const languages = {
   yaml: { name: 'yaml', register: yaml }
 } as const;
 
-export type SupportedLanguage = 'svelte' | keyof typeof languages;
+export * from "./types";

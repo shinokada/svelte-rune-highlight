@@ -1,19 +1,10 @@
 <script lang="ts">
   import { HighlightSvelte, Highlight, copyToClipboard, replaceLibImport, languages } from '$lib';
-  import type { SupportedLanguage } from '$lib';
   import { highlightcompo } from './theme';
   import { onDestroy } from 'svelte';
+  import type { HighlightCompoProps } from "./types";
 
-  interface Props {
-    code: string;
-    contentClass?: string;
-    lang?: SupportedLanguage;
-    class?: string;
-    replaceLib?: string | false;
-    showCopy?: boolean;
-  }
-
-  let { code, lang = 'svelte', contentClass = 'overflow-hidden', replaceLib = 'svelte-rune-highlight', showCopy = true, class: className }: Props = $props();
+  let { code, lang = 'svelte', contentClass = 'overflow-hidden', replaceLib = 'svelte-rune-highlight', showCopy = true, class: className }: HighlightCompoProps = $props();
 
   // Apply library replacement if specified
   const displayCode = $derived(replaceLib && typeof replaceLib === 'string' ? replaceLibImport(code, replaceLib) : code);

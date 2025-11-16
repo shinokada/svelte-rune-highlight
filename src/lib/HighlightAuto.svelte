@@ -28,21 +28,7 @@
    */
   import LangTag from './LangTag.svelte';
   import hljs from 'highlight.js';
-
-  interface Props {
-    code?: string;
-    langtag?: boolean;
-    numberLine?: boolean;
-    hideBorder?: boolean;
-    wrapLines?: boolean;
-    startingLineNumber?: number;
-    highlightedLines?: number[];
-    highlightedRanges?: [number, number][];
-    backgroundColor?: string;
-    position?: 'static' | 'relative' | 'absolute' | 'sticky' | undefined;
-    languages?: string[];
-    class?: string;
-  }
+  import type { HighlightAutoProps } from './types';
 
   let {
     code = '',
@@ -58,7 +44,7 @@
     languages,
     class: className,
     ...restProps
-  }: Props = $props();
+  }: HighlightAutoProps = $props();
 
   const DIGIT_WIDTH = 12;
   const MIN_DIGITS = 2;

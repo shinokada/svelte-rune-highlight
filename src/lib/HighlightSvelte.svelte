@@ -4,20 +4,7 @@
   import xml from 'highlight.js/lib/languages/xml';
   import javascript from 'highlight.js/lib/languages/javascript';
   import css from 'highlight.js/lib/languages/css';
-
-  interface Props {
-    code?: string;
-    langtag?: boolean;
-    numberLine?: boolean;
-    hideBorder?: boolean;
-    wrapLines?: boolean;
-    startingLineNumber?: number;
-    highlightedLines?: number[];
-    highlightedRanges?: [number, number][];
-    backgroundColor?: string;
-    position?: 'static' | 'relative' | 'absolute' | 'sticky' | undefined;
-    class?: string;
-  }
+  import type { HighlightSvelteProps } from "./types";
 
   let {
     code = '',
@@ -32,7 +19,7 @@
     position = 'sticky',
     class: className,
     ...restProps
-  }: Props = $props();
+  }: HighlightSvelteProps = $props();
 
   const DIGIT_WIDTH = 12;
   const MIN_DIGITS = 2;
