@@ -95,18 +95,18 @@
 
 <H2>Features</H2>
 <List>
-<Li>✅ Uses highlight.js auto-detection to identify code language</Li>
-<Li>✅ Optionally limit detection to specific languages for better accuracy</Li>
-<Li>✅ Optional line numbering with customizable starting number</Li>
-<Li>✅ Display detected language name in top-right corner</Li>
-<Li>✅ Highlight specific lines or ranges with custom background</Li>
-<Li>✅ Line numbers stay visible while scrolling horizontally</Li>
-<Li>✅ Optional line wrapping for long lines</Li>
-<Li>✅ Gracefully falls back to plaintext if detection fails</Li>
-<Li>✅ Handles empty or whitespace-only code strings</Li>
-<Li>✅ Configurable colors, borders, and backgrounds via CSS variables</Li>
-<Li>✅ Supports static, relative, absolute, or sticky positioning</Li>
-<Li>✅ Horizontal scroll for wide code blocks</Li>
+  <Li>✅ Uses highlight.js auto-detection to identify code language</Li>
+  <Li>✅ Optionally limit detection to specific languages for better accuracy</Li>
+  <Li>✅ Optional line numbering with customizable starting number</Li>
+  <Li>✅ Display detected language name in top-right corner</Li>
+  <Li>✅ Highlight specific lines or ranges with custom background</Li>
+  <Li>✅ Line numbers stay visible while scrolling horizontally</Li>
+  <Li>✅ Optional line wrapping for long lines</Li>
+  <Li>✅ Gracefully falls back to plaintext if detection fails</Li>
+  <Li>✅ Handles empty or whitespace-only code strings</Li>
+  <Li>✅ Configurable colors, borders, and backgrounds via CSS variables</Li>
+  <Li>✅ Supports static, relative, absolute, or sticky positioning</Li>
+  <Li>✅ Horizontal scroll for wide code blocks</Li>
 </List>
 
 <H2>Props</H2>

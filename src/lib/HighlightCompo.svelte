@@ -2,7 +2,7 @@
   import { HighlightSvelte, Highlight, copyToClipboard, replaceLibImport, languages } from '$lib';
   import { highlightcompo } from './theme';
   import { onDestroy } from 'svelte';
-  import type { HighlightCompoProps } from "./types";
+  import type { HighlightCompoProps } from './types';
 
   let { code, lang = 'svelte', contentClass = 'overflow-hidden', replaceLib, showCopy = true, class: className }: HighlightCompoProps = $props();
 
@@ -129,7 +129,7 @@
 @prop code
 @prop lang = 'svelte'
 @prop contentClass = 'overflow-hidden'
-@prop replaceLib = 'svelte-rune-highlight'
+@prop replaceLib
 @prop showCopy = true
 @prop class: className
 -->

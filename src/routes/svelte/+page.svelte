@@ -82,28 +82,30 @@
 
 <H1>HighlightSvelte Component</H1>
 
-<P>Specialized syntax highlighting for Svelte code using XML, JavaScript, and CSS parsers. Intelligently detects the best highlighting approach based on relevance scores. Features line numbers, language tags, and line highlighting.</P>
+<P
+  >Specialized syntax highlighting for Svelte code using XML, JavaScript, and CSS parsers. Intelligently detects the best highlighting approach based on relevance scores. Features line numbers,
+  language tags, and line highlighting.</P
+>
 
 <H2>Features</H2>
 <List>
-<Li>✅ Specialized parser for Svelte's XML, JavaScript, and CSS syntax</Li>
-<Li>✅ Compares relevance scores to choose the best highlighting approach</Li>
-<Li>✅ Combines XML, JavaScript, and CSS highlighting</Li>
-<Li>✅ Optional line numbering with customizable starting number</Li>
-<Li>✅ Display "svelte" tag in top-right corner</Li>
-<Li>✅ Highlight specific lines or ranges with custom background</Li>
-<Li>✅ Validates line ranges and warns about invalid inputs</Li>
-<Li>✅ Line numbers stay visible while scrolling horizontally</Li>
-<Li>✅ Optional line wrapping for long lines</Li>
-<Li>✅ Gracefully falls back to plain code if highlighting fails</Li>
-<Li>✅ Configurable colors, borders, and backgrounds via CSS variables</Li>
-<Li>✅ Horizontal scroll for wide code blocks</Li>
+  <Li>✅ Specialized parser for Svelte's XML, JavaScript, and CSS syntax</Li>
+  <Li>✅ Compares relevance scores to choose the best highlighting approach</Li>
+  <Li>✅ Combines XML, JavaScript, and CSS highlighting</Li>
+  <Li>✅ Optional line numbering with customizable starting number</Li>
+  <Li>✅ Display "svelte" tag in top-right corner</Li>
+  <Li>✅ Highlight specific lines or ranges with custom background</Li>
+  <Li>✅ Validates line ranges and warns about invalid inputs</Li>
+  <Li>✅ Line numbers stay visible while scrolling horizontally</Li>
+  <Li>✅ Optional line wrapping for long lines</Li>
+  <Li>✅ Gracefully falls back to plain code if highlighting fails</Li>
+  <Li>✅ Configurable colors, borders, and backgrounds via CSS variables</Li>
+  <Li>✅ Horizontal scroll for wide code blocks</Li>
 </List>
 
 <H2>Props</H2>
 
 <Table items={props} hoverable={true} />
-
 
 <H2>Types</H2>
 <P>HighlightSvelte component has the following types:</P>
@@ -166,4 +168,3 @@
     <HighlightCompo code={exampleModules['./examples/RangeEx.svelte'] as string} />
   {/snippet}
 </CodeWrapper>
-

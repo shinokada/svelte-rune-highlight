@@ -10,6 +10,11 @@ test('highlightauto page has expected h1', async ({ page }) => {
   await expect(page.getByRole('heading', { name: 'HighlightAuto Component' })).toBeVisible();
 });
 
+test('highlighcompo page has expected h1', async ({ page }) => {
+  await page.goto('/highlight-compo');
+  await expect(page.getByRole('heading', { name: 'HighlightCompo Component' })).toBeVisible();
+});
+
 test('highlightsvelte page has expected h1', async ({ page }) => {
   await page.goto('/svelte');
   await expect(page.getByRole('heading', { name: 'HighlightSvelte Component' })).toBeVisible();

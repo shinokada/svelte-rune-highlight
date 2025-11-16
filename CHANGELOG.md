@@ -1,5 +1,11 @@
 # svelte-rune-highlight
 
+## 0.10.0
+
+### Minor Changes
+
+- feat: ExampleWrapper and HighlightCompo
+
 ## 0.9.0
 
 ### Minor Changes

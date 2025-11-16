@@ -10,12 +10,7 @@ export { default as HighlightAuto } from './HighlightAuto.svelte';
 export { default as HighlightSvelte } from './HighlightSvelte.svelte';
 export { default as LangTag } from './LangTag.svelte';
 export { default as HighlightCompo } from './HighlightCompo.svelte';
-export { 
-  transformComponents, 
-  transformModules, 
-  defaultPathToName, 
-  pathExtractors 
-} from './moduleHelpers';
+export { transformComponents, transformModules, defaultPathToName, pathExtractors } from './moduleHelpers';
 
 export function copyToClipboard(text: string): Promise<void> {
   if (typeof navigator === 'undefined' || !navigator.clipboard) {
@@ -47,4 +42,4 @@ export const languages = {
   yaml: { name: 'yaml', register: yaml }
 } as const;
 
-export * from "./types";
+export * from './types';

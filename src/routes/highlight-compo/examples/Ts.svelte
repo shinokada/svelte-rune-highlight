@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { HighlightCompo } from "$lib";
-  import tsCode from "../../examples/tsCode.ts?raw";
+  import { HighlightCompo } from '$lib';
+  import tsCode from '../../examples/tsCode.ts?raw';
 </script>
 
-<HighlightCompo code={tsCode} lang="ts" showCopy={false}/>
+<HighlightCompo code={tsCode} lang="ts" showCopy={false} />

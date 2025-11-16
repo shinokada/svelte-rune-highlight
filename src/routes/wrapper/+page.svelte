@@ -13,9 +13,12 @@
 <H1>Wrappers</H1>
 
 <H2>ExampleWrapper</H2>
-<P>A flexible component that displays both rendered Svelte components and their source code side-by-side. Supports name-based lookup or direct component/code props with automatic $lib import replacement.</P>
+<P
+  >A flexible component that displays both rendered Svelte components and their source code side-by-side. Supports name-based lookup or direct component/code props with automatic $lib import
+  replacement.</P
+>
 
-<HighlightSvelte code={ExampleCode} langtag replaceLib='svelte-rune-highlight'/>
+<HighlightSvelte code={ExampleCode} langtag replaceLib="svelte-rune-highlight" />
 
 <P>The above code produces the following actual output and code:</P>
 <ExampleWrapper component={SampleCode} code={sampleCodeRaw} />

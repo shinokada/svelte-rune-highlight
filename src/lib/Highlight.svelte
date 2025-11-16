@@ -1,7 +1,7 @@
 <script lang="ts">
   import hljs from 'highlight.js/lib/core';
   import LangTag from './LangTag.svelte';
-  import type { HighlightProps} from "./types"
+  import type { HighlightProps } from './types';
   import { replaceLibImport } from '$lib';
 
   let {
@@ -27,11 +27,7 @@
 
   hljs.registerLanguage(language.name, language.register);
 
-  const displayCode = $derived(
-    replaceLib && typeof replaceLib === 'string' 
-      ? replaceLibImport(code, replaceLib) 
-      : code
-  );
+  const displayCode = $derived(replaceLib && typeof replaceLib === 'string' ? replaceLibImport(code, replaceLib) : code);
 
   let allHighlightedLines = $derived.by(() => {
     const lines = new Set(highlightedLines);
@@ -186,6 +182,7 @@
 @prop highlightedRanges = []
 @prop backgroundColor
 @prop position = 'sticky'
+@prop replaceLib
 @prop class: className = 'relative'
 @prop ...restProps
 -->

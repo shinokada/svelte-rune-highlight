@@ -80,7 +80,6 @@ export interface HighlightSvelteProps {
   class?: string;
 }
 
-
 export interface LangTagProps extends HTMLAttributes<HTMLPreElement> {
   code?: string;
   highlighted?: string;

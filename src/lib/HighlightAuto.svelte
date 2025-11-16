@@ -52,11 +52,7 @@
   const MIN_DIGITS = 2;
   const HIGHLIGHTED_BACKGROUND = 'rgba(254, 241, 96, 0.2)';
 
-  const displayCode = $derived(
-    replaceLib && typeof replaceLib === 'string' 
-      ? replaceLibImport(code, replaceLib) 
-      : code
-  );
+  const displayCode = $derived(replaceLib && typeof replaceLib === 'string' ? replaceLibImport(code, replaceLib) : code);
 
   let allHighlightedLines = $derived.by(() => {
     const lines = new Set(highlightedLines);
@@ -225,6 +221,7 @@
 @prop backgroundColor
 @prop position = 'sticky'
 @prop languages
+@prop replaceLib
 @prop class: className
 @prop ...restProps
 -->
