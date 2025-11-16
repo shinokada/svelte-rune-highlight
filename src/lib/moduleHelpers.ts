@@ -1,3 +1,5 @@
+import type { Component } from 'svelte';
+
 /**
  * Default path-to-name extractor - gets filename without extension
  * 
@@ -28,7 +30,7 @@ export function defaultPathToName(path: string): string | undefined {
  *   return path.match(/\/ui\/(.+)\.svelte$/)?.[1];
  * });
  */
-export function transformComponents<T = unknown>(
+export function transformComponents<T extends Component = Component>(
   componentModules: Record<string, { default: T }>,
   pathToName: (path: string) => string | undefined = defaultPathToName
 ): Record<string, T> {

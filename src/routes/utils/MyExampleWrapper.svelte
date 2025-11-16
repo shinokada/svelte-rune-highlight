@@ -1,10 +1,11 @@
 <script lang="ts">
   import { ExampleWrapper, transformComponents, transformModules } from '$lib';
+  import type { Component } from 'svelte';
   
   // Import components dynamically
   const componentModules = import.meta.glob('../examples/*.svelte', {
     eager: true
-  }) as Record<string, { default: unknown }>;
+  }) as Record<string, { default: Component }>;
   
   // Import source code
   const exampleModules = import.meta.glob('../examples/*.svelte', {
