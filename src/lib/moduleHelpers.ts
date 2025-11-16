@@ -28,7 +28,7 @@ export function defaultPathToName(path: string): string | undefined {
  *   return path.match(/\/ui\/(.+)\.svelte$/)?.[1];
  * });
  */
-export function transformComponents<T = any>(
+export function transformComponents<T = unknown>(
   componentModules: Record<string, { default: T }>,
   pathToName: (path: string) => string | undefined = defaultPathToName
 ): Record<string, T> {
