@@ -1,14 +1,24 @@
 <script lang="ts">
-  import { HighlightCompo } from '$lib';
+  import { ExampleWrapper, transformComponents, transformModules } from '$lib';
+  import type { Component } from 'svelte';
   import { P, List, Li, Table } from 'flowbite-svelte';
-  import { CodeWrapper, H1, H2, H3 } from '../utils';
+  import { H1, H2, H3 } from '../utils';
 
-  import * as ExampleComponents from './examples';
+  // Import components dynamically
+  const componentModules = import.meta.glob('./examples/*.*', {
+    eager: true
+  }) as Record<string, { default: Component }>;
+
+  // Import source code
   const exampleModules = import.meta.glob('./examples/*.*', {
     query: '?raw',
     import: 'default',
     eager: true
   }) as Record<string, string>;
+
+  // Transform both using helper functions
+  const components = transformComponents(componentModules);
+  const modules = transformModules(exampleModules);
 
   const props = [
     {
@@ -109,62 +119,30 @@
 
 <H2>Types</H2>
 <P>HighlightSvelte component has the following types:</P>
-
-<CodeWrapper>
-  {#snippet codeblock()}
-    <HighlightCompo code={exampleModules['./examples/types.md'] as string} class="max-w-5xl" />
-  {/snippet}
-</CodeWrapper>
+<ExampleWrapper component={components['Types']} code={modules['Types']} showCode={false} />
 
 <H2>Language tag style</H2>
 
 <P>Customize the language tag background, color, and border-radius using style props.</P>
-
-<CodeWrapper>
-  {#snippet codeblock()}
-    <HighlightCompo code={exampleModules['./examples/style-props.md'] as string} class="max-w-5xl" />
-  {/snippet}
-</CodeWrapper>
+<ExampleWrapper component={components['StyleProps']} code={modules['StyleProps']} showCode={false}/>
 
 <H2>Examples</H2>
 <P>
   Use the HighlightSvelte component to highlight your Svelte code. The HighlightSvelte component requires code props. <code>langtag</code> and <code>--langtag-color</code> are optional.
 </P>
-
-<CodeWrapper>
-  <ExampleComponents.Sample1 />
-  {#snippet codeblock()}
-    <HighlightCompo code={exampleModules['./examples/Sample1.svelte'] as string} />
-  {/snippet}
-</CodeWrapper>
+<ExampleWrapper component={components['Sample1']} code={modules['Sample1']} />
 
 <P>
   Using different <code>--langtag-color</code>.
 </P>
-
-<CodeWrapper>
-  <ExampleComponents.Sample2 />
-  {#snippet codeblock()}
-    <HighlightCompo code={exampleModules['./examples/Sample2.svelte'] as string} />
-  {/snippet}
-</CodeWrapper>
+<ExampleWrapper component={components['Sample2']} code={modules['Sample2']} />
 
 <H3>Numberline for Svelte file</H3>
+<ExampleWrapper component={components['SvelteEx']} code={modules['SvelteEx']} />
 
-<CodeWrapper>
-  <ExampleComponents.SvelteEx />
-  {#snippet codeblock()}
-    <HighlightCompo code={exampleModules['./examples/SvelteEx.svelte'] as string} />
-  {/snippet}
-</CodeWrapper>
 
 <H3>Using highlightedRanges</H3>
 
 <P>Use highlightedLines and/or highlightedRanges props to highlight lines as the following example.</P>
+<ExampleWrapper component={components['RangeEx']} code={modules['RangeEx']} />
 
-<CodeWrapper>
-  <ExampleComponents.RangeEx />
-  {#snippet codeblock()}
-    <HighlightCompo code={exampleModules['./examples/RangeEx.svelte'] as string} />
-  {/snippet}
-</CodeWrapper>

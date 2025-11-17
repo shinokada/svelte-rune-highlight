@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { HighlightAuto } from 'svelte-rune-highlight';
+  import { HighlightAuto } from '$lib';
   const code = `--langtag-top = 0: Top position of the langtag
 --langtag-right = 0: Right position of the langtag
 --langtag-background = inherit: Background color of the langtag

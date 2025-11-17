@@ -1,14 +1,24 @@
 <script lang="ts">
-  import { HighlightCompo } from '$lib';
+  import { ExampleWrapper, transformComponents, transformModules } from '$lib';
+  import type { Component } from 'svelte';
   import { P, List, Li, Table } from 'flowbite-svelte';
-  import { CodeWrapper, H1, H2, H3 } from '../utils';
+  import { H1, H2, H3 } from '../utils';
 
-  import * as ExampleComponents from './examples';
+  // Import components dynamically
+  const componentModules = import.meta.glob('./examples/*.*', {
+    eager: true
+  }) as Record<string, { default: Component }>;
+
+  // Import source code
   const exampleModules = import.meta.glob('./examples/*.*', {
     query: '?raw',
     import: 'default',
     eager: true
   }) as Record<string, string>;
+
+  // Transform both using helper functions
+  const components = transformComponents(componentModules);
+  const modules = transformModules(exampleModules);
 
   const props = [
     {
@@ -112,65 +122,33 @@
 <Table items={props} hoverable={true} />
 
 <H2>Types</H2>
-<CodeWrapper>
-  {#snippet codeblock()}
-    <HighlightCompo code={exampleModules['./examples/types.md'] as string} />
-  {/snippet}
-</CodeWrapper>
+
+<ExampleWrapper component={components['Types']} code={modules['Types']} showCode={false} />
 
 <H2>Language tag style</H2>
 
 <P>Customize the language tag background, color, and border-radius using style props.</P>
 
-<CodeWrapper>
-  {#snippet codeblock()}
-    <HighlightCompo code={exampleModules['./examples/style-props.md'] as string} />
-  {/snippet}
-</CodeWrapper>
+<ExampleWrapper component={components['StyleProps']} code={modules['StyleProps']} showCode={false}/>
+
 
 <H2>Examples</H2>
 
 <H3>Basic</H3>
 <P>The Highlight component requires language and code props. The langtag prop is optional and it will add a language tag.</P>
 
-<CodeWrapper>
-  <ExampleComponents.JsLang />
-  {#snippet codeblock()}
-    <HighlightCompo code={exampleModules['./examples/JsLang.svelte'] as string} />
-  {/snippet}
-</CodeWrapper>
+<ExampleWrapper component={components['JsLang']} code={modules['JsLang']} />
 
 <H3>Markdown</H3>
 <P>Set langtag and language props to display the language name in the top right corner of the code block.</P>
-<CodeWrapper>
-  <ExampleComponents.MdLang />
-  {#snippet codeblock()}
-    <HighlightCompo code={exampleModules['./examples/MdLang.svelte'] as string} />
-  {/snippet}
-</CodeWrapper>
+<ExampleWrapper component={components['MdLang']} code={modules['MdLang']} />
 
 <H3>YAML</H3>
-<CodeWrapper>
-  <ExampleComponents.YmlLang />
-  {#snippet codeblock()}
-    <HighlightCompo code={exampleModules['./examples/YmlLang.svelte'] as string} />
-  {/snippet}
-</CodeWrapper>
+<ExampleWrapper component={components['YmlLang']} code={modules['YmlLang']} />
 
 <H3>JSON</H3>
-
-<CodeWrapper>
-  <ExampleComponents.JsonLang />
-  {#snippet codeblock()}
-    <HighlightCompo code={exampleModules['./examples/JsonLang.svelte'] as string} />
-  {/snippet}
-</CodeWrapper>
+<ExampleWrapper component={components['JsonLang']} code={modules['JsonLang']} />
 
 <H3>Typescript</H3>
+<ExampleWrapper component={components['TsLang']} code={modules['TsLang']} />
 
-<CodeWrapper>
-  <ExampleComponents.TsLang />
-  {#snippet codeblock()}
-    <HighlightCompo code={exampleModules['./examples/TsLang.svelte'] as string} />
-  {/snippet}
-</CodeWrapper>

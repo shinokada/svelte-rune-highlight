@@ -1,14 +1,24 @@
 <script lang="ts">
-  import { HighlightCompo } from '$lib';
+  import { ExampleWrapper, transformComponents, transformModules } from '$lib';
+  import type { Component } from 'svelte';
   import { P, List, Li, Table } from 'flowbite-svelte';
-  import { CodeWrapper, H1, H2, H3 } from '../utils';
+  import { H1, H2, H3 } from '../utils';
 
-  import * as ExampleComponents from './examples';
-  const exampleModules = import.meta.glob('./examples/*.*', {
+  // Import components dynamically
+  const componentModules = import.meta.glob('./examples/*.svelte', {
+    eager: true
+  }) as Record<string, { default: Component }>;
+
+  // Import source code
+  const exampleModules = import.meta.glob('./examples/*.svelte', {
     query: '?raw',
     import: 'default',
     eager: true
   }) as Record<string, string>;
+
+  // Transform both using helper functions
+  const components = transformComponents(componentModules);
+  const modules = transformModules(exampleModules);
 
   const props = [
     {
@@ -74,55 +84,20 @@
 
 <H2>Examples</H2>
 <H3>Svelte</H3>
-
-<CodeWrapper>
-  <ExampleComponents.SvelteEx />
-  {#snippet codeblock()}
-    <HighlightCompo code={exampleModules['./examples/SvelteEx.svelte'] as string} />
-  {/snippet}
-</CodeWrapper>
+<ExampleWrapper component={components['SvelteEx']} code={modules['SvelteEx']} />
 
 <H3>JavaScript</H3>
-
-<CodeWrapper>
-  <ExampleComponents.Js />
-  {#snippet codeblock()}
-    <HighlightCompo code={exampleModules['./examples/Js.svelte'] as string} />
-  {/snippet}
-</CodeWrapper>
+<ExampleWrapper component={components['Js']} code={modules['Js']} />
 
 <H3>JSON</H3>
-
-<CodeWrapper>
-  <ExampleComponents.Json />
-  {#snippet codeblock()}
-    <HighlightCompo code={exampleModules['./examples/Json.svelte'] as string} />
-  {/snippet}
-</CodeWrapper>
+<ExampleWrapper component={components['Json']} code={modules['Json']} />
 
 <H3>Markdown</H3>
-
-<CodeWrapper>
-  <ExampleComponents.Md />
-  {#snippet codeblock()}
-    <HighlightCompo code={exampleModules['./examples/Md.svelte'] as string} />
-  {/snippet}
-</CodeWrapper>
+<ExampleWrapper component={components['Md']} code={modules['Md']} />
 
 <H3>TypeScript</H3>
-
-<CodeWrapper>
-  <ExampleComponents.Ts />
-  {#snippet codeblock()}
-    <HighlightCompo code={exampleModules['./examples/Ts.svelte'] as string} />
-  {/snippet}
-</CodeWrapper>
+<ExampleWrapper component={components['Ts']} code={modules['Ts']} />
 
 <H3>YAML</H3>
+<ExampleWrapper component={components['Yaml']} code={modules['Yaml']} />
 
-<CodeWrapper>
-  <ExampleComponents.Yaml />
-  {#snippet codeblock()}
-    <HighlightCompo code={exampleModules['./examples/Yaml.svelte'] as string} />
-  {/snippet}
-</CodeWrapper>

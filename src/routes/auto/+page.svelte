@@ -1,14 +1,24 @@
 <script lang="ts">
-  import { HighlightCompo } from '$lib';
+  import { ExampleWrapper, transformComponents, transformModules } from '$lib';
+  import type { Component } from 'svelte';
   import { P, List, Li, Table } from 'flowbite-svelte';
-  import { CodeWrapper, H1, H2, H3 } from '../utils';
+  import { H1, H2, H3 } from '../utils';
 
-  import * as ExampleComponents from './examples';
+  // Import components dynamically
+  const componentModules = import.meta.glob('./examples/*.svelte', {
+    eager: true
+  }) as Record<string, { default: Component }>;
+
+  // Import source code
   const exampleModules = import.meta.glob('./examples/*.svelte', {
     query: '?raw',
     import: 'default',
     eager: true
   }) as Record<string, string>;
+
+  // Transform both using helper functions
+  const components = transformComponents(componentModules);
+  const modules = transformModules(exampleModules);
 
   const props = [
     {
@@ -119,72 +129,32 @@
 
 <H2>Language tag style</H2>
 <p>Customize the language tag background, color, and border-radius using style props.</p>
-<CodeWrapper>
-  <ExampleComponents.StyleProps />
-</CodeWrapper>
+
+<ExampleWrapper component={components['StyleProps']} code={modules['StyleProps']} showCode={false}/>
 
 <H2>Examples</H2>
 <H3>HTML</H3>
-<CodeWrapper>
-  <ExampleComponents.Html />
-  {#snippet codeblock()}
-    <HighlightCompo code={exampleModules['./examples/Html.svelte'] as string} />
-  {/snippet}
-</CodeWrapper>
+<ExampleWrapper component={components['Html']} code={modules['Html']} />
 
 <H3>CSS</H3>
-<CodeWrapper>
-  <ExampleComponents.Css />
-  {#snippet codeblock()}
-    <HighlightCompo code={exampleModules['./examples/Css.svelte'] as string} />
-  {/snippet}
-</CodeWrapper>
+<ExampleWrapper component={components['Css']} code={modules['Css']} />
 
 <H3>Javascript</H3>
-<P>You can use vite's `import.meta.glob()`:</P>
-<CodeWrapper>
-  <ExampleComponents.Javascript />
-  {#snippet codeblock()}
-    <HighlightCompo code={exampleModules['./examples/Javascript.svelte'] as string} />
-  {/snippet}
-</CodeWrapper>
+
+<ExampleWrapper component={components['Javascript']} code={modules['Javascript']} />
 
 <H3>Markdown</H3>
-<CodeWrapper>
-  <ExampleComponents.Markdown />
-  {#snippet codeblock()}
-    <HighlightCompo code={exampleModules['./examples/Markdown.svelte'] as string} />
-  {/snippet}
-</CodeWrapper>
+
+<ExampleWrapper component={components['Markdown']} code={modules['Markdown']} />
 
 <H3>Typescript</H3>
-<CodeWrapper>
-  <ExampleComponents.Typescript />
-  {#snippet codeblock()}
-    <HighlightCompo code={exampleModules['./examples/Typescript.svelte'] as string} />
-  {/snippet}
-</CodeWrapper>
+<ExampleWrapper component={components['Typescript']} code={modules['Typescript']} />
 
 <H3>Python</H3>
-<CodeWrapper>
-  <ExampleComponents.Python />
-  {#snippet codeblock()}
-    <HighlightCompo code={exampleModules['./examples/Python.svelte'] as string} />
-  {/snippet}
-</CodeWrapper>
+<ExampleWrapper component={components['Python']} code={modules['Python']} />
 
 <H3>Rust</H3>
-<CodeWrapper>
-  <ExampleComponents.Rust />
-  {#snippet codeblock()}
-    <HighlightCompo code={exampleModules['./examples/Rust.svelte'] as string} />
-  {/snippet}
-</CodeWrapper>
+<ExampleWrapper component={components['Rust']} code={modules['Rust']} />
 
 <H3>Other examples</H3>
-<CodeWrapper>
-  <ExampleComponents.ExampleAuto />
-  {#snippet codeblock()}
-    <HighlightCompo code={exampleModules['./examples/ExampleAuto.svelte'] as string} />
-  {/snippet}
-</CodeWrapper>
+<ExampleWrapper component={components['ExampleAuto']} code={modules['ExampleAuto']} />

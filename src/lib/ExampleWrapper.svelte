@@ -3,7 +3,7 @@
   import { codewrapper } from './theme';
   import type { ExampleWrapperProps } from './types';
 
-  let { name, component, code, components = {}, modules = {}, innerClass, codeClass, lang = 'svelte', showCopy = true, replaceLib, class: classname }: ExampleWrapperProps = $props();
+  let { name, component, code, components = {}, modules = {}, innerClass, codeClass, lang = 'svelte', showCopy = true, replaceLib, showRender = true, showCode = true, class: classname }: ExampleWrapperProps = $props();
 
   // Derive component and code based on what's provided
   const ExampleComponent = $derived(component || (name && components[name]) || null);
@@ -17,12 +17,16 @@
 
 {#if ExampleComponent && displayCode}
   <div class={base({ class: classname })}>
+    {#if showRender}
     <div class={inner({ class: innerClass })}>
       <ExampleComponent />
     </div>
+    {/if}
+    {#if showCode}
     <div class="{codeCls} {codeClass}">
       <HighlightCompo code={displayCode} {lang} {showCopy} {replaceLib} />
     </div>
+    {/if}
   </div>
 {:else}
   <div class="p-4 text-red-600 dark:text-red-400">

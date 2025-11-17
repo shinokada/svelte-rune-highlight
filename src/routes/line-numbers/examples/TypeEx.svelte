@@ -1,15 +1,32 @@
 <script lang="ts">
-  import { Highlight } from 'svelte-rune-highlight';
-  import typescript from 'highlight.js/lib/languages/typescript';
-  const examples = import.meta.glob('./*.ts', {
-    query: '?raw',
-    import: 'default',
-    eager: true
-  });
-  const tsLang = {
-    name: 'typescript',
-    register: typescript
-  };
+  import { HighlightAuto } from '$lib';
+  const code = `export type UserRole = 'admin' | 'editor' | 'viewer';
+
+export interface User {
+  id: number;
+  name: string;
+  email: string;
+  role: UserRole;
+  isActive: boolean;
+  createdAt: Date;
+}
+
+export interface Post {
+  id: string;
+  title: string;
+  content: string;
+  authorId: number;
+  tags?: string[];
+}
+
+export type ApiResponse<T> = {
+  data: T;
+  success: boolean;
+  error?: string;
+};
+
+export type Nullable<T> = T | null;
+`;
 </script>
 
-<Highlight language={tsLang} code={examples['./sample-types.ts'] as string} numberLine />
+<HighlightAuto {code} />

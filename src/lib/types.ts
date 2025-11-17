@@ -17,6 +17,8 @@ export interface ExampleWrapperProps extends HTMLAttributes<HTMLDivElement> {
   lang?: SupportedLanguage;
   showCopy?: boolean;
   replaceLib?: string | false;
+  showRender?: boolean;
+  showCode?: boolean;
 }
 
 export type HighlightLanguage = {
