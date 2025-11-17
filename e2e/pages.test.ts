@@ -26,7 +26,7 @@ test('line-numbers page has expected h1', async ({ page }) => {
 });
 
 test('ExampleWrapper page has expected h1', async ({ page }) => {
-  await page.goto('/wrapper');
+  await page.goto('/wrappers');
   await expect(page.getByRole('heading', { name: 'Wrappers' })).toBeVisible();
 });
 

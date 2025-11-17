@@ -14,8 +14,6 @@
     lang = 'svelte',
     showCopy = true,
     replaceLib,
-    showRender = true,
-    showCode = true,
     class: classname
   }: ExampleWrapperProps = $props();
 
@@ -29,31 +27,18 @@
   const codeCls = 'border-t border-gray-600';
 </script>
 
-{#if ExampleComponent && displayCode}
+{#if ExampleComponent || displayCode}
   <div class={base({ class: classname })}>
-    {#if showRender}
+    {#if ExampleComponent}
       <div class={inner({ class: innerClass })}>
         <ExampleComponent />
       </div>
     {/if}
-    {#if showCode}
+    {#if displayCode}
       <div class="{codeCls} {codeClass}">
         <HighlightCompo code={displayCode} {lang} {showCopy} {replaceLib} />
       </div>
     {/if}
   </div>
-{:else}
-  <div class="p-4 text-red-600 dark:text-red-400">
-    {#if !ExampleComponent}
-      Error: No component provided {name ? `for "${name}"` : ''}
-      {#if name && Object.keys(components).length > 0}
-        <div class="mt-2 text-sm">Available: {Object.keys(components).join(', ')}</div>
-      {/if}
-    {:else}
-      Error: No code provided {name ? `for "${name}"` : ''}
-      {#if name && Object.keys(modules).length > 0}
-        <div class="mt-2 text-sm">Available: {Object.keys(modules).join(', ')}</div>
-      {/if}
-    {/if}
-  </div>
 {/if}
+

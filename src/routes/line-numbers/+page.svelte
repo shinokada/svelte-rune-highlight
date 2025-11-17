@@ -76,7 +76,7 @@
 <ExampleWrapper component={components['Example8']} code={modules['Example8']} />
 
 <H2>Showing Type File</H2>
-<ExampleWrapper component={components['TypeEx']} code={modules['TypeEx']} showCode={false} />
+<ExampleWrapper component={components['TypeEx']} code={modules['TypeEx']} />
 
 <H2>Numberline for Svelte file</H2>
 <ExampleWrapper component={components['SvelteEx']} code={modules['SvelteEx']} />

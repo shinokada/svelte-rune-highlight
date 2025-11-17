@@ -51,6 +51,18 @@ or use directly from cdnjs
 
 [Line numbers](https://svelte-rune-highlight.codewithshin.com/line-numbers)
 
+## HighlightCompo Component
+
+[HighlightCompo Component](https://svelte-rune-highlight.codewithshin.com/highlight-compo)
+
+## Wrappers
+
+[Wrappers](https://svelte-rune-highlight.codewithshin.com/wrappers)
+
+## Theme Selector
+
+[Theme Selector](https://svelte-rune-highlight.codewithshin.com/theme-selector)
+
 ## Credit
 
 [Svelte-Highlight](https://www.npmjs.com/package/svelte-highlight)
