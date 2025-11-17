@@ -1,5 +1,11 @@
 # svelte-rune-highlight
 
+## 0.10.1
+
+### Patch Changes
+
+- style: add p-4 codewrapper inner
+
 ## 0.10.0
 
 ### Minor Changes
