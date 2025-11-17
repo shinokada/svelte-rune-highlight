@@ -5,81 +5,66 @@ import type { Component } from 'svelte';
 
 export type SupportedLanguage = 'svelte' | keyof typeof languages;
 
-export interface ExampleWrapperProps extends HTMLAttributes<HTMLDivElement> {
+export type HighlightLanguage = {
+  name: string;
+  register: LanguageFn;
+};
+
+// Common highlight display options
+export interface HighlightDisplayOptions {
+  langtag?: boolean;
+  numberLine?: boolean;
+  hideBorder?: boolean;
+  wrapLines?: boolean;
+  startingLineNumber?: number;
+  highlightedLines?: number[];
+  highlightedRanges?: [number, number][];
+  backgroundColor?: string;
+  position?: 'static' | 'relative' | 'absolute' | 'sticky' | undefined;
+}
+
+// Common library replacement option
+export interface LibReplaceOption {
+  replaceLib?: string | false;
+}
+
+// Common class styling option
+export interface ClassOption {
+  class?: string;
+}
+
+export interface ExampleWrapperProps extends HTMLAttributes<HTMLDivElement>, LibReplaceOption {
   name?: string;
   component?: Component;
   code?: string;
   components?: Record<string, Component>;
   modules?: Record<string, string>;
   innerClass?: string;
-  class?: string;
   codeClass?: string;
   lang?: SupportedLanguage;
   showCopy?: boolean;
-  replaceLib?: string | false;
-  showRender?: boolean;
-  showCode?: boolean;
+  class?: string;
 }
 
-export type HighlightLanguage = {
-  name: string;
-  register: LanguageFn;
-};
-
-export interface HighlightProps {
-  numberLine?: boolean;
+export interface HighlightProps extends HighlightDisplayOptions, LibReplaceOption, ClassOption {
   language: HighlightLanguage;
   code: string;
-  langtag?: boolean;
-  hideBorder?: boolean;
-  wrapLines?: boolean;
-  startingLineNumber?: number;
-  highlightedLines?: number[];
-  highlightedRanges?: [number, number][];
-  backgroundColor?: string;
-  replaceLib?: string | false;
-  position?: 'static' | 'relative' | 'absolute' | 'sticky' | undefined;
-  class?: string;
 }
 
-export interface HighlightAutoProps {
+export interface HighlightAutoProps extends HighlightDisplayOptions, LibReplaceOption, ClassOption {
   code?: string;
-  langtag?: boolean;
-  numberLine?: boolean;
-  hideBorder?: boolean;
-  wrapLines?: boolean;
-  startingLineNumber?: number;
-  highlightedLines?: number[];
-  highlightedRanges?: [number, number][];
-  backgroundColor?: string;
-  position?: 'static' | 'relative' | 'absolute' | 'sticky' | undefined;
   languages?: string[];
-  replaceLib?: string | false;
-  class?: string;
 }
 
-export interface HighlightCompoProps {
+export interface HighlightCompoProps extends HighlightDisplayOptions, LibReplaceOption, ClassOption {
   code: string;
   contentClass?: string;
   lang?: SupportedLanguage;
-  class?: string;
-  replaceLib?: string | false;
   showCopy?: boolean;
 }
 
-export interface HighlightSvelteProps {
+export interface HighlightSvelteProps extends HighlightDisplayOptions, LibReplaceOption, ClassOption {
   code?: string;
-  langtag?: boolean;
-  numberLine?: boolean;
-  hideBorder?: boolean;
-  wrapLines?: boolean;
-  startingLineNumber?: number;
-  highlightedLines?: number[];
-  highlightedRanges?: [number, number][];
-  backgroundColor?: string;
-  replaceLib?: string | false;
-  position?: 'static' | 'relative' | 'absolute' | 'sticky' | undefined;
-  class?: string;
 }
 
 export interface LangTagProps extends HTMLAttributes<HTMLPreElement> {
@@ -87,6 +72,5 @@ export interface LangTagProps extends HTMLAttributes<HTMLPreElement> {
   highlighted?: string;
   languageName?: string;
   langtag?: boolean;
-  class?: string;
   codeClass?: string;
 }

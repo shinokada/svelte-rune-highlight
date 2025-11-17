@@ -38,7 +38,7 @@
 
 <h2>Installation</h2>
 
-<HighlightCompo code={modules['./md/installation.md'] as string} />
+<HighlightCompo  code={modules['./md/installation.md'] as string} />
 
 <h2>Components</h2>
 

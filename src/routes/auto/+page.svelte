@@ -4,6 +4,9 @@
   import { P, List, Li, Table } from 'flowbite-svelte';
   import { H1, H2, H3 } from '../utils';
 
+  // import StyleProps
+  import StylePropsCompo from '../line-numbers/examples/StyleProps.svelte'
+
   // Import components dynamically
   const componentModules = import.meta.glob('./examples/*.svelte', {
     eager: true
@@ -127,10 +130,13 @@
 
 <p>Set langtag to true to display the language name in the top right corner of the code block.</p>
 
-<H2>Language tag style</H2>
-<p>Customize the language tag background, color, and border-radius using style props.</p>
+<H2>Types</H2>
+<ExampleWrapper component={components['Types']} />
 
-<ExampleWrapper component={components['StyleProps']} code={modules['StyleProps']} showCode={false} />
+<H2>Style</H2>
+
+<P>Customize the language tag background, color, numberline style and border-radius using style props.</P>
+<ExampleWrapper component={StylePropsCompo} />
 
 <H2>Examples</H2>
 <H3>HTML</H3>

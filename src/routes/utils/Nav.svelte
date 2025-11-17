@@ -51,6 +51,6 @@
     <NavLi href="/line-numbers">Line Numbers</NavLi>
     <NavLi href="/highlight-compo">HighlightCompo</NavLi>
     <NavLi href="/theme-selector">Theme Selector</NavLi>
-    <NavLi href="/wrapper">Wrapper</NavLi>
+    <NavLi href="/wrappers">Wrappers</NavLi>
   </NavUl>
 </Navbar>
