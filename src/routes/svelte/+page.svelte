@@ -122,7 +122,7 @@
 
 <H2>Types</H2>
 <P>HighlightSvelte component has the following types:</P>
-<ExampleWrapper component={components['Types']} lang="ts" />
+<ExampleWrapper component={components['Types']} />
 
 <H2>Style</H2>
 

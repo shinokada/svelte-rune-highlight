@@ -29,7 +29,7 @@
 
 {#if ExampleComponent || displayCode}
   <div class={base({ class: classname })}>
-    {#if component}
+    {#if ExampleComponent}
       <div class={inner({ class: innerClass })}>
         <ExampleComponent />
       </div>

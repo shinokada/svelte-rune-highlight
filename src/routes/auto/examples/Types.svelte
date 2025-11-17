@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { HighlightAuto } from 'svelte-rune-highlight';
+  import { HighlightAuto } from '$lib';
   const typeCode = `code?: string;
 langtag?: boolean;
 numberLine?: boolean;

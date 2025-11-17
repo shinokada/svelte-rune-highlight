@@ -129,8 +129,7 @@ interface HighlightCompoProps {
 
 > **Tip**: The component automatically handles overflow with expand/collapse buttons!`;
 
-  // Svelte example showing component features
-  // Svelte example showing component features
+// Svelte example showing component features
 const svelteCode = `<script lang="ts">
   // HighlightCompo: Perfect for documentation sites
   import { HighlightCompo } from '$lib';
@@ -177,7 +176,9 @@ const svelteCode = `<script lang="ts">
       <li>✓ <strong>Multi-Language</strong> - Supports JavaScript, TypeScript, JSON, YAML, Markdown, Svelte, and more</li>
       <li>✓ <strong>Syntax Highlighting</strong> - Powered by highlight.js for accurate code coloring</li>
       <li>✓ <strong>Optional Line Numbers</strong> - Add with <code>numberLine={true}</code></li>
-      <li>✓ <strong>Highlighted Lines</strong> - Emphasize specific lines with <code>highlightedLines={[1,3,5]}</code></li>
+      <li>
+        ✓ <strong>Highlighted Lines</strong> - Emphasize specific lines with <code>highlightedLines={[1,3,5]}</code>
+      </li>
       <li>✓ <strong>Language Tags</strong> - Show language label with <code>langtag={true}</code></li>
     </ul>
   </div>
