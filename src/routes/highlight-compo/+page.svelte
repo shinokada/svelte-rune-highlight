@@ -129,8 +129,8 @@ interface HighlightCompoProps {
 
 > **Tip**: The component automatically handles overflow with expand/collapse buttons!`;
 
-// Svelte example showing component features
-const svelteCode = `<script lang="ts">
+  // Svelte example showing component features
+  const svelteCode = `<script lang="ts">
   // HighlightCompo: Perfect for documentation sites
   import { HighlightCompo } from '$lib';
   
@@ -177,56 +177,44 @@ const svelteCode = `<script lang="ts">
       <li>✓ <strong>Syntax Highlighting</strong> - Powered by highlight.js for accurate code coloring</li>
       <li>✓ <strong>Optional Line Numbers</strong> - Add with <code>numberLine={true}</code></li>
       <li>
-        ✓ <strong>Highlighted Lines</strong> - Emphasize specific lines with <code>highlightedLines={[1,3,5]}</code>
+        ✓ <strong>Highlighted Lines</strong> - Emphasize specific lines with <code>highlightedLines={[1, 3, 5]}</code>
       </li>
       <li>✓ <strong>Language Tags</strong> - Show language label with <code>langtag={true}</code></li>
     </ul>
   </div>
   <div>
     <H2>JavaScript - Copy Functionality Demo</H2>
-    <p class="mb-4 text-gray-600 dark:text-gray-400">
-      Try clicking the "Copy" button in the top-right corner. You'll see feedback: "✓ Copied!" or "✗ Failed"
-    </p>
+    <p class="mb-4 text-gray-600 dark:text-gray-400">Try clicking the "Copy" button in the top-right corner. You'll see feedback: "✓ Copied!" or "✗ Failed"</p>
     <HighlightCompo code={jsCode} lang="js" />
   </div>
 
   <div>
     <H2>TypeScript - Type Definitions</H2>
-    <p class="mb-4 text-gray-600 dark:text-gray-400">
-      Full TypeScript syntax highlighting support with interfaces, types, and generics
-    </p>
+    <p class="mb-4 text-gray-600 dark:text-gray-400">Full TypeScript syntax highlighting support with interfaces, types, and generics</p>
     <HighlightCompo code={tsCode} lang="ts" />
   </div>
 
   <div>
     <H2>JSON - Configuration Example</H2>
-    <p class="mb-4 text-gray-600 dark:text-gray-400">
-      Perfect for displaying API responses and configuration files
-    </p>
+    <p class="mb-4 text-gray-600 dark:text-gray-400">Perfect for displaying API responses and configuration files</p>
     <HighlightCompo code={jsonCode} lang="json" />
   </div>
 
   <div>
     <H2>YAML - Config Files</H2>
-    <p class="mb-4 text-gray-600 dark:text-gray-400">
-      Great for CI/CD configs, Docker Compose, and deployment files
-    </p>
+    <p class="mb-4 text-gray-600 dark:text-gray-400">Great for CI/CD configs, Docker Compose, and deployment files</p>
     <HighlightCompo code={yamlCode} lang="yaml" />
   </div>
 
   <div>
     <H2>Markdown - Documentation</H2>
-    <p class="mb-4 text-gray-600 dark:text-gray-400">
-      Display formatted documentation with code blocks and syntax highlighting
-    </p>
+    <p class="mb-4 text-gray-600 dark:text-gray-400">Display formatted documentation with code blocks and syntax highlighting</p>
     <HighlightCompo code={mdCode} lang="md" />
   </div>
 
   <div>
     <H2>Svelte - Component Examples</H2>
-    <p class="mb-4 text-gray-600 dark:text-gray-400">
-      Show Svelte component code with runes, props, and reactive statements
-    </p>
+    <p class="mb-4 text-gray-600 dark:text-gray-400">Show Svelte component code with runes, props, and reactive statements</p>
     <HighlightCompo code={svelteCode} lang="svelte" />
   </div>
 </div>

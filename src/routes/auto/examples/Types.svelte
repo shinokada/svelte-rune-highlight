@@ -13,7 +13,7 @@ position?: 'static' | 'relative' | 'absolute' | 'sticky' | undefined;
 languages?: string[];
 replaceLib?: string | false;
 class?: string;
-`
+`;
 </script>
 
 <HighlightAuto code={typeCode} />

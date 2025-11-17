@@ -5,7 +5,7 @@
   import { H1, H2, H3 } from '../utils';
 
   // import StyleProps
-  import StylePropsCompo from '../line-numbers/examples/StyleProps.svelte'
+  import StylePropsCompo from '../line-numbers/examples/StyleProps.svelte';
 
   // Import components dynamically
   const componentModules = import.meta.glob('./examples/*.svelte', {

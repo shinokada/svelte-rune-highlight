@@ -4,9 +4,23 @@
   import { onDestroy } from 'svelte';
   import type { HighlightCompoProps } from './types';
 
-  let { code, lang = 'svelte', contentClass = 'overflow-hidden', replaceLib, showCopy = true, class: className, langtag = false, numberLine = false, hideBorder = false, wrapLines = false, startingLineNumber = 1,
+  let {
+    code,
+    lang = 'svelte',
+    contentClass = 'overflow-hidden',
+    replaceLib,
+    showCopy = true,
+    class: className,
+    langtag = false,
+    numberLine = false,
+    hideBorder = false,
+    wrapLines = false,
+    startingLineNumber = 1,
     highlightedLines = [],
-    highlightedRanges = [], backgroundColor, position = 'sticky' }: HighlightCompoProps = $props();
+    highlightedRanges = [],
+    backgroundColor,
+    position = 'sticky'
+  }: HighlightCompoProps = $props();
 
   // Apply library replacement if specified
   const displayCode = $derived(replaceLib && typeof replaceLib === 'string' ? replaceLibImport(code, replaceLib) : code);
@@ -67,7 +81,7 @@
 </script>
 
 <div class={base}>
-  <div class="{contentClass}" class:max-h-72={!expand} class:pb-10={showExpandButton} tabindex="-1" use:checkOverflow>
+  <div class={contentClass} class:max-h-72={!expand} class:pb-10={showExpandButton} tabindex="-1" use:checkOverflow>
     <!-- Copy Button -->
     {#if displayCode && showCopy}
       <button
@@ -104,9 +118,22 @@
     {:else if lang === 'svelte'}
       <HighlightSvelte code={displayCode} class="m-0 p-0" {langtag} {numberLine} {hideBorder} {wrapLines} {startingLineNumber} {highlightedLines} {highlightedRanges} {backgroundColor} {position} />
     {:else if lang && lang in languages}
-      <Highlight language={languages[lang]} code={displayCode} class="m-0 p-0" {numberLine} {langtag} {hideBorder} {wrapLines} {startingLineNumber}  {highlightedLines} {highlightedRanges} {backgroundColor} {position} />
+      <Highlight
+        language={languages[lang]}
+        code={displayCode}
+        class="m-0 p-0"
+        {numberLine}
+        {langtag}
+        {hideBorder}
+        {wrapLines}
+        {startingLineNumber}
+        {highlightedLines}
+        {highlightedRanges}
+        {backgroundColor}
+        {position}
+      />
     {:else}
-      <HighlightSvelte code={displayCode} class="m-0 p-0" {langtag} {numberLine} {hideBorder} {wrapLines} {startingLineNumber} {highlightedLines} {highlightedRanges} {backgroundColor} {position}/>
+      <HighlightSvelte code={displayCode} class="m-0 p-0" {langtag} {numberLine} {hideBorder} {wrapLines} {startingLineNumber} {highlightedLines} {highlightedRanges} {backgroundColor} {position} />
     {/if}
   </div>
 
@@ -123,3 +150,24 @@
     </button>
   {/if}
 </div>
+
+<!--
+@component
+[Go to docs](https://svelte-rune-highlight.codewithshin.com/)
+## Props
+@prop code
+@prop lang = 'svelte'
+@prop contentClass = 'overflow-hidden'
+@prop replaceLib
+@prop showCopy = true
+@prop class: className
+@prop langtag = false
+@prop numberLine = false
+@prop hideBorder = false
+@prop wrapLines = false
+@prop startingLineNumber = 1
+@prop highlightedLines = []
+@prop highlightedRanges = []
+@prop backgroundColor
+@prop position = 'sticky'
+-->

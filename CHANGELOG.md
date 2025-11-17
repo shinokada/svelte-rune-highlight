@@ -1,5 +1,11 @@
 # svelte-rune-highlight
 
+## 0.11.1
+
+### Patch Changes
+
+- HighlightCompo and ExampleWrapper update
+
 ## 0.11.0
 
 ### Minor Changes
