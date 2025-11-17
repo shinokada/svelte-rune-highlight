@@ -100,4 +100,3 @@
 
 <H3>YAML</H3>
 <ExampleWrapper component={components['Yaml']} code={modules['Yaml']} />
-

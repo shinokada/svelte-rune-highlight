@@ -124,7 +124,7 @@
 <H2>Language tag style</H2>
 
 <P>Customize the language tag background, color, and border-radius using style props.</P>
-<ExampleWrapper component={components['StyleProps']} code={modules['StyleProps']} showCode={false}/>
+<ExampleWrapper component={components['StyleProps']} code={modules['StyleProps']} showCode={false} />
 
 <H2>Examples</H2>
 <P>
@@ -140,9 +140,7 @@
 <H3>Numberline for Svelte file</H3>
 <ExampleWrapper component={components['SvelteEx']} code={modules['SvelteEx']} />
 
-
 <H3>Using highlightedRanges</H3>
 
 <P>Use highlightedLines and/or highlightedRanges props to highlight lines as the following example.</P>
 <ExampleWrapper component={components['RangeEx']} code={modules['RangeEx']} />
-

@@ -130,7 +130,7 @@
 <H2>Language tag style</H2>
 <p>Customize the language tag background, color, and border-radius using style props.</p>
 
-<ExampleWrapper component={components['StyleProps']} code={modules['StyleProps']} showCode={false}/>
+<ExampleWrapper component={components['StyleProps']} code={modules['StyleProps']} showCode={false} />
 
 <H2>Examples</H2>
 <H3>HTML</H3>
