@@ -1,6 +1,7 @@
 <script lang="ts">
   import { HighlightCompo } from '$lib';
   import { H1, H2 } from '../utils';
+  import { List, Li } from 'flowbite-svelte';
 
   // JavaScript example - showing copy functionality
   const jsCode = `// HighlightCompo supports copy-to-clipboard
@@ -170,17 +171,17 @@ interface HighlightCompoProps {
   <H1>HighlightCompo Component</H1>
   <div class="mt-8 rounded-lg border border-blue-200 bg-blue-50 p-6 pt-0 dark:border-blue-800 dark:bg-blue-950">
     <H2>Key Features</H2>
-    <ul class="mt-4 space-y-2 text-sm text-gray-700 dark:text-gray-300">
-      <li>✓ <strong>Copy to Clipboard</strong> - One-click code copying with visual feedback</li>
-      <li>✓ <strong>Auto Expand/Collapse</strong> - Automatically adds expand button for code over 18rem height</li>
-      <li>✓ <strong>Multi-Language</strong> - Supports JavaScript, TypeScript, JSON, YAML, Markdown, Svelte, and more</li>
-      <li>✓ <strong>Syntax Highlighting</strong> - Powered by highlight.js for accurate code coloring</li>
-      <li>✓ <strong>Optional Line Numbers</strong> - Add with <code>numberLine={true}</code></li>
-      <li>
+    <List tag="ul" class="mt-4 space-y-2 text-sm text-gray-700 dark:text-gray-300">
+      <Li>✓ <strong>Copy to Clipboard</strong> - One-click code copying with visual feedback</Li>
+      <Li>✓ <strong>Auto Expand/Collapse</strong> - Automatically adds expand button for code over 18rem height</Li>
+      <Li>✓ <strong>Multi-Language</strong> - Supports JavaScript, TypeScript, JSON, YAML, Markdown, Svelte, and more</Li>
+      <Li>✓ <strong>Syntax Highlighting</strong> - Powered by highlight.js for accurate code coloring</Li>
+      <Li>✓ <strong>Optional Line Numbers</strong> - Add with <code>numberLine={true}</code></Li>
+      <Li>
         ✓ <strong>Highlighted Lines</strong> - Emphasize specific lines with <code>highlightedLines={[1, 3, 5]}</code>
-      </li>
-      <li>✓ <strong>Language Tags</strong> - Show language label with <code>langtag={true}</code></li>
-    </ul>
+      </Li>
+      <Li>✓ <strong>Language Tags</strong> - Show language label with <code>langtag={true}</code></Li>
+    </List>
   </div>
   <div>
     <H2>JavaScript - Copy Functionality Demo</H2>

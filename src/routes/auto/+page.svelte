@@ -99,68 +99,70 @@
   ];
 </script>
 
-<H1>HighlightAuto Component</H1>
+<div class="space-y-8">
+  <H1>HighlightAuto Component</H1>
+  <P
+    >HighlightAuto automatically detects the programming language of the provided code using Highlight.js and applies syntax highlighting. Optionally, it can display a language tag overlay showing the
+    detected language.</P
+  >
+  <div class="mt-8 rounded-lg border border-green-200 bg-green-50 p-6 pt-0 dark:border-green-800 dark:bg-green-950">
+    <H2>Key Features</H2>
+    <List class="mt-4 space-y-2 text-sm text-gray-700 dark:text-gray-300">
+      <Li>Uses highlight.js auto-detection to identify code language</Li>
+      <Li>Optionally limit detection to specific languages for better accuracy</Li>
+      <Li>Optional line numbering with customizable starting number</Li>
+      <Li>Display detected language name in top-right corner</Li>
+      <Li>Highlight specific lines or ranges with custom background</Li>
+      <Li>Line numbers stay visible while scrolling horizontally</Li>
+      <Li>Optional line wrapping for long lines</Li>
+      <Li>Gracefully falls back to plaintext if detection fails</Li>
+      <Li>Handles empty or whitespace-only code strings</Li>
+      <Li>Configurable colors, borders, and backgrounds via CSS variables</Li>
+      <Li>Supports static, relative, absolute, or sticky positioning</Li>
+      <Li>Horizontal scroll for wide code blocks</Li>
+    </List>
+  </div>
 
-<P
-  >HighlightAuto automatically detects the programming language of the provided code using Highlight.js and applies syntax highlighting. Optionally, it can display a language tag overlay showing the
-  detected language.</P
->
+  <H2>Props</H2>
 
-<H2>Features</H2>
-<List>
-  <Li>✅ Uses highlight.js auto-detection to identify code language</Li>
-  <Li>✅ Optionally limit detection to specific languages for better accuracy</Li>
-  <Li>✅ Optional line numbering with customizable starting number</Li>
-  <Li>✅ Display detected language name in top-right corner</Li>
-  <Li>✅ Highlight specific lines or ranges with custom background</Li>
-  <Li>✅ Line numbers stay visible while scrolling horizontally</Li>
-  <Li>✅ Optional line wrapping for long lines</Li>
-  <Li>✅ Gracefully falls back to plaintext if detection fails</Li>
-  <Li>✅ Handles empty or whitespace-only code strings</Li>
-  <Li>✅ Configurable colors, borders, and backgrounds via CSS variables</Li>
-  <Li>✅ Supports static, relative, absolute, or sticky positioning</Li>
-  <Li>✅ Horizontal scroll for wide code blocks</Li>
-</List>
+  <Table items={props} hoverable={true} />
 
-<H2>Props</H2>
+  <H2>Language Tag: Caution - This may not be accurate.</H2>
 
-<Table items={props} hoverable={true} />
+  <p>Set langtag to true to display the language name in the top right corner of the code block.</p>
 
-<H2>Language Tag: Caution - This may not be accurate.</H2>
+  <H2>Types</H2>
+  <ExampleWrapper component={components['Types']} />
 
-<p>Set langtag to true to display the language name in the top right corner of the code block.</p>
+  <H2>Style</H2>
 
-<H2>Types</H2>
-<ExampleWrapper component={components['Types']} />
+  <P>Customize the language tag background, color, numberline style and border-radius using style props.</P>
+  <ExampleWrapper component={StylePropsCompo} />
 
-<H2>Style</H2>
+  <H2>Examples</H2>
+  <H3>HTML</H3>
+  <ExampleWrapper component={components['Html']} code={modules['Html']} />
 
-<P>Customize the language tag background, color, numberline style and border-radius using style props.</P>
-<ExampleWrapper component={StylePropsCompo} />
+  <H3>CSS</H3>
+  <ExampleWrapper component={components['Css']} code={modules['Css']} />
 
-<H2>Examples</H2>
-<H3>HTML</H3>
-<ExampleWrapper component={components['Html']} code={modules['Html']} />
+  <H3>Javascript</H3>
 
-<H3>CSS</H3>
-<ExampleWrapper component={components['Css']} code={modules['Css']} />
+  <ExampleWrapper component={components['Javascript']} code={modules['Javascript']} />
 
-<H3>Javascript</H3>
+  <H3>Markdown</H3>
 
-<ExampleWrapper component={components['Javascript']} code={modules['Javascript']} />
+  <ExampleWrapper component={components['Markdown']} code={modules['Markdown']} />
 
-<H3>Markdown</H3>
+  <H3>Typescript</H3>
+  <ExampleWrapper component={components['Typescript']} code={modules['Typescript']} />
 
-<ExampleWrapper component={components['Markdown']} code={modules['Markdown']} />
+  <H3>Python</H3>
+  <ExampleWrapper component={components['Python']} code={modules['Python']} />
 
-<H3>Typescript</H3>
-<ExampleWrapper component={components['Typescript']} code={modules['Typescript']} />
+  <H3>Rust</H3>
+  <ExampleWrapper component={components['Rust']} code={modules['Rust']} />
 
-<H3>Python</H3>
-<ExampleWrapper component={components['Python']} code={modules['Python']} />
-
-<H3>Rust</H3>
-<ExampleWrapper component={components['Rust']} code={modules['Rust']} />
-
-<H3>Other examples</H3>
-<ExampleWrapper component={components['ExampleAuto']} code={modules['ExampleAuto']} />
+  <H3>Other examples</H3>
+  <ExampleWrapper component={components['ExampleAuto']} code={modules['ExampleAuto']} />
+</div>

@@ -93,57 +93,59 @@
   ];
 </script>
 
-<H1>HighlightSvelte Component</H1>
+<div class="space-y-8">
+  <H1>HighlightSvelte Component</H1>
+  <P
+    >Specialized syntax highlighting for Svelte code using XML, JavaScript, and CSS parsers. Intelligently detects the best highlighting approach based on relevance scores. Features line numbers,
+    language tags, and line highlighting.</P
+  >
+  <div class="mt-8 rounded-lg border border-purple-200 bg-purple-50 p-6 pt-0 dark:border-purple-800 dark:bg-purple-950">
+    <H2>Key Features</H2>
+    <List class="mt-4 space-y-2 text-sm text-gray-700 dark:text-gray-300">
+      <Li>Specialized parser for Svelte's XML, JavaScript, and CSS syntax</Li>
+      <Li>Compares relevance scores to choose the best highlighting approach</Li>
+      <Li>Combines XML, JavaScript, and CSS highlighting</Li>
+      <Li>Optional line numbering with customizable starting number</Li>
+      <Li>Display "svelte" tag in top-right corner</Li>
+      <Li>Highlight specific lines or ranges with custom background</Li>
+      <Li>Validates line ranges and warns about invalid inputs</Li>
+      <Li>Line numbers stay visible while scrolling horizontally</Li>
+      <Li>Optional line wrapping for long lines</Li>
+      <Li>Gracefully falls back to plain code if highlighting fails</Li>
+      <Li>Configurable colors, borders, and backgrounds via CSS variables</Li>
+      <Li>Horizontal scroll for wide code blocks</Li>
+    </List>
+  </div>
 
-<P
-  >Specialized syntax highlighting for Svelte code using XML, JavaScript, and CSS parsers. Intelligently detects the best highlighting approach based on relevance scores. Features line numbers,
-  language tags, and line highlighting.</P
->
+  <H2>Props</H2>
 
-<H2>Features</H2>
-<List>
-  <Li>✅ Specialized parser for Svelte's XML, JavaScript, and CSS syntax</Li>
-  <Li>✅ Compares relevance scores to choose the best highlighting approach</Li>
-  <Li>✅ Combines XML, JavaScript, and CSS highlighting</Li>
-  <Li>✅ Optional line numbering with customizable starting number</Li>
-  <Li>✅ Display "svelte" tag in top-right corner</Li>
-  <Li>✅ Highlight specific lines or ranges with custom background</Li>
-  <Li>✅ Validates line ranges and warns about invalid inputs</Li>
-  <Li>✅ Line numbers stay visible while scrolling horizontally</Li>
-  <Li>✅ Optional line wrapping for long lines</Li>
-  <Li>✅ Gracefully falls back to plain code if highlighting fails</Li>
-  <Li>✅ Configurable colors, borders, and backgrounds via CSS variables</Li>
-  <Li>✅ Horizontal scroll for wide code blocks</Li>
-</List>
+  <Table items={props} hoverable={true} />
 
-<H2>Props</H2>
+  <H2>Types</H2>
+  <P>HighlightSvelte component has the following types:</P>
+  <ExampleWrapper component={components['Types']} />
 
-<Table items={props} hoverable={true} />
+  <H2>Style</H2>
 
-<H2>Types</H2>
-<P>HighlightSvelte component has the following types:</P>
-<ExampleWrapper component={components['Types']} />
+  <P>Customize the language tag background, color, numberline style and border-radius using style props.</P>
+  <ExampleWrapper component={StylePropsCompo} />
 
-<H2>Style</H2>
+  <H2>Examples</H2>
+  <P>
+    Use the HighlightSvelte component to highlight your Svelte code. The HighlightSvelte component requires code props. <code>langtag</code> and <code>--langtag-color</code> are optional.
+  </P>
+  <ExampleWrapper component={components['Sample1']} code={modules['Sample1']} />
 
-<P>Customize the language tag background, color, numberline style and border-radius using style props.</P>
-<ExampleWrapper component={StylePropsCompo} />
+  <P>
+    Using different <code>--langtag-color</code>.
+  </P>
+  <ExampleWrapper component={components['Sample2']} code={modules['Sample2']} />
 
-<H2>Examples</H2>
-<P>
-  Use the HighlightSvelte component to highlight your Svelte code. The HighlightSvelte component requires code props. <code>langtag</code> and <code>--langtag-color</code> are optional.
-</P>
-<ExampleWrapper component={components['Sample1']} code={modules['Sample1']} />
+  <H3>Numberline for Svelte file</H3>
+  <ExampleWrapper component={components['SvelteEx']} code={modules['SvelteEx']} />
 
-<P>
-  Using different <code>--langtag-color</code>.
-</P>
-<ExampleWrapper component={components['Sample2']} code={modules['Sample2']} />
+  <H3>Using highlightedRanges</H3>
 
-<H3>Numberline for Svelte file</H3>
-<ExampleWrapper component={components['SvelteEx']} code={modules['SvelteEx']} />
-
-<H3>Using highlightedRanges</H3>
-
-<P>Use highlightedLines and/or highlightedRanges props to highlight lines as the following example.</P>
-<ExampleWrapper component={components['RangeEx']} code={modules['RangeEx']} />
+  <P>Use highlightedLines and/or highlightedRanges props to highlight lines as the following example.</P>
+  <ExampleWrapper component={components['RangeEx']} code={modules['RangeEx']} />
+</div>

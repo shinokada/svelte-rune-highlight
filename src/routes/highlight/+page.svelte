@@ -99,56 +99,59 @@
   ];
 </script>
 
-<H1>Highlight Component</H1>
+<div class="space-y-8">
+  <H1>Highlight Component</H1>
+  <P
+    >A flexible syntax highlighting component with line numbers, language tags, line highlighting, and customizable styling. Supports sticky positioning, custom backgrounds, and advanced features like
+    highlighting specific lines or ranges.</P
+  >
 
-<P
-  >A flexible syntax highlighting component with line numbers, language tags, line highlighting, and customizable styling. Supports sticky positioning, custom backgrounds, and advanced features like
-  highlighting specific lines or ranges.</P
->
+  <div class="mt-8 rounded-lg border border-orange-200 bg-orange-50 p-6 pt-0 dark:border-orange-800 dark:bg-orange-950">
+    <H2>Key Features</H2>
+    <List class="mt-4 space-y-2 text-sm text-gray-700 dark:text-gray-300">
+      <Li>Optional line numbering with customizable starting number</Li>
+      <Li>Display language name in top-right corner</Li>
+      <Li>Highlight specific lines or ranges with custom background</Li>
+      <Li>Line numbers stay visible while scrolling horizontally</Li>
+      <Li>Optional line wrapping for long lines</Li>
+      <Li>Configurable colors, borders, and backgrounds via CSS variables</Li>
+      <Li>Supports static, relative, absolute, or sticky positioning</Li>
+      <Li>Powered by highlight.js with language registration</Li>
+      <Li>Horizontal scroll for wide code blocks</Li>
+      <Li>Extensive customization through CSS custom properties</Li>
+    </List>
+  </div>
 
-<H2>Features</H2>
-<List>
-  <Li>✅ Optional line numbering with customizable starting number</Li>
-  <Li>✅ Display language name in top-right corner</Li>
-  <Li>✅ Highlight specific lines or ranges with custom background</Li>
-  <Li>✅ Line numbers stay visible while scrolling horizontally</Li>
-  <Li>✅ Optional line wrapping for long lines</Li>
-  <Li>✅ Configurable colors, borders, and backgrounds via CSS variables</Li>
-  <Li>✅ Supports static, relative, absolute, or sticky positioning</Li>
-  <Li>✅ Powered by highlight.js with language registration</Li>
-  <Li>✅ Horizontal scroll for wide code blocks</Li>
-  <Li>✅ Extensive customization through CSS custom properties</Li>
-</List>
+  <H2>Props</H2>
 
-<H2>Props</H2>
+  <Table items={props} hoverable={true} />
 
-<Table items={props} hoverable={true} />
+  <H2>Types</H2>
 
-<H2>Types</H2>
+  <ExampleWrapper component={components['Types']} />
 
-<ExampleWrapper component={components['Types']} />
+  <H2>Style</H2>
 
-<H2>Style</H2>
+  <P>Customize the language tag background, color, numberline style and border-radius using style props.</P>
+  <ExampleWrapper component={StylePropsCompo} />
 
-<P>Customize the language tag background, color, numberline style and border-radius using style props.</P>
-<ExampleWrapper component={StylePropsCompo} />
+  <H2>Examples</H2>
 
-<H2>Examples</H2>
+  <H3>Basic</H3>
+  <P>The Highlight component requires language and code props. The langtag prop is optional and it will add a language tag.</P>
 
-<H3>Basic</H3>
-<P>The Highlight component requires language and code props. The langtag prop is optional and it will add a language tag.</P>
+  <ExampleWrapper component={components['JsLang']} code={modules['JsLang']} />
 
-<ExampleWrapper component={components['JsLang']} code={modules['JsLang']} />
+  <H3>Markdown</H3>
+  <P>Set langtag and language props to display the language name in the top right corner of the code block.</P>
+  <ExampleWrapper component={components['MdLang']} code={modules['MdLang']} />
 
-<H3>Markdown</H3>
-<P>Set langtag and language props to display the language name in the top right corner of the code block.</P>
-<ExampleWrapper component={components['MdLang']} code={modules['MdLang']} />
+  <H3>YAML</H3>
+  <ExampleWrapper component={components['YmlLang']} code={modules['YmlLang']} />
 
-<H3>YAML</H3>
-<ExampleWrapper component={components['YmlLang']} code={modules['YmlLang']} />
+  <H3>JSON</H3>
+  <ExampleWrapper component={components['JsonLang']} code={modules['JsonLang']} />
 
-<H3>JSON</H3>
-<ExampleWrapper component={components['JsonLang']} code={modules['JsonLang']} />
-
-<H3>Typescript</H3>
-<ExampleWrapper component={components['TsLang']} code={modules['TsLang']} />
+  <H3>Typescript</H3>
+  <ExampleWrapper component={components['TsLang']} code={modules['TsLang']} />
+</div>
