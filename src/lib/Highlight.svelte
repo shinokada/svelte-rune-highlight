@@ -46,7 +46,10 @@
 
   const allHighlightedLines = $derived.by(() => createHighlightedLinesSet(highlightedLines, highlightedRanges));
 
-  const highlighted = $derived(hljs.highlight(displayCode, { language: language.name }).value);
+  const highlighted = $derived.by(() => {
+    if (!isValid) return '';
+    return hljs.highlight(displayCode, { language: language.name }).value;
+  });
   const lines = $derived(highlighted.split('\n'));
   const width = $derived(calculateLineNumberWidth(lines.length));
   const isValid = $derived(language && typeof language.name === 'string' && displayCode.trim().length > 0);

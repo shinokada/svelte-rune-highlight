@@ -78,27 +78,25 @@
 </script>
 
 {#if isValid}
-{#if numberLine}
-  <HighlightTable class={className} {...restProps}>
-    <LineNumberTable
-      {lines}
-      {startingLineNumber}
-      highlightedLines={allHighlightedLines}
-      {width}
-      {position}
-      {hideBorder}
-      {wrapLines}
-      {backgroundColor}
-      highlightedBackground={HIGHLIGHT_CONSTANTS.HIGHLIGHTED_BACKGROUND}
-    />
-  </HighlightTable>
-{:else}
-  <LangTag class={className} {...restProps} languageName={language} {langtag} {highlighted} code={displayCode} />
-{/if}
+  {#if numberLine}
+    <HighlightTable class={className} {...restProps}>
+      <LineNumberTable
+        {lines}
+        {startingLineNumber}
+        highlightedLines={allHighlightedLines}
+        {width}
+        {position}
+        {hideBorder}
+        {wrapLines}
+        {backgroundColor}
+        highlightedBackground={HIGHLIGHT_CONSTANTS.HIGHLIGHTED_BACKGROUND}
+      />
+    </HighlightTable>
+  {:else}
+    <LangTag class={className} {...restProps} languageName={language} {langtag} {highlighted} code={displayCode} />
+  {/if}
 {:else if DEV}
-  <p class="text-gray-400 italic">
-    ⚠️ No code provided to highlight.
-  </p>
+  <p class="text-gray-400 italic">⚠️ No code provided to highlight.</p>
 {/if}
 
 <!--

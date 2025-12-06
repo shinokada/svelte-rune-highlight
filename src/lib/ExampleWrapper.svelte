@@ -31,5 +31,5 @@
     {/if}
   </div>
 {:else if DEV}
-    <p class="text-gray-400 italic">No example or code found for "{name}".</p>
+  <p class="text-gray-400 italic">No example or code found for "{name ?? 'this example'}".</p>
 {/if}
