@@ -1,11 +1,13 @@
 <script lang="ts">
   import LangTag from './LangTag.svelte';
+  import HighlightTable from './HighlightTable.svelte';
+  import LineNumberTable from './LineNumberTable.svelte';
   import hljs from 'highlight.js/lib/core';
   import xml from 'highlight.js/lib/languages/xml';
   import javascript from 'highlight.js/lib/languages/javascript';
   import css from 'highlight.js/lib/languages/css';
   import type { HighlightSvelteProps } from './types';
-  import { replaceLibImport } from '$lib';
+  import { replaceLibImport, createHighlightedLinesSet, calculateLineNumberWidth, escapeHtml, HIGHLIGHT_CONSTANTS } from '$lib';
 
   let {
     code = '',
@@ -23,9 +25,7 @@
     ...restProps
   }: HighlightSvelteProps = $props();
 
-  const DIGIT_WIDTH = 12;
-  const MIN_DIGITS = 2;
-  const HIGHLIGHTED_BACKGROUND = 'rgba(254, 241, 96, 0.2)';
+  const isDev = import.meta.env.DEV;
 
   // Register languages once
   if (!hljs.getLanguage('xml')) {
@@ -38,33 +38,21 @@
     hljs.registerLanguage('css', css);
   }
 
-  let allHighlightedLines = $derived.by(() => {
-    const lines = new Set(highlightedLines);
-
-    // Add ranges
-    for (const [start, end] of highlightedRanges) {
-      if (typeof start !== 'number' || typeof end !== 'number' || start < 1 || end < 1) {
-        console.warn('Invalid range:', [start, end]);
-        continue;
-      }
-      for (let i = start; i <= end; i++) {
-        lines.add(i);
-      }
-    }
-
-    return lines;
-  });
+  const allHighlightedLines = $derived.by(() => createHighlightedLinesSet(highlightedLines, highlightedRanges));
 
   const displayCode = $derived(replaceLib && typeof replaceLib === 'string' ? replaceLibImport(code, replaceLib) : code);
 
-  const escapeHtml = (str: string) => str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+  const isEmpty = $derived(!displayCode?.trim()?.length);
+  let isHighlightError = $state(false);
 
-  let highlighted = $derived.by(() => {
-    if (!displayCode.trim()) {
+  const highlighted = $derived.by(() => {
+    if (isEmpty) {
+      isHighlightError = false;
       return '';
     }
 
     try {
+      isHighlightError = false;
       const xmlResult = hljs.highlight(displayCode, { language: 'xml', ignoreIllegals: true });
 
       if (xmlResult.relevance < 5) {
@@ -74,132 +62,42 @@
 
       return xmlResult.value;
     } catch (error) {
+      isHighlightError = true;
       console.warn('Highlight.js failed for Svelte code:', error);
       return escapeHtml(displayCode);
     }
   });
 
-  let lines = $derived(highlighted.split('\n'));
-  let len_digits = $derived(lines.length.toString().length);
-  let len = $derived(len_digits - MIN_DIGITS < 1 ? MIN_DIGITS : len_digits);
-  let width = $derived(len * DIGIT_WIDTH);
+  const lines = $derived(highlighted.split('\n'));
+  const width = $derived(calculateLineNumberWidth(lines.length));
 </script>
 
-{#if numberLine}
-  <div style:overflow-x="auto" {...restProps} class="highlight-table {className}">
-    <table>
-      <tbody class:hljs={true}>
-        {#each lines as line, i (i + startingLineNumber)}
-          {@const lineNumber = i + startingLineNumber}
-          <tr>
-            <td class:hljs={true} class:hideBorder style:position style:left="0" style:text-align="right" style:user-select="none" style:width={width + 'px'} style:background-color={backgroundColor}>
-              <code style:color="var(--line-number-color, currentColor)">
-                {lineNumber}
-              </code>
-              {#if allHighlightedLines.has(lineNumber)}
-                <div class:line-background={true} style:background="var(--highlighted-background, {HIGHLIGHTED_BACKGROUND})"></div>
-              {/if}
-            </td>
-            <td>
-              <pre class:wrapLines><code>{@html line || '\n'}</code></pre>
-              {#if allHighlightedLines.has(lineNumber)}
-                <div class:line-background={true} style:background="var(--highlighted-background, {HIGHLIGHTED_BACKGROUND})"></div>
-              {/if}
-            </td>
-          </tr>
-        {/each}
-      </tbody>
-    </table>
+{#if isEmpty}
+  <div class="p-4 text-sm text-gray-500 dark:text-gray-400">No code provided.</div>
+{:else if isHighlightError && isDev}
+  <div class="mb-2 rounded border border-red-400 p-4 text-sm text-red-500 dark:border-red-700 dark:text-red-400">
+    ⚠️ Highlight failed — showing raw text instead.
+    <div class="mt-2 text-xs opacity-80">(This message appears only in DEV mode.)</div>
   </div>
+{:else}
+
+{#if numberLine}
+  <HighlightTable class={className} {...restProps}>
+    <LineNumberTable
+      {lines}
+      {startingLineNumber}
+      highlightedLines={allHighlightedLines}
+      {width}
+      {position}
+      {hideBorder}
+      {wrapLines}
+      {backgroundColor}
+      highlightedBackground={HIGHLIGHT_CONSTANTS.HIGHLIGHTED_BACKGROUND}
+    />
+  </HighlightTable>
 {:else}
   <LangTag class={className} {...restProps} languageName="svelte" {langtag} {highlighted} code={displayCode} />
 {/if}
-
-{#if numberLine}
-  <style>
-    .highlight-table pre {
-      margin: 0;
-    }
-
-    .highlight-table table,
-    .highlight-table tr,
-    .highlight-table td {
-      padding: 0;
-      border: 0;
-      margin: 0;
-      vertical-align: baseline;
-    }
-
-    .highlight-table table {
-      width: 100%;
-      border-collapse: collapse;
-      border-spacing: 0;
-    }
-
-    .highlight-table tr:first-of-type td {
-      padding-top: 1em;
-    }
-
-    .highlight-table tr:last-child td {
-      padding-bottom: 1em;
-    }
-
-    .highlight-table tr td:first-of-type {
-      z-index: 2;
-    }
-
-    .highlight-table td {
-      padding-left: var(--padding-left, 1em);
-      padding-right: var(--padding-right, 1em);
-    }
-
-    .highlight-table td.hljs:not(.hideBorder):after {
-      content: '';
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 1px;
-      height: 100%;
-      background: var(--border-color, currentColor);
-    }
-
-    .highlight-table .wrapLines {
-      white-space: pre-wrap;
-    }
-
-    .highlight-table td,
-    .highlight-table td > code,
-    .highlight-table pre {
-      position: relative;
-    }
-
-    .highlight-table td > code,
-    .highlight-table pre {
-      z-index: 1;
-    }
-
-    .highlight-table .line-background {
-      position: absolute;
-      z-index: 0;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-    }
-
-    .highlight-table tr:first-of-type td .line-background,
-    .highlight-table tr:last-of-type td .line-background {
-      height: calc(100% - 1em);
-    }
-
-    .highlight-table tr:first-of-type td .line-background {
-      top: 1em;
-    }
-
-    .highlight-table tr:last-of-type td .line-background {
-      bottom: 1em;
-    }
-  </style>
 {/if}
 
 <!--

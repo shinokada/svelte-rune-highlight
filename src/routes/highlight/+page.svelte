@@ -13,7 +13,7 @@
   }) as Record<string, { default: Component }>;
 
   // Import source code
-  const exampleModules = import.meta.glob('./examples/*.*', {
+  const sourceCodeModules = import.meta.glob('./examples/*.*', {
     query: '?raw',
     import: 'default',
     eager: true
@@ -21,7 +21,7 @@
 
   // Transform both using helper functions
   const components = transformComponents(componentModules);
-  const modules = transformModules(exampleModules);
+  const sourceCodes = transformModules(sourceCodeModules);
 
   const props = [
     {
@@ -126,10 +126,6 @@
 
   <Table items={props} hoverable={true} />
 
-  <H2>Types</H2>
-
-  <ExampleWrapper component={components['Types']} />
-
   <H2>Style</H2>
 
   <P>Customize the language tag background, color, numberline style and border-radius using style props.</P>
@@ -140,18 +136,18 @@
   <H3>Basic</H3>
   <P>The Highlight component requires language and code props. The langtag prop is optional and it will add a language tag.</P>
 
-  <ExampleWrapper component={components['JsLang']} code={modules['JsLang']} />
+  <ExampleWrapper component={components['JsLang']} code={sourceCodes['JsLang']} />
 
   <H3>Markdown</H3>
   <P>Set langtag and language props to display the language name in the top right corner of the code block.</P>
-  <ExampleWrapper component={components['MdLang']} code={modules['MdLang']} />
+  <ExampleWrapper component={components['MdLang']} code={sourceCodes['MdLang']} />
 
   <H3>YAML</H3>
-  <ExampleWrapper component={components['YmlLang']} code={modules['YmlLang']} />
+  <ExampleWrapper component={components['YmlLang']} code={sourceCodes['YmlLang']} />
 
   <H3>JSON</H3>
-  <ExampleWrapper component={components['JsonLang']} code={modules['JsonLang']} />
+  <ExampleWrapper component={components['JsonLang']} code={sourceCodes['JsonLang']} />
 
   <H3>Typescript</H3>
-  <ExampleWrapper component={components['TsLang']} code={modules['TsLang']} />
+  <ExampleWrapper component={components['TsLang']} code={sourceCodes['TsLang']} />
 </div>
