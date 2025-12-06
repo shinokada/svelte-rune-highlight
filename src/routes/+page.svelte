@@ -1,16 +1,15 @@
 <script lang="ts">
-  import { List, Li, A, Banner } from 'flowbite-svelte';
+  import { Banner } from 'flowbite-svelte';
   import { HighlightCompo } from '$lib';
-  import { CheckOutline } from 'flowbite-svelte-icons';
   // import { clickToCopy } from './utils/helpers';
+  import types from '$lib/types?raw';
   const modules = import.meta.glob('./md/*.md', {
     query: '?raw',
     import: 'default',
     eager: true
   });
-  import { removeHyphensAndCapitalize } from './utils/helpers';
+
   /*eslint no-undef: "off"*/
-  const name = __NAME__;
   const version = __VERSION__;
   const svelteVersion = __SVELTE_VERSION__;
   const svelteKitVersion = __SVELTEKIT_VERSION__;
@@ -27,9 +26,9 @@
   </p>
 </Banner>
 
-<h1>
-  {removeHyphensAndCapitalize(name)}: v{version}
-</h1>
+<h1>Svelte Rune Highlight</h1>
+
+<p class="mt-2 text-sm text-gray-600 dark:text-gray-400">Version: {version}</p>
 
 <p>
   Syntax highlighting for Svelte 5 Runes using <a class="dark:text-primary-500 hover:underline" href="https://github.com/highlightjs/highlight.js"> highlight.js </a>
@@ -40,26 +39,9 @@
 
 <HighlightCompo code={modules['./md/installation.md'] as string} />
 
-<h2>Components</h2>
+<h2>Types</h2>
 
-<List tag="ul" class="space-y-1 text-gray-500 dark:text-gray-400">
-  <Li icon class="gap-3">
-    <CheckOutline class="h-5 w-5 text-green-500 dark:text-green-400" />
-    <A href="/highlight">Highlight</A>
-  </Li>
-  <Li icon class="gap-3">
-    <CheckOutline class="h-5 w-5 text-green-500 dark:text-green-400" />
-    <A href="/auto">HighlightAuto</A>
-  </Li>
-  <Li icon class="gap-3">
-    <CheckOutline class="h-5 w-5 text-green-500 dark:text-green-400" />
-    <A href="/svelte">HighlightSvelte</A>
-  </Li>
-  <Li icon class="gap-3">
-    <CheckOutline class="h-5 w-5 text-green-500 dark:text-green-400" />
-    <A href="/code-block-switcher">Line numbers</A>
-  </Li>
-</List>
+<HighlightCompo lang="ts" code={types} />
 
 <h2>Credit</h2>
 <p>

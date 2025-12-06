@@ -1,5 +1,6 @@
 <script lang="ts">
   import { Button, Tooltip } from 'flowbite-svelte';
+  import { SvelteURL } from 'svelte/reactivity';
   import { DesktopPcOutline, MobilePhoneOutline, TabletOutline } from 'flowbite-svelte-icons';
   import { mount, onMount } from 'svelte';
   import { twJoin, twMerge } from 'tailwind-merge';
@@ -10,9 +11,11 @@
 
   // Define the props properly with TypeScript
   type Props = {
-    src?: any;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     meta?: any;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     example?: any;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     code?: any;
     codeString?: string; // New prop for string code
     divClass?: string;
@@ -165,8 +168,8 @@
     const section = filteredSections.slice(-1).shift();
 
     if (section) {
-      const pathname = new URL(node.baseURI).pathname;
-      path = new URL(pathname.slice(1) + '.md', gitHub);
+      const pathname = new SvelteURL(node.baseURI).pathname;
+      path = new SvelteURL(pathname.slice(1) + '.md', gitHub);
       path.hash = section.id.replaceAll('_', '-').replaceAll('/', '').toLowerCase();
     }
   }

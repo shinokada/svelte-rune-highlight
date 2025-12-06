@@ -25,15 +25,16 @@
   // Apply library replacement if specified
   const displayCode = $derived(replaceLib && typeof replaceLib === 'string' ? replaceLibImport(code, replaceLib) : code);
 
-  let showExpandButton: boolean = $state(false);
-  let expand: boolean = $state(false);
-  let copiedStatus: boolean = $state(false);
-  let copyError: boolean = $state(false);
+  let showExpandButton = $state(false);
+  let expand = $state(false);
+
+  // Use a single state for copy status
+  type CopyStatus = 'idle' | 'success' | 'error';
+  let copyStatus = $state<CopyStatus>('idle');
   let timeoutId: ReturnType<typeof setTimeout> | null = null;
 
   const checkOverflow = (el: HTMLElement) => {
-    const isOverflowingY = el.clientHeight < el.scrollHeight;
-    showExpandButton = isOverflowingY;
+    showExpandButton = el.clientHeight < el.scrollHeight;
   };
 
   const base = $derived(highlightcompo({ class: className }));
@@ -53,19 +54,17 @@
 
     copyToClipboard(displayCode)
       .then(() => {
-        copiedStatus = true;
-        copyError = false;
+        copyStatus = 'success';
         timeoutId = setTimeout(() => {
-          copiedStatus = false;
+          copyStatus = 'idle';
           timeoutId = null;
         }, 2000);
       })
       .catch((err) => {
         console.error('Error in copying:', err);
-        copiedStatus = false;
-        copyError = true;
+        copyStatus = 'error';
         timeoutId = setTimeout(() => {
-          copyError = false;
+          copyStatus = 'idle';
           timeoutId = null;
         }, 2000);
       });
@@ -78,6 +77,13 @@
       timeoutId = null;
     }
   });
+
+  // Derive button styles based on copy status
+  const buttonStyles = $derived({
+    success: copyStatus === 'success',
+    error: copyStatus === 'error',
+    idle: copyStatus === 'idle'
+  });
 </script>
 
 <div class={base}>
@@ -87,24 +93,32 @@
       <button
         onclick={handleCopyClick}
         type="button"
-        aria-label={copiedStatus ? 'Code copied to clipboard' : 'Copy code to clipboard'}
-        class="absolute top-4 right-2 z-10 rounded-lg bg-gray-50 px-3 py-1.5 text-xs font-medium transition-colors focus:ring-2 focus:ring-gray-200 focus:outline-none dark:bg-gray-800 dark:focus:ring-gray-700"
-        class:text-green-700={copiedStatus}
-        class:bg-green-50={copiedStatus}
-        class:dark:text-green-400={copiedStatus}
-        class:dark:bg-green-900={copiedStatus}
-        class:text-red-700={copyError}
-        class:bg-red-50={copyError}
-        class:dark:text-red-400={copyError}
-        class:dark:bg-red-900={copyError}
-        class:text-gray-900={!copiedStatus && !copyError}
-        class:hover:bg-gray-100={!copiedStatus && !copyError}
-        class:dark:text-gray-400={!copiedStatus && !copyError}
-        class:dark:hover:bg-gray-700={!copiedStatus && !copyError}
+        aria-label={copyStatus === 'success' ? 'Code copied to clipboard' : 'Copy code to clipboard'}
+        class="absolute top-4 right-2 z-10 rounded-lg px-3 py-1.5 text-xs font-medium transition-colors focus:ring-2 focus:outline-none"
+        class:text-green-700={buttonStyles.success}
+        class:bg-green-50={buttonStyles.success}
+        class:dark:text-green-400={buttonStyles.success}
+        class:dark:bg-green-900={buttonStyles.success}
+        class:focus:ring-green-200={buttonStyles.success}
+        class:dark:focus:ring-green-700={buttonStyles.success}
+        class:text-red-700={buttonStyles.error}
+        class:bg-red-50={buttonStyles.error}
+        class:dark:text-red-400={buttonStyles.error}
+        class:dark:bg-red-900={buttonStyles.error}
+        class:focus:ring-red-200={buttonStyles.error}
+        class:dark:focus:ring-red-700={buttonStyles.error}
+        class:text-gray-900={buttonStyles.idle}
+        class:bg-gray-50={buttonStyles.idle}
+        class:hover:bg-gray-100={buttonStyles.idle}
+        class:dark:text-gray-400={buttonStyles.idle}
+        class:dark:bg-gray-800={buttonStyles.idle}
+        class:dark:hover:bg-gray-700={buttonStyles.idle}
+        class:focus:ring-gray-200={buttonStyles.idle}
+        class:dark:focus:ring-gray-700={buttonStyles.idle}
       >
-        {#if copiedStatus}
+        {#if copyStatus === 'success'}
           ✓ Copied!
-        {:else if copyError}
+        {:else if copyStatus === 'error'}
           ✗ Failed
         {:else}
           Copy

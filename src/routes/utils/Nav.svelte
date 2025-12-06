@@ -4,15 +4,13 @@
   import { Bluesky, DotsHorizontalOutline, GithubSolid, XSolid } from 'runes-webkit';
   import { page } from '$app/state';
 
+  /* eslint-disable no-undef */
   const githubUrl = `https://github.com/shinokada/${__NAME__}`;
+  /* eslint-enable no-undef */
   const twitterUrl = 'https://twitter.com/shinokada';
   const blueskyUrl = 'https://bsky.app/profile/codewithshin.com';
 
-  let activeUrl = $state(page.url.pathname);
-
-  $effect(() => {
-    activeUrl = page.url.pathname;
-  });
+  let activeUrl = $derived(page.url.pathname);
 
   let activeClass = 'p-2 text-base hover:text-gray-600';
   let nonActiveClass = 'p-2 text-base hover:text-gray-600';
