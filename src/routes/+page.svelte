@@ -1,7 +1,6 @@
 <script lang="ts">
   import { Banner } from 'flowbite-svelte';
   import { HighlightCompo } from '$lib';
-  // import { clickToCopy } from './utils/helpers';
   import types from '$lib/types?raw';
   const modules = import.meta.glob('./md/*.md', {
     query: '?raw',

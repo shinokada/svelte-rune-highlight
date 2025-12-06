@@ -24,6 +24,8 @@
     ...restProps
   }: HighlightProps = $props();
 
+  const DEV = import.meta.env.DEV;
+
   // Register language immediately for SSR compatibility
   // Use untrack to avoid the state reference warning
   untrack(() => {
@@ -34,8 +36,9 @@
 
   // Re-register on client side if needed
   $effect(() => {
-    if (!hljs.getLanguage(language.name)) {
-      hljs.registerLanguage(language.name, language.register);
+    const langName = language.name;
+    if (!hljs.getLanguage(langName)) {
+      hljs.registerLanguage(langName, language.register);
     }
   });
 
@@ -46,24 +49,31 @@
   const highlighted = $derived(hljs.highlight(displayCode, { language: language.name }).value);
   const lines = $derived(highlighted.split('\n'));
   const width = $derived(calculateLineNumberWidth(lines.length));
+  const isValid = $derived(language && typeof language.name === 'string' && displayCode.trim().length > 0);
 </script>
 
-{#if numberLine}
-  <HighlightTable class={className} {...restProps}>
-    <LineNumberTable
-      {lines}
-      {startingLineNumber}
-      highlightedLines={allHighlightedLines}
-      {width}
-      {position}
-      {hideBorder}
-      {wrapLines}
-      {backgroundColor}
-      highlightedBackground={HIGHLIGHT_CONSTANTS.HIGHLIGHTED_BACKGROUND}
-    />
-  </HighlightTable>
-{:else}
-  <LangTag class={className} {...restProps} languageName={language.name} {langtag} {highlighted} code={displayCode} />
+{#if isValid}
+  {#if numberLine}
+    <HighlightTable class={className} {...restProps}>
+      <LineNumberTable
+        {lines}
+        {startingLineNumber}
+        highlightedLines={allHighlightedLines}
+        {width}
+        {position}
+        {hideBorder}
+        {wrapLines}
+        {backgroundColor}
+        highlightedBackground={HIGHLIGHT_CONSTANTS.HIGHLIGHTED_BACKGROUND}
+      />
+    </HighlightTable>
+  {:else}
+    <LangTag class={className} {...restProps} languageName={language.name} {langtag} {highlighted} code={displayCode} />
+  {/if}
+{:else if DEV}
+  <p class="text-gray-400 italic">
+    ⚠️ Unable to render highlighted code — missing {language ? 'code' : 'language'}.
+  </p>
 {/if}
 
 <!--

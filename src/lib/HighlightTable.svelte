@@ -9,7 +9,7 @@
   let { class: className, children }: Props = $props();
 </script>
 
-<div style:overflow-x="auto" class="highlight-table {className}">
+<div style:overflow-x="auto" class="highlight-table class={className}">
   {@render children()}
 </div>
 

@@ -5,6 +5,8 @@
 
   let { name, component, code, components = {}, modules = {}, innerClass, codeClass, lang = 'svelte', showCopy = true, replaceLib, class: classname }: ExampleWrapperProps = $props();
 
+  const DEV = import.meta.env.DEV;
+
   // Derive component and code based on what's provided
   const ExampleComponent = $derived(component || (name && components[name]) || null);
 
@@ -28,4 +30,6 @@
       </div>
     {/if}
   </div>
+{:else if DEV}
+    <p class="text-gray-400 italic">No example or code found for "{name}".</p>
 {/if}

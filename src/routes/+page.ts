@@ -1,11 +1,12 @@
 import type { MetaProps } from 'runes-meta-tags';
+import type { PageLoad } from './$types';
 
 const title = 'Svelte Rune Highlight';
 const description = 'Syntax highlighting for Svelte 5 Runes using highlight.js';
 const keywords = 'highlightjs, svelte, runes, syntax, library';
 const image = 'https://open-graph-vercel.vercel.app/api/svelte-rune-highlight';
 
-export const load = ({ url }) => {
+export const load: PageLoad = ({ url }) => {
   const pageMetaTags: MetaProps = {
     title,
     description,

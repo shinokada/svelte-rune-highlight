@@ -51,7 +51,7 @@
 
 <H2>Position</H2>
 
-<P>Use one of 'static' | 'relative' | 'abolute' | 'sticky' | undefined. The default value is 'sticky'.</P>
+<P>Use one of 'static' | 'relative' | 'absolute' | 'sticky' | undefined. The default value is 'sticky'.</P>
 <ExampleWrapper component={components['Example5']} code={sourceCodes['Example5']} />
 
 <H2>Starting Line Number</H2>

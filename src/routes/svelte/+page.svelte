@@ -8,12 +8,12 @@
   import StylePropsCompo from '../line-numbers/examples/StyleProps.svelte';
 
   // Import components dynamically
-  const componentModules = import.meta.glob('./examples/*.*', {
+  const componentModules = import.meta.glob('./examples/*.svelte', {
     eager: true
   }) as Record<string, { default: Component }>;
 
   // Import source code
-  const sourceCodeModules = import.meta.glob('./examples/*.*', {
+  const sourceCodeModules = import.meta.glob('./examples/*.svelte', {
     query: '?raw',
     import: 'default',
     eager: true

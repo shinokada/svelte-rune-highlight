@@ -1,6 +1,7 @@
 import type { MetaProps } from 'runes-meta-tags';
+import type { PageLoad } from './$types';
 
-export const load = () => {
+export const load: PageLoad = () => {
   const pageMetaTags: MetaProps = {
     title: 'HighlightSvelte Component - Svelte Rune Highlight',
     description: 'Syntax highlight component for Svelte Runes.',

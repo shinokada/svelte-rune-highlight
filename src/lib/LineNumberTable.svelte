@@ -26,14 +26,14 @@
             {lineNumber}
           </code>
           {#if highlightedLines.has(lineNumber)}
-            <div class:line-background={true} style:background="var(--highlighted-background, {highlightedBackground})"></div>
+            <div class:line-background={true} style:background={`var(--highlighted-background, ${highlightedBackground})`}></div>
           {/if}
         </td>
         <td>
           <!-- eslint-disable-next-line svelte/no-at-html-tags -->
           <pre class:wrapLines><code>{@html line || '\n'}</code></pre>
           {#if highlightedLines.has(lineNumber)}
-            <div class:line-background={true} style:background="var(--highlighted-background, {highlightedBackground})"></div>
+            <div class:line-background={true} style:background={`var(--highlighted-background, ${highlightedBackground})`}></div>
           {/if}
         </td>
       </tr>

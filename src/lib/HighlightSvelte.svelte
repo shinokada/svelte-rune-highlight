@@ -25,6 +25,8 @@
     ...restProps
   }: HighlightSvelteProps = $props();
 
+  const isDev = import.meta.env.DEV;
+
   // Register languages once
   if (!hljs.getLanguage('xml')) {
     hljs.registerLanguage('xml', xml);
@@ -40,10 +42,11 @@
 
   const displayCode = $derived(replaceLib && typeof replaceLib === 'string' ? replaceLibImport(code, replaceLib) : code);
 
+  const isEmpty = $derived(!displayCode?.trim()?.length);
+  let isHighlightError = $state(false);
+
   const highlighted = $derived.by(() => {
-    if (!displayCode.trim()) {
-      return '';
-    }
+    if (isEmpty) return '';
 
     try {
       const xmlResult = hljs.highlight(displayCode, { language: 'xml', ignoreIllegals: true });
@@ -55,6 +58,7 @@
 
       return xmlResult.value;
     } catch (error) {
+      isHighlightError = true;
       console.warn('Highlight.js failed for Svelte code:', error);
       return escapeHtml(displayCode);
     }
@@ -63,6 +67,19 @@
   const lines = $derived(highlighted.split('\n'));
   const width = $derived(calculateLineNumberWidth(lines.length));
 </script>
+
+{#if isEmpty}
+  <div class="p-4 text-sm text-gray-500 dark:text-gray-400">
+    No code provided.
+  </div>
+{:else if isHighlightError && isDev}
+  <div class="p-4 mb-2 text-sm text-red-500 border border-red-400 rounded dark:text-red-400 dark:border-red-700">
+    ⚠️ Highlight failed — showing raw text instead.
+    <div class="mt-2 text-xs opacity-80">
+      (This message appears only in DEV mode.)
+    </div>
+  </div>
+{/if}
 
 {#if numberLine}
   <HighlightTable class={className} {...restProps}>

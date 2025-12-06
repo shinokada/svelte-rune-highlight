@@ -50,6 +50,8 @@
     ...restProps
   }: HighlightAutoProps = $props();
 
+  const DEV = import.meta.env.DEV;
+
   const displayCode = $derived(replaceLib && typeof replaceLib === 'string' ? replaceLibImport(code, replaceLib) : code);
 
   const allHighlightedLines = $derived.by(() => createHighlightedLinesSet(highlightedLines, highlightedRanges));
@@ -72,8 +74,10 @@
   const language = $derived(highlightResult.language || 'plaintext');
   const lines = $derived(highlighted.split('\n'));
   const width = $derived(calculateLineNumberWidth(lines.length));
+  const isValid = $derived(displayCode.trim().length > 0);
 </script>
 
+{#if isValid}
 {#if numberLine}
   <HighlightTable class={className} {...restProps}>
     <LineNumberTable
@@ -90,6 +94,11 @@
   </HighlightTable>
 {:else}
   <LangTag class={className} {...restProps} languageName={language} {langtag} {highlighted} code={displayCode} />
+{/if}
+{:else if DEV}
+  <p class="text-gray-400 italic">
+    ⚠️ No code provided to highlight.
+  </p>
 {/if}
 
 <!--
