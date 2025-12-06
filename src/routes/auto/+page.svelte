@@ -13,7 +13,7 @@
   }) as Record<string, { default: Component }>;
 
   // Import source code
-  const exampleModules = import.meta.glob('./examples/*.svelte', {
+  const sourceCodeModules = import.meta.glob('./examples/*.svelte', {
     query: '?raw',
     import: 'default',
     eager: true
@@ -21,7 +21,7 @@
 
   // Transform both using helper functions
   const components = transformComponents(componentModules);
-  const modules = transformModules(exampleModules);
+  const sourceCodes = transformModules(sourceCodeModules);
 
   const props = [
     {
@@ -131,9 +131,6 @@
 
   <p>Set langtag to true to display the language name in the top right corner of the code block.</p>
 
-  <H2>Types</H2>
-  <ExampleWrapper component={components['Types']} />
-
   <H2>Style</H2>
 
   <P>Customize the language tag background, color, numberline style and border-radius using style props.</P>
@@ -141,28 +138,28 @@
 
   <H2>Examples</H2>
   <H3>HTML</H3>
-  <ExampleWrapper component={components['Html']} code={modules['Html']} />
+  <ExampleWrapper component={components['Html']} code={sourceCodes['Html']} />
 
   <H3>CSS</H3>
-  <ExampleWrapper component={components['Css']} code={modules['Css']} />
+  <ExampleWrapper component={components['Css']} code={sourceCodes['Css']} />
 
   <H3>Javascript</H3>
 
-  <ExampleWrapper component={components['Javascript']} code={modules['Javascript']} />
+  <ExampleWrapper component={components['Javascript']} code={sourceCodes['Javascript']} />
 
   <H3>Markdown</H3>
 
-  <ExampleWrapper component={components['Markdown']} code={modules['Markdown']} />
+  <ExampleWrapper component={components['Markdown']} code={sourceCodes['Markdown']} />
 
   <H3>Typescript</H3>
-  <ExampleWrapper component={components['Typescript']} code={modules['Typescript']} />
+  <ExampleWrapper component={components['Typescript']} code={sourceCodes['Typescript']} />
 
   <H3>Python</H3>
-  <ExampleWrapper component={components['Python']} code={modules['Python']} />
+  <ExampleWrapper component={components['Python']} code={sourceCodes['Python']} />
 
   <H3>Rust</H3>
-  <ExampleWrapper component={components['Rust']} code={modules['Rust']} />
+  <ExampleWrapper component={components['Rust']} code={sourceCodes['Rust']} />
 
   <H3>Other examples</H3>
-  <ExampleWrapper component={components['ExampleAuto']} code={modules['ExampleAuto']} />
+  <ExampleWrapper component={components['ExampleAuto']} code={sourceCodes['ExampleAuto']} />
 </div>

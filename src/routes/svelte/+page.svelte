@@ -8,12 +8,12 @@
   import StylePropsCompo from '../line-numbers/examples/StyleProps.svelte';
 
   // Import components dynamically
-  const componentModules = import.meta.glob('./examples/*.*', {
+  const componentModules = import.meta.glob('./examples/*.svelte', {
     eager: true
   }) as Record<string, { default: Component }>;
 
   // Import source code
-  const exampleModules = import.meta.glob('./examples/*.*', {
+  const sourceCodeModules = import.meta.glob('./examples/*.svelte', {
     query: '?raw',
     import: 'default',
     eager: true
@@ -21,7 +21,7 @@
 
   // Transform both using helper functions
   const components = transformComponents(componentModules);
-  const modules = transformModules(exampleModules);
+  const sourceCodes = transformModules(sourceCodeModules);
 
   const props = [
     {
@@ -121,10 +121,6 @@
 
   <Table items={props} hoverable={true} />
 
-  <H2>Types</H2>
-  <P>HighlightSvelte component has the following types:</P>
-  <ExampleWrapper component={components['Types']} />
-
   <H2>Style</H2>
 
   <P>Customize the language tag background, color, numberline style and border-radius using style props.</P>
@@ -134,18 +130,18 @@
   <P>
     Use the HighlightSvelte component to highlight your Svelte code. The HighlightSvelte component requires code props. <code>langtag</code> and <code>--langtag-color</code> are optional.
   </P>
-  <ExampleWrapper component={components['Sample1']} code={modules['Sample1']} />
+  <ExampleWrapper component={components['Sample1']} code={sourceCodes['Sample1']} />
 
   <P>
     Using different <code>--langtag-color</code>.
   </P>
-  <ExampleWrapper component={components['Sample2']} code={modules['Sample2']} />
+  <ExampleWrapper component={components['Sample2']} code={sourceCodes['Sample2']} />
 
   <H3>Numberline for Svelte file</H3>
-  <ExampleWrapper component={components['SvelteEx']} code={modules['SvelteEx']} />
+  <ExampleWrapper component={components['SvelteEx']} code={sourceCodes['SvelteEx']} />
 
   <H3>Using highlightedRanges</H3>
 
   <P>Use highlightedLines and/or highlightedRanges props to highlight lines as the following example.</P>
-  <ExampleWrapper component={components['RangeEx']} code={modules['RangeEx']} />
+  <ExampleWrapper component={components['RangeEx']} code={sourceCodes['RangeEx']} />
 </div>

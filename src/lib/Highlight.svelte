@@ -1,8 +1,11 @@
 <script lang="ts">
   import hljs from 'highlight.js/lib/core';
+  import { untrack } from 'svelte';
   import LangTag from './LangTag.svelte';
+  import HighlightTable from './HighlightTable.svelte';
+  import LineNumberTable from './LineNumberTable.svelte';
   import type { HighlightProps } from './types';
-  import { replaceLibImport } from '$lib';
+  import { replaceLibImport, createHighlightedLinesSet, calculateLineNumberWidth, HIGHLIGHT_CONSTANTS } from '$lib';
 
   let {
     numberLine,
@@ -21,150 +24,59 @@
     ...restProps
   }: HighlightProps = $props();
 
-  const DIGIT_WIDTH = 12;
-  const MIN_DIGITS = 2;
-  const HIGHLIGHTED_BACKGROUND = 'rgba(254, 241, 96, 0.2)';
+  const DEV = import.meta.env.DEV;
 
-  hljs.registerLanguage(language.name, language.register);
+  // Register language immediately for SSR compatibility
+  // Use untrack to avoid the state reference warning
+  untrack(() => {
+    if (!hljs.getLanguage(language.name)) {
+      hljs.registerLanguage(language.name, language.register);
+    }
+  });
+
+  // Re-register on client side if needed
+  $effect(() => {
+    const langName = language.name;
+    if (!hljs.getLanguage(langName)) {
+      hljs.registerLanguage(langName, language.register);
+    }
+  });
 
   const displayCode = $derived(replaceLib && typeof replaceLib === 'string' ? replaceLibImport(code, replaceLib) : code);
 
-  let allHighlightedLines = $derived.by(() => {
-    const lines = new Set(highlightedLines);
+  const allHighlightedLines = $derived.by(() => createHighlightedLinesSet(highlightedLines, highlightedRanges));
 
-    // Add ranges
-    for (const [start, end] of highlightedRanges) {
-      for (let i = start; i <= end; i++) {
-        lines.add(i);
-      }
-    }
-
-    return lines;
+  const highlighted = $derived.by(() => {
+    if (!isValid) return '';
+    return hljs.highlight(displayCode, { language: language.name }).value;
   });
-
-  let highlighted: string = $derived(hljs.highlight(displayCode, { language: language.name }).value);
-  let lines = $derived(highlighted.split('\n'));
-  let len_digits = $derived(lines.length.toString().length);
-  let len = $derived(len_digits - MIN_DIGITS < 1 ? MIN_DIGITS : len_digits);
-  let width = $derived(len * DIGIT_WIDTH);
+  const lines = $derived(highlighted.split('\n'));
+  const width = $derived(calculateLineNumberWidth(lines.length));
+  const isValid = $derived(language && typeof language.name === 'string' && displayCode.trim().length > 0);
 </script>
 
-{#if numberLine}
-  <div style:overflow-x="auto" {...restProps} class="highlight-table {className}">
-    <table>
-      <tbody class:hljs={true}>
-        {#each lines as line, i}
-          {@const lineNumber = i + startingLineNumber}
-          <tr>
-            <td class:hljs={true} class:hideBorder style:position style:left="0" style:text-align="right" style:user-select="none" style:width={width + 'px'} style:background-color={backgroundColor}>
-              <code style:color="var(--line-number-color, currentColor)">
-                {lineNumber}
-              </code>
-              {#if allHighlightedLines.has(lineNumber)}
-                <div class:line-background={true} style:background="var(--highlighted-background, {HIGHLIGHTED_BACKGROUND})"></div>
-              {/if}
-            </td>
-            <!-- eslint-disable svelte/no-at-html-tags -->
-            <td>
-              <pre class:wrapLines><code>{@html line || '\n'}</code></pre>
-              {#if allHighlightedLines.has(lineNumber)}
-                <div class:line-background={true} style:background="var(--highlighted-background, {HIGHLIGHTED_BACKGROUND})"></div>
-              {/if}
-            </td>
-          </tr>
-        {/each}
-      </tbody>
-    </table>
-  </div>
-{:else}
-  <LangTag class={className} {...restProps} languageName={language.name} {langtag} {highlighted} code={displayCode} />
-{/if}
-
-{#if numberLine}
-  <style>
-    .highlight-table pre {
-      margin: 0;
-    }
-
-    .highlight-table table,
-    .highlight-table tr,
-    .highlight-table td {
-      padding: 0;
-      border: 0;
-      margin: 0;
-      vertical-align: baseline;
-    }
-
-    .highlight-table table {
-      width: 100%;
-      border-collapse: collapse;
-      border-spacing: 0;
-    }
-
-    .highlight-table tr:first-of-type td {
-      padding-top: 1em;
-    }
-
-    .highlight-table tr:last-child td {
-      padding-bottom: 1em;
-    }
-
-    .highlight-table tr td:first-of-type {
-      z-index: 2;
-    }
-
-    .highlight-table td {
-      padding-left: var(--padding-left, 1em);
-      padding-right: var(--padding-right, 1em);
-    }
-
-    .highlight-table td.hljs:not(.hideBorder):after {
-      content: '';
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 1px;
-      height: 100%;
-      background: var(--border-color, currentColor);
-    }
-
-    .highlight-table .wrapLines {
-      white-space: pre-wrap;
-    }
-
-    .highlight-table td,
-    .highlight-table td > code,
-    .highlight-table pre {
-      position: relative;
-    }
-
-    .highlight-table td > code,
-    .highlight-table pre {
-      z-index: 1;
-    }
-
-    .highlight-table .line-background {
-      position: absolute;
-      z-index: 0;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-    }
-
-    .highlight-table tr:first-of-type td .line-background,
-    .highlight-table tr:last-of-type td .line-background {
-      height: calc(100% - 1em);
-    }
-
-    .highlight-table tr:first-of-type td .line-background {
-      top: 1em;
-    }
-
-    .highlight-table tr:last-of-type td .line-background {
-      bottom: 1em;
-    }
-  </style>
+{#if isValid}
+  {#if numberLine}
+    <HighlightTable class={className} {...restProps}>
+      <LineNumberTable
+        {lines}
+        {startingLineNumber}
+        highlightedLines={allHighlightedLines}
+        {width}
+        {position}
+        {hideBorder}
+        {wrapLines}
+        {backgroundColor}
+        highlightedBackground={HIGHLIGHT_CONSTANTS.HIGHLIGHTED_BACKGROUND}
+      />
+    </HighlightTable>
+  {:else}
+    <LangTag class={className} {...restProps} languageName={language.name} {langtag} {highlighted} code={displayCode} />
+  {/if}
+{:else if DEV}
+  <p class="text-gray-400 italic">
+    ⚠️ Unable to render highlighted code — missing {language ? 'code' : 'language'}.
+  </p>
 {/if}
 
 <!--
