@@ -22,7 +22,7 @@
     position = 'sticky'
   }: HighlightCompoProps = $props();
 
-  const isDev = import.meta.env.DEV;
+  const DEV = import.meta.env.DEV;
 
   // Apply library replacement if specified
   const displayCode = $derived(replaceLib && typeof replaceLib === 'string' ? replaceLibImport(code, replaceLib) : code);
@@ -90,7 +90,7 @@
   const isEmpty = $derived(!displayCode?.trim()?.length);
 </script>
 
-{#if isEmpty && isDev}
+{#if isEmpty && DEV}
   <div class="p-4 text-orange-500">
     ⚠️ <strong>HighlightCompo:</strong> No code was passed to this component.
   </div>
