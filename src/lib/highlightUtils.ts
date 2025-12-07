@@ -44,3 +44,17 @@ export function calculateLineNumberWidth(lineCount: number, digitWidth: number =
 export function escapeHtml(str: string): string {
   return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
 }
+
+/**
+ * Replaces $lib imports with the specified library name
+ */
+export function replaceLibImport(componentString: string | undefined, libraryName: string = 'svelte-rune-highlight'): string {
+  if (typeof componentString !== 'string') {
+    return '';
+  }
+
+  // Handle $lib and optional subpaths, both quote styles
+  return componentString
+    .replace(/from '\$lib(\/[^']*)?'/g, (_m, subpath = '') => `from '${libraryName}${subpath}'`)
+    .replace(/from "\$lib(\/[^"]*)?"/g, (_m, subpath = '') => `from "${libraryName}${subpath}"`);
+}

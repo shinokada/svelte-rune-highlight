@@ -40,3 +40,21 @@
     {/each}
   </tbody>
 </table>
+
+<!--
+@component
+[Go to docs](https://svelte-rune-highlight.codewithshin.com/)
+## Props
+@prop lines
+@prop startingLineNumber = 1
+@prop highlightedLines
+@prop width
+@prop position = 'sticky'
+@prop hideBorder
+@prop wrapLines
+@prop backgroundColor
+@prop highlightedBackground = 'rgba(254
+@prop 241
+@prop 96
+@prop 0.2)'
+-->

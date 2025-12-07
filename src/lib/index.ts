@@ -13,7 +13,7 @@ export { default as HighlightTable } from './HighlightTable.svelte';
 export { default as LineNumberTable } from './LineNumberTable.svelte';
 export { default as HighlightCompo } from './HighlightCompo.svelte';
 export { transformComponents, transformModules, defaultPathToName, pathExtractors } from './moduleHelpers';
-export { HIGHLIGHT_CONSTANTS, createHighlightedLinesSet, calculateLineNumberWidth, escapeHtml } from './highlightUtils';
+export { HIGHLIGHT_CONSTANTS, createHighlightedLinesSet, calculateLineNumberWidth, escapeHtml, replaceLibImport } from './highlightUtils';
 
 export function copyToClipboard(text: string): Promise<void> {
   if (typeof navigator === 'undefined' || !navigator.clipboard) {
@@ -23,17 +23,6 @@ export function copyToClipboard(text: string): Promise<void> {
     console.error('Failed to copy: ', err);
     throw err; // Re-throw the error so the caller can handle it if needed
   });
-}
-
-export function replaceLibImport(componentString: string | undefined, libraryName: string = 'svelte-rune-highlight'): string {
-  if (typeof componentString !== 'string') {
-    return '';
-  }
-
-  // Handle $lib and optional subpaths, both quote styles
-  return componentString
-    .replace(/from '\$lib(\/[^']*)?'/g, (_m, subpath = '') => `from '${libraryName}${subpath}'`)
-    .replace(/from "\$lib(\/[^"]*)?"/g, (_m, subpath = '') => `from "${libraryName}${subpath}"`);
 }
 
 // Language configurations

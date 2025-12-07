@@ -1,9 +1,8 @@
-import type { languages } from '$lib';
 import type { LanguageFn } from 'highlight.js';
 import type { HTMLAttributes } from 'svelte/elements';
 import type { Component } from 'svelte';
 
-export type SupportedLanguage = 'svelte' | keyof typeof languages;
+export type SupportedLanguage = 'svelte' | 'md' | 'ts' | 'js' | 'json' | 'yaml';
 
 export type HighlightLanguage = {
   name: string;
