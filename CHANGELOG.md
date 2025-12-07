@@ -1,5 +1,12 @@
 # svelte-rune-highlight
 
+## 0.11.3
+
+### Patch Changes
+
+- fix: Refactors highlighting UI and utilities: extracts highlight utilities, moves example wrapper into the library, migrates DEV sourcing to esm-env, narrows supported language type, applies CSS scoping adjustments
+  - fix: implements SSR-safe language registration; removes several documentation files and adds a debug HTML file.
+
 ## 0.11.2
 
 ### Patch Changes

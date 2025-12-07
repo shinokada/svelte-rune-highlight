@@ -38,6 +38,32 @@
 
 <HighlightCompo code={modules['./md/installation.md'] as string} />
 
+<h2>Requirements</h2>
+
+<p>This library requires:</p>
+<ul class="my-4 ml-4 list-inside list-disc space-y-1">
+  <li>Svelte 5 (uses Runes)</li>
+  <li>SvelteKit (optional, but recommended)</li>
+  <li>highlight.js</li>
+</ul>
+
+<h2>Basic Usage</h2>
+
+<HighlightCompo
+  lang="ts"
+  code={`import { Highlight } from 'svelte-rune-highlight';
+import javascript from 'highlight.js/lib/languages/javascript';
+
+const jsLang = {
+  name: 'javascript',
+  register: javascript
+};
+
+const code = \`console.log('Hello, world!');\`;
+
+<Highlight language={jsLang} {code} />`}
+/>
+
 <h2>Types</h2>
 
 <HighlightCompo lang="ts" code={types} />
