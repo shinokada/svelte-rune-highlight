@@ -26,12 +26,13 @@
    * - Can optionally restrict detection to specific languages for better accuracy.
    * - When `numberLine` is true, renders a table with line numbers; otherwise uses `LangTag.svelte`.
    */
+  import { DEV } from 'esm-env';
   import LangTag from './LangTag.svelte';
   import HighlightTable from './HighlightTable.svelte';
   import LineNumberTable from './LineNumberTable.svelte';
   import hljs from 'highlight.js';
   import type { HighlightAutoProps } from './types';
-  import { replaceLibImport, createHighlightedLinesSet, calculateLineNumberWidth, HIGHLIGHT_CONSTANTS } from '$lib';
+  import { replaceLibImport, createHighlightedLinesSet, calculateLineNumberWidth, HIGHLIGHT_CONSTANTS } from './highlightUtils';
 
   let {
     code = '',
@@ -50,9 +51,8 @@
     ...restProps
   }: HighlightAutoProps = $props();
 
-  const DEV = import.meta.env.DEV;
-
   const displayCode = $derived(replaceLib && typeof replaceLib === 'string' ? replaceLibImport(code, replaceLib) : code);
+  const isValid = $derived(displayCode.trim().length > 0);
 
   const allHighlightedLines = $derived.by(() => createHighlightedLinesSet(highlightedLines, highlightedRanges));
 
@@ -74,7 +74,6 @@
   const language = $derived(highlightResult.language || 'plaintext');
   const lines = $derived(highlighted.split('\n'));
   const width = $derived(calculateLineNumberWidth(lines.length));
-  const isValid = $derived(displayCode.trim().length > 0);
 </script>
 
 {#if isValid}

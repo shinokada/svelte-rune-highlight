@@ -1,11 +1,10 @@
 <script lang="ts">
+  import { DEV } from 'esm-env';
   import { HighlightCompo } from '$lib';
   import { codewrapper } from './theme';
   import type { ExampleWrapperProps } from './types';
 
   let { name, component, code, components = {}, modules = {}, innerClass, codeClass, lang = 'svelte', showCopy = true, replaceLib, class: classname }: ExampleWrapperProps = $props();
-
-  const DEV = import.meta.env.DEV;
 
   // Derive component and code based on what's provided
   const ExampleComponent = $derived(component || (name && components[name]) || null);

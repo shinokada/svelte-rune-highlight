@@ -13,6 +13,14 @@
   {@render children()}
 </div>
 
+<!--
+@component
+[Go to docs](https://svelte-rune-highlight.codewithshin.com/)
+## Props
+@prop class: className
+@prop children
+-->
+
 <style>
   /* Use :global() since we're styling content from child components */
   .highlight-table :global(pre) {

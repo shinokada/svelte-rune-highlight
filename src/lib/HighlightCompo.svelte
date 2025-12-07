@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { DEV } from 'esm-env';
   import { HighlightSvelte, Highlight, copyToClipboard, replaceLibImport, languages } from '$lib';
   import { highlightcompo } from './theme';
   import { onDestroy } from 'svelte';
@@ -21,8 +22,6 @@
     backgroundColor,
     position = 'sticky'
   }: HighlightCompoProps = $props();
-
-  const DEV = import.meta.env.DEV;
 
   // Apply library replacement if specified
   const displayCode = $derived(replaceLib && typeof replaceLib === 'string' ? replaceLibImport(code, replaceLib) : code);

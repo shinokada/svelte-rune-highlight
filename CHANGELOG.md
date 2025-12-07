@@ -1,5 +1,14 @@
 # svelte-rune-highlight
 
+## 0.11.2
+
+### Patch Changes
+
+- fix: refactors code-highlighting UI: extracts table rendering into new components
+  fix: adds highlight utilities and exports, moves ExampleWrapper into the library
+  fix: removes several route-local example helpers, applies CSS scoping fixes (:global)
+  fix: implements SSR-safe language registration (untrack) with documentation updates.
+
 ## 0.11.1
 
 ### Patch Changes

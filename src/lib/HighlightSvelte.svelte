@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { DEV } from 'esm-env';
   import LangTag from './LangTag.svelte';
   import HighlightTable from './HighlightTable.svelte';
   import LineNumberTable from './LineNumberTable.svelte';
@@ -7,7 +8,7 @@
   import javascript from 'highlight.js/lib/languages/javascript';
   import css from 'highlight.js/lib/languages/css';
   import type { HighlightSvelteProps } from './types';
-  import { replaceLibImport, createHighlightedLinesSet, calculateLineNumberWidth, escapeHtml, HIGHLIGHT_CONSTANTS } from '$lib';
+  import { replaceLibImport, createHighlightedLinesSet, calculateLineNumberWidth, escapeHtml, HIGHLIGHT_CONSTANTS } from './highlightUtils';
 
   let {
     code = '',
@@ -25,8 +26,6 @@
     ...restProps
   }: HighlightSvelteProps = $props();
 
-  const isDev = import.meta.env.DEV;
-
   // Register languages once
   if (!hljs.getLanguage('xml')) {
     hljs.registerLanguage('xml', xml);
@@ -43,45 +42,44 @@
   const displayCode = $derived(replaceLib && typeof replaceLib === 'string' ? replaceLibImport(code, replaceLib) : code);
 
   const isEmpty = $derived(!displayCode?.trim()?.length);
-  let isHighlightError = $state(false);
 
-  const highlighted = $derived.by(() => {
+  const highlightResult = $derived.by(() => {
     if (isEmpty) {
-      isHighlightError = false;
-      return '';
+      return { value: '', hasError: false };
     }
 
     try {
-      isHighlightError = false;
       const xmlResult = hljs.highlight(displayCode, { language: 'xml', ignoreIllegals: true });
 
       if (xmlResult.relevance < 5) {
         const autoResult = hljs.highlightAuto(displayCode, ['javascript', 'xml', 'css']);
-        return autoResult.relevance > xmlResult.relevance ? autoResult.value : xmlResult.value;
+        return {
+          value: autoResult.relevance > xmlResult.relevance ? autoResult.value : xmlResult.value,
+          hasError: false
+        };
       }
 
-      return xmlResult.value;
+      return { value: xmlResult.value, hasError: false };
     } catch (error) {
-      isHighlightError = true;
       console.warn('Highlight.js failed for Svelte code:', error);
-      return escapeHtml(displayCode);
+      return { value: escapeHtml(displayCode), hasError: true };
     }
   });
 
+  const highlighted = $derived(highlightResult.value);
+  const isHighlightError = $derived(highlightResult.hasError);
   const lines = $derived(highlighted.split('\n'));
   const width = $derived(calculateLineNumberWidth(lines.length));
 </script>
 
 {#if isEmpty}
   <div class="p-4 text-sm text-gray-500 dark:text-gray-400">No code provided.</div>
-{:else if isHighlightError && isDev}
+{:else if isHighlightError && DEV}
   <div class="mb-2 rounded border border-red-400 p-4 text-sm text-red-500 dark:border-red-700 dark:text-red-400">
     ⚠️ Highlight failed — showing raw text instead.
     <div class="mt-2 text-xs opacity-80">(This message appears only in DEV mode.)</div>
   </div>
-{:else}
-
-{#if numberLine}
+{:else if numberLine}
   <HighlightTable class={className} {...restProps}>
     <LineNumberTable
       {lines}
@@ -97,7 +95,6 @@
   </HighlightTable>
 {:else}
   <LangTag class={className} {...restProps} languageName="svelte" {langtag} {highlighted} code={displayCode} />
-{/if}
 {/if}
 
 <!--
