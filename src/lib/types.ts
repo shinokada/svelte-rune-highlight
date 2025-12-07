@@ -2,6 +2,8 @@ import type { LanguageFn } from 'highlight.js';
 import type { HTMLAttributes } from 'svelte/elements';
 import type { Component } from 'svelte';
 
+// Note: 'svelte' is handled specially by HighlightSvelte component, not via the languages object
+// Other languages correspond to keys in the languages export from index.ts
 export type SupportedLanguage = 'svelte' | 'md' | 'ts' | 'js' | 'json' | 'yaml';
 
 export type HighlightLanguage = {

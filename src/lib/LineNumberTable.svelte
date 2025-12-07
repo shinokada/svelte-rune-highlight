@@ -53,8 +53,5 @@
 @prop hideBorder
 @prop wrapLines
 @prop backgroundColor
-@prop highlightedBackground = 'rgba(254
-@prop 241
-@prop 96
-@prop 0.2)'
+@prop highlightedBackground = 'rgba(254, 241, 96, 0.2)'
 -->
