@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { HighlightCompo } from '$lib';
+  import { HighlightCompo } from 'svelte-rune-highlight';
   import jsCode from '../../examples/jsCode?raw';
 </script>
 
