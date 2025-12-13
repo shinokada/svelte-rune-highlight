@@ -1,4 +1,5 @@
 <script lang="ts">
+  import '../lib/styles.css';
   import hljs from 'highlight.js/lib/core';
   import { untrack } from 'svelte';
   import { DEV } from 'esm-env';
@@ -21,7 +22,7 @@
     backgroundColor,
     position = 'sticky',
     replaceLib,
-    class: className = 'relative',
+    class: className,
     ...restProps
   }: HighlightProps = $props();
 
@@ -48,7 +49,7 @@
 
 {#if isValid}
   {#if numberLine}
-    <HighlightTable class={className} {...restProps}>
+    <HighlightTable class="highlight-wrapper {className}" {...restProps}>
       <LineNumberTable
         {lines}
         {startingLineNumber}
@@ -62,10 +63,10 @@
       />
     </HighlightTable>
   {:else}
-    <LangTag class={className} {...restProps} languageName={language.name} {langtag} {highlighted} code={displayCode} />
+    <LangTag class="highlight-wrapper {className}" {...restProps} languageName={language.name} {langtag} {highlighted} code={displayCode} />
   {/if}
 {:else if DEV}
-  <p class="text-gray-400 italic">
+  <p class="hlc-warning">
     ⚠️ Unable to render highlighted code — missing {language ? 'code' : 'language'}.
   </p>
 {/if}

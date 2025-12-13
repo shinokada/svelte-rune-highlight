@@ -3,6 +3,7 @@ import typescript from 'highlight.js/lib/languages/typescript';
 import javascript from 'highlight.js/lib/languages/javascript';
 import json from 'highlight.js/lib/languages/json';
 import yaml from 'highlight.js/lib/languages/yaml';
+import css from 'highlight.js/lib/languages/css';
 
 export { default as ExampleWrapper } from './ExampleWrapper.svelte';
 export { default as Highlight } from './Highlight.svelte';
@@ -27,9 +28,11 @@ export function copyToClipboard(text: string): Promise<void> {
 
 // Language configurations
 export const languages = {
+  css: { name: 'css', register: css },
   md: { name: 'markdown', register: markdown },
   ts: { name: 'typescript', register: typescript },
   js: { name: 'javascript', register: javascript },
+  javascript: { name: 'javascript', register: javascript },
   json: { name: 'json', register: json },
   yaml: { name: 'yaml', register: yaml }
 } as const;

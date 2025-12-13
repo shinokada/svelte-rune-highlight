@@ -26,6 +26,7 @@
    * - Can optionally restrict detection to specific languages for better accuracy.
    * - When `numberLine` is true, renders a table with line numbers; otherwise uses `LangTag.svelte`.
    */
+  import '../lib/styles.css';
   import { DEV } from 'esm-env';
   import LangTag from './LangTag.svelte';
   import HighlightTable from './HighlightTable.svelte';
@@ -95,7 +96,7 @@
     <LangTag class={className} {...restProps} languageName={language} {langtag} {highlighted} code={displayCode} />
   {/if}
 {:else if DEV}
-  <p class="text-gray-400 italic">⚠️ No code provided to highlight.</p>
+  <p class="hlc-warning">⚠️ No code provided to highlight.</p>
 {/if}
 
 <!--

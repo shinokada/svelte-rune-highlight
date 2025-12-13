@@ -1,17 +1,18 @@
-import { tv } from 'tailwind-variants';
+// Simple class builder without tailwind-variants
+export const highlightcompo = (options?: { class?: string }) => {
+  const baseClasses = 'hlc-base';
+  return options?.class ? `${baseClasses} ${options.class}` : baseClasses;
+};
 
-export const highlightcompo = tv({
-  base: 'rounded relative',
-  variants: {
-    expanded: {
-      true: 'min-h-full'
+export const codewrapper = () => {
+  return {
+    base: (options?: { class?: string }) => {
+      const baseClasses = 'cw-base';
+      return options?.class ? `${baseClasses} ${options.class}` : baseClasses;
+    },
+    inner: (options?: { class?: string }) => {
+      const innerClasses = 'cw-inner';
+      return options?.class ? `${innerClasses} ${options.class}` : innerClasses;
     }
-  }
-});
-
-export const codewrapper = tv({
-  slots: {
-    base: 'max-w-4xl rounded-md border border-gray-200 bg-white bg-gradient-to-r dark:border-gray-600 dark:bg-gray-950',
-    inner: ''
-  }
-});
+  };
+};

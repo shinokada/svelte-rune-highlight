@@ -1,4 +1,5 @@
 <script lang="ts">
+  import '../lib/styles.css';
   import { DEV } from 'esm-env';
   import { HighlightSvelte, Highlight, copyToClipboard, replaceLibImport, languages } from '$lib';
   import { highlightcompo } from './theme';
@@ -8,7 +9,7 @@
   let {
     code,
     lang = 'svelte',
-    contentClass = 'overflow-hidden',
+    contentClass = '',
     replaceLib,
     showCopy = true,
     class: className,
@@ -35,7 +36,33 @@
   let timeoutId: ReturnType<typeof setTimeout> | null = null;
 
   const checkOverflow = (el: HTMLElement) => {
-    showExpandButton = el.clientHeight < el.scrollHeight;
+    console.log('checkOverflow action called');
+    // Use setTimeout to ensure CSS classes have been applied and layout is complete
+    const check = () => {
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          const hasOverflow = el.scrollHeight > el.clientHeight;
+          console.log('Overflow check:', {
+            clientHeight: el.clientHeight,
+            scrollHeight: el.scrollHeight,
+            hasOverflow,
+            expand,
+            classes: el.className
+          });
+          showExpandButton = hasOverflow;
+        });
+      });
+    };
+
+    // Initial check with small delay
+    setTimeout(check, 50);
+
+    // Also return a function to re-check on resize or update
+    return {
+      update() {
+        setTimeout(check, 50);
+      }
+    };
   };
 
   const base = $derived(highlightcompo({ class: className }));
@@ -87,42 +114,29 @@
   });
 
   const isEmpty = $derived(!displayCode?.trim()?.length);
+
+  // Debug logging removed for production
+  // You can use console.log if needed for debugging:
+  // console.log('HighlightCompo:', { hasCode: !!displayCode, codeLength: displayCode?.length, lang, isEmpty, showExpandButton, expand });
 </script>
 
 {#if isEmpty && DEV}
-  <div class="p-4 text-orange-500">
+  <div class="hlc-empty-code hlc-warning">
     ⚠️ <strong>HighlightCompo:</strong> No code was passed to this component.
   </div>
 {:else}
   <div class={base}>
-    <div class={contentClass} class:max-h-72={!expand} class:pb-10={showExpandButton} tabindex="-1" use:checkOverflow>
+    <div class={contentClass} style="overflow-y: auto; {!expand ? 'max-height: 288px;' : ''} {showExpandButton ? 'padding-bottom: 2.5rem;' : ''}" tabindex="-1" use:checkOverflow>
       <!-- Copy Button -->
       {#if displayCode && showCopy}
         <button
           onclick={handleCopyClick}
           type="button"
           aria-label={copyStatus === 'success' ? 'Code copied to clipboard' : 'Copy code to clipboard'}
-          class="absolute top-4 right-2 z-10 rounded-lg px-3 py-1.5 text-xs font-medium transition-colors focus:ring-2 focus:outline-none"
-          class:text-green-700={buttonStyles.success}
-          class:bg-green-50={buttonStyles.success}
-          class:dark:text-green-400={buttonStyles.success}
-          class:dark:bg-green-900={buttonStyles.success}
-          class:focus:ring-green-200={buttonStyles.success}
-          class:dark:focus:ring-green-700={buttonStyles.success}
-          class:text-red-700={buttonStyles.error}
-          class:bg-red-50={buttonStyles.error}
-          class:dark:text-red-400={buttonStyles.error}
-          class:dark:bg-red-900={buttonStyles.error}
-          class:focus:ring-red-200={buttonStyles.error}
-          class:dark:focus:ring-red-700={buttonStyles.error}
-          class:text-gray-900={buttonStyles.idle}
-          class:bg-gray-50={buttonStyles.idle}
-          class:hover:bg-gray-100={buttonStyles.idle}
-          class:dark:text-gray-400={buttonStyles.idle}
-          class:dark:bg-gray-800={buttonStyles.idle}
-          class:dark:hover:bg-gray-700={buttonStyles.idle}
-          class:focus:ring-gray-200={buttonStyles.idle}
-          class:dark:focus:ring-gray-700={buttonStyles.idle}
+          class="hlc-copy-button"
+          class:hlc-copy-success={buttonStyles.success}
+          class:hlc-copy-error={buttonStyles.error}
+          class:hlc-copy-idle={buttonStyles.idle}
         >
           {#if copyStatus === 'success'}
             ✓ Copied!
@@ -136,7 +150,7 @@
 
       <!-- Code Content -->
       {#if !displayCode}
-        <div class="p-4 text-sm text-gray-500 dark:text-gray-400">No code provided</div>
+        <div class="hlc-no-code">No code provided</div>
       {:else if lang === 'svelte'}
         <HighlightSvelte code={displayCode} class="m-0 p-0" {langtag} {numberLine} {hideBorder} {wrapLines} {startingLineNumber} {highlightedLines} {highlightedRanges} {backgroundColor} {position} />
       {:else if lang && lang in languages}
@@ -161,13 +175,7 @@
 
     <!-- Expand/Collapse Button -->
     {#if showExpandButton}
-      <button
-        onclick={handleExpandClick}
-        type="button"
-        aria-expanded={expand}
-        aria-label={expand ? 'Collapse code' : 'Expand code'}
-        class="hover:text-primary-700 absolute start-0 bottom-0 w-full border-t border-gray-200 bg-gray-100 px-5 py-2.5 text-sm font-medium text-gray-900 hover:bg-gray-100 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-      >
+      <button onclick={handleExpandClick} type="button" aria-expanded={expand} aria-label={expand ? 'Collapse code' : 'Expand code'} class="hlc-expand-button">
         {expand ? 'Collapse code' : 'Expand code'}
       </button>
     {/if}

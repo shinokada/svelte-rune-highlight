@@ -1,4 +1,5 @@
 <script lang="ts">
+  import '../lib/styles.css';
   import { DEV } from 'esm-env';
   import { HighlightCompo } from '$lib';
   import { codewrapper } from './theme';
@@ -30,5 +31,5 @@
     {/if}
   </div>
 {:else if DEV}
-  <p class="text-gray-400 italic">No example or code found for "{name ?? 'this example'}".</p>
+  <p class="hlc-warning">No example or code found for "{name ?? 'this example'}".</p>
 {/if}
