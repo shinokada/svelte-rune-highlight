@@ -213,7 +213,9 @@ describe('ExampleWrapper', () => {
         }
       });
 
+      // Verify replacement happened: new lib present, old lib gone
       expect(container.textContent).toContain('my-custom-lib');
+      expect(container.textContent).not.toContain("$lib'");
     });
   });
 
