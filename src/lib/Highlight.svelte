@@ -1,5 +1,5 @@
 <script lang="ts">
-  import '../lib/styles.css';
+  import './styles.css';
   import hljs from 'highlight.js/lib/core';
   import { untrack } from 'svelte';
   import { DEV } from 'esm-env';

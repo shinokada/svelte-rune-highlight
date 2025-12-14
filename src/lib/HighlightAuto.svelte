@@ -26,7 +26,7 @@
    * - Can optionally restrict detection to specific languages for better accuracy.
    * - When `numberLine` is true, renders a table with line numbers; otherwise uses `LangTag.svelte`.
    */
-  import '../lib/styles.css';
+  import './styles.css';
   import { DEV } from 'esm-env';
   import LangTag from './LangTag.svelte';
   import HighlightTable from './HighlightTable.svelte';

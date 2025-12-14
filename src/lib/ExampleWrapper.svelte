@@ -1,5 +1,5 @@
 <script lang="ts">
-  import '../lib/styles.css';
+  import './styles.css';
   import { DEV } from 'esm-env';
   import { HighlightCompo } from '$lib';
   import { codewrapper } from './theme';

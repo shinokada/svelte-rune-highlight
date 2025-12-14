@@ -1,5 +1,5 @@
 <script lang="ts">
-  import '../lib/styles.css';
+  import './styles.css';
   import { DEV } from 'esm-env';
   import LangTag from './LangTag.svelte';
   import HighlightTable from './HighlightTable.svelte';
