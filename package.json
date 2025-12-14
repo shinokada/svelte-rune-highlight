@@ -76,6 +76,8 @@
     "@tailwindcss/vite": "^4.1.17",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/svelte": "^5.2.9",
+    "@vitest/coverage-v8": "4.0.15",
+    "@vitest/ui": "4.0.15",
     "eslint": "^9.39.1",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-svelte": "^3.13.1",
