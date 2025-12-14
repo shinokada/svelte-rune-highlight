@@ -29,6 +29,8 @@ All Tailwind classes removed from library. Choose your approach:
 
 ### Option 2: Tailwind (Pass classes as props)
 
+> Note: Tailwind is **not** bundled by this library in v2.x. This option assumes your app already uses Tailwind.
+
 ```svelte
 <!-- HighlightCompo -->
 <HighlightCompo 
@@ -48,13 +50,13 @@ All Tailwind classes removed from library. Choose your approach:
 
 ## All Available Class Props
 
-| Component | Prop | Description |
-|-----------|------|-------------|
-| `HighlightCompo` | `class` | Main container |
+| Component        | Prop           | Description     |
+| ---------------- | -------------- | --------------- |
+| `HighlightCompo` | `class`        | Main container  |
 | `HighlightCompo` | `contentClass` | Content wrapper |
-| `ExampleWrapper` | `class` | Main wrapper |
-| `ExampleWrapper` | `innerClass` | Component area |
-| `ExampleWrapper` | `codeClass` | Code area |
+| `ExampleWrapper` | `class`        | Main wrapper    |
+| `ExampleWrapper` | `innerClass`   | Component area  |
+| `ExampleWrapper` | `codeClass`    | Code area       |
 
 ## Quick Links
 

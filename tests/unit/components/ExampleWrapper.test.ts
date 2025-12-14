@@ -3,14 +3,16 @@ import { render, screen } from '@testing-library/svelte';
 import ExampleWrapper from '$lib/ExampleWrapper.svelte';
 import type { Component } from 'svelte';
 
-// Create a simple test component
+// Mock esm-env to control DEV constant
+vi.mock('esm-env', () => ({
+  DEV: true,
+  BROWSER: false,
+  PROD: false
+}));
+
+// Create a simple test component for Svelte 5
 const TestComponent: Component = () => {
-  return {
-    $: {},
-    $set: () => {},
-    $on: () => {},
-    $destroy: () => {}
-  } as unknown as ReturnType<Component>;
+  return {};
 };
 
 describe('ExampleWrapper', () => {
@@ -217,9 +219,7 @@ describe('ExampleWrapper', () => {
 
   describe('Edge Cases', () => {
     it('should show warning in DEV when name is provided but nothing found', () => {
-      const originalEnv = process.env.NODE_ENV;
-      process.env.NODE_ENV = 'development';
-
+      // DEV is mocked as true at the top of the file via vi.mock('esm-env')
       render(ExampleWrapper, {
         props: {
           name: 'NonExistent',
@@ -229,8 +229,6 @@ describe('ExampleWrapper', () => {
       });
 
       expect(screen.getByText(/No example or code found/i)).toBeInTheDocument();
-
-      process.env.NODE_ENV = originalEnv;
     });
 
     it('should handle null component gracefully', () => {
@@ -315,8 +313,8 @@ describe('ExampleWrapper', () => {
 
   describe('Component Priority', () => {
     it('should prioritize direct component prop over name lookup', () => {
-      const DirectComponent: Component = () => ({ $: {}, $set: () => {}, $on: () => {}, $destroy: () => {} }) as unknown as ReturnType<Component>;
-      const NamedComponent: Component = () => ({ $: {}, $set: () => {}, $on: () => {}, $destroy: () => {} }) as unknown as ReturnType<Component>;
+      const DirectComponent: Component = () => ({});
+      const NamedComponent: Component = () => ({});
 
       const { container } = render(ExampleWrapper, {
         props: {

@@ -3,6 +3,21 @@
 # Test Commands Quick Reference
 # Run this script with: bash test-commands.sh [command]
 
+set -euo pipefail
+
+open_file() {
+  local path="$1"
+  if command -v open >/dev/null 2>&1; then
+    open "$path"
+  elif command -v xdg-open >/dev/null 2>&1; then
+    xdg-open "$path"
+  elif command -v powershell.exe >/dev/null 2>&1; then
+    powershell.exe -NoProfile -Command "Start-Process '$path'" >/dev/null
+  else
+    echo "Could not find a browser opener (open/xdg-open/powershell). Report at: $path"
+  fi
+}
+
 case "$1" in
   "all")
     echo "Running all tests..."
@@ -20,7 +35,11 @@ case "$1" in
     echo "Running tests with coverage..."
     pnpm test:coverage
     echo "Opening coverage report..."
-    open coverage/index.html
+    if [[ -f coverage/index.html ]]; then
+      open_file "coverage/index.html"
+    else
+      echo "coverage/index.html not found (did coverage run produce html output?)"
+    fi
     ;;
   "unit")
     echo "Running unit tests..."

@@ -4,7 +4,7 @@ This directory contains the test suite for svelte-rune-highlight.
 
 ## Structure
 
-```
+```text
 tests/
 ├── unit/
 │   ├── components/     # Component tests
