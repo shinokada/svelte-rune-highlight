@@ -1,0 +1,20 @@
+/* app.css or layout.css */
+@import 'tailwindcss';
+
+@layer components {
+  .code-block-modern {
+    @apply rounded-xl border-2 border-blue-500 shadow-2xl;
+  }
+
+  .code-block-card {
+    @apply rounded-lg bg-white shadow-lg ring-1 ring-gray-200 dark:bg-gray-900 dark:ring-gray-800;
+  }
+
+  .code-block-gradient {
+    @apply rounded-2xl bg-gradient-to-br from-purple-500 to-pink-500 p-1;
+  }
+
+  .code-block-glass {
+    @apply rounded-xl border border-white/20 bg-white/10 shadow-xl backdrop-blur-md;
+  }
+}

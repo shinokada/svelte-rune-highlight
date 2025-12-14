@@ -4,3 +4,5 @@ pnpm-lock.yaml
 yarn.lock
 LangTag.svelte
 *.md
+
+src/routes/utils/highlight

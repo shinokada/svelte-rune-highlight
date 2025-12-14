@@ -11,6 +11,7 @@
     "strict": true,
     "moduleResolution": "bundler",
     "noUnusedLocals": true,
-    "noUnusedParameters": true
+    "noUnusedParameters": true,
+    "types": ["vitest/globals", "@testing-library/jest-dom", "vite/client"]
   }
 }

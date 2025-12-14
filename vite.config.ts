@@ -32,6 +32,11 @@ export default defineConfig({
     }
   },
   test: {
+    coverage: {
+      provider: 'v8',
+      reporter: ['text', 'json', 'html'],
+      exclude: ['node_modules/', 'tests/', '**/*.d.ts', '**/*.config.*', '**/mockData', '**/dist']
+    },
     projects: [
       {
         extends: './vite.config.ts',
@@ -41,7 +46,7 @@ export default defineConfig({
           name: 'client',
           environment: 'jsdom',
           clearMocks: true,
-          include: ['src/**/*.svelte.{test,spec}.{js,ts}'],
+          include: ['src/**/*.svelte.{test,spec}.{js,ts}', 'tests/**/*.{test,spec}.{js,ts}'],
           exclude: ['src/lib/server/**'],
           setupFiles: ['./vitest-setup-client.ts']
         }

@@ -4,7 +4,7 @@ import type { Component } from 'svelte';
 
 // Note: 'svelte' is handled specially by HighlightSvelte component, not via the languages object
 // Other languages correspond to keys in the languages export from index.ts
-export const SUPPORTED_LANGUAGES = ['md', 'ts', 'js', 'json', 'yaml'] as const;
+export const SUPPORTED_LANGUAGES = ['md', 'ts', 'js', 'javascript', 'json', 'yaml', 'css'] as const;
 export type SupportedLanguage = 'svelte' | (typeof SUPPORTED_LANGUAGES)[number];
 
 export type HighlightLanguage = {
@@ -63,6 +63,7 @@ export interface HighlightCompoProps extends HighlightDisplayOptions, LibReplace
   contentClass?: string;
   lang?: SupportedLanguage;
   showCopy?: boolean;
+  showExpand?: boolean;
 }
 
 export interface HighlightSvelteProps extends HighlightDisplayOptions, LibReplaceOption, ClassOption {

@@ -1,0 +1,25 @@
+/* Global CSS file (e.g., app.css or layout.css) */
+:root {
+  /* Code block styling */
+  --code-padding: 1.5rem;
+  --code-font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  --code-font-size: 0.9375rem;
+  --code-line-height: 1.6;
+
+  /* Language tag */
+  --langtag-background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --langtag-color: white;
+  --langtag-padding: 0.5rem 1rem;
+  --langtag-border-radius: 0.5rem;
+
+  /* Highlighted lines */
+  --highlighted-background: rgba(102, 126, 234, 0.2);
+
+  /* Line numbers */
+  --line-number-color: #6b7280;
+
+  /* Borders and spacing */
+  --border-color: #e5e7eb;
+  --padding-left: 1em;
+  --padding-right: 1em;
+}

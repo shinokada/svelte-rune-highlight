@@ -3,4 +3,4 @@
   import jsCode from '../../examples/jsCode?raw';
 </script>
 
-<HighlightCompo code={jsCode} lang="js" showCopy={false} />
+<HighlightCompo code={jsCode} lang="js" showCopy={false} showExpand={false} />
