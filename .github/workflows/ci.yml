@@ -34,7 +34,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Run type checking
-        run: pnpm check
+        run: pnpm exec svelte-check --tsconfig ./tsconfig.json
 
       - name: Run linting
         run: pnpm lint
