@@ -191,7 +191,7 @@
 ## Props
 @prop code
 @prop lang = 'svelte'
-@prop contentClass = 'overflow-hidden'
+@prop contentClass = ''
 @prop replaceLib
 @prop showCopy = true
 @prop showExpand = true

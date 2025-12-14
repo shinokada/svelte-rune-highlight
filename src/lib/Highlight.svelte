@@ -87,6 +87,6 @@
 @prop backgroundColor
 @prop position = 'sticky'
 @prop replaceLib
-@prop class: className = 'relative'
+@prop class: className
 @prop ...restProps
 -->

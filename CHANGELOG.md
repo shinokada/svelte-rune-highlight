@@ -1,5 +1,11 @@
 # svelte-rune-highlight
 
+## 0.12.0
+
+### Minor Changes
+
+- feat: css framework agnostic
+
 ## 2.0.0
 
 ### Major Changes
@@ -9,7 +15,7 @@
   - `contentClass` default value changed from `'overflow-hidden'` to `''`
   - Users must now provide their own styling via CSS or Tailwind utilities
   - See [MIGRATION.md](./MIGRATION.md) for detailed upgrade instructions
-  
+
 ### Minor Changes
 
 - **feat**: Added `showExpand` prop to `HighlightCompo`
