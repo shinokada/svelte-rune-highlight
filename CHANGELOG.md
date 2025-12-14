@@ -1,5 +1,11 @@
 # svelte-rune-highlight
 
+## 0.12.1
+
+### Patch Changes
+
+- fix: import update
+
 ## 0.12.0
 
 ### Minor Changes
