@@ -63,6 +63,7 @@ export interface HighlightCompoProps extends HighlightDisplayOptions, LibReplace
   contentClass?: string;
   lang?: SupportedLanguage;
   showCopy?: boolean;
+  showExpand?: boolean;
 }
 
 export interface HighlightSvelteProps extends HighlightDisplayOptions, LibReplaceOption, ClassOption {

@@ -12,6 +12,7 @@
     contentClass = '',
     replaceLib,
     showCopy = true,
+    showExpand = true,
     class: className,
     langtag = false,
     numberLine = false,
@@ -36,31 +37,33 @@
   let timeoutId: ReturnType<typeof setTimeout> | null = null;
 
   const checkOverflow = (el: HTMLElement) => {
-    console.log('checkOverflow action called');
-    // Use setTimeout to ensure CSS classes have been applied and layout is complete
-    const check = () => {
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          const hasOverflow = el.scrollHeight > el.clientHeight;
-          console.log('Overflow check:', {
-            clientHeight: el.clientHeight,
-            scrollHeight: el.scrollHeight,
-            hasOverflow,
-            expand,
-            classes: el.className
-          });
-          showExpandButton = hasOverflow;
-        });
-      });
+    const updateOverflowState = () => {
+      const hasOverflow = el.scrollHeight > el.clientHeight;
+      // Only update showExpandButton if we're not expanded
+      // Once expanded, keep the button visible so user can collapse
+      if (!expand) {
+        showExpandButton = showExpand && hasOverflow;
+      }
     };
 
-    // Initial check with small delay
-    setTimeout(check, 50);
+    // Initial check with RAF to ensure layout is complete
+    requestAnimationFrame(() => {
+      updateOverflowState();
+    });
 
-    // Also return a function to re-check on resize or update
+    // Use ResizeObserver to watch for size changes
+    const resizeObserver = new ResizeObserver(() => {
+      updateOverflowState();
+    });
+
+    resizeObserver.observe(el);
+
     return {
       update() {
-        setTimeout(check, 50);
+        updateOverflowState();
+      },
+      destroy() {
+        resizeObserver.disconnect();
       }
     };
   };
@@ -191,6 +194,7 @@
 @prop contentClass = 'overflow-hidden'
 @prop replaceLib
 @prop showCopy = true
+@prop showExpand = true
 @prop class: className
 @prop langtag = false
 @prop numberLine = false

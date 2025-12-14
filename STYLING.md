@@ -2,6 +2,8 @@
 
 svelte-rune-highlight is a CSS framework-free library that can be customized using CSS custom properties, custom classes, or Tailwind CSS utilities.
 
+> **📦 v2.0 Breaking Changes:** Tailwind CSS classes have been removed from library components. See [MIGRATION.md](./MIGRATION.md) for upgrade instructions.
+
 ## Table of Contents
 
 - [CSS Custom Properties](#css-custom-properties)
@@ -302,7 +304,7 @@ This gives you:
 - Matching IDE themes
 - Quick theme changes
 
-## Built-in CSS Classes
+## CSS Classes Reference
 
 The library includes several built-in CSS classes you can override:
 

@@ -3,4 +3,4 @@
   import svelteCode from '../../examples/svelteCode.svelte?raw';
 </script>
 
-<HighlightCompo code={svelteCode} showCopy={false} />
+<HighlightCompo code={svelteCode} showCopy={false} showExpand={false} />

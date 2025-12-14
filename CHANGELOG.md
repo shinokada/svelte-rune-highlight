@@ -1,5 +1,39 @@
 # svelte-rune-highlight
 
+## 2.0.0
+
+### Major Changes
+
+- **BREAKING**: Removed all Tailwind CSS classes from library components
+  - The library is now completely CSS framework-agnostic
+  - `contentClass` default value changed from `'overflow-hidden'` to `''`
+  - Users must now provide their own styling via CSS or Tailwind utilities
+  - See [MIGRATION.md](./MIGRATION.md) for detailed upgrade instructions
+  
+### Minor Changes
+
+- **feat**: Added `showExpand` prop to `HighlightCompo`
+  - Allows disabling the expand/collapse button when needed
+  - Useful for nested component examples
+  - Defaults to `true` (backward compatible)
+
+### Patch Changes
+
+- **perf**: Improved overflow detection with ResizeObserver
+  - Replaced complex double-RAF pattern with cleaner ResizeObserver implementation
+  - More efficient and responsive to container size changes
+  - Properly cleans up observers on component destruction
+
+- **fix**: Removed debug console.log statements from production code
+
+- **fix**: Fixed multiple highlight.js theme imports in example
+  - Only one theme is now active by default
+  - Prevents style conflicts from multiple themes loading simultaneously
+
+- **docs**: Added comprehensive [MIGRATION.md](./MIGRATION.md) guide
+- **docs**: Updated [STYLING.md](./STYLING.md) with v2.0 notice
+- **docs**: Renamed duplicate "Built-in CSS Classes" section to "CSS Classes Reference"
+
 ## 0.11.3
 
 ### Patch Changes
